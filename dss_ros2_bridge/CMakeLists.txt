@@ -5,6 +5,9 @@ project(dss_ros2_bridge)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Force Protobuf 3.15 from /usr/local
+set(Protobuf_DIR "/usr/local/lib/cmake/protobuf")
+
 # 공통 의존성
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
