@@ -23,7 +23,7 @@ using json = nlohmann::json;
 #define MAX_SUBS (64)   // 동시에 최대 64개 구독 보유
 
 namespace cfg {
-constexpr const char* kNatsUrl = "nats://172.25.96.1:4222";
+//constexpr const char* kNatsUrl = "nats://172.25.96.1:4222";
 }
 
 // ==================== NATS 클라이언트 보관 ====================
@@ -82,7 +82,10 @@ public:
       double t_=0;
 public:
     DSSToROSIMUNode() : Node("DSSToROSIMUNode") {
-        natsStatus s = natsConnection_ConnectTo(&nats_.conn, cfg::kNatsUrl);
+        this->declare_parameter<std::string>("nats_server", "nats://127.0.0.1:4222");
+        std::string kNatsUrl = this->get_parameter("nats_server").as_string();
+        RCLCPP_INFO(get_logger(), kNatsUrl.c_str());
+        natsStatus s = natsConnection_ConnectTo(&nats_.conn, kNatsUrl.c_str());
         if (s != NATS_OK) {
             std::cerr << "NATS connect failed: " << natsStatus_GetText(s) << std::endl;
             return;
