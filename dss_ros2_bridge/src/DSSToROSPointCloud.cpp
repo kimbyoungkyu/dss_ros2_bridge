@@ -23,9 +23,6 @@ using json = nlohmann::json;
 
 namespace cfg {
 constexpr const char* kNatsUrl           = "nats://172.25.96.1:4222";
-constexpr const char* kImuRosTopic       = "/imu/data";
-constexpr const char* kHeartbeatSubject  = "dss.dssToROSPointCloud.heartBeat";
-constexpr const char* kDssLidar          = "dss.sensor.lidar";
 }
 
 // ==================== NATS 클라이언트 보관 ====================
@@ -199,7 +196,7 @@ public:
             return;
         }     
         timer_   = this->create_wall_timer(std::chrono::seconds(3), std::bind(&DSSToROSPointCloudNode::onTick, this));
-        subscribeTopicRaw(cfg::kDssLidar,
+        subscribeTopicRaw("dss.sensor.lidar",
             [this](const std::string& subject, const char* bytes, int len)
             {
                 dss::DssLidarPointCloud pcd_msg;
@@ -240,8 +237,8 @@ public:
         json message;
         message["timeStamp"] = getCurrentTimeISO8601();
         message["status"]    = "alive";
-
-        natsStatus s = natsConnection_PublishString(nats_.conn, cfg::kHeartbeatSubject, message.dump().c_str());
+    
+        natsStatus s = natsConnection_PublishString(nats_.conn,"dss.dssToROSPointCloud.heartBeat", message.dump().c_str());
         if (s != NATS_OK) {
             std::cerr << "Heartbeat publish error: " << natsStatus_GetText(s) << std::endl;
         }

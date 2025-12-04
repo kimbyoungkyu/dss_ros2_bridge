@@ -21,20 +21,7 @@ using json = nlohmann::json;
 #define MAX_SUBS (64)   // 동시에 최대 64개 구독 보유
 
 namespace cfg {
-#ifdef WIN32
-constexpr const char* kNatsUrl = NATS_DEFAULT_URL;          // "nats://127.0.0.1:4222"
-#else
 constexpr const char* kNatsUrl = "nats://172.25.96.1:4222";
-#endif
-
-// ROS2
-constexpr const char* kROSTopic       = "/dss/image";
-
-// NATS
-constexpr const char* kHeartbeatSubject  = "dss.dssToROSImage.heartBeat";
-
-// NATS RAW IMU(Protobuf) 입력용 subject (예시)
-constexpr const char* kDssImage     = "dss.sensor.camera.rgb";
 } // namespace cfg
 
 // ==================== NATS 클라이언트 보관 ====================
@@ -124,7 +111,7 @@ public:
         
         timer_   = this->create_wall_timer(std::chrono::seconds(3), std::bind(&DSSToROSImageNode::onTick, this));
 
-        subscribeTopicRaw(cfg::kDssImage,
+        subscribeTopicRaw("dss.sensor.camera.rgb",
             [this](const std::string& subject, const char* bytes, int len)
             {
                 dss::DSSImage img_msg;
@@ -168,7 +155,7 @@ public:
         message["timeStamp"] = getCurrentTimeISO8601();
         message["status"]    = "alive";
 
-        natsStatus s = natsConnection_PublishString(nats_.conn, cfg::kHeartbeatSubject, message.dump().c_str());
+        natsStatus s = natsConnection_PublishString(nats_.conn, "dss.dssToROSImage.heartBeat", message.dump().c_str());
         if (s != NATS_OK) {
             std::cerr << "Heartbeat publish error: " << natsStatus_GetText(s) << std::endl;
         }

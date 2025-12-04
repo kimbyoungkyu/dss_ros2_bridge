@@ -24,8 +24,6 @@ using json = nlohmann::json;
 
 namespace cfg {
 constexpr const char* kNatsUrl = "nats://172.25.96.1:4222";
-constexpr const char* kHeartbeatSubject  = "dss.dssToROSImu.heartBeat";
-//constexpr const char* kDssImu     = "dss.sensor.imu";
 }
 
 // ==================== NATS 클라이언트 보관 ====================
@@ -134,7 +132,7 @@ public:
         message["timeStamp"] = getCurrentTimeISO8601();
         message["status"]    = "alive";
 
-        natsStatus s = natsConnection_PublishString(nats_.conn, cfg::kHeartbeatSubject, message.dump().c_str());
+        natsStatus s = natsConnection_PublishString(nats_.conn, "dss.dssToROSImu.heartBeat", message.dump().c_str());
         if (s != NATS_OK) {
             std::cerr << "Heartbeat publish error: " << natsStatus_GetText(s) << std::endl;
         }
