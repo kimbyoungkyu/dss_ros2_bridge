@@ -103,12 +103,12 @@ colcon build --symlink-install
 
 ---
 
-## SSH 공개키 없이 Clone 하기
-
-GitHub 인증 필요 없는 Public 저장소는 HTTPS 방식으로 클론할 수 있습니다:
+## 5. 실행하기(브릿지 실행)
 
 ```bash
-git clone https://github.com/kimbyoungkyu/dss_ros2_bridge.git
+cd ~/ros2_ws
+source ./install/setup.bash
+ros2 launch dss_ros2_bridge launch.py
 ```
 
 ---
