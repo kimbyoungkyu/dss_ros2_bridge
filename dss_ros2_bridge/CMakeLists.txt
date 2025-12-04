@@ -22,6 +22,9 @@ find_package(Protobuf 3.15 REQUIRED)
 # 메시지 생성기
 find_package(rosidl_default_generators REQUIRED)
 
+
+find_library(NATS_LIB nats PATHS /usr/local/lib)
+
 # ===============================
 # 메시지 인터페이스 생성
 # ===============================
