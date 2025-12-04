@@ -1,4 +1,4 @@
-# 📘 DSS ROS2 Bridge 설치 가이드 (ROS 2 Humble)
+# DSS ROS2 Bridge 설치 가이드 (ROS 2 Humble)
 
 이 문서는 **Ubuntu 22.04 / WSL2 환경에서 ROS 2 Humble + DSS ROS2 Bridge**를 설치하는 전체 과정을 정리합니다.
 
@@ -103,7 +103,7 @@ colcon build --symlink-install
 
 ---
 
-## 👉 SSH 공개키 없이 Clone 하기
+## SSH 공개키 없이 Clone 하기
 
 GitHub 인증 필요 없는 Public 저장소는 HTTPS 방식으로 클론할 수 있습니다:
 
