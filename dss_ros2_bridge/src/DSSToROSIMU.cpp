@@ -22,10 +22,6 @@ using json = nlohmann::json;
 
 #define MAX_SUBS (64)   // 동시에 최대 64개 구독 보유
 
-namespace cfg {
-//constexpr const char* kNatsUrl = "nats://172.25.96.1:4222";
-}
-
 // ==================== NATS 클라이언트 보관 ====================
 struct NatsClient {
     natsConnection*      conn = nullptr;
@@ -51,10 +47,7 @@ public:
     rclcpp::TimerBase::SharedPtr                        timer_;
     rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr pub_;
 
-
-
-    sensor_msgs::msg::Imu createDynamicDummyImu(double t)
-    {
+    sensor_msgs::msg::Imu createDynamicDummyImu(double t) {
         sensor_msgs::msg::Imu imu;
         imu.header.stamp = rclcpp::Clock().now();
         imu.header.frame_id = "imu_link";
@@ -74,12 +67,56 @@ public:
         imu.linear_acceleration.x = 0.5 * sin(t * 0.3);
         imu.linear_acceleration.y = 0.5 * cos(t * 0.3);
         imu.linear_acceleration.z = 9.81;
-
         return imu;
     }
 
-   
-      double t_=0;
+    sensor_msgs::msg::Imu createImu(const dss::DSSIMU& imu_msg) {
+        sensor_msgs::msg::Imu imu;
+        imu.header.stamp = this->now();
+        imu.header.frame_id = "imu_link";
+
+        // -----------------------
+        // Orientation
+        // -----------------------
+        if (imu_msg.has_orientation())
+        {
+            imu.orientation.x = imu_msg.orientation().x();
+            imu.orientation.y = imu_msg.orientation().y();
+            imu.orientation.z = imu_msg.orientation().z();
+            imu.orientation.w = imu_msg.orientation().w();
+        }
+        else
+        {
+            // DSSIMU에 orientation이 없는 경우 → 기본값 사용
+            imu.orientation.x = 0.0;
+            imu.orientation.y = 0.0;
+            imu.orientation.z = 0.0;
+            imu.orientation.w = 1.0;
+        }
+
+        // Covariance unknown = -1
+        imu.orientation_covariance[0] = -1.0;
+
+        // -----------------------
+        // Angular velocity
+        // -----------------------
+        imu.angular_velocity.x = imu_msg.angular_velocity().x();
+        imu.angular_velocity.y = imu_msg.angular_velocity().y();
+        imu.angular_velocity.z = imu_msg.angular_velocity().z();
+
+        imu.angular_velocity_covariance[0] = -1.0;
+
+        // -----------------------
+        // Linear acceleration
+        // -----------------------
+        imu.linear_acceleration.x = imu_msg.linear_acceleration().x();
+        imu.linear_acceleration.y = imu_msg.linear_acceleration().y();
+        imu.linear_acceleration.z = imu_msg.linear_acceleration().z();
+
+        imu.linear_acceleration_covariance[0] = -1.0;
+
+        return imu;
+    }
 public:
     DSSToROSIMUNode() : Node("DSSToROSIMUNode") {
         this->declare_parameter<std::string>("nats_server", "nats://127.0.0.1:4222");
@@ -100,9 +137,7 @@ public:
                     std::cerr << "Failed to parse DSSIMU protobuf message\n";
                     return; 
                 }
-                
-                t_ += 0.01;
-                pub_->publish(createDynamicDummyImu(t_));
+                pub_->publish(createImu(imu_msg));
             }
         );
         pub_ = this->create_publisher<sensor_msgs::msg::Imu>("/dss/sensor/imu", 10);
