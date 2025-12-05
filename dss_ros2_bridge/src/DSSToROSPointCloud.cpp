@@ -55,7 +55,7 @@ public:
         sensor_msgs::msg::PointCloud2 msg;
 
         msg.header.stamp = rclcpp::Clock().now();
-        msg.header.frame_id = "map";   // RViz에서 보려면 frame 필요
+        msg.header.frame_id = "lidar";   // LiDAR sensor frame
 
         msg.height = 1;
         msg.width = num_points;
@@ -104,7 +104,7 @@ public:
         sensor_msgs::msg::PointCloud2 msg;
 
         msg.header.stamp = rclcpp::Clock().now();
-        msg.header.frame_id = "map";
+        msg.header.frame_id = "lidar";
 
         msg.height = 1;
         msg.width = num_points;
@@ -184,7 +184,6 @@ public:
 
         return msg;
     }
-
     
 
 
