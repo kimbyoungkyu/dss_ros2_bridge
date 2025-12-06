@@ -1,1 +1,0 @@
-/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge/rosidl_generator_cpp/dss_ros2_bridge/msg/detail/dss_control__traits.hpp

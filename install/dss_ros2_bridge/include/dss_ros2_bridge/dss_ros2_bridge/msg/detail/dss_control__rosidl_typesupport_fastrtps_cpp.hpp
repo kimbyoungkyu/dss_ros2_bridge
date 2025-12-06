@@ -1,1 +1,0 @@
-/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge/rosidl_typesupport_fastrtps_cpp/dss_ros2_bridge/msg/detail/dss_control__rosidl_typesupport_fastrtps_cpp.hpp

@@ -1,2 +1,0 @@
-Invoking command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge -- -j32 -l32
-Invoked command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge -- -j32 -l32

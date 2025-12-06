@@ -1,6 +1,0 @@
-Invoking command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/dss/dss/dss_ros2_bridge/dss_ros2_bridge -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/dss/dss/dss_ros2_bridge/install/dss_ros2_bridge
-Invoked command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/dss/dss/dss_ros2_bridge/dss_ros2_bridge -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/dss/dss/dss_ros2_bridge/install/dss_ros2_bridge
-Invoking command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge -- -j32 -l32
-Invoked command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge -- -j32 -l32
-Invoking command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge
-Invoked command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge
