@@ -1,0 +1,8 @@
+[01m[K/home/dss/dss/dss_ros2_bridge/dss_ros2_bridge/src/DSSToROSPointCloud.cpp:[m[K In constructor ‘[01m[KDSSToROSPointCloudNode::DSSToROSPointCloudNode()[m[K’:
+[01m[K/home/dss/dss/dss_ros2_bridge/dss_ros2_bridge/src/DSSToROSPointCloud.cpp:200:32:[m[K [01;31m[Kerror: [m[K‘[01m[KkDssLidar[m[K’ is not a member of ‘[01m[Kcfg[m[K’
+  200 |         subscribeTopicRaw(cfg::[01;31m[KkDssLidar[m[K,
+      |                                [01;31m[K^~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/DSSToROSPointCloudNode.dir/build.make:76: CMakeFiles/DSSToROSPointCloudNode.dir/src/DSSToROSPointCloud.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:626: CMakeFiles/DSSToROSPointCloudNode.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

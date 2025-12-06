@@ -1,0 +1,40 @@
+[0.013s] Invoking command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge -- -j32 -l32
+[0.103s] [  6%] Built target dss_ros2_bridge__cpp
+[0.103s] [  9%] Built target dss_ros2_bridge__rosidl_generator_c
+[0.112s] [  9%] Built target ament_cmake_python_symlink_dss_ros2_bridge
+[0.123s] [ 22%] Built target dss_ros2_bridge__rosidl_typesupport_fastrtps_cpp
+[0.123s] [ 22%] Built target dss_ros2_bridge__rosidl_typesupport_c
+[0.123s] [ 36%] Built target dss_ros2_bridge__rosidl_typesupport_introspection_c
+[0.123s] [ 36%] Built target dss_ros2_bridge__rosidl_typesupport_fastrtps_c
+[0.123s] [ 50%] Built target dss_ros2_bridge__rosidl_typesupport_introspection_cpp
+[0.123s] [ 50%] Built target dss_ros2_bridge__rosidl_typesupport_cpp
+[0.138s] [35m[1mConsolidate compiler generated dependencies of target DSSToROSPointCloudNode[0m
+[0.138s] [35m[1mConsolidate compiler generated dependencies of target DSSToROSImageNode[0m
+[0.143s] [ 50%] Built target dss_ros2_bridge
+[0.151s] [ 61%] Built target DSSDemoNode
+[0.151s] [ 61%] [32mBuilding CXX object CMakeFiles/DSSToROSIMUNode.dir/src/DSSToROSIMU.cpp.o[0m
+[0.159s] [ 65%] [32mBuilding CXX object CMakeFiles/DSSToROSPointCloudNode.dir/src/DSSToROSPointCloud.cpp.o[0m
+[0.159s] [ 70%] Built target DSSToROSImageNode
+[0.162s] [ 72%] Built target dss_ros2_bridge__py
+[0.185s] [ 77%] Built target dss_ros2_bridge__rosidl_generator_py
+[0.206s] [ 81%] Built target dss_ros2_bridge__rosidl_typesupport_c__pyext
+[0.207s] [ 90%] Built target dss_ros2_bridge__rosidl_typesupport_introspection_c__pyext
+[0.207s] [ 90%] Built target dss_ros2_bridge__rosidl_typesupport_fastrtps_c__pyext
+[0.255s] running egg_info
+[0.255s] writing dss_ros2_bridge.egg-info/PKG-INFO
+[0.256s] writing dependency_links to dss_ros2_bridge.egg-info/dependency_links.txt
+[0.256s] writing top-level names to dss_ros2_bridge.egg-info/top_level.txt
+[0.258s] reading manifest file 'dss_ros2_bridge.egg-info/SOURCES.txt'
+[0.259s] writing manifest file 'dss_ros2_bridge.egg-info/SOURCES.txt'
+[0.286s] [ 90%] Built target ament_cmake_python_build_dss_ros2_bridge_egg
+[3.159s] [01m[K/home/dss/dss/dss_ros2_bridge/dss_ros2_bridge/src/DSSToROSPointCloud.cpp:[m[K In constructor ‘[01m[KDSSToROSPointCloudNode::DSSToROSPointCloudNode()[m[K’:
+[3.159s] [01m[K/home/dss/dss/dss_ros2_bridge/dss_ros2_bridge/src/DSSToROSPointCloud.cpp:200:32:[m[K [01;31m[Kerror: [m[K‘[01m[KkDssLidar[m[K’ is not a member of ‘[01m[Kcfg[m[K’
+[3.159s]   200 |         subscribeTopicRaw(cfg::[01;31m[KkDssLidar[m[K,
+[3.159s]       |                                [01;31m[K^~~~~~~~~[m[K
+[4.900s] gmake[2]: *** [CMakeFiles/DSSToROSPointCloudNode.dir/build.make:76: CMakeFiles/DSSToROSPointCloudNode.dir/src/DSSToROSPointCloud.cpp.o] Error 1
+[4.900s] gmake[1]: *** [CMakeFiles/Makefile2:626: CMakeFiles/DSSToROSPointCloudNode.dir/all] Error 2
+[4.900s] gmake[1]: *** Waiting for unfinished jobs....
+[5.915s] [ 93%] [32m[1mLinking CXX executable DSSToROSIMUNode[0m
+[6.406s] [ 95%] Built target DSSToROSIMUNode
+[6.407s] gmake: *** [Makefile:146: all] Error 2
+[6.410s] Invoked command in '/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge -- -j32 -l32

@@ -1,0 +1,79 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge/dss_ros2_bridge__py/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "dss_ros2_bridge::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "dss_ros2_bridge__py::@a6a666259a200e07a499",
+	"name" : "dss_ros2_bridge__py",
+	"paths" : 
+	{
+		"build" : "dss_ros2_bridge__py",
+		"source" : "/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge/dss_ros2_bridge__py"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge/dss_ros2_bridge__py/CMakeFiles/dss_ros2_bridge__py",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge/dss_ros2_bridge__py/CMakeFiles/dss_ros2_bridge__py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/dss/dss/dss_ros2_bridge/build/dss_ros2_bridge/rosidl_generator_py/dss_ros2_bridge/_dss_ros2_bridge_s.ep.rosidl_typesupport_fastrtps_c.c.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

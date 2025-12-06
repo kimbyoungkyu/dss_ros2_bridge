@@ -1,0 +1,8 @@
+[01m[K/home/dss/dss/dss_ros2_bridge/dss_ros2_bridge/src/DSSToROSImage.cpp:[m[K In constructor ‘[01m[KDSSToROSImageNode::DSSToROSImageNode()[m[K’:
+[01m[K/home/dss/dss/dss_ros2_bridge/dss_ros2_bridge/src/DSSToROSImage.cpp:121:32:[m[K [01;31m[Kerror: [m[K‘[01m[KkDssImage[m[K’ is not a member of ‘[01m[Kcfg[m[K’
+  121 |         subscribeTopicRaw(cfg::[01;31m[KkDssImage[m[K,
+      |                                [01;31m[K^~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/DSSToROSImageNode.dir/build.make:76: CMakeFiles/DSSToROSImageNode.dir/src/DSSToROSImage.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:599: CMakeFiles/DSSToROSImageNode.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2
