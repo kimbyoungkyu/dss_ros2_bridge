@@ -104,7 +104,7 @@ public:
         sensor_msgs::msg::PointCloud2 msg;
 
         msg.header.stamp = rclcpp::Clock().now();
-        msg.header.frame_id = "lidar";
+        msg.header.frame_id = "map";
 
         msg.height = 1;
         msg.width = num_points;
