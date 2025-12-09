@@ -73,7 +73,7 @@ public:
     sensor_msgs::msg::Imu createImu(const dss::DSSIMU& imu_msg) {
         sensor_msgs::msg::Imu imu;
         imu.header.stamp = this->now();
-        imu.header.frame_id = "imu_link";
+        imu.header.frame_id = "map";
 
         // -----------------------
         // Orientation
