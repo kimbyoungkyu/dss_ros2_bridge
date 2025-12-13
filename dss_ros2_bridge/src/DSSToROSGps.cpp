@@ -5,7 +5,8 @@
 #include <sensor_msgs/msg/imu.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
-//#include <sensor_msgs/msg/gps.hpp>
+#include <sensor_msgs/msg/nav_sat_fix.hpp>
+#include <sensor_msgs/msg/nav_sat_status.hpp>
 #include <sensor_msgs/point_cloud2_iterator.hpp>
 #include <opencv2/opencv.hpp>   // JPEG 디코딩용
 #include <nats/nats.h>
@@ -52,77 +53,42 @@ public:
     std::vector<std::unique_ptr<TopicHandler>>          topicHandlers_;
     std::vector<std::unique_ptr<TopicCtx>>              rawCtx_;
     rclcpp::TimerBase::SharedPtr                        timer_;
-    rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr pub_;
+    rclcpp::Publisher<sensor_msgs::msg::NavSatFix>::SharedPtr pub_;
 
-    sensor_msgs::msg::Imu createDynamicDummyImu(double t) {
-        sensor_msgs::msg::Imu imu;
-        imu.header.stamp = rclcpp::Clock().now();
-        imu.header.frame_id = "map";
+    sensor_msgs::msg::NavSatFix CreateGPSTopic(const dss::DSSGPS& dss_gps)
+    {
+        sensor_msgs::msg::NavSatFix ros_gps;
 
-        // Orientation (Euler → Quaternion 변환 없음, 단순 더미)
-        imu.orientation.x = 0.0;
-        imu.orientation.y = 0.0;
-        imu.orientation.z = sin(t * 0.5) * 0.1;
-        imu.orientation.w = 1.0;
+        // Header
+        ros_gps.header.stamp =
+            rclcpp::Time(static_cast<uint64_t>(dss_gps.header().stamp() * 1e9));
+        ros_gps.header.frame_id = dss_gps.header().frame_id();
 
-        // 각속도
-        imu.angular_velocity.x = 0.1 * sin(t);
-        imu.angular_velocity.y = 0.1 * cos(t);
-        imu.angular_velocity.z = 0.05;
+        // Status
+        ros_gps.status.status = dss_gps.status().status();
+        ros_gps.status.service = dss_gps.status().service();
 
-        // 선가속도
-        imu.linear_acceleration.x = 0.5 * sin(t * 0.3);
-        imu.linear_acceleration.y = 0.5 * cos(t * 0.3);
-        imu.linear_acceleration.z = 9.81;
-        return imu;
-    }
+        // Position
+        ros_gps.latitude  = dss_gps.latitude();
+        ros_gps.longitude = dss_gps.longitude();
+        ros_gps.altitude  = dss_gps.altitude();
 
-    sensor_msgs::msg::Imu createImu(const dss::DSSIMU& imu_msg) {
-        sensor_msgs::msg::Imu imu;
-        imu.header.stamp = this->now();
-        imu.header.frame_id = "map";
-
-        // -----------------------
-        // Orientation
-        // -----------------------
-        if (imu_msg.has_orientation())
+        // Covariance
+        if (dss_gps.position_covariance_size() == 9)
         {
-            imu.orientation.x = imu_msg.orientation().x();
-            imu.orientation.y = imu_msg.orientation().y();
-            imu.orientation.z = imu_msg.orientation().z();
-            imu.orientation.w = imu_msg.orientation().w();
-        }
-        else
-        {
-            // DSSIMU에 orientation이 없는 경우 → 기본값 사용
-            imu.orientation.x = 0.0;
-            imu.orientation.y = 0.0;
-            imu.orientation.z = 0.0;
-            imu.orientation.w = 1.0;
+            for (int i = 0; i < 9; ++i)
+            {
+                ros_gps.position_covariance[i] =
+                    dss_gps.position_covariance(i);
+            }
         }
 
-        // Covariance unknown = -1
-        imu.orientation_covariance[0] = -1.0;
+        ros_gps.position_covariance_type =
+            dss_gps.position_covariance_type();
 
-        // -----------------------
-        // Angular velocity
-        // -----------------------
-        imu.angular_velocity.x = imu_msg.angular_velocity().x();
-        imu.angular_velocity.y = imu_msg.angular_velocity().y();
-        imu.angular_velocity.z = imu_msg.angular_velocity().z();
-
-        imu.angular_velocity_covariance[0] = -1.0;
-
-        // -----------------------
-        // Linear acceleration
-        // -----------------------
-        imu.linear_acceleration.x = imu_msg.linear_acceleration().x();
-        imu.linear_acceleration.y = imu_msg.linear_acceleration().y();
-        imu.linear_acceleration.z = imu_msg.linear_acceleration().z();
-
-        imu.linear_acceleration_covariance[0] = -1.0;
-
-        return imu;
+        //RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.gps → [ROS2]/dss/sensor/gps");
+        
+        return ros_gps;
     }
 public:
     DSSToROSGpsNode() : Node("DSSToROSGpsNode") {
@@ -146,15 +112,15 @@ public:
             {
                 dss::DSSGPS gps_msg;
                 if (!gps_msg.ParseFromArray(bytes, len)) {
-                    std::cerr << "Failed to parse DSSIMU protobuf message\n";
+                    std::cerr << "Failed to parse DSSGPS protobuf message\n";
                     return; 
                 }
-                //pub_->publish(createImu(imu_msg));
+                pub_->publish(CreateGPSTopic(gps_msg));
             }
         );
-        pub_ = this->create_publisher<sensor_msgs::msg::Imu>("/dss/sensor/imu", 10);
+        pub_ = this->create_publisher<sensor_msgs::msg::NavSatFix>("/dss/sensor/gps", 10);
 
-        RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.imu → [ROS2]/dss/sensor/imu");
+        RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.gps → [ROS2]/dss/sensor/gps");
     }
 
     ~DSSToROSGpsNode() override {
