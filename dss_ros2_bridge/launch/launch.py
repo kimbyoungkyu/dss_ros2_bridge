@@ -41,13 +41,13 @@ def generate_launch_description():
         ),
 
         # GPS (필요하면 활성화)
-        # Node(
-        #     package='dss_ros2_bridge',
-        #     executable='DSSToGPSNode',
-        #     name='GPS',
-        #     output='screen',
-        #     parameters=[common_params],
-        # ),
+        Node(
+            package='dss_ros2_bridge',
+            executable='DSSToROSGpsNode',
+            name='GPS',
+            output='screen',
+            parameters=[common_params],
+        ),
 
         # DSS Demo
         # Node(

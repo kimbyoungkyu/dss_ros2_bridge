@@ -5,6 +5,7 @@
 #include <sensor_msgs/msg/imu.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
+//#include <sensor_msgs/msg/gps.hpp>
 #include <sensor_msgs/point_cloud2_iterator.hpp>
 #include <opencv2/opencv.hpp>   // JPEG 디코딩용
 #include <nats/nats.h>
@@ -37,8 +38,7 @@ struct NatsClient {
     int                  count = 0;
 };
 
-
-class DSSToROSIMUNode : public rclcpp::Node
+class DSSToROSGpsNode : public rclcpp::Node
 {
 public:
     using TopicHandler  = std::function<void(const std::string& subject, const char* data, int len)>;
@@ -57,7 +57,7 @@ public:
     sensor_msgs::msg::Imu createDynamicDummyImu(double t) {
         sensor_msgs::msg::Imu imu;
         imu.header.stamp = rclcpp::Clock().now();
-        imu.header.frame_id = "imu_link";
+        imu.header.frame_id = "map";
 
         // Orientation (Euler → Quaternion 변환 없음, 단순 더미)
         imu.orientation.x = 0.0;
@@ -125,7 +125,7 @@ public:
         return imu;
     }
 public:
-    DSSToROSIMUNode() : Node("DSSToROSIMUNode") {
+    DSSToROSGpsNode() : Node("DSSToROSGpsNode") {
         //RCLCPP_INFO(get_logger(),get_default_gateway().c_str());
         //RCLCPP_INFO(get_logger(),get_default_gateway().c_str());
         RCLCPP_INFO(get_logger(),getDefaultGateway().c_str());        
@@ -140,16 +140,16 @@ public:
             return;
         }     
         
-        timer_   = this->create_wall_timer(std::chrono::seconds(3), std::bind(&DSSToROSIMUNode::onTick, this));
-        subscribeTopicRaw("dss.sensor.imu",
+        timer_   = this->create_wall_timer(std::chrono::seconds(3), std::bind(&DSSToROSGpsNode::onTick, this));
+        subscribeTopicRaw("dss.sensor.gps",
             [this](const std::string& subject, const char* bytes, int len)
             {
-                dss::DSSIMU imu_msg;
-                if (!imu_msg.ParseFromArray(bytes, len)) {
+                dss::DSSGPS gps_msg;
+                if (!gps_msg.ParseFromArray(bytes, len)) {
                     std::cerr << "Failed to parse DSSIMU protobuf message\n";
                     return; 
                 }
-                pub_->publish(createImu(imu_msg));
+                //pub_->publish(createImu(imu_msg));
             }
         );
         pub_ = this->create_publisher<sensor_msgs::msg::Imu>("/dss/sensor/imu", 10);
@@ -157,7 +157,7 @@ public:
         RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.imu → [ROS2]/dss/sensor/imu");
     }
 
-    ~DSSToROSIMUNode() override {
+    ~DSSToROSGpsNode() override {
         for (int i = 0; i < nats_.count; ++i) {
             natsSubscription_Destroy(nats_.subs[i]);
         }
@@ -182,7 +182,7 @@ public:
         message["timeStamp"] = getCurrentTimeISO8601();
         message["status"]    = "alive";
 
-        natsStatus s = natsConnection_PublishString(nats_.conn, "dss.dssToROSImu.heartBeat", message.dump().c_str());
+        natsStatus s = natsConnection_PublishString(nats_.conn, "dss.dssToROSGps.heartBeat", message.dump().c_str());
         if (s != NATS_OK) {
             std::cerr << "Heartbeat publish error: " << natsStatus_GetText(s) << std::endl;
         }
@@ -233,6 +233,6 @@ private:
 
 int main(int argc, char** argv) {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<DSSToROSIMUNode>());
+    rclcpp::spin(std::make_shared<DSSToROSGpsNode>());
     rclcpp::shutdown();
 }

@@ -16,18 +16,13 @@
 #include <iostream>
 #include <random>
 #include <stdio.h>
-#include <stdlib.h>
-#include <arpa/inet.h>
-#include <fstream>
 #include "dss.pb.h"
+#include "defaultGateway.h"
 #include "nlohmann/json.hpp"
 using json = nlohmann::json;
 
 #define MAX_SUBS (64)   // 동시에 최대 64개 구독 보유
 
-namespace cfg {
-//constexpr const char* kNatsUrl           = "nats://172.25.96.1:4222";
-}
 
 // ==================== NATS 클라이언트 보관 ====================
 struct NatsClient {
@@ -36,6 +31,7 @@ struct NatsClient {
     int                  count = 0;
 };
 
+/*
 std::string getDefaultGateway()
 {
     std::ifstream file("/proc/net/route");
@@ -68,7 +64,7 @@ std::string getDefaultGateway()
 
     return "";
 }
-
+*/
 
 class DSSToROSPointCloudNode : public rclcpp::Node
 {
