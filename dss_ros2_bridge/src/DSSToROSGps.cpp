@@ -1,5 +1,5 @@
 /*
-    DSS To ROS IMU
+    DSS To ROS GPS
 */
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/imu.hpp>
