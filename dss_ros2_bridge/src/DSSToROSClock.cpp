@@ -93,7 +93,7 @@ public:
         }     
         
         timer_   = this->create_wall_timer(std::chrono::seconds(3), std::bind(&DSSToROSClockNode::onTick, this));
-        subscribeTopicRaw("dss.oneFrameFixedRate.result",
+        subscribeTopicRaw("dss.simTime.clock",
             [this](const std::string& subject, const char* bytes, int len)
             {
                 
@@ -111,7 +111,7 @@ public:
         );
         pub_ = this->create_publisher<rosgraph_msgs::msg::Clock>("/clock", 10);
 
-        RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.clock → [ROS2]/clock");
+        RCLCPP_INFO(get_logger(), "[NATS]dss.simTime.clock → [ROS2]/clock");
     }
 
     ~DSSToROSClockNode() override {
