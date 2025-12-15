@@ -34,49 +34,6 @@ public:
     rclcpp::TimerBase::SharedPtr                                timer_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pub_;
 
-    sensor_msgs::msg::PointCloud2 createDummyPointCloud(size_t num_points = 1000)
-    {
-        sensor_msgs::msg::PointCloud2 msg;
-
-        msg.header.stamp = rclcpp::Clock().now();
-        msg.header.frame_id = "map";   // LiDAR sensor frame
-
-        msg.height = 1;
-        msg.width = num_points;
-
-        msg.is_bigendian = false;
-        msg.point_step = 16;   // x(4) + y(4) + z(4) + intensity(4)
-        msg.row_step = msg.point_step * msg.width;
-
-        msg.is_dense = true;
-
-        // 필드 정의
-        sensor_msgs::PointCloud2Modifier modifier(msg);
-        modifier.setPointCloud2Fields(
-            4,
-            "x", 1, sensor_msgs::msg::PointField::FLOAT32,
-            "y", 1, sensor_msgs::msg::PointField::FLOAT32,
-            "z", 1, sensor_msgs::msg::PointField::FLOAT32,
-            "intensity", 1, sensor_msgs::msg::PointField::FLOAT32
-        );
-
-        modifier.resize(num_points);
-
-        // 데이터 채우기
-        sensor_msgs::PointCloud2Iterator<float> iter_x(msg, "x");
-        sensor_msgs::PointCloud2Iterator<float> iter_y(msg, "y");
-        sensor_msgs::PointCloud2Iterator<float> iter_z(msg, "z");
-        sensor_msgs::PointCloud2Iterator<float> iter_i(msg, "intensity");
-
-        for (size_t i = 0; i < num_points; i++) {
-            *iter_x = static_cast<float>( (rand() % 100) / 10.0 );  // 0~10m
-            *iter_y = static_cast<float>( (rand() % 100) / 10.0 );
-            *iter_z = static_cast<float>( (rand() %  50) / 10.0 );  // 0~5m
-            *iter_i = static_cast<float>(rand() % 255);
-            ++iter_x; ++iter_y; ++iter_z; ++iter_i;
-        }
-        return msg;
-    }    
 
     sensor_msgs::msg::PointCloud2 createPointCloud(const dss::DssLidarPointCloud& pcd_msg)
     {
