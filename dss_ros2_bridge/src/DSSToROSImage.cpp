@@ -1,33 +1,12 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
-#include "sensor_msgs/msg/imu.hpp"
 #include <opencv2/opencv.hpp>   // JPEG 디코딩용
 #include <nats/nats.h>
-#include <functional>
-#include <vector>
-#include <memory>
-#include <string>
-#include <mutex>
-#include <thread>
-#include <chrono>
-#include <sstream>
-#include <iomanip>
-#include <iostream>
-#include <random>
-#include <stdio.h>
-#include <stdlib.h>
-#include <arpa/inet.h>
-#include <fstream>
 #include "dss.pb.h"
 #include "defaultGateway.h"
 #include "nlohmann/json.hpp"
 using json = nlohmann::json;
-
 #define MAX_SUBS (64)   // 동시에 최대 64개 구독 보유
-
-namespace cfg {
-//constexpr const char* kNatsUrl = "nats://172.25.96.1:4222";
-} // namespace cfg
 
 // ==================== NATS 클라이언트 보관 ====================
 struct NatsClient {
@@ -52,29 +31,6 @@ public:
     rclcpp::TimerBase::SharedPtr                          timer_;
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_;
 
-    sensor_msgs::msg::Image createRandomImage()
-    {
-        sensor_msgs::msg::Image msg;
-
-        msg.header.stamp = rclcpp::Clock().now();
-        msg.header.frame_id = "random_camera";
-
-        msg.height = 480;
-        msg.width = 640;
-        msg.encoding = "rgb8";
-        msg.is_bigendian = false;
-        msg.step = msg.width * 3;
-
-        msg.data.resize(msg.height * msg.step);
-
-        std::mt19937 gen(std::random_device{}());
-        std::uniform_int_distribution<> dist(0, 255);
-
-        for (auto &v : msg.data)
-            v = static_cast<uint8_t>(dist(gen));
-
-        return msg;
-    }    
     sensor_msgs::msg::Image decodeJpegToRgb8(const uint8_t* jpeg_data,size_t jpeg_size)
     {
         sensor_msgs::msg::Image msg;
@@ -108,8 +64,6 @@ public:
 
 public:
     DSSToROSImageNode() : Node("DSSToROSImageNode") {
-        //this->declare_parameter<std::string>("nats_server", "nats://127.0.0.1:4222");
-        //std::string kNatsUrl = this->get_parameter("nats_server").as_string();
         std::string kNatsUrl = "nats://" + getDefaultGateway()+ ":4222";
         RCLCPP_INFO(get_logger(), kNatsUrl.c_str());
         natsStatus s = natsConnection_ConnectTo(&nats_.conn, kNatsUrl.c_str());
@@ -128,10 +82,6 @@ public:
                     return; 
                 }
                 pub_->publish(decodeJpegToRgb8( (const uint8_t*)img_msg.data().data(), img_msg.data().size()));
-                //RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.camera.rgb → [ROS2]/dss/sensor/camera/rgb");
-
-                //auto now = this->get_clock()->now();
-                //RCLCPP_INFO(this->get_logger(), "sim_time = %.6f", now.seconds());
             }
         );
         

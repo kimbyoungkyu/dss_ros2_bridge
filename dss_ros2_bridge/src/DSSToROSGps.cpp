@@ -2,29 +2,9 @@
     DSS To ROS GPS
 */
 #include <rclcpp/rclcpp.hpp>
-#include <sensor_msgs/msg/imu.hpp>
-#include <sensor_msgs/msg/image.hpp>
-#include <sensor_msgs/msg/point_cloud2.hpp>
 #include <sensor_msgs/msg/nav_sat_fix.hpp>
 #include <sensor_msgs/msg/nav_sat_status.hpp>
-#include <sensor_msgs/point_cloud2_iterator.hpp>
-#include <opencv2/opencv.hpp>   // JPEG 디코딩용
 #include <nats/nats.h>
-#include <functional>
-#include <vector>
-#include <memory>
-#include <string>
-#include <mutex>
-#include <thread>
-#include <chrono>
-#include <sstream>
-#include <iomanip>
-#include <iostream>
-#include <random>
-#include <stdio.h>
-#include <stdlib.h>
-#include <arpa/inet.h>
-#include <fstream>
 #include "dss.pb.h"
 #include "defaultGateway.h"
 #include "nlohmann/json.hpp"

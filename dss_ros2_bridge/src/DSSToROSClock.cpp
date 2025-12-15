@@ -1,21 +1,9 @@
+/*
+    ros2 topic echo /clock
+*/
 #include <rclcpp/rclcpp.hpp>
 #include <rosgraph_msgs/msg/clock.hpp>
 #include <nats/nats.h>
-#include <functional>
-#include <vector>
-#include <memory>
-#include <string>
-#include <mutex>
-#include <thread>
-#include <chrono>
-#include <sstream>
-#include <iomanip>
-#include <iostream>
-#include <random>
-#include <stdio.h>
-#include <stdlib.h>
-#include <arpa/inet.h>
-#include <fstream>
 #include "dss.pb.h"
 #include "defaultGateway.h"
 #include "nlohmann/json.hpp"
@@ -63,27 +51,9 @@ public:
         clock_msg.clock.nanosec = static_cast<uint32_t>(sim_time_ns % 1'000'000'000ULL);
         return clock_msg;
     }
-    
-    /*
-    rosgraph_msgs::msg::Clock createClock(dss::DssOneFrameFixedRateResult& msg) {
-        rosgraph_msgs::msg::Clock clock_msg;
-        // proto 기준: seconds(double)
-        const double sim_time_sec = msg.total_elapsed_time();
-        // double → sec + nanosec
-        const int64_t sec  = static_cast<int64_t>(sim_time_sec);
-        const uint32_t nsec = static_cast<uint32_t>((sim_time_sec - static_cast<double>(sec)) * 1e9);
-
-        clock_msg.clock.sec     = static_cast<int32_t>(sec);
-        clock_msg.clock.nanosec = nsec;
-
-        return clock_msg;
-    }
-        */
 
 public:
     DSSToROSClockNode() : Node("DSSToROSClockNode") {
-        //this->declare_parameter<std::string>("nats_server", "nats://127.0.0.1:4222");
-        //std::string kNatsUrl = this->get_parameter("nats_server").as_string();
         std::string kNatsUrl = "nats://" + getDefaultGateway()+ ":4222";
         RCLCPP_INFO(get_logger(), kNatsUrl.c_str());
         natsStatus s = natsConnection_ConnectTo(&nats_.conn, kNatsUrl.c_str());
