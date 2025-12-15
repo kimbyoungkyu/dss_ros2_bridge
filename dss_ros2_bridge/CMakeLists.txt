@@ -69,6 +69,17 @@ target_link_libraries(DSSToROSIMUNode
   protobuf::libprotobuf
 )
 
+
+add_executable(DSSToROSClockNode src/DSSToROSClock.cpp src/dss.pb.cc src/defaultGateway.cpp)
+ament_target_dependencies(DSSToROSClockNode rclcpp sensor_msgs OpenCV)
+target_link_libraries(DSSToROSClockNode
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
 add_executable(DSSToROSGpsNode src/DSSToROSGps.cpp src/dss.pb.cc src/defaultGateway.cpp)
 ament_target_dependencies(DSSToROSGpsNode rclcpp sensor_msgs OpenCV)
 target_link_libraries(DSSToROSGpsNode
@@ -96,6 +107,7 @@ target_link_libraries(DSSDemoNode
 install(
   TARGETS
     DSSToROSImageNode
+    DSSToROSClockNode
     DSSToROSPointCloudNode
     DSSToROSIMUNode
     DSSToROSGpsNode
