@@ -50,11 +50,35 @@ public:
     rclcpp::TimerBase::SharedPtr                        timer_;
     rclcpp::Publisher<rosgraph_msgs::msg::Clock>::SharedPtr pub_;
 
-    rosgraph_msgs::msg::Clock createDummyClock() {
+    //uint64_t sim_time_ns_ = 0;
+
+    
+    rosgraph_msgs::msg::Clock createClock(const dss::DssOneFrameFixedRateResult& msg)
+    {
+        // delta는 항상 고정값 (0.005)
+        constexpr uint64_t DT_NS = 5'000'000ULL; // 0.005 sec
+        const uint64_t sim_time_ns = static_cast<uint64_t>(msg.frame_count()) * DT_NS;
         rosgraph_msgs::msg::Clock clock_msg;
-        clock_msg.clock = rclcpp::Clock().now();    
+        clock_msg.clock.sec = static_cast<int32_t>(sim_time_ns / 1'000'000'000ULL);
+        clock_msg.clock.nanosec = static_cast<uint32_t>(sim_time_ns % 1'000'000'000ULL);
         return clock_msg;
     }
+    
+    /*
+    rosgraph_msgs::msg::Clock createClock(dss::DssOneFrameFixedRateResult& msg) {
+        rosgraph_msgs::msg::Clock clock_msg;
+        // proto 기준: seconds(double)
+        const double sim_time_sec = msg.total_elapsed_time();
+        // double → sec + nanosec
+        const int64_t sec  = static_cast<int64_t>(sim_time_sec);
+        const uint32_t nsec = static_cast<uint32_t>((sim_time_sec - static_cast<double>(sec)) * 1e9);
+
+        clock_msg.clock.sec     = static_cast<int32_t>(sec);
+        clock_msg.clock.nanosec = nsec;
+
+        return clock_msg;
+    }
+        */
 
 public:
     DSSToROSClockNode() : Node("DSSToROSClockNode") {
@@ -69,17 +93,20 @@ public:
         }     
         
         timer_   = this->create_wall_timer(std::chrono::seconds(3), std::bind(&DSSToROSClockNode::onTick, this));
-        subscribeTopicRaw("dss.sensor.clock",
+        subscribeTopicRaw("dss.oneFrameFixedRate.result",
             [this](const std::string& subject, const char* bytes, int len)
             {
-                /*
-                dss::DSSIMU imu_msg;
-                if (!imu_msg.ParseFromArray(bytes, len)) {
-                    std::cerr << "Failed to parse DSSIMU protobuf message\n";
-                    return; 
+                
+                dss::DssOneFrameFixedRateResult msg;
+                if (!msg.ParseFromArray(bytes, len)) {
+                    std::cerr << "Failed to parse DssOneFrameFixedRateResult protobuf message\n";
                 }
-                */
-                pub_->publish(createDummyClock());
+                
+                auto use_sim_time_ = this->get_parameter("use_sim_time").as_bool();
+                if (use_sim_time_){
+                    pub_->publish(createClock(msg));
+                    //RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.clock → [ROS2]/clock");
+                }
             }
         );
         pub_ = this->create_publisher<rosgraph_msgs::msg::Clock>("/clock", 10);
@@ -112,7 +139,7 @@ public:
         message["timeStamp"] = getCurrentTimeISO8601();
         message["status"]    = "alive";
 
-        natsStatus s = natsConnection_PublishString(nats_.conn, "dss.dssToROSImu.heartBeat", message.dump().c_str());
+        natsStatus s = natsConnection_PublishString(nats_.conn, "dss.dssToROSClock.heartBeat", message.dump().c_str());
         if (s != NATS_OK) {
             std::cerr << "Heartbeat publish error: " << natsStatus_GetText(s) << std::endl;
         }
@@ -134,6 +161,12 @@ public:
 
     void onTick() {
         publishHeartBeat();
+        /*
+        auto use_sim_time_ = this->get_parameter("use_sim_time").as_bool();
+        if (!use_sim_time_) return;
+        pub_->publish(createDummyClock());
+        RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.clock → [ROS2]/clock");
+        */
     }
 
 private:

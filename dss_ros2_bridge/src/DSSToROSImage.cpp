@@ -128,6 +128,10 @@ public:
                     return; 
                 }
                 pub_->publish(decodeJpegToRgb8( (const uint8_t*)img_msg.data().data(), img_msg.data().size()));
+                //RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.camera.rgb → [ROS2]/dss/sensor/camera/rgb");
+
+                //auto now = this->get_clock()->now();
+                //RCLCPP_INFO(this->get_logger(), "sim_time = %.6f", now.seconds());
             }
         );
         
