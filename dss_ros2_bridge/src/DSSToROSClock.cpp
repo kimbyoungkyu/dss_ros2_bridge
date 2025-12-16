@@ -18,10 +18,6 @@ struct NatsClient {
     int                  count = 0;
 };
 
-
-
-
-
 class DSSToROSClockNode : public rclcpp::Node
 {
 public:
@@ -49,6 +45,9 @@ public:
         rosgraph_msgs::msg::Clock clock_msg;
         clock_msg.clock.sec = static_cast<int32_t>(sim_time_ns / 1'000'000'000ULL);
         clock_msg.clock.nanosec = static_cast<uint32_t>(sim_time_ns % 1'000'000'000ULL);
+
+        RCLCPP_INFO(rclcpp::get_logger("clock"),"Clock stamp = %ld.%09u",clock_msg.clock.sec,clock_msg.clock.nanosec); 
+
         return clock_msg;
     }
 

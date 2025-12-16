@@ -37,12 +37,27 @@ public:
 
     sensor_msgs::msg::NavSatFix CreateGPSTopic(const dss::DSSGPS& dss_gps)
     {
+        double stamp_sec = dss_gps.header().stamp();
         sensor_msgs::msg::NavSatFix ros_gps;
 
         // Header
-        ros_gps.header.stamp =
-            rclcpp::Time(static_cast<uint64_t>(dss_gps.header().stamp() * 1e9));
+        //ros_gps.header.stamp = rclcpp::Time(static_cast<uint64_t>(dss_gps.header().stamp() * 1e9));
+        
+
+
+        rclcpp::Time ros_stamp(
+                static_cast<int64_t>(stamp_sec * 1e9),  // nanoseconds
+                RCL_ROS_TIME
+        );        
+        ros_gps.header.stamp = ros_stamp;
         ros_gps.header.frame_id = dss_gps.header().frame_id();
+
+
+
+
+        RCLCPP_INFO(rclcpp::get_logger("gpu_bridge"),"gpu stamp = %ld.%09u",ros_gps.header.stamp.sec,ros_gps.header.stamp.nanosec);        
+
+
 
         // Status
         ros_gps.status.status = dss_gps.status().status();

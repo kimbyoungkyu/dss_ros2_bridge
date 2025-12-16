@@ -31,8 +31,12 @@ public:
     rclcpp::TimerBase::SharedPtr                          timer_;
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_;
 
-    sensor_msgs::msg::Image decodeJpegToRgb8(const uint8_t* jpeg_data,size_t jpeg_size)
-    {
+    sensor_msgs::msg::Image createImage( dss::DSSImage& nats_msg) {
+         double stamp_sec = nats_msg.header().stamp();
+        
+        const uint8_t* jpeg_data = (const uint8_t*)nats_msg.data().data();
+        size_t jpeg_size = nats_msg.data().size();
+        
         sensor_msgs::msg::Image msg;
 
         // JPEG → OpenCV 이미지로 디코드 (BGR)
@@ -47,8 +51,14 @@ public:
         cv::cvtColor(bgr, rgb, cv::COLOR_BGR2RGB);
 
         // ROS 메시지에 채우기
-        msg.header.stamp = rclcpp::Clock().now();
+        rclcpp::Time ros_stamp(
+                static_cast<int64_t>(stamp_sec * 1e9),  // nanoseconds
+                RCL_ROS_TIME
+        );        
+        msg.header.stamp    = ros_stamp;
         msg.header.frame_id = "camera";
+
+        //RCLCPP_INFO(rclcpp::get_logger("image_bridge"),"Image stamp = %ld.%09u",msg.header.stamp.sec,msg.header.stamp.nanosec);        
 
         msg.height = rgb.rows;
         msg.width  = rgb.cols;
@@ -81,7 +91,7 @@ public:
                     std::cerr << "Failed to parse DSSImage protobuf message\n";
                     return; 
                 }
-                pub_->publish(decodeJpegToRgb8( (const uint8_t*)img_msg.data().data(), img_msg.data().size()));
+                pub_->publish(createImage(img_msg));
             }
         );
         

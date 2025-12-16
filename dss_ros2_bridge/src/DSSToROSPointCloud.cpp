@@ -37,6 +37,8 @@ public:
 
     sensor_msgs::msg::PointCloud2 createPointCloud(const dss::DssLidarPointCloud& pcd_msg)
     {
+        double stamp_sec = pcd_msg.header().stamp();
+        
         const uint32_t num_points = pcd_msg.width();
         const uint8_t* raw = reinterpret_cast<const uint8_t*>(pcd_msg.data().data());
         const uint32_t step = pcd_msg.point_step();
@@ -44,8 +46,19 @@ public:
 
         sensor_msgs::msg::PointCloud2 msg;
 
-        msg.header.stamp = rclcpp::Clock().now();
+        // ROS 메시지에 채우기
+        rclcpp::Time ros_stamp(static_cast<int64_t>(stamp_sec * 1e9),RCL_ROS_TIME);        
+
+        
+
+        //RCLCPP_INFO(rclcpp::get_logger("lidar_bridge"),"lidar stamp = %ld.%09u",ros_stamp.sec,ros_stamp.nanosec);        
+
+
+        msg.header.stamp = ros_stamp;
         msg.header.frame_id = "map";
+
+
+        //RCLCPP_INFO(rclcpp::get_logger("lidar_bridge"),"lidar stamp = %ld.%09u",msg.header.stamp.sec,msg.header.stamp.nanosec);        
 
         msg.height = 1;
         msg.width = num_points;
