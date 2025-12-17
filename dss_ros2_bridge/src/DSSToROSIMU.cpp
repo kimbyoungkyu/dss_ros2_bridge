@@ -8,21 +8,7 @@
 #include <sensor_msgs/point_cloud2_iterator.hpp>
 #include <opencv2/opencv.hpp>   // JPEG 디코딩용
 #include <nats/nats.h>
-#include <functional>
-#include <vector>
-#include <memory>
-#include <string>
-#include <mutex>
-#include <thread>
-#include <chrono>
-#include <sstream>
-#include <iomanip>
-#include <iostream>
 #include <random>
-#include <stdio.h>
-#include <stdlib.h>
-#include <arpa/inet.h>
-#include <fstream>
 #include "dss.pb.h"
 #include "defaultGateway.h"
 #include "nlohmann/json.hpp"
@@ -30,7 +16,6 @@ using json = nlohmann::json;
 
 #define MAX_SUBS (64)   // 동시에 최대 64개 구독 보유
 
-// ==================== NATS 클라이언트 보관 ====================
 struct NatsClient {
     natsConnection*      conn = nullptr;
     natsSubscription*    subs[MAX_SUBS]{};
@@ -48,47 +33,17 @@ public:
     NatsClient nats_;
 
     // 수명 보장 컨테이너
-    
     std::vector<std::unique_ptr<TopicHandler>>          topicHandlers_;
     std::vector<std::unique_ptr<TopicCtx>>              rawCtx_;
     rclcpp::TimerBase::SharedPtr                        timer_;
     rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr pub_;
 
-    /*
-    sensor_msgs::msg::Imu createDynamicDummyImu(double t) {
-        sensor_msgs::msg::Imu imu;
-        imu.header.stamp = rclcpp::Clock().now();
-        imu.header.frame_id = "imu_link";
-
-        // Orientation (Euler → Quaternion 변환 없음, 단순 더미)
-        imu.orientation.x = 0.0;
-        imu.orientation.y = 0.0;
-        imu.orientation.z = sin(t * 0.5) * 0.1;
-        imu.orientation.w = 1.0;
-
-        // 각속도
-        imu.angular_velocity.x = 0.1 * sin(t);
-        imu.angular_velocity.y = 0.1 * cos(t);
-        imu.angular_velocity.z = 0.05;
-
-        // 선가속도
-        imu.linear_acceleration.x = 0.5 * sin(t * 0.3);
-        imu.linear_acceleration.y = 0.5 * cos(t * 0.3);
-        imu.linear_acceleration.z = 9.81;
-        return imu;
-    }
-        */
-
     sensor_msgs::msg::Imu createImu(const dss::DSSIMU& imu_msg) {
-         double stamp_sec = imu_msg.header().stamp();
+
         sensor_msgs::msg::Imu imu;
-
-
         // ROS 메시지에 채우기
-        rclcpp::Time ros_stamp(
-                static_cast<int64_t>(stamp_sec * 1e9),  // nanoseconds
-                RCL_ROS_TIME
-        );        
+        double stamp_sec = imu_msg.header().stamp();
+        rclcpp::Time ros_stamp(static_cast<int64_t>(stamp_sec * 1e9),RCL_ROS_TIME);
 
         imu.header.stamp = ros_stamp;
         imu.header.frame_id = "imu_link";
@@ -125,13 +80,6 @@ public:
         imu.angular_velocity.x = imu_msg.angular_velocity().x();
         imu.angular_velocity.y = imu_msg.angular_velocity().y();
         imu.angular_velocity.z = imu_msg.angular_velocity().z();
-
-        //test
-        //imu.angular_velocity.x = 0;
-        //imu.angular_velocity.y = 0;
-        //imu.angular_velocity.z = 0;
-
-
         imu.angular_velocity_covariance[0] = -1.0;
 
         // -----------------------
@@ -140,25 +88,15 @@ public:
         imu.linear_acceleration.x = imu_msg.linear_acceleration().x();
         imu.linear_acceleration.y = imu_msg.linear_acceleration().y();
         imu.linear_acceleration.z = imu_msg.linear_acceleration().z();
-
-        //imu.linear_acceleration.x = 0;
-        //imu.linear_acceleration.y = 0;
-        //imu.linear_acceleration.z = 9.80511;
-
-
         imu.linear_acceleration_covariance[0] = -1.0;
 
         return imu;
     }
 public:
     DSSToROSIMUNode() : Node("DSSToROSIMUNode") {
-        //RCLCPP_INFO(get_logger(),get_default_gateway().c_str());
-        //RCLCPP_INFO(get_logger(),get_default_gateway().c_str());
         RCLCPP_INFO(get_logger(),getDefaultGateway().c_str());        
 
-        //this->declare_parameter<std::string>("nats_server", "nats://127.0.0.1:4222");
-        //std::string kNatsUrl = this->get_parameter("nats_server").as_string();
-         std::string kNatsUrl = "nats://" + getDefaultGateway()+ ":4222";
+        std::string kNatsUrl = "nats://" + getDefaultGateway()+ ":4222";
         RCLCPP_INFO(get_logger(), kNatsUrl.c_str());
         natsStatus s = natsConnection_ConnectTo(&nats_.conn, kNatsUrl.c_str());
         if (s != NATS_OK) {
@@ -166,7 +104,7 @@ public:
             return;
         }     
         
-        timer_   = this->create_wall_timer(std::chrono::seconds(3), std::bind(&DSSToROSIMUNode::onTick, this));
+        timer_ = this->create_wall_timer(std::chrono::seconds(3), std::bind(&DSSToROSIMUNode::onTick,this));
         subscribeTopicRaw("dss.sensor.imu",
             [this](const std::string& subject, const char* bytes, int len)
             {
@@ -179,8 +117,7 @@ public:
             }
         );
         pub_ = this->create_publisher<sensor_msgs::msg::Imu>("/imu/data", 10);
-
-        RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.imu → [ROS2]/dss/sensor/imu");
+        RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.imu → [ROS2]/imu/data");
     }
 
     ~DSSToROSIMUNode() override {
@@ -207,7 +144,6 @@ public:
         json message;
         message["timeStamp"] = getCurrentTimeISO8601();
         message["status"]    = "alive";
-
         natsStatus s = natsConnection_PublishString(nats_.conn, "dss.dssToROSImu.heartBeat", message.dump().c_str());
         if (s != NATS_OK) {
             std::cerr << "Heartbeat publish error: " << natsStatus_GetText(s) << std::endl;
@@ -225,9 +161,7 @@ public:
         oss << "." << std::setw(3) << std::setfill('0') << ms.count() << "Z";
         return oss.str();
     }
-
-
-
+    
     void onTick() {
         publishHeartBeat();
     }
