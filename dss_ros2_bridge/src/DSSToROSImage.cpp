@@ -58,7 +58,7 @@ public:
         msg.header.stamp    = ros_stamp;
         msg.header.frame_id = "camera";
 
-        //RCLCPP_INFO(rclcpp::get_logger("image_bridge"),"Image stamp = %ld.%09u",msg.header.stamp.sec,msg.header.stamp.nanosec);        
+        RCLCPP_INFO(rclcpp::get_logger("image_bridge"),"Image stamp = %ld.%09u",msg.header.stamp.sec,msg.header.stamp.nanosec);        
 
         msg.height = rgb.rows;
         msg.width  = rgb.cols;

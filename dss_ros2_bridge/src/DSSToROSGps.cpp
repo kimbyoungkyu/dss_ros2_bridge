@@ -39,25 +39,12 @@ public:
     {
         double stamp_sec = dss_gps.header().stamp();
         sensor_msgs::msg::NavSatFix ros_gps;
-
         // Header
-        //ros_gps.header.stamp = rclcpp::Time(static_cast<uint64_t>(dss_gps.header().stamp() * 1e9));
-        
-
-
-        rclcpp::Time ros_stamp(
-                static_cast<int64_t>(stamp_sec * 1e9),  // nanoseconds
-                RCL_ROS_TIME
-        );        
+        rclcpp::Time ros_stamp(static_cast<int64_t>(stamp_sec * 1e9),RCL_ROS_TIME);
         ros_gps.header.stamp = ros_stamp;
         ros_gps.header.frame_id = dss_gps.header().frame_id();
 
-
-
-
-        RCLCPP_INFO(rclcpp::get_logger("gpu_bridge"),"gpu stamp = %ld.%09u",ros_gps.header.stamp.sec,ros_gps.header.stamp.nanosec);        
-
-
+        RCLCPP_INFO(rclcpp::get_logger("gps_bridge"),"gps stamp = %ld.%09u",ros_gps.header.stamp.sec,ros_gps.header.stamp.nanosec);        
 
         // Status
         ros_gps.status.status = dss_gps.status().status();
@@ -113,7 +100,7 @@ public:
                 pub_->publish(CreateGPSTopic(gps_msg));
             }
         );
-        pub_ = this->create_publisher<sensor_msgs::msg::NavSatFix>("/dss/sensor/gps", 10);
+        pub_ = this->create_publisher<sensor_msgs::msg::NavSatFix>("/dss/gps", 10);
 
         RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.gps → [ROS2]/dss/sensor/gps");
     }

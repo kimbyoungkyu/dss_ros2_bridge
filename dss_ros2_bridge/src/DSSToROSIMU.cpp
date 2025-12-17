@@ -54,6 +54,7 @@ public:
     rclcpp::TimerBase::SharedPtr                        timer_;
     rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr pub_;
 
+    /*
     sensor_msgs::msg::Imu createDynamicDummyImu(double t) {
         sensor_msgs::msg::Imu imu;
         imu.header.stamp = rclcpp::Clock().now();
@@ -76,12 +77,26 @@ public:
         imu.linear_acceleration.z = 9.81;
         return imu;
     }
+        */
 
     sensor_msgs::msg::Imu createImu(const dss::DSSIMU& imu_msg) {
+         double stamp_sec = imu_msg.header().stamp();
         sensor_msgs::msg::Imu imu;
-        imu.header.stamp = this->now();
-        imu.header.frame_id = "map";
 
+
+        // ROS 메시지에 채우기
+        rclcpp::Time ros_stamp(
+                static_cast<int64_t>(stamp_sec * 1e9),  // nanoseconds
+                RCL_ROS_TIME
+        );        
+
+        imu.header.stamp = ros_stamp;
+        imu.header.frame_id = "imu_link";
+        ///imu.header.frame_id = "map";
+
+        
+        RCLCPP_INFO(rclcpp::get_logger("imu_bridge"),"imu stamp = %ld.%09u",imu.header.stamp.sec,imu.header.stamp.nanosec);        
+        
         // -----------------------
         // Orientation
         // -----------------------
@@ -111,6 +126,12 @@ public:
         imu.angular_velocity.y = imu_msg.angular_velocity().y();
         imu.angular_velocity.z = imu_msg.angular_velocity().z();
 
+        //test
+        //imu.angular_velocity.x = 0;
+        //imu.angular_velocity.y = 0;
+        //imu.angular_velocity.z = 0;
+
+
         imu.angular_velocity_covariance[0] = -1.0;
 
         // -----------------------
@@ -119,6 +140,11 @@ public:
         imu.linear_acceleration.x = imu_msg.linear_acceleration().x();
         imu.linear_acceleration.y = imu_msg.linear_acceleration().y();
         imu.linear_acceleration.z = imu_msg.linear_acceleration().z();
+
+        //imu.linear_acceleration.x = 0;
+        //imu.linear_acceleration.y = 0;
+        //imu.linear_acceleration.z = 9.80511;
+
 
         imu.linear_acceleration_covariance[0] = -1.0;
 
@@ -152,7 +178,7 @@ public:
                 pub_->publish(createImu(imu_msg));
             }
         );
-        pub_ = this->create_publisher<sensor_msgs::msg::Imu>("/dss/sensor/imu", 10);
+        pub_ = this->create_publisher<sensor_msgs::msg::Imu>("/imu/data", 10);
 
         RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.imu → [ROS2]/dss/sensor/imu");
     }

@@ -114,6 +114,7 @@ public:
                 z = (zi / 32767.0f) * max_range;
                 intensity = (ii / 32767.0f);
             }
+
             else if (step == 10)
             {
                 // int16 quantized + ring <hhhhh>
@@ -128,6 +129,21 @@ public:
                 intensity = (ii / 32767.0f);
             }
 
+            else if (step == 14)
+            {
+                // int16 quantized + ring <hhhhh>
+                int16_t xi = *reinterpret_cast<const int16_t*>(ptr + 0);
+                int16_t yi = *reinterpret_cast<const int16_t*>(ptr + 2);
+                int16_t zi = *reinterpret_cast<const int16_t*>(ptr + 4);
+                int16_t ii = *reinterpret_cast<const int16_t*>(ptr + 6);
+
+                x = (xi / 32767.0f) * max_range;
+                y = (yi / 32767.0f) * max_range;
+                z = (zi / 32767.0f) * max_range;
+                intensity = (ii / 32767.0f);
+            }
+
+
             *iter_x = x;
             *iter_y = y;
             *iter_z = z;
@@ -138,6 +154,118 @@ public:
 
         return msg;
     }
+
+
+    float dequantize(int16_t QuantizedValue, float MaxAbs)
+    {
+        return (static_cast<float>(QuantizedValue) / 32767.0f) * MaxAbs;
+    }
+
+
+    sensor_msgs::msg::PointCloud2 createPointCloud2(const dss::DssLidarPointCloud& pcd_msg)
+    {
+        double stamp_sec = pcd_msg.header().stamp();
+
+        const uint32_t num_points = pcd_msg.width();
+        const uint8_t* raw = reinterpret_cast<const uint8_t*>(pcd_msg.data().data());
+        const uint32_t step = pcd_msg.point_step();
+
+        sensor_msgs::msg::PointCloud2 msg;
+
+        // -------------------------------------------------
+        // sim_time 기반 stamp
+        // -------------------------------------------------
+        rclcpp::Time ros_stamp(static_cast<int64_t>(stamp_sec * 1e9),RCL_ROS_TIME);
+
+        msg.header.stamp = ros_stamp;
+        msg.header.frame_id = "lidar_link";
+
+        RCLCPP_INFO(
+            rclcpp::get_logger("lidar_bridge"),
+            "lidar stamp = %ld.%09u",
+            msg.header.stamp.sec,
+            msg.header.stamp.nanosec
+        );
+
+        // -------------------------------------------------
+        // PointCloud2 기본 설정
+        // -------------------------------------------------
+        msg.height = 1;
+        msg.width  = num_points;
+        msg.is_bigendian = false;
+        msg.is_dense = true;
+
+        // x y z intensity ring time
+        msg.point_step = 20;                 // 4*4 + 2 + padding + 4
+        msg.row_step   = msg.point_step * msg.width;
+
+        // -------------------------------------------------
+        // 필드 정의 (LIO-SAM 친화)
+        // -------------------------------------------------
+        sensor_msgs::PointCloud2Modifier modifier(msg);
+        modifier.setPointCloud2Fields(
+            6,
+            "x",         1, sensor_msgs::msg::PointField::FLOAT32,
+            "y",         1, sensor_msgs::msg::PointField::FLOAT32,
+            "z",         1, sensor_msgs::msg::PointField::FLOAT32,
+            "intensity", 1, sensor_msgs::msg::PointField::FLOAT32,
+            "ring",      1, sensor_msgs::msg::PointField::UINT16,
+            "time",      1, sensor_msgs::msg::PointField::FLOAT32
+        );
+
+        modifier.resize(num_points);
+
+        // -------------------------------------------------
+        // Iterators
+        // -------------------------------------------------
+        sensor_msgs::PointCloud2Iterator<float>   iter_x(msg, "x");
+        sensor_msgs::PointCloud2Iterator<float>   iter_y(msg, "y");
+        sensor_msgs::PointCloud2Iterator<float>   iter_z(msg, "z");
+        sensor_msgs::PointCloud2Iterator<float>   iter_i(msg, "intensity");
+        sensor_msgs::PointCloud2Iterator<uint16_t> iter_r(msg, "ring");
+        sensor_msgs::PointCloud2Iterator<float>   iter_t(msg, "time");
+
+        // -------------------------------------------------
+        // 데이터 디코딩
+        // (Unreal → Protobuf → ROS2)
+        // -------------------------------------------------
+        for (uint32_t i = 0; i < num_points; i++)
+        {
+            const uint8_t* ptr = raw + i * step;
+
+            int16_t xi = *reinterpret_cast<const int16_t*>(ptr + 0);
+            int16_t yi = *reinterpret_cast<const int16_t*>(ptr + 2);
+            int16_t zi = *reinterpret_cast<const int16_t*>(ptr + 4);
+            int16_t ii = *reinterpret_cast<const int16_t*>(ptr + 6);
+            int16_t ri = *reinterpret_cast<const int16_t*>(ptr + 8);
+            float   ti = *reinterpret_cast<const float*>(ptr + 10);
+
+            // Quantized → meter
+            //constexpr float POS_SCALE = 100.0f;   // Unreal에서 쓰던 값
+            //constexpr float INT_SCALE = 1.0f;
+
+            
+            
+            float x = dequantize(xi,100);
+            float y = dequantize(yi,100);
+            float z = dequantize(zi,100);
+            uint16_t r = ri;
+            float intensity = dequantize(ii,1);
+
+            *iter_x = x;
+            *iter_y = y;
+            *iter_z = z;
+            *iter_i = intensity;
+            *iter_r = static_cast<uint16_t>(ri);
+            *iter_t = ti;
+
+            ++iter_x; ++iter_y; ++iter_z;
+            ++iter_i; ++iter_r; ++iter_t;
+        }
+
+        return msg;
+    }
+
     
 
 
@@ -162,10 +290,11 @@ public:
                     std::cerr << "Failed to parse DSSImage protobuf message\n";
                     return; 
                 }
-                pub_->publish(createPointCloud(pcd_msg));
+                pub_->publish(createPointCloud2(pcd_msg));
             }
         );
-        pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/dss/sensor/lidar", 10);
+        //pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/dss/sensor/lidar", 10);
+        pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/points", 10);
         RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.lidar → [ROS2]/dss/sensor/lidar");
     }
 
