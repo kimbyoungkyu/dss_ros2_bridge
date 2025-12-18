@@ -44,7 +44,7 @@ public:
         ros_gps.header.stamp = ros_stamp;
         ros_gps.header.frame_id = dss_gps.header().frame_id();
 
-        RCLCPP_INFO(rclcpp::get_logger("gps_bridge"),"gps stamp = %ld.%09u",ros_gps.header.stamp.sec,ros_gps.header.stamp.nanosec);        
+        //RCLCPP_INFO(rclcpp::get_logger("gps_bridge"),"gps stamp = %ld.%09u",ros_gps.header.stamp.sec,ros_gps.header.stamp.nanosec);        
 
         // Status
         ros_gps.status.status = dss_gps.status().status();

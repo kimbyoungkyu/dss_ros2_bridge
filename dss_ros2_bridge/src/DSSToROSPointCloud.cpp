@@ -180,12 +180,14 @@ public:
         msg.header.stamp = ros_stamp;
         msg.header.frame_id = "lidar_link";
 
+        /*
         RCLCPP_INFO(
             rclcpp::get_logger("lidar_bridge"),
             "lidar stamp = %ld.%09u",
             msg.header.stamp.sec,
             msg.header.stamp.nanosec
         );
+        */
 
         // -------------------------------------------------
         // PointCloud2 기본 설정

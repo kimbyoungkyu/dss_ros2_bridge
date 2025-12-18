@@ -15,19 +15,15 @@ struct NatsClient {
     int                  count = 0;
 };
 
-class DSSToROSImageNode : public rclcpp::Node
-{
+class DSSToROSImageNode : public rclcpp::Node {
 public:
     using TopicHandler     = std::function<void(const std::string& subject, const char* data, int len)>;
     struct TopicCtx     { TopicHandler*     fn; };
 
     // NATS
     NatsClient nats_;
-
-    // 수명 보장 컨테이너
-    
     std::vector<std::unique_ptr<TopicHandler>>            topicHandlers_;
-    std::vector<std::unique_ptr<TopicCtx>>                  rawCtx_;
+    std::vector<std::unique_ptr<TopicCtx>>                rawCtx_;
     rclcpp::TimerBase::SharedPtr                          timer_;
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_;
 
@@ -58,7 +54,7 @@ public:
         msg.header.stamp    = ros_stamp;
         msg.header.frame_id = "camera";
 
-        RCLCPP_INFO(rclcpp::get_logger("image_bridge"),"Image stamp = %ld.%09u",msg.header.stamp.sec,msg.header.stamp.nanosec);        
+        //RCLCPP_INFO(rclcpp::get_logger("image_bridge"),"Image stamp = %ld.%09u",msg.header.stamp.sec,msg.header.stamp.nanosec);        
 
         msg.height = rgb.rows;
         msg.width  = rgb.cols;
