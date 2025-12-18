@@ -49,7 +49,6 @@ public:
         imu.header.frame_id = "imu_link";
         ///imu.header.frame_id = "map";
 
-        
         //RCLCPP_INFO(rclcpp::get_logger("imu_bridge"),"imu stamp = %ld.%09u",imu.header.stamp.sec,imu.header.stamp.nanosec);        
         
         // -----------------------
