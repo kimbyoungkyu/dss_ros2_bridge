@@ -148,21 +148,24 @@ message DssPointField {
 
 // 실제 포인트 클라우드 메시지
 message DssLidarPointCloud {
-  string frame_id = 1;        // 센서 좌표계 (ROS 기준)
-  int64 timestamp = 2;        // UNIX 시간 (nanosecond 권장)
+  DSSHeader header = 1;
 
-  uint32 width = 3;           // 포인트 수 (Unorganized면 총 개수)
-  uint32 height = 4;          // 1 for unorganized
+  //string frame_id = 2;        // 센서 좌표계 (ROS 기준)
+  //int64 timestamp = 3;        // UNIX 시간 (nanosecond 권장)
 
-  uint32 point_step = 5;      // 포인트당 바이트 수 (e.g., 16 for x,y,z,intensity)
-  uint32 row_step = 6;        // row당 바이트 수 (width * point_step)
 
-  bool is_dense = 7;          // 유효하지 않은 포인트 포함 여부
-  bool is_bigendian = 8;      // ROS에서 big endian 여부
+  uint32 width = 4;           // 포인트 수 (Unorganized면 총 개수)
+  uint32 height = 5;          // 1 for unorganized
 
-  repeated DssPointField fields = 9;  // 필드 정보 (x/y/z/intensity 등)
+  uint32 point_step = 6;      // 포인트당 바이트 수 (e.g., 16 for x,y,z,intensity)
+  uint32 row_step = 7;        // row당 바이트 수 (width * point_step)
 
-  bytes data = 10;            // packed binary: [x, y, z, intensity] * N
+  bool is_dense = 8;          // 유효하지 않은 포인트 포함 여부
+  bool is_bigendian = 9;      // ROS에서 big endian 여부
+
+  repeated DssPointField fields = 10;  // 필드 정보 (x/y/z/intensity 등)
+
+  bytes data = 11;            // packed binary: [x, y, z, intensity] * N
 }
 
 // 차량 휠 상태 스냅샷
@@ -201,3 +204,26 @@ message DssOneFrameFixedRateResult {
   // Unreal: double TotalElapsedTime
   double total_elapsed_time = 3;
 }
+
+
+
+message Dss {
+  float  custom_delta_time  = 1;
+  int64  frame_count        = 2;
+  double total_elapsed_time = 3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
