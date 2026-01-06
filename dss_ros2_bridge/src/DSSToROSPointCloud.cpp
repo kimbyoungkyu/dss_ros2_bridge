@@ -296,7 +296,7 @@ public:
             }
         );
         //pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/dss/sensor/lidar", 10);
-        pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/points", 10);
+        pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/dss/sensor/lidar3d", 10);
         RCLCPP_INFO(get_logger(), "[NATS]dss.sensor.lidar → [ROS2]/dss/sensor/lidar");
     }
 
