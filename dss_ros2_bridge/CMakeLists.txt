@@ -51,6 +51,53 @@ target_link_libraries(DSSToROSImageNode
   protobuf::libprotobuf
 )
 
+
+add_executable(DSSToROSStereoCameraColorNode src/DSSToROSStereoCameraColor.cpp src/dss.pb.cc  src/defaultGateway.cpp)
+ament_target_dependencies(DSSToROSStereoCameraColorNode rclcpp sensor_msgs OpenCV)
+target_link_libraries(DSSToROSStereoCameraColorNode
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
+add_executable(DSSToROSStereoCameraDepthNode src/DSSToROSStereoCameraDepth.cpp src/dss.pb.cc  src/defaultGateway.cpp)
+ament_target_dependencies(DSSToROSStereoCameraDepthNode rclcpp sensor_msgs OpenCV)
+target_link_libraries(DSSToROSStereoCameraDepthNode
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
+
+
+add_executable(DSSToROSStereoCameraInfra1Node src/DSSToROSStereoCameraInfra1.cpp src/dss.pb.cc  src/defaultGateway.cpp)
+ament_target_dependencies(DSSToROSStereoCameraInfra1Node rclcpp sensor_msgs OpenCV)
+target_link_libraries(DSSToROSStereoCameraInfra1Node
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
+add_executable(DSSToROSStereoCameraInfra2Node src/DSSToROSStereoCameraInfra2.cpp src/dss.pb.cc  src/defaultGateway.cpp)
+ament_target_dependencies(DSSToROSStereoCameraInfra2Node rclcpp sensor_msgs OpenCV)
+target_link_libraries(DSSToROSStereoCameraInfra2Node
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
+
+
+
+
 add_executable(DSSToROSPointCloudNode src/DSSToROSPointCloud.cpp src/dss.pb.cc src/defaultGateway.cpp)
 ament_target_dependencies(DSSToROSPointCloudNode rclcpp sensor_msgs OpenCV)
 target_link_libraries(DSSToROSPointCloudNode
@@ -111,6 +158,10 @@ install(
     DSSToROSPointCloudNode
     DSSToROSIMUNode
     DSSToROSGpsNode
+    DSSToROSStereoCameraColorNode
+    DSSToROSStereoCameraDepthNode
+    DSSToROSStereoCameraInfra1Node
+    DSSToROSStereoCameraInfra2Node
     DSSDemoNode
     ${cpp_typesupport_target}        # ← ★ 추가! typesupport .so 설치
   DESTINATION lib/${PROJECT_NAME}

@@ -22,6 +22,43 @@ def generate_launch_description():
             output='screen',
             parameters=[common_params],
         ),
+        
+        
+        # Stereo Color
+        Node(
+            package='dss_ros2_bridge',
+            executable='DSSToROSStereoCameraColorNode',
+            name='StereoColor',
+            output='screen',
+            parameters=[common_params],
+        ),
+        
+        # Stereo Depth
+        Node(
+            package='dss_ros2_bridge',
+            executable='DSSToROSStereoCameraDepthNode',
+            name='StereoDepth',
+            output='screen',
+            parameters=[common_params],
+        ),
+        
+        # Stereo Infrared 1
+        Node(
+            package='dss_ros2_bridge',
+            executable='DSSToROSStereoCameraInfra1Node',
+            name='StereoInfra1',
+            output='screen',
+            parameters=[common_params],
+        ),
+        
+        # Stereo Infrared 2
+        Node(
+            package='dss_ros2_bridge',
+            executable='DSSToROSStereoCameraInfra2Node',
+            name='StereoInfra2',
+            output='screen',
+            parameters=[common_params],
+        ),
 
         # IMU
         Node(
@@ -58,6 +95,9 @@ def generate_launch_description():
             output='screen',
             parameters=[common_params],
         ),
+        
+        
+        
         
 
         # DSS Demo
