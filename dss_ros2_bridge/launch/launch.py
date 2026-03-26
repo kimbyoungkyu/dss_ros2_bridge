@@ -3,7 +3,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    # 🔥 모든 노드가 사용할 공통 파라미터
+    #  모든 노드가 사용할 공통 파라미터
     common_params = {
         "use_sim_time": True,   #sim time 사용
         #"nats_server": "nats://172.25.96.1:4222",
