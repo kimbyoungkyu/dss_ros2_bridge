@@ -52,6 +52,7 @@ sudo apt update
 sudo apt install libnats-dev
 sudo apt install -y git cmake build-essential pkg-config autoconf automake libtool
 sudo apt install nlohmann-json3-dev
+sudo apt install -y ros-humble-mapviz
 ```
 
 ---
