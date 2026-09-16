@@ -18,9 +18,11 @@ find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
-
+find_package(tf2_ros REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(Protobuf 3.15 REQUIRED)
+find_package(rosgraph_msgs REQUIRED)
+find_package(Threads REQUIRED)
 
 # 메시지 생성기
 find_package(rosidl_default_generators REQUIRED)
@@ -148,7 +150,7 @@ target_link_libraries(DSSToROSLaserScanNode
 
 
 add_executable(DSS_TB4_SimToROSBridgeNode src/DSS_TB4_SimToROSBridge.cpp src/dss.pb.cc src/defaultGateway.cpp)
-ament_target_dependencies(DSS_TB4_SimToROSBridgeNode rclcpp sensor_msgs OpenCV nav_msgs)
+ament_target_dependencies(DSS_TB4_SimToROSBridgeNode rclcpp sensor_msgs geometry_msgs nav_msgs rosgraph_msgs tf2_ros OpenCV)
 target_link_libraries(DSS_TB4_SimToROSBridgeNode
   "${cpp_typesupport_target}"
   ${NATS_LIB}

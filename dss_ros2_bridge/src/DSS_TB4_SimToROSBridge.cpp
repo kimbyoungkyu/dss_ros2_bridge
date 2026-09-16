@@ -1,5 +1,8 @@
 #include <rclcpp/rclcpp.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+#include <geometry_msgs/msg/transform_stamped.hpp>
+#include <tf2_ros/transform_broadcaster.h>
+#include <tf2_ros/static_transform_broadcaster.h>
 #include <rosgraph_msgs/msg/clock.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <sensor_msgs/msg/imu.hpp>
@@ -31,6 +34,7 @@ namespace
 {
 constexpr std::int64_t kNanosecondsPerSecond = 1'000'000'000LL;
 constexpr auto kHeartbeatInterval = std::chrono::seconds{3};
+constexpr char kTfSubject[] = "dss.tf";
 constexpr char kClockSubject[] = "dss.simTime.clock";
 constexpr char kImageSubject[] = "dss.sensor.camera.rgb";
 constexpr char kImuSubject[] = "dss.sensor.imu";
@@ -51,6 +55,8 @@ public:
             RCLCPP_ERROR(get_logger(), "NATS connection failed: %s", natsStatus_GetText(status));
             return;
         }
+        registTf();
+        publishStaticTransforms();
         registClock();
         registImage();
         registImu();
@@ -62,7 +68,7 @@ public:
         if (useSimTime()){
             RCLCPP_INFO(get_logger(), "DSS TB4 Sim2ROS bridge is running in sim_time mode.");
         }else{
-            RCLCPP_WARN(get_logger(), "DSS TB4 Sim2ROS bridge is running in wall_time mode.");
+            RCLCPP_WARN(get_logger(), "use_sim_time is false: sensor, clock and dynamic TF publication is disabled.");
         }
     }
 
@@ -144,6 +150,80 @@ private:
     bool useSimTime() const
     {
         return get_parameter("use_sim_time").as_bool();
+    }
+
+    void registTf()
+    {
+        tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+        subscribe(kTfSubject, [this](const std::string&, const char* data, int length) {
+            dss::DSSTF source;
+            if (!source.ParseFromArray(data, length)) {
+                RCLCPP_ERROR(get_logger(), "DSSTF protobuf parse failed");
+                return;
+            }
+            if (!useSimTime()) {
+                return;
+            }
+            // Accept only the native frame pair emitted by tTFSensor.
+            if (source.parent_frame() != "mujoco_world" || source.child_frame() != "base_frame") {
+                RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000,"Ignoring DSS TF: expected mujoco_world -> base_frame");
+                return;
+            }
+            const double stamp = source.header().stamp();
+            const double qx = -source.qy();
+            const double qy = source.qx();
+            const double qz = source.qz();
+            const double qw = source.qw();
+            const double norm = std::sqrt(qx*qx + qy*qy + qz*qz + qw*qw);
+            if (!std::isfinite(stamp) || stamp < 0.0 ||
+                !std::isfinite(source.x()) || !std::isfinite(source.y()) ||
+                !std::isfinite(source.z()) || !std::isfinite(norm) ||
+                norm <= std::numeric_limits<double>::epsilon()) {
+                RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000,
+                    "Ignoring invalid DSS TF pose or timestamp");
+                return;
+            }
+
+            geometry_msgs::msg::TransformStamped transform;
+            transform.header.stamp = toRosTime(stamp);
+            transform.header.frame_id = "odom";
+            transform.child_frame_id = "base_link";
+            // Same basis change as createOdom(): C * R * inverse(C).
+            transform.transform.translation.x = -source.y();
+            transform.transform.translation.y = source.x();
+            transform.transform.translation.z = source.z();
+            transform.transform.rotation.x = qx / norm;
+            transform.transform.rotation.y = qy / norm;
+            transform.transform.rotation.z = qz / norm;
+            transform.transform.rotation.w = qw / norm;
+            tf_broadcaster_->sendTransform(transform);
+        });
+    }
+
+    void publishStaticTransforms()
+    {
+        static_tf_broadcaster_ = std::make_unique<tf2_ros::StaticTransformBroadcaster>(*this);
+        // turtlebot4.xml offsets after (-y, x, z) basis conversion.
+        // Both sensor frames have the converted base axes: no extra yaw.
+        geometry_msgs::msg::TransformStamped imu;
+        imu.header.stamp = toRosTime(0.0);
+        imu.header.frame_id = "base_link";
+        imu.child_frame_id = "imu_link";
+        imu.transform.translation.x = 0.035;
+        imu.transform.translation.y = 0.051;
+        imu.transform.translation.z = 0.0293;
+        imu.transform.rotation.w = 1.0;
+
+        geometry_msgs::msg::TransformStamped laser;
+        laser.header.stamp = toRosTime(0.0);
+        laser.header.frame_id = "base_link";
+        laser.child_frame_id = "laser_link";
+        laser.transform.translation.z = 0.08;
+        laser.transform.rotation.w = 1.0;
+
+        // Transient-local static broadcaster retains both for late subscribers.
+        static_tf_broadcaster_->sendTransform(
+            std::vector<geometry_msgs::msg::TransformStamped>{imu, laser});
     }
 
     void registClock()
@@ -649,11 +729,16 @@ private:
 
         for (const auto range : source.ranges()) 
         {
-            if (std::isfinite(range) && range >= message.range_min && range <= message.range_max) {
-                message.ranges.push_back(range);
-            } else {
-                // LaserScan에서 측정 불가는 infinity로 표현
+            // Preserve REP-117 distinctions. The simulator must map its
+            // native ray miss (-1) to +infinity before sending this message.
+            if (std::isnan(range)) {
+                message.ranges.push_back(std::numeric_limits<float>::quiet_NaN());
+            } else if (range < message.range_min) {
+                message.ranges.push_back(-std::numeric_limits<float>::infinity());
+            } else if (range > message.range_max) {
                 message.ranges.push_back(std::numeric_limits<float>::infinity());
+            } else {
+                message.ranges.push_back(range);
             }
         }
 
@@ -702,6 +787,8 @@ private:
         return stream.str();
     }
 
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+    std::unique_ptr<tf2_ros::StaticTransformBroadcaster> static_tf_broadcaster_;
     natsConnection* nats_connection_ = nullptr;
     std::vector<natsSubscription*> subscriptions_;
     std::vector<std::unique_ptr<TopicHandler>> topic_handlers_;
