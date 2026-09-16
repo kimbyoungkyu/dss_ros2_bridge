@@ -1,4 +1,5 @@
 #include <rclcpp/rclcpp.hpp>
+#include <geometry_msgs/msg/twist.hpp>
 #include <rosgraph_msgs/msg/clock.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <sensor_msgs/msg/imu.hpp>
@@ -37,6 +38,7 @@ constexpr char kImuSubject[] = "dss.sensor.imu";
 constexpr char kLaserScanSubject[] = "dss.sensor.lidar2d";
 constexpr char kOdomSubject[] = "dss.sensor.odom";
 constexpr char kWheelEncoderSubject[] = "dss.sensor.wheelEncoder";
+constexpr char kVelocityCommandSubject[] = "dss.turtlebot4.velcmd";
 constexpr char kHeartbeatSubject[] =
     "dss.DSS_TB4_SimToROSBridgeNode.heartBeat";
 }  // namespace
@@ -61,6 +63,7 @@ public:
         registHeartbeat();
         registOdom();
         registWheelEncoder();
+        registCmdVel();
         //RCLCPP_INFO(get_logger(), "DSS TB4 Sim-to-ROS bridge is ready");
         if (useSimTime()){
             RCLCPP_INFO(get_logger(), "DSS TB4 Sim2ROS bridge is running in sim_time mode.");
@@ -230,8 +233,7 @@ private:
     {
         joint_state_publisher_ = create_publisher<sensor_msgs::msg::JointState>("/joint_states", 10);
 
-        subscribe(kWheelEncoderSubject,
-                  [this](const std::string&, const char* data, int length) {
+        subscribe(kWheelEncoderSubject,[this](const std::string&, const char* data, int length) {
             dss::DSSWheelEncoder source;
             if (!source.ParseFromArray(data, length)) {
                 RCLCPP_ERROR(get_logger(), "DSSWheelEncoder protobuf parse failed");
@@ -241,6 +243,67 @@ private:
                 joint_state_publisher_->publish(createJointState(source));
             }
         });
+    }
+
+    void registCmdVel()
+    {
+        cmd_vel_subscription_ = create_subscription<geometry_msgs::msg::Twist>(
+            "/cmd_vel",
+            rclcpp::QoS(10),
+            std::bind(
+                &DSS_TB4_SimToROSBridgeNode::onCmdVel,
+                this,
+                std::placeholders::_1));
+
+        RCLCPP_INFO(
+            get_logger(),
+            "ROS2 /cmd_vel -> NATS %s bridge is ready",
+            kVelocityCommandSubject);
+    }
+
+    void onCmdVel(const geometry_msgs::msg::Twist::SharedPtr message)
+    {
+        if (message == nullptr || nats_connection_ == nullptr) {
+            return;
+        }
+
+        dss::TurtleBot4Control command;
+        command.set_identifier("turtlebot4");
+
+        const auto timestamp_ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+        command.set_timestamp(timestamp_ms);
+
+        // TurtleBot4Control uses the ROS base-frame velocity convention.
+        command.set_linear_x(message->linear.x);
+        command.set_linear_y(message->linear.y);
+        command.set_angular_z(message->angular.z);
+
+        constexpr double kStoppedEpsilon = 1.0e-6;
+        const bool stopped = std::abs(message->linear.x) < kStoppedEpsilon && std::abs(message->linear.y) < kStoppedEpsilon && std::abs(message->angular.z) < kStoppedEpsilon;
+        command.set_mode(stopped ? dss::TurtleBot4Control::MODE_STOP : dss::TurtleBot4Control::MODE_VELOCITY);
+        std::string payload;
+        if (!command.SerializeToString(&payload)) {
+            RCLCPP_ERROR(get_logger(), "TurtleBot4Control serialization failed");
+            return;
+        }
+
+        const natsStatus status = natsConnection_Publish(nats_connection_,kVelocityCommandSubject,payload.data(),static_cast<int>(payload.size()));
+        if (status != NATS_OK) {
+            RCLCPP_ERROR(get_logger(),"NATS velocity command publish failed: %s",natsStatus_GetText(status));
+            return;
+        }
+
+        RCLCPP_INFO_THROTTLE(
+            get_logger(),
+            *get_clock(),
+            500,
+            "[ROS2] /cmd_vel -> [NATS] %s "
+            "linear=(%.3f, %.3f), angular_z=%.3f, mode=%s",
+            kVelocityCommandSubject,
+            message->linear.x,
+            message->linear.y,
+            message->angular.z,
+            stopped ? "STOP" : "VELOCITY");
     }
 
     template <typename RepeatedField>
@@ -658,6 +721,7 @@ private:
     rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr laser_scan_publisher_;
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_publisher_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_publisher_;
+    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_subscription_;
 };
 
 int main(int argc, char** argv)
