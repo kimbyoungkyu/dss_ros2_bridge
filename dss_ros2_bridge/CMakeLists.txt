@@ -137,6 +137,39 @@ target_link_libraries(DSSToROSGpsNode
 )
 
 
+add_executable(DSSToROSLaserScanNode src/DSSToROSLaserScan.cpp src/dss.pb.cc src/defaultGateway.cpp)
+ament_target_dependencies(DSSToROSLaserScanNode rclcpp sensor_msgs OpenCV)
+target_link_libraries(DSSToROSLaserScanNode
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
+add_executable(DSS_TB4_SimToROSBridgeNode src/DSS_TB4_SimToROSBridge.cpp src/dss.pb.cc src/defaultGateway.cpp)
+ament_target_dependencies(DSS_TB4_SimToROSBridgeNode rclcpp sensor_msgs OpenCV nav_msgs)
+target_link_libraries(DSS_TB4_SimToROSBridgeNode
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
+add_executable(DSS_TB4_ROSToControlPanelBridgeNode src/DSS_TB4_ROSToControlPanelBridge.cpp src/dss.pb.cc src/defaultGateway.cpp)
+ament_target_dependencies(DSS_TB4_ROSToControlPanelBridgeNode rclcpp sensor_msgs OpenCV)
+target_link_libraries(DSS_TB4_ROSToControlPanelBridgeNode
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
+
+
+
 add_executable(DSSDemoNode src/DSSDemo.cpp src/dss.pb.cc src/DSS.VSSClient.cpp src/defaultGateway.cpp)
 ament_target_dependencies(DSSDemoNode rclcpp sensor_msgs OpenCV)
 target_link_libraries(DSSDemoNode
@@ -161,7 +194,9 @@ install(
     DSSToROSStereoCameraColorNode
     DSSToROSStereoCameraDepthNode
     DSSToROSStereoCameraInfra1Node
-    DSSToROSStereoCameraInfra2Node
+    DSSToROSLaserScanNode
+    DSS_TB4_SimToROSBridgeNode
+    DSS_TB4_ROSToControlPanelBridgeNode
     DSSDemoNode
     ${cpp_typesupport_target}        # ← ★ 추가! typesupport .so 설치
   DESTINATION lib/${PROJECT_NAME}

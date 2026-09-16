@@ -30,6 +30,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -46,7 +47,7 @@ struct TableStruct_dss_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[20]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[29]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -55,6 +56,9 @@ struct TableStruct_dss_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dss_2eproto;
 ::PROTOBUF_NAMESPACE_ID::Metadata descriptor_table_dss_2eproto_metadata_getter(int index);
 namespace dss {
+class DSSCmdVel;
+struct DSSCmdVelDefaultTypeInternal;
+extern DSSCmdVelDefaultTypeInternal _DSSCmdVel_default_instance_;
 class DSSGPS;
 struct DSSGPSDefaultTypeInternal;
 extern DSSGPSDefaultTypeInternal _DSSGPS_default_instance_;
@@ -79,15 +83,21 @@ extern DSSPoseDefaultTypeInternal _DSSPose_default_instance_;
 class DSSQuaternion;
 struct DSSQuaternionDefaultTypeInternal;
 extern DSSQuaternionDefaultTypeInternal _DSSQuaternion_default_instance_;
+class DSSTF;
+struct DSSTFDefaultTypeInternal;
+extern DSSTFDefaultTypeInternal _DSSTF_default_instance_;
 class DSSTwist;
 struct DSSTwistDefaultTypeInternal;
 extern DSSTwistDefaultTypeInternal _DSSTwist_default_instance_;
 class DSSVector3;
 struct DSSVector3DefaultTypeInternal;
 extern DSSVector3DefaultTypeInternal _DSSVector3_default_instance_;
-class Dss;
-struct DssDefaultTypeInternal;
-extern DssDefaultTypeInternal _Dss_default_instance_;
+class DSSWheelEncoder;
+struct DSSWheelEncoderDefaultTypeInternal;
+extern DSSWheelEncoderDefaultTypeInternal _DSSWheelEncoder_default_instance_;
+class DssClock;
+struct DssClockDefaultTypeInternal;
+extern DssClockDefaultTypeInternal _DssClock_default_instance_;
 class DssDepthVizMessage;
 struct DssDepthVizMessageDefaultTypeInternal;
 extern DssDepthVizMessageDefaultTypeInternal _DssDepthVizMessage_default_instance_;
@@ -100,6 +110,9 @@ extern DssEgoVehicleSnapshotDefaultTypeInternal _DssEgoVehicleSnapshot_default_i
 class DssHeartbeat;
 struct DssHeartbeatDefaultTypeInternal;
 extern DssHeartbeatDefaultTypeInternal _DssHeartbeat_default_instance_;
+class DssLaserScan2D;
+struct DssLaserScan2DDefaultTypeInternal;
+extern DssLaserScan2DDefaultTypeInternal _DssLaserScan2D_default_instance_;
 class DssLidarPointCloud;
 struct DssLidarPointCloudDefaultTypeInternal;
 extern DssLidarPointCloudDefaultTypeInternal _DssLidarPointCloud_default_instance_;
@@ -115,8 +128,24 @@ extern DssSetControlDefaultTypeInternal _DssSetControl_default_instance_;
 class FDssWheelSnapshot;
 struct FDssWheelSnapshotDefaultTypeInternal;
 extern FDssWheelSnapshotDefaultTypeInternal _FDssWheelSnapshot_default_instance_;
+class Go2Control;
+struct Go2ControlDefaultTypeInternal;
+extern Go2ControlDefaultTypeInternal _Go2Control_default_instance_;
+class MujocoBody;
+struct MujocoBodyDefaultTypeInternal;
+extern MujocoBodyDefaultTypeInternal _MujocoBody_default_instance_;
+class MujocoGT;
+struct MujocoGTDefaultTypeInternal;
+extern MujocoGTDefaultTypeInternal _MujocoGT_default_instance_;
+class RobotVelocityCommand;
+struct RobotVelocityCommandDefaultTypeInternal;
+extern RobotVelocityCommandDefaultTypeInternal _RobotVelocityCommand_default_instance_;
+class TurtleBot4Control;
+struct TurtleBot4ControlDefaultTypeInternal;
+extern TurtleBot4ControlDefaultTypeInternal _TurtleBot4Control_default_instance_;
 }  // namespace dss
 PROTOBUF_NAMESPACE_OPEN
+template<> ::dss::DSSCmdVel* Arena::CreateMaybeMessage<::dss::DSSCmdVel>(Arena*);
 template<> ::dss::DSSGPS* Arena::CreateMaybeMessage<::dss::DSSGPS>(Arena*);
 template<> ::dss::DSSGPSStatus* Arena::CreateMaybeMessage<::dss::DSSGPSStatus>(Arena*);
 template<> ::dss::DSSHeader* Arena::CreateMaybeMessage<::dss::DSSHeader>(Arena*);
@@ -125,21 +154,109 @@ template<> ::dss::DSSImage* Arena::CreateMaybeMessage<::dss::DSSImage>(Arena*);
 template<> ::dss::DSSOdom* Arena::CreateMaybeMessage<::dss::DSSOdom>(Arena*);
 template<> ::dss::DSSPose* Arena::CreateMaybeMessage<::dss::DSSPose>(Arena*);
 template<> ::dss::DSSQuaternion* Arena::CreateMaybeMessage<::dss::DSSQuaternion>(Arena*);
+template<> ::dss::DSSTF* Arena::CreateMaybeMessage<::dss::DSSTF>(Arena*);
 template<> ::dss::DSSTwist* Arena::CreateMaybeMessage<::dss::DSSTwist>(Arena*);
 template<> ::dss::DSSVector3* Arena::CreateMaybeMessage<::dss::DSSVector3>(Arena*);
-template<> ::dss::Dss* Arena::CreateMaybeMessage<::dss::Dss>(Arena*);
+template<> ::dss::DSSWheelEncoder* Arena::CreateMaybeMessage<::dss::DSSWheelEncoder>(Arena*);
+template<> ::dss::DssClock* Arena::CreateMaybeMessage<::dss::DssClock>(Arena*);
 template<> ::dss::DssDepthVizMessage* Arena::CreateMaybeMessage<::dss::DssDepthVizMessage>(Arena*);
 template<> ::dss::DssDepthVizPixel* Arena::CreateMaybeMessage<::dss::DssDepthVizPixel>(Arena*);
 template<> ::dss::DssEgoVehicleSnapshot* Arena::CreateMaybeMessage<::dss::DssEgoVehicleSnapshot>(Arena*);
 template<> ::dss::DssHeartbeat* Arena::CreateMaybeMessage<::dss::DssHeartbeat>(Arena*);
+template<> ::dss::DssLaserScan2D* Arena::CreateMaybeMessage<::dss::DssLaserScan2D>(Arena*);
 template<> ::dss::DssLidarPointCloud* Arena::CreateMaybeMessage<::dss::DssLidarPointCloud>(Arena*);
 template<> ::dss::DssOneFrameFixedRateResult* Arena::CreateMaybeMessage<::dss::DssOneFrameFixedRateResult>(Arena*);
 template<> ::dss::DssPointField* Arena::CreateMaybeMessage<::dss::DssPointField>(Arena*);
 template<> ::dss::DssSetControl* Arena::CreateMaybeMessage<::dss::DssSetControl>(Arena*);
 template<> ::dss::FDssWheelSnapshot* Arena::CreateMaybeMessage<::dss::FDssWheelSnapshot>(Arena*);
+template<> ::dss::Go2Control* Arena::CreateMaybeMessage<::dss::Go2Control>(Arena*);
+template<> ::dss::MujocoBody* Arena::CreateMaybeMessage<::dss::MujocoBody>(Arena*);
+template<> ::dss::MujocoGT* Arena::CreateMaybeMessage<::dss::MujocoGT>(Arena*);
+template<> ::dss::RobotVelocityCommand* Arena::CreateMaybeMessage<::dss::RobotVelocityCommand>(Arena*);
+template<> ::dss::TurtleBot4Control* Arena::CreateMaybeMessage<::dss::TurtleBot4Control>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace dss {
 
+enum TurtleBot4Control_Mode : int {
+  TurtleBot4Control_Mode_MODE_NONE = 0,
+  TurtleBot4Control_Mode_MODE_STOP = 1,
+  TurtleBot4Control_Mode_MODE_VELOCITY = 2,
+  TurtleBot4Control_Mode_TurtleBot4Control_Mode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  TurtleBot4Control_Mode_TurtleBot4Control_Mode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool TurtleBot4Control_Mode_IsValid(int value);
+constexpr TurtleBot4Control_Mode TurtleBot4Control_Mode_Mode_MIN = TurtleBot4Control_Mode_MODE_NONE;
+constexpr TurtleBot4Control_Mode TurtleBot4Control_Mode_Mode_MAX = TurtleBot4Control_Mode_MODE_VELOCITY;
+constexpr int TurtleBot4Control_Mode_Mode_ARRAYSIZE = TurtleBot4Control_Mode_Mode_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* TurtleBot4Control_Mode_descriptor();
+template<typename T>
+inline const std::string& TurtleBot4Control_Mode_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, TurtleBot4Control_Mode>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function TurtleBot4Control_Mode_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    TurtleBot4Control_Mode_descriptor(), enum_t_value);
+}
+inline bool TurtleBot4Control_Mode_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, TurtleBot4Control_Mode* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<TurtleBot4Control_Mode>(
+    TurtleBot4Control_Mode_descriptor(), name, value);
+}
+enum Go2Control_Gait : int {
+  Go2Control_Gait_GAIT_NONE = 0,
+  Go2Control_Gait_GAIT_STAND = 1,
+  Go2Control_Gait_GAIT_WALK = 2,
+  Go2Control_Gait_GAIT_TROT = 3,
+  Go2Control_Gait_GAIT_RUN = 4,
+  Go2Control_Gait_Go2Control_Gait_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  Go2Control_Gait_Go2Control_Gait_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool Go2Control_Gait_IsValid(int value);
+constexpr Go2Control_Gait Go2Control_Gait_Gait_MIN = Go2Control_Gait_GAIT_NONE;
+constexpr Go2Control_Gait Go2Control_Gait_Gait_MAX = Go2Control_Gait_GAIT_RUN;
+constexpr int Go2Control_Gait_Gait_ARRAYSIZE = Go2Control_Gait_Gait_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Go2Control_Gait_descriptor();
+template<typename T>
+inline const std::string& Go2Control_Gait_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Go2Control_Gait>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Go2Control_Gait_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Go2Control_Gait_descriptor(), enum_t_value);
+}
+inline bool Go2Control_Gait_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Go2Control_Gait* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Go2Control_Gait>(
+    Go2Control_Gait_descriptor(), name, value);
+}
+enum Go2Control_Mode : int {
+  Go2Control_Mode_MODE_NONE = 0,
+  Go2Control_Mode_MODE_STOP = 1,
+  Go2Control_Mode_MODE_VELOCITY = 2,
+  Go2Control_Mode_Go2Control_Mode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  Go2Control_Mode_Go2Control_Mode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool Go2Control_Mode_IsValid(int value);
+constexpr Go2Control_Mode Go2Control_Mode_Mode_MIN = Go2Control_Mode_MODE_NONE;
+constexpr Go2Control_Mode Go2Control_Mode_Mode_MAX = Go2Control_Mode_MODE_VELOCITY;
+constexpr int Go2Control_Mode_Mode_ARRAYSIZE = Go2Control_Mode_Mode_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Go2Control_Mode_descriptor();
+template<typename T>
+inline const std::string& Go2Control_Mode_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Go2Control_Mode>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Go2Control_Mode_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Go2Control_Mode_descriptor(), enum_t_value);
+}
+inline bool Go2Control_Mode_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Go2Control_Mode* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Go2Control_Mode>(
+    Go2Control_Mode_descriptor(), name, value);
+}
 // ===================================================================
 
 class DssHeartbeat PROTOBUF_FINAL :
@@ -694,6 +811,747 @@ class DssSetControl PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class TurtleBot4Control PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.TurtleBot4Control) */ {
+ public:
+  inline TurtleBot4Control() : TurtleBot4Control(nullptr) {}
+  virtual ~TurtleBot4Control();
+  explicit constexpr TurtleBot4Control(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TurtleBot4Control(const TurtleBot4Control& from);
+  TurtleBot4Control(TurtleBot4Control&& from) noexcept
+    : TurtleBot4Control() {
+    *this = ::std::move(from);
+  }
+
+  inline TurtleBot4Control& operator=(const TurtleBot4Control& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TurtleBot4Control& operator=(TurtleBot4Control&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const TurtleBot4Control& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TurtleBot4Control* internal_default_instance() {
+    return reinterpret_cast<const TurtleBot4Control*>(
+               &_TurtleBot4Control_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(TurtleBot4Control& a, TurtleBot4Control& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TurtleBot4Control* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TurtleBot4Control* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TurtleBot4Control* New() const final {
+    return CreateMaybeMessage<TurtleBot4Control>(nullptr);
+  }
+
+  TurtleBot4Control* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<TurtleBot4Control>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const TurtleBot4Control& from);
+  void MergeFrom(const TurtleBot4Control& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TurtleBot4Control* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.TurtleBot4Control";
+  }
+  protected:
+  explicit TurtleBot4Control(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef TurtleBot4Control_Mode Mode;
+  static constexpr Mode MODE_NONE =
+    TurtleBot4Control_Mode_MODE_NONE;
+  static constexpr Mode MODE_STOP =
+    TurtleBot4Control_Mode_MODE_STOP;
+  static constexpr Mode MODE_VELOCITY =
+    TurtleBot4Control_Mode_MODE_VELOCITY;
+  static inline bool Mode_IsValid(int value) {
+    return TurtleBot4Control_Mode_IsValid(value);
+  }
+  static constexpr Mode Mode_MIN =
+    TurtleBot4Control_Mode_Mode_MIN;
+  static constexpr Mode Mode_MAX =
+    TurtleBot4Control_Mode_Mode_MAX;
+  static constexpr int Mode_ARRAYSIZE =
+    TurtleBot4Control_Mode_Mode_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Mode_descriptor() {
+    return TurtleBot4Control_Mode_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Mode_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Mode>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Mode_Name.");
+    return TurtleBot4Control_Mode_Name(enum_t_value);
+  }
+  static inline bool Mode_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Mode* value) {
+    return TurtleBot4Control_Mode_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdentifierFieldNumber = 1,
+    kTimestampFieldNumber = 2,
+    kLinearXFieldNumber = 3,
+    kLinearYFieldNumber = 4,
+    kAngularZFieldNumber = 5,
+    kModeFieldNumber = 6,
+  };
+  // string identifier = 1;
+  void clear_identifier();
+  const std::string& identifier() const;
+  void set_identifier(const std::string& value);
+  void set_identifier(std::string&& value);
+  void set_identifier(const char* value);
+  void set_identifier(const char* value, size_t size);
+  std::string* mutable_identifier();
+  std::string* release_identifier();
+  void set_allocated_identifier(std::string* identifier);
+  private:
+  const std::string& _internal_identifier() const;
+  void _internal_set_identifier(const std::string& value);
+  std::string* _internal_mutable_identifier();
+  public:
+
+  // int64 timestamp = 2;
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // double linear_x = 3;
+  void clear_linear_x();
+  double linear_x() const;
+  void set_linear_x(double value);
+  private:
+  double _internal_linear_x() const;
+  void _internal_set_linear_x(double value);
+  public:
+
+  // double linear_y = 4;
+  void clear_linear_y();
+  double linear_y() const;
+  void set_linear_y(double value);
+  private:
+  double _internal_linear_y() const;
+  void _internal_set_linear_y(double value);
+  public:
+
+  // double angular_z = 5;
+  void clear_angular_z();
+  double angular_z() const;
+  void set_angular_z(double value);
+  private:
+  double _internal_angular_z() const;
+  void _internal_set_angular_z(double value);
+  public:
+
+  // .dss.TurtleBot4Control.Mode mode = 6;
+  void clear_mode();
+  ::dss::TurtleBot4Control_Mode mode() const;
+  void set_mode(::dss::TurtleBot4Control_Mode value);
+  private:
+  ::dss::TurtleBot4Control_Mode _internal_mode() const;
+  void _internal_set_mode(::dss::TurtleBot4Control_Mode value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.TurtleBot4Control)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr identifier_;
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp_;
+  double linear_x_;
+  double linear_y_;
+  double angular_z_;
+  int mode_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Go2Control PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.Go2Control) */ {
+ public:
+  inline Go2Control() : Go2Control(nullptr) {}
+  virtual ~Go2Control();
+  explicit constexpr Go2Control(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Go2Control(const Go2Control& from);
+  Go2Control(Go2Control&& from) noexcept
+    : Go2Control() {
+    *this = ::std::move(from);
+  }
+
+  inline Go2Control& operator=(const Go2Control& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Go2Control& operator=(Go2Control&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Go2Control& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Go2Control* internal_default_instance() {
+    return reinterpret_cast<const Go2Control*>(
+               &_Go2Control_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Go2Control& a, Go2Control& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Go2Control* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Go2Control* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Go2Control* New() const final {
+    return CreateMaybeMessage<Go2Control>(nullptr);
+  }
+
+  Go2Control* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Go2Control>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Go2Control& from);
+  void MergeFrom(const Go2Control& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Go2Control* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.Go2Control";
+  }
+  protected:
+  explicit Go2Control(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef Go2Control_Gait Gait;
+  static constexpr Gait GAIT_NONE =
+    Go2Control_Gait_GAIT_NONE;
+  static constexpr Gait GAIT_STAND =
+    Go2Control_Gait_GAIT_STAND;
+  static constexpr Gait GAIT_WALK =
+    Go2Control_Gait_GAIT_WALK;
+  static constexpr Gait GAIT_TROT =
+    Go2Control_Gait_GAIT_TROT;
+  static constexpr Gait GAIT_RUN =
+    Go2Control_Gait_GAIT_RUN;
+  static inline bool Gait_IsValid(int value) {
+    return Go2Control_Gait_IsValid(value);
+  }
+  static constexpr Gait Gait_MIN =
+    Go2Control_Gait_Gait_MIN;
+  static constexpr Gait Gait_MAX =
+    Go2Control_Gait_Gait_MAX;
+  static constexpr int Gait_ARRAYSIZE =
+    Go2Control_Gait_Gait_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Gait_descriptor() {
+    return Go2Control_Gait_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Gait_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Gait>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Gait_Name.");
+    return Go2Control_Gait_Name(enum_t_value);
+  }
+  static inline bool Gait_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Gait* value) {
+    return Go2Control_Gait_Parse(name, value);
+  }
+
+  typedef Go2Control_Mode Mode;
+  static constexpr Mode MODE_NONE =
+    Go2Control_Mode_MODE_NONE;
+  static constexpr Mode MODE_STOP =
+    Go2Control_Mode_MODE_STOP;
+  static constexpr Mode MODE_VELOCITY =
+    Go2Control_Mode_MODE_VELOCITY;
+  static inline bool Mode_IsValid(int value) {
+    return Go2Control_Mode_IsValid(value);
+  }
+  static constexpr Mode Mode_MIN =
+    Go2Control_Mode_Mode_MIN;
+  static constexpr Mode Mode_MAX =
+    Go2Control_Mode_Mode_MAX;
+  static constexpr int Mode_ARRAYSIZE =
+    Go2Control_Mode_Mode_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Mode_descriptor() {
+    return Go2Control_Mode_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Mode_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Mode>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Mode_Name.");
+    return Go2Control_Mode_Name(enum_t_value);
+  }
+  static inline bool Mode_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Mode* value) {
+    return Go2Control_Mode_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdentifierFieldNumber = 1,
+    kTimestampFieldNumber = 2,
+    kVxFieldNumber = 3,
+    kVyFieldNumber = 4,
+    kYawRateFieldNumber = 5,
+    kBodyHeightFieldNumber = 6,
+    kGaitFieldNumber = 7,
+    kModeFieldNumber = 8,
+  };
+  // string identifier = 1;
+  void clear_identifier();
+  const std::string& identifier() const;
+  void set_identifier(const std::string& value);
+  void set_identifier(std::string&& value);
+  void set_identifier(const char* value);
+  void set_identifier(const char* value, size_t size);
+  std::string* mutable_identifier();
+  std::string* release_identifier();
+  void set_allocated_identifier(std::string* identifier);
+  private:
+  const std::string& _internal_identifier() const;
+  void _internal_set_identifier(const std::string& value);
+  std::string* _internal_mutable_identifier();
+  public:
+
+  // int64 timestamp = 2;
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // double vx = 3;
+  void clear_vx();
+  double vx() const;
+  void set_vx(double value);
+  private:
+  double _internal_vx() const;
+  void _internal_set_vx(double value);
+  public:
+
+  // double vy = 4;
+  void clear_vy();
+  double vy() const;
+  void set_vy(double value);
+  private:
+  double _internal_vy() const;
+  void _internal_set_vy(double value);
+  public:
+
+  // double yaw_rate = 5;
+  void clear_yaw_rate();
+  double yaw_rate() const;
+  void set_yaw_rate(double value);
+  private:
+  double _internal_yaw_rate() const;
+  void _internal_set_yaw_rate(double value);
+  public:
+
+  // double body_height = 6;
+  void clear_body_height();
+  double body_height() const;
+  void set_body_height(double value);
+  private:
+  double _internal_body_height() const;
+  void _internal_set_body_height(double value);
+  public:
+
+  // .dss.Go2Control.Gait gait = 7;
+  void clear_gait();
+  ::dss::Go2Control_Gait gait() const;
+  void set_gait(::dss::Go2Control_Gait value);
+  private:
+  ::dss::Go2Control_Gait _internal_gait() const;
+  void _internal_set_gait(::dss::Go2Control_Gait value);
+  public:
+
+  // .dss.Go2Control.Mode mode = 8;
+  void clear_mode();
+  ::dss::Go2Control_Mode mode() const;
+  void set_mode(::dss::Go2Control_Mode value);
+  private:
+  ::dss::Go2Control_Mode _internal_mode() const;
+  void _internal_set_mode(::dss::Go2Control_Mode value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.Go2Control)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr identifier_;
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp_;
+  double vx_;
+  double vy_;
+  double yaw_rate_;
+  double body_height_;
+  int gait_;
+  int mode_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RobotVelocityCommand PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.RobotVelocityCommand) */ {
+ public:
+  inline RobotVelocityCommand() : RobotVelocityCommand(nullptr) {}
+  virtual ~RobotVelocityCommand();
+  explicit constexpr RobotVelocityCommand(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RobotVelocityCommand(const RobotVelocityCommand& from);
+  RobotVelocityCommand(RobotVelocityCommand&& from) noexcept
+    : RobotVelocityCommand() {
+    *this = ::std::move(from);
+  }
+
+  inline RobotVelocityCommand& operator=(const RobotVelocityCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RobotVelocityCommand& operator=(RobotVelocityCommand&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const RobotVelocityCommand& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RobotVelocityCommand* internal_default_instance() {
+    return reinterpret_cast<const RobotVelocityCommand*>(
+               &_RobotVelocityCommand_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(RobotVelocityCommand& a, RobotVelocityCommand& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RobotVelocityCommand* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RobotVelocityCommand* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RobotVelocityCommand* New() const final {
+    return CreateMaybeMessage<RobotVelocityCommand>(nullptr);
+  }
+
+  RobotVelocityCommand* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RobotVelocityCommand>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RobotVelocityCommand& from);
+  void MergeFrom(const RobotVelocityCommand& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RobotVelocityCommand* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.RobotVelocityCommand";
+  }
+  protected:
+  explicit RobotVelocityCommand(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdentifierFieldNumber = 1,
+    kTimestampFieldNumber = 2,
+    kVxFieldNumber = 3,
+    kVyFieldNumber = 4,
+    kVzFieldNumber = 5,
+    kRollRateFieldNumber = 6,
+    kPitchRateFieldNumber = 7,
+    kYawRateFieldNumber = 8,
+  };
+  // string identifier = 1;
+  void clear_identifier();
+  const std::string& identifier() const;
+  void set_identifier(const std::string& value);
+  void set_identifier(std::string&& value);
+  void set_identifier(const char* value);
+  void set_identifier(const char* value, size_t size);
+  std::string* mutable_identifier();
+  std::string* release_identifier();
+  void set_allocated_identifier(std::string* identifier);
+  private:
+  const std::string& _internal_identifier() const;
+  void _internal_set_identifier(const std::string& value);
+  std::string* _internal_mutable_identifier();
+  public:
+
+  // int64 timestamp = 2;
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // double vx = 3;
+  void clear_vx();
+  double vx() const;
+  void set_vx(double value);
+  private:
+  double _internal_vx() const;
+  void _internal_set_vx(double value);
+  public:
+
+  // double vy = 4;
+  void clear_vy();
+  double vy() const;
+  void set_vy(double value);
+  private:
+  double _internal_vy() const;
+  void _internal_set_vy(double value);
+  public:
+
+  // double vz = 5;
+  void clear_vz();
+  double vz() const;
+  void set_vz(double value);
+  private:
+  double _internal_vz() const;
+  void _internal_set_vz(double value);
+  public:
+
+  // double roll_rate = 6;
+  void clear_roll_rate();
+  double roll_rate() const;
+  void set_roll_rate(double value);
+  private:
+  double _internal_roll_rate() const;
+  void _internal_set_roll_rate(double value);
+  public:
+
+  // double pitch_rate = 7;
+  void clear_pitch_rate();
+  double pitch_rate() const;
+  void set_pitch_rate(double value);
+  private:
+  double _internal_pitch_rate() const;
+  void _internal_set_pitch_rate(double value);
+  public:
+
+  // double yaw_rate = 8;
+  void clear_yaw_rate();
+  double yaw_rate() const;
+  void set_yaw_rate(double value);
+  private:
+  double _internal_yaw_rate() const;
+  void _internal_set_yaw_rate(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.RobotVelocityCommand)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr identifier_;
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp_;
+  double vx_;
+  double vy_;
+  double vz_;
+  double roll_rate_;
+  double pitch_rate_;
+  double yaw_rate_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DssDepthVizPixel PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DssDepthVizPixel) */ {
  public:
@@ -737,7 +1595,7 @@ class DssDepthVizPixel PROTOBUF_FINAL :
                &_DssDepthVizPixel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    5;
 
   friend void swap(DssDepthVizPixel& a, DssDepthVizPixel& b) {
     a.Swap(&b);
@@ -918,7 +1776,7 @@ class DssDepthVizMessage PROTOBUF_FINAL :
                &_DssDepthVizMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    6;
 
   friend void swap(DssDepthVizMessage& a, DssDepthVizMessage& b) {
     a.Swap(&b);
@@ -1064,7 +1922,7 @@ class DSSHeader PROTOBUF_FINAL :
                &_DSSHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    7;
 
   friend void swap(DSSHeader& a, DSSHeader& b) {
     a.Swap(&b);
@@ -1219,7 +2077,7 @@ class DSSVector3 PROTOBUF_FINAL :
                &_DSSVector3_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    8;
 
   friend void swap(DSSVector3& a, DSSVector3& b) {
     a.Swap(&b);
@@ -1378,7 +2236,7 @@ class DSSQuaternion PROTOBUF_FINAL :
                &_DSSQuaternion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    9;
 
   friend void swap(DSSQuaternion& a, DSSQuaternion& b) {
     a.Swap(&b);
@@ -1548,7 +2406,7 @@ class DSSImage PROTOBUF_FINAL :
                &_DSSImage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    10;
 
   friend void swap(DSSImage& a, DSSImage& b) {
     a.Swap(&b);
@@ -1774,7 +2632,7 @@ class DSSGPSStatus PROTOBUF_FINAL :
                &_DSSGPSStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    11;
 
   friend void swap(DSSGPSStatus& a, DSSGPSStatus& b) {
     a.Swap(&b);
@@ -1922,7 +2780,7 @@ class DSSGPS PROTOBUF_FINAL :
                &_DSSGPS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    12;
 
   friend void swap(DSSGPS& a, DSSGPS& b) {
     a.Swap(&b);
@@ -2175,7 +3033,7 @@ class DSSIMU PROTOBUF_FINAL :
                &_DSSIMU_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    13;
 
   friend void swap(DSSIMU& a, DSSIMU& b) {
     a.Swap(&b);
@@ -2456,7 +3314,7 @@ class DSSPose PROTOBUF_FINAL :
                &_DSSPose_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    14;
 
   friend void swap(DSSPose& a, DSSPose& b) {
     a.Swap(&b);
@@ -2622,7 +3480,7 @@ class DSSTwist PROTOBUF_FINAL :
                &_DSSTwist_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    15;
 
   friend void swap(DSSTwist& a, DSSTwist& b) {
     a.Swap(&b);
@@ -2788,7 +3646,7 @@ class DSSOdom PROTOBUF_FINAL :
                &_DSSOdom_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    16;
 
   friend void swap(DSSOdom& a, DSSOdom& b) {
     a.Swap(&b);
@@ -2999,6 +3857,843 @@ class DSSOdom PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class DSSCmdVel PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DSSCmdVel) */ {
+ public:
+  inline DSSCmdVel() : DSSCmdVel(nullptr) {}
+  virtual ~DSSCmdVel();
+  explicit constexpr DSSCmdVel(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DSSCmdVel(const DSSCmdVel& from);
+  DSSCmdVel(DSSCmdVel&& from) noexcept
+    : DSSCmdVel() {
+    *this = ::std::move(from);
+  }
+
+  inline DSSCmdVel& operator=(const DSSCmdVel& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DSSCmdVel& operator=(DSSCmdVel&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DSSCmdVel& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DSSCmdVel* internal_default_instance() {
+    return reinterpret_cast<const DSSCmdVel*>(
+               &_DSSCmdVel_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(DSSCmdVel& a, DSSCmdVel& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DSSCmdVel* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DSSCmdVel* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DSSCmdVel* New() const final {
+    return CreateMaybeMessage<DSSCmdVel>(nullptr);
+  }
+
+  DSSCmdVel* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DSSCmdVel>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DSSCmdVel& from);
+  void MergeFrom(const DSSCmdVel& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DSSCmdVel* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.DSSCmdVel";
+  }
+  protected:
+  explicit DSSCmdVel(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLinearFieldNumber = 1,
+    kAngularFieldNumber = 2,
+  };
+  // .dss.DSSVector3 linear = 1;
+  bool has_linear() const;
+  private:
+  bool _internal_has_linear() const;
+  public:
+  void clear_linear();
+  const ::dss::DSSVector3& linear() const;
+  ::dss::DSSVector3* release_linear();
+  ::dss::DSSVector3* mutable_linear();
+  void set_allocated_linear(::dss::DSSVector3* linear);
+  private:
+  const ::dss::DSSVector3& _internal_linear() const;
+  ::dss::DSSVector3* _internal_mutable_linear();
+  public:
+  void unsafe_arena_set_allocated_linear(
+      ::dss::DSSVector3* linear);
+  ::dss::DSSVector3* unsafe_arena_release_linear();
+
+  // .dss.DSSVector3 angular = 2;
+  bool has_angular() const;
+  private:
+  bool _internal_has_angular() const;
+  public:
+  void clear_angular();
+  const ::dss::DSSVector3& angular() const;
+  ::dss::DSSVector3* release_angular();
+  ::dss::DSSVector3* mutable_angular();
+  void set_allocated_angular(::dss::DSSVector3* angular);
+  private:
+  const ::dss::DSSVector3& _internal_angular() const;
+  ::dss::DSSVector3* _internal_mutable_angular();
+  public:
+  void unsafe_arena_set_allocated_angular(
+      ::dss::DSSVector3* angular);
+  ::dss::DSSVector3* unsafe_arena_release_angular();
+
+  // @@protoc_insertion_point(class_scope:dss.DSSCmdVel)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::dss::DSSVector3* linear_;
+  ::dss::DSSVector3* angular_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DSSTF PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DSSTF) */ {
+ public:
+  inline DSSTF() : DSSTF(nullptr) {}
+  virtual ~DSSTF();
+  explicit constexpr DSSTF(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DSSTF(const DSSTF& from);
+  DSSTF(DSSTF&& from) noexcept
+    : DSSTF() {
+    *this = ::std::move(from);
+  }
+
+  inline DSSTF& operator=(const DSSTF& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DSSTF& operator=(DSSTF&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DSSTF& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DSSTF* internal_default_instance() {
+    return reinterpret_cast<const DSSTF*>(
+               &_DSSTF_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(DSSTF& a, DSSTF& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DSSTF* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DSSTF* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DSSTF* New() const final {
+    return CreateMaybeMessage<DSSTF>(nullptr);
+  }
+
+  DSSTF* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DSSTF>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DSSTF& from);
+  void MergeFrom(const DSSTF& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DSSTF* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.DSSTF";
+  }
+  protected:
+  explicit DSSTF(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kParentFrameFieldNumber = 2,
+    kChildFrameFieldNumber = 3,
+    kHeaderFieldNumber = 1,
+    kXFieldNumber = 4,
+    kYFieldNumber = 5,
+    kZFieldNumber = 6,
+    kQxFieldNumber = 7,
+    kQyFieldNumber = 8,
+    kQzFieldNumber = 9,
+    kQwFieldNumber = 10,
+  };
+  // string parent_frame = 2;
+  void clear_parent_frame();
+  const std::string& parent_frame() const;
+  void set_parent_frame(const std::string& value);
+  void set_parent_frame(std::string&& value);
+  void set_parent_frame(const char* value);
+  void set_parent_frame(const char* value, size_t size);
+  std::string* mutable_parent_frame();
+  std::string* release_parent_frame();
+  void set_allocated_parent_frame(std::string* parent_frame);
+  private:
+  const std::string& _internal_parent_frame() const;
+  void _internal_set_parent_frame(const std::string& value);
+  std::string* _internal_mutable_parent_frame();
+  public:
+
+  // string child_frame = 3;
+  void clear_child_frame();
+  const std::string& child_frame() const;
+  void set_child_frame(const std::string& value);
+  void set_child_frame(std::string&& value);
+  void set_child_frame(const char* value);
+  void set_child_frame(const char* value, size_t size);
+  std::string* mutable_child_frame();
+  std::string* release_child_frame();
+  void set_allocated_child_frame(std::string* child_frame);
+  private:
+  const std::string& _internal_child_frame() const;
+  void _internal_set_child_frame(const std::string& value);
+  std::string* _internal_mutable_child_frame();
+  public:
+
+  // .dss.DSSHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::dss::DSSHeader& header() const;
+  ::dss::DSSHeader* release_header();
+  ::dss::DSSHeader* mutable_header();
+  void set_allocated_header(::dss::DSSHeader* header);
+  private:
+  const ::dss::DSSHeader& _internal_header() const;
+  ::dss::DSSHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::dss::DSSHeader* header);
+  ::dss::DSSHeader* unsafe_arena_release_header();
+
+  // double x = 4;
+  void clear_x();
+  double x() const;
+  void set_x(double value);
+  private:
+  double _internal_x() const;
+  void _internal_set_x(double value);
+  public:
+
+  // double y = 5;
+  void clear_y();
+  double y() const;
+  void set_y(double value);
+  private:
+  double _internal_y() const;
+  void _internal_set_y(double value);
+  public:
+
+  // double z = 6;
+  void clear_z();
+  double z() const;
+  void set_z(double value);
+  private:
+  double _internal_z() const;
+  void _internal_set_z(double value);
+  public:
+
+  // double qx = 7;
+  void clear_qx();
+  double qx() const;
+  void set_qx(double value);
+  private:
+  double _internal_qx() const;
+  void _internal_set_qx(double value);
+  public:
+
+  // double qy = 8;
+  void clear_qy();
+  double qy() const;
+  void set_qy(double value);
+  private:
+  double _internal_qy() const;
+  void _internal_set_qy(double value);
+  public:
+
+  // double qz = 9;
+  void clear_qz();
+  double qz() const;
+  void set_qz(double value);
+  private:
+  double _internal_qz() const;
+  void _internal_set_qz(double value);
+  public:
+
+  // double qw = 10;
+  void clear_qw();
+  double qw() const;
+  void set_qw(double value);
+  private:
+  double _internal_qw() const;
+  void _internal_set_qw(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.DSSTF)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr parent_frame_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr child_frame_;
+  ::dss::DSSHeader* header_;
+  double x_;
+  double y_;
+  double z_;
+  double qx_;
+  double qy_;
+  double qz_;
+  double qw_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
+class MujocoBody PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.MujocoBody) */ {
+ public:
+  inline MujocoBody() : MujocoBody(nullptr) {}
+  virtual ~MujocoBody();
+  explicit constexpr MujocoBody(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  MujocoBody(const MujocoBody& from);
+  MujocoBody(MujocoBody&& from) noexcept
+    : MujocoBody() {
+    *this = ::std::move(from);
+  }
+
+  inline MujocoBody& operator=(const MujocoBody& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MujocoBody& operator=(MujocoBody&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const MujocoBody& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const MujocoBody* internal_default_instance() {
+    return reinterpret_cast<const MujocoBody*>(
+               &_MujocoBody_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(MujocoBody& a, MujocoBody& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MujocoBody* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MujocoBody* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MujocoBody* New() const final {
+    return CreateMaybeMessage<MujocoBody>(nullptr);
+  }
+
+  MujocoBody* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<MujocoBody>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const MujocoBody& from);
+  void MergeFrom(const MujocoBody& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MujocoBody* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.MujocoBody";
+  }
+  protected:
+  explicit MujocoBody(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 3,
+    kPositionFieldNumber = 4,
+    kOrientationFieldNumber = 5,
+    kLinearVelocityFieldNumber = 6,
+    kAngularVelocityFieldNumber = 7,
+    kIdFieldNumber = 1,
+    kParentIdFieldNumber = 2,
+  };
+  // string name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .dss.DSSVector3 position = 4;
+  bool has_position() const;
+  private:
+  bool _internal_has_position() const;
+  public:
+  void clear_position();
+  const ::dss::DSSVector3& position() const;
+  ::dss::DSSVector3* release_position();
+  ::dss::DSSVector3* mutable_position();
+  void set_allocated_position(::dss::DSSVector3* position);
+  private:
+  const ::dss::DSSVector3& _internal_position() const;
+  ::dss::DSSVector3* _internal_mutable_position();
+  public:
+  void unsafe_arena_set_allocated_position(
+      ::dss::DSSVector3* position);
+  ::dss::DSSVector3* unsafe_arena_release_position();
+
+  // .dss.DSSQuaternion orientation = 5;
+  bool has_orientation() const;
+  private:
+  bool _internal_has_orientation() const;
+  public:
+  void clear_orientation();
+  const ::dss::DSSQuaternion& orientation() const;
+  ::dss::DSSQuaternion* release_orientation();
+  ::dss::DSSQuaternion* mutable_orientation();
+  void set_allocated_orientation(::dss::DSSQuaternion* orientation);
+  private:
+  const ::dss::DSSQuaternion& _internal_orientation() const;
+  ::dss::DSSQuaternion* _internal_mutable_orientation();
+  public:
+  void unsafe_arena_set_allocated_orientation(
+      ::dss::DSSQuaternion* orientation);
+  ::dss::DSSQuaternion* unsafe_arena_release_orientation();
+
+  // .dss.DSSVector3 linear_velocity = 6;
+  bool has_linear_velocity() const;
+  private:
+  bool _internal_has_linear_velocity() const;
+  public:
+  void clear_linear_velocity();
+  const ::dss::DSSVector3& linear_velocity() const;
+  ::dss::DSSVector3* release_linear_velocity();
+  ::dss::DSSVector3* mutable_linear_velocity();
+  void set_allocated_linear_velocity(::dss::DSSVector3* linear_velocity);
+  private:
+  const ::dss::DSSVector3& _internal_linear_velocity() const;
+  ::dss::DSSVector3* _internal_mutable_linear_velocity();
+  public:
+  void unsafe_arena_set_allocated_linear_velocity(
+      ::dss::DSSVector3* linear_velocity);
+  ::dss::DSSVector3* unsafe_arena_release_linear_velocity();
+
+  // .dss.DSSVector3 angular_velocity = 7;
+  bool has_angular_velocity() const;
+  private:
+  bool _internal_has_angular_velocity() const;
+  public:
+  void clear_angular_velocity();
+  const ::dss::DSSVector3& angular_velocity() const;
+  ::dss::DSSVector3* release_angular_velocity();
+  ::dss::DSSVector3* mutable_angular_velocity();
+  void set_allocated_angular_velocity(::dss::DSSVector3* angular_velocity);
+  private:
+  const ::dss::DSSVector3& _internal_angular_velocity() const;
+  ::dss::DSSVector3* _internal_mutable_angular_velocity();
+  public:
+  void unsafe_arena_set_allocated_angular_velocity(
+      ::dss::DSSVector3* angular_velocity);
+  ::dss::DSSVector3* unsafe_arena_release_angular_velocity();
+
+  // uint32 id = 1;
+  void clear_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 id() const;
+  void set_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_id() const;
+  void _internal_set_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 parent_id = 2;
+  void clear_parent_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 parent_id() const;
+  void set_parent_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_parent_id() const;
+  void _internal_set_parent_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.MujocoBody)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::dss::DSSVector3* position_;
+  ::dss::DSSQuaternion* orientation_;
+  ::dss::DSSVector3* linear_velocity_;
+  ::dss::DSSVector3* angular_velocity_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 parent_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
+class MujocoGT PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.MujocoGT) */ {
+ public:
+  inline MujocoGT() : MujocoGT(nullptr) {}
+  virtual ~MujocoGT();
+  explicit constexpr MujocoGT(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  MujocoGT(const MujocoGT& from);
+  MujocoGT(MujocoGT&& from) noexcept
+    : MujocoGT() {
+    *this = ::std::move(from);
+  }
+
+  inline MujocoGT& operator=(const MujocoGT& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MujocoGT& operator=(MujocoGT&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const MujocoGT& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const MujocoGT* internal_default_instance() {
+    return reinterpret_cast<const MujocoGT*>(
+               &_MujocoGT_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(MujocoGT& a, MujocoGT& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MujocoGT* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MujocoGT* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MujocoGT* New() const final {
+    return CreateMaybeMessage<MujocoGT>(nullptr);
+  }
+
+  MujocoGT* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<MujocoGT>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const MujocoGT& from);
+  void MergeFrom(const MujocoGT& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MujocoGT* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.MujocoGT";
+  }
+  protected:
+  explicit MujocoGT(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBodiesFieldNumber = 2,
+    kHeaderFieldNumber = 1,
+  };
+  // repeated .dss.MujocoBody bodies = 2;
+  int bodies_size() const;
+  private:
+  int _internal_bodies_size() const;
+  public:
+  void clear_bodies();
+  ::dss::MujocoBody* mutable_bodies(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dss::MujocoBody >*
+      mutable_bodies();
+  private:
+  const ::dss::MujocoBody& _internal_bodies(int index) const;
+  ::dss::MujocoBody* _internal_add_bodies();
+  public:
+  const ::dss::MujocoBody& bodies(int index) const;
+  ::dss::MujocoBody* add_bodies();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dss::MujocoBody >&
+      bodies() const;
+
+  // .dss.DSSHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::dss::DSSHeader& header() const;
+  ::dss::DSSHeader* release_header();
+  ::dss::DSSHeader* mutable_header();
+  void set_allocated_header(::dss::DSSHeader* header);
+  private:
+  const ::dss::DSSHeader& _internal_header() const;
+  ::dss::DSSHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::dss::DSSHeader* header);
+  ::dss::DSSHeader* unsafe_arena_release_header();
+
+  // @@protoc_insertion_point(class_scope:dss.MujocoGT)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dss::MujocoBody > bodies_;
+  ::dss::DSSHeader* header_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DssPointField PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DssPointField) */ {
  public:
@@ -3042,7 +4737,7 @@ class DssPointField PROTOBUF_FINAL :
                &_DssPointField_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    21;
 
   friend void swap(DssPointField& a, DssPointField& b) {
     a.Swap(&b);
@@ -3219,7 +4914,7 @@ class DssLidarPointCloud PROTOBUF_FINAL :
                &_DssLidarPointCloud_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    22;
 
   friend void swap(DssLidarPointCloud& a, DssLidarPointCloud& b) {
     a.Swap(&b);
@@ -3426,6 +5121,279 @@ class DssLidarPointCloud PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class DssLaserScan2D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DssLaserScan2D) */ {
+ public:
+  inline DssLaserScan2D() : DssLaserScan2D(nullptr) {}
+  virtual ~DssLaserScan2D();
+  explicit constexpr DssLaserScan2D(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DssLaserScan2D(const DssLaserScan2D& from);
+  DssLaserScan2D(DssLaserScan2D&& from) noexcept
+    : DssLaserScan2D() {
+    *this = ::std::move(from);
+  }
+
+  inline DssLaserScan2D& operator=(const DssLaserScan2D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DssLaserScan2D& operator=(DssLaserScan2D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DssLaserScan2D& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DssLaserScan2D* internal_default_instance() {
+    return reinterpret_cast<const DssLaserScan2D*>(
+               &_DssLaserScan2D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(DssLaserScan2D& a, DssLaserScan2D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DssLaserScan2D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DssLaserScan2D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DssLaserScan2D* New() const final {
+    return CreateMaybeMessage<DssLaserScan2D>(nullptr);
+  }
+
+  DssLaserScan2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DssLaserScan2D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DssLaserScan2D& from);
+  void MergeFrom(const DssLaserScan2D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DssLaserScan2D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.DssLaserScan2D";
+  }
+  protected:
+  explicit DssLaserScan2D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRangesFieldNumber = 9,
+    kIntensitiesFieldNumber = 10,
+    kHeaderFieldNumber = 1,
+    kAngleMinFieldNumber = 2,
+    kAngleMaxFieldNumber = 3,
+    kAngleIncrementFieldNumber = 4,
+    kTimeIncrementFieldNumber = 5,
+    kScanTimeFieldNumber = 6,
+    kRangeMinFieldNumber = 7,
+    kRangeMaxFieldNumber = 8,
+  };
+  // repeated float ranges = 9;
+  int ranges_size() const;
+  private:
+  int _internal_ranges_size() const;
+  public:
+  void clear_ranges();
+  private:
+  float _internal_ranges(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_ranges() const;
+  void _internal_add_ranges(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_ranges();
+  public:
+  float ranges(int index) const;
+  void set_ranges(int index, float value);
+  void add_ranges(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      ranges() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_ranges();
+
+  // repeated float intensities = 10;
+  int intensities_size() const;
+  private:
+  int _internal_intensities_size() const;
+  public:
+  void clear_intensities();
+  private:
+  float _internal_intensities(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_intensities() const;
+  void _internal_add_intensities(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_intensities();
+  public:
+  float intensities(int index) const;
+  void set_intensities(int index, float value);
+  void add_intensities(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      intensities() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_intensities();
+
+  // .dss.DSSHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::dss::DSSHeader& header() const;
+  ::dss::DSSHeader* release_header();
+  ::dss::DSSHeader* mutable_header();
+  void set_allocated_header(::dss::DSSHeader* header);
+  private:
+  const ::dss::DSSHeader& _internal_header() const;
+  ::dss::DSSHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::dss::DSSHeader* header);
+  ::dss::DSSHeader* unsafe_arena_release_header();
+
+  // double angle_min = 2;
+  void clear_angle_min();
+  double angle_min() const;
+  void set_angle_min(double value);
+  private:
+  double _internal_angle_min() const;
+  void _internal_set_angle_min(double value);
+  public:
+
+  // double angle_max = 3;
+  void clear_angle_max();
+  double angle_max() const;
+  void set_angle_max(double value);
+  private:
+  double _internal_angle_max() const;
+  void _internal_set_angle_max(double value);
+  public:
+
+  // double angle_increment = 4;
+  void clear_angle_increment();
+  double angle_increment() const;
+  void set_angle_increment(double value);
+  private:
+  double _internal_angle_increment() const;
+  void _internal_set_angle_increment(double value);
+  public:
+
+  // double time_increment = 5;
+  void clear_time_increment();
+  double time_increment() const;
+  void set_time_increment(double value);
+  private:
+  double _internal_time_increment() const;
+  void _internal_set_time_increment(double value);
+  public:
+
+  // double scan_time = 6;
+  void clear_scan_time();
+  double scan_time() const;
+  void set_scan_time(double value);
+  private:
+  double _internal_scan_time() const;
+  void _internal_set_scan_time(double value);
+  public:
+
+  // double range_min = 7;
+  void clear_range_min();
+  double range_min() const;
+  void set_range_min(double value);
+  private:
+  double _internal_range_min() const;
+  void _internal_set_range_min(double value);
+  public:
+
+  // double range_max = 8;
+  void clear_range_max();
+  double range_max() const;
+  void set_range_max(double value);
+  private:
+  double _internal_range_max() const;
+  void _internal_set_range_max(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.DssLaserScan2D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > ranges_;
+  mutable std::atomic<int> _ranges_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > intensities_;
+  mutable std::atomic<int> _intensities_cached_byte_size_;
+  ::dss::DSSHeader* header_;
+  double angle_min_;
+  double angle_max_;
+  double angle_increment_;
+  double time_increment_;
+  double scan_time_;
+  double range_min_;
+  double range_max_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
 class FDssWheelSnapshot PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.FDssWheelSnapshot) */ {
  public:
@@ -3469,7 +5437,7 @@ class FDssWheelSnapshot PROTOBUF_FINAL :
                &_FDssWheelSnapshot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    24;
 
   friend void swap(FDssWheelSnapshot& a, FDssWheelSnapshot& b) {
     a.Swap(&b);
@@ -3650,7 +5618,7 @@ class DssEgoVehicleSnapshot PROTOBUF_FINAL :
                &_DssEgoVehicleSnapshot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    25;
 
   friend void swap(DssEgoVehicleSnapshot& a, DssEgoVehicleSnapshot& b) {
     a.Swap(&b);
@@ -3913,7 +5881,7 @@ class DssOneFrameFixedRateResult PROTOBUF_FINAL :
                &_DssOneFrameFixedRateResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    26;
 
   friend void swap(DssOneFrameFixedRateResult& a, DssOneFrameFixedRateResult& b) {
     a.Swap(&b);
@@ -4029,24 +5997,24 @@ class DssOneFrameFixedRateResult PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class Dss PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.Dss) */ {
+class DSSWheelEncoder PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DSSWheelEncoder) */ {
  public:
-  inline Dss() : Dss(nullptr) {}
-  virtual ~Dss();
-  explicit constexpr Dss(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline DSSWheelEncoder() : DSSWheelEncoder(nullptr) {}
+  virtual ~DSSWheelEncoder();
+  explicit constexpr DSSWheelEncoder(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Dss(const Dss& from);
-  Dss(Dss&& from) noexcept
-    : Dss() {
+  DSSWheelEncoder(const DSSWheelEncoder& from);
+  DSSWheelEncoder(DSSWheelEncoder&& from) noexcept
+    : DSSWheelEncoder() {
     *this = ::std::move(from);
   }
 
-  inline Dss& operator=(const Dss& from) {
+  inline DSSWheelEncoder& operator=(const DSSWheelEncoder& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Dss& operator=(Dss&& from) noexcept {
+  inline DSSWheelEncoder& operator=(DSSWheelEncoder&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -4064,20 +6032,20 @@ class Dss PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Dss& default_instance() {
+  static const DSSWheelEncoder& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Dss* internal_default_instance() {
-    return reinterpret_cast<const Dss*>(
-               &_Dss_default_instance_);
+  static inline const DSSWheelEncoder* internal_default_instance() {
+    return reinterpret_cast<const DSSWheelEncoder*>(
+               &_DSSWheelEncoder_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    27;
 
-  friend void swap(Dss& a, Dss& b) {
+  friend void swap(DSSWheelEncoder& a, DSSWheelEncoder& b) {
     a.Swap(&b);
   }
-  inline void Swap(Dss* other) {
+  inline void Swap(DSSWheelEncoder* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -4085,7 +6053,7 @@ class Dss PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Dss* other) {
+  void UnsafeArenaSwap(DSSWheelEncoder* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -4093,17 +6061,17 @@ class Dss PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Dss* New() const final {
-    return CreateMaybeMessage<Dss>(nullptr);
+  inline DSSWheelEncoder* New() const final {
+    return CreateMaybeMessage<DSSWheelEncoder>(nullptr);
   }
 
-  Dss* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Dss>(arena);
+  DSSWheelEncoder* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DSSWheelEncoder>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Dss& from);
-  void MergeFrom(const Dss& from);
+  void CopyFrom(const DSSWheelEncoder& from);
+  void MergeFrom(const DSSWheelEncoder& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -4117,13 +6085,203 @@ class Dss PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Dss* other);
+  void InternalSwap(DSSWheelEncoder* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "dss.Dss";
+    return "dss.DSSWheelEncoder";
   }
   protected:
-  explicit Dss(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit DSSWheelEncoder(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeaderFieldNumber = 1,
+    kLeftPositionFieldNumber = 2,
+    kLeftVelocityFieldNumber = 3,
+    kRightPositionFieldNumber = 4,
+    kRightVelocityFieldNumber = 5,
+  };
+  // .dss.DSSHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::dss::DSSHeader& header() const;
+  ::dss::DSSHeader* release_header();
+  ::dss::DSSHeader* mutable_header();
+  void set_allocated_header(::dss::DSSHeader* header);
+  private:
+  const ::dss::DSSHeader& _internal_header() const;
+  ::dss::DSSHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::dss::DSSHeader* header);
+  ::dss::DSSHeader* unsafe_arena_release_header();
+
+  // double left_position = 2;
+  void clear_left_position();
+  double left_position() const;
+  void set_left_position(double value);
+  private:
+  double _internal_left_position() const;
+  void _internal_set_left_position(double value);
+  public:
+
+  // double left_velocity = 3;
+  void clear_left_velocity();
+  double left_velocity() const;
+  void set_left_velocity(double value);
+  private:
+  double _internal_left_velocity() const;
+  void _internal_set_left_velocity(double value);
+  public:
+
+  // double right_position = 4;
+  void clear_right_position();
+  double right_position() const;
+  void set_right_position(double value);
+  private:
+  double _internal_right_position() const;
+  void _internal_set_right_position(double value);
+  public:
+
+  // double right_velocity = 5;
+  void clear_right_velocity();
+  double right_velocity() const;
+  void set_right_velocity(double value);
+  private:
+  double _internal_right_velocity() const;
+  void _internal_set_right_velocity(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.DSSWheelEncoder)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::dss::DSSHeader* header_;
+  double left_position_;
+  double left_velocity_;
+  double right_position_;
+  double right_velocity_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DssClock PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DssClock) */ {
+ public:
+  inline DssClock() : DssClock(nullptr) {}
+  virtual ~DssClock();
+  explicit constexpr DssClock(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DssClock(const DssClock& from);
+  DssClock(DssClock&& from) noexcept
+    : DssClock() {
+    *this = ::std::move(from);
+  }
+
+  inline DssClock& operator=(const DssClock& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DssClock& operator=(DssClock&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DssClock& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DssClock* internal_default_instance() {
+    return reinterpret_cast<const DssClock*>(
+               &_DssClock_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    28;
+
+  friend void swap(DssClock& a, DssClock& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DssClock* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DssClock* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DssClock* New() const final {
+    return CreateMaybeMessage<DssClock>(nullptr);
+  }
+
+  DssClock* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DssClock>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DssClock& from);
+  void MergeFrom(const DssClock& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DssClock* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.DssClock";
+  }
+  protected:
+  explicit DssClock(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -4173,7 +6331,7 @@ class Dss PROTOBUF_FINAL :
   void _internal_set_custom_delta_time(float value);
   public:
 
-  // @@protoc_insertion_point(class_scope:dss.Dss)
+  // @@protoc_insertion_point(class_scope:dss.DssClock)
  private:
   class _Internal;
 
@@ -4801,6 +6959,581 @@ inline void DssSetControl::_internal_set_wipermode(::PROTOBUF_NAMESPACE_ID::int3
 inline void DssSetControl::set_wipermode(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_wipermode(value);
   // @@protoc_insertion_point(field_set:dss.DssSetControl.wiperMode)
+}
+
+// -------------------------------------------------------------------
+
+// TurtleBot4Control
+
+// string identifier = 1;
+inline void TurtleBot4Control::clear_identifier() {
+  identifier_.ClearToEmpty();
+}
+inline const std::string& TurtleBot4Control::identifier() const {
+  // @@protoc_insertion_point(field_get:dss.TurtleBot4Control.identifier)
+  return _internal_identifier();
+}
+inline void TurtleBot4Control::set_identifier(const std::string& value) {
+  _internal_set_identifier(value);
+  // @@protoc_insertion_point(field_set:dss.TurtleBot4Control.identifier)
+}
+inline std::string* TurtleBot4Control::mutable_identifier() {
+  // @@protoc_insertion_point(field_mutable:dss.TurtleBot4Control.identifier)
+  return _internal_mutable_identifier();
+}
+inline const std::string& TurtleBot4Control::_internal_identifier() const {
+  return identifier_.Get();
+}
+inline void TurtleBot4Control::_internal_set_identifier(const std::string& value) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void TurtleBot4Control::set_identifier(std::string&& value) {
+  
+  identifier_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.TurtleBot4Control.identifier)
+}
+inline void TurtleBot4Control::set_identifier(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.TurtleBot4Control.identifier)
+}
+inline void TurtleBot4Control::set_identifier(const char* value,
+    size_t size) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.TurtleBot4Control.identifier)
+}
+inline std::string* TurtleBot4Control::_internal_mutable_identifier() {
+  
+  return identifier_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* TurtleBot4Control::release_identifier() {
+  // @@protoc_insertion_point(field_release:dss.TurtleBot4Control.identifier)
+  return identifier_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TurtleBot4Control::set_allocated_identifier(std::string* identifier) {
+  if (identifier != nullptr) {
+    
+  } else {
+    
+  }
+  identifier_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), identifier,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.TurtleBot4Control.identifier)
+}
+
+// int64 timestamp = 2;
+inline void TurtleBot4Control::clear_timestamp() {
+  timestamp_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 TurtleBot4Control::_internal_timestamp() const {
+  return timestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 TurtleBot4Control::timestamp() const {
+  // @@protoc_insertion_point(field_get:dss.TurtleBot4Control.timestamp)
+  return _internal_timestamp();
+}
+inline void TurtleBot4Control::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  timestamp_ = value;
+}
+inline void TurtleBot4Control::set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:dss.TurtleBot4Control.timestamp)
+}
+
+// double linear_x = 3;
+inline void TurtleBot4Control::clear_linear_x() {
+  linear_x_ = 0;
+}
+inline double TurtleBot4Control::_internal_linear_x() const {
+  return linear_x_;
+}
+inline double TurtleBot4Control::linear_x() const {
+  // @@protoc_insertion_point(field_get:dss.TurtleBot4Control.linear_x)
+  return _internal_linear_x();
+}
+inline void TurtleBot4Control::_internal_set_linear_x(double value) {
+  
+  linear_x_ = value;
+}
+inline void TurtleBot4Control::set_linear_x(double value) {
+  _internal_set_linear_x(value);
+  // @@protoc_insertion_point(field_set:dss.TurtleBot4Control.linear_x)
+}
+
+// double linear_y = 4;
+inline void TurtleBot4Control::clear_linear_y() {
+  linear_y_ = 0;
+}
+inline double TurtleBot4Control::_internal_linear_y() const {
+  return linear_y_;
+}
+inline double TurtleBot4Control::linear_y() const {
+  // @@protoc_insertion_point(field_get:dss.TurtleBot4Control.linear_y)
+  return _internal_linear_y();
+}
+inline void TurtleBot4Control::_internal_set_linear_y(double value) {
+  
+  linear_y_ = value;
+}
+inline void TurtleBot4Control::set_linear_y(double value) {
+  _internal_set_linear_y(value);
+  // @@protoc_insertion_point(field_set:dss.TurtleBot4Control.linear_y)
+}
+
+// double angular_z = 5;
+inline void TurtleBot4Control::clear_angular_z() {
+  angular_z_ = 0;
+}
+inline double TurtleBot4Control::_internal_angular_z() const {
+  return angular_z_;
+}
+inline double TurtleBot4Control::angular_z() const {
+  // @@protoc_insertion_point(field_get:dss.TurtleBot4Control.angular_z)
+  return _internal_angular_z();
+}
+inline void TurtleBot4Control::_internal_set_angular_z(double value) {
+  
+  angular_z_ = value;
+}
+inline void TurtleBot4Control::set_angular_z(double value) {
+  _internal_set_angular_z(value);
+  // @@protoc_insertion_point(field_set:dss.TurtleBot4Control.angular_z)
+}
+
+// .dss.TurtleBot4Control.Mode mode = 6;
+inline void TurtleBot4Control::clear_mode() {
+  mode_ = 0;
+}
+inline ::dss::TurtleBot4Control_Mode TurtleBot4Control::_internal_mode() const {
+  return static_cast< ::dss::TurtleBot4Control_Mode >(mode_);
+}
+inline ::dss::TurtleBot4Control_Mode TurtleBot4Control::mode() const {
+  // @@protoc_insertion_point(field_get:dss.TurtleBot4Control.mode)
+  return _internal_mode();
+}
+inline void TurtleBot4Control::_internal_set_mode(::dss::TurtleBot4Control_Mode value) {
+  
+  mode_ = value;
+}
+inline void TurtleBot4Control::set_mode(::dss::TurtleBot4Control_Mode value) {
+  _internal_set_mode(value);
+  // @@protoc_insertion_point(field_set:dss.TurtleBot4Control.mode)
+}
+
+// -------------------------------------------------------------------
+
+// Go2Control
+
+// string identifier = 1;
+inline void Go2Control::clear_identifier() {
+  identifier_.ClearToEmpty();
+}
+inline const std::string& Go2Control::identifier() const {
+  // @@protoc_insertion_point(field_get:dss.Go2Control.identifier)
+  return _internal_identifier();
+}
+inline void Go2Control::set_identifier(const std::string& value) {
+  _internal_set_identifier(value);
+  // @@protoc_insertion_point(field_set:dss.Go2Control.identifier)
+}
+inline std::string* Go2Control::mutable_identifier() {
+  // @@protoc_insertion_point(field_mutable:dss.Go2Control.identifier)
+  return _internal_mutable_identifier();
+}
+inline const std::string& Go2Control::_internal_identifier() const {
+  return identifier_.Get();
+}
+inline void Go2Control::_internal_set_identifier(const std::string& value) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Go2Control::set_identifier(std::string&& value) {
+  
+  identifier_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.Go2Control.identifier)
+}
+inline void Go2Control::set_identifier(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.Go2Control.identifier)
+}
+inline void Go2Control::set_identifier(const char* value,
+    size_t size) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.Go2Control.identifier)
+}
+inline std::string* Go2Control::_internal_mutable_identifier() {
+  
+  return identifier_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Go2Control::release_identifier() {
+  // @@protoc_insertion_point(field_release:dss.Go2Control.identifier)
+  return identifier_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Go2Control::set_allocated_identifier(std::string* identifier) {
+  if (identifier != nullptr) {
+    
+  } else {
+    
+  }
+  identifier_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), identifier,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.Go2Control.identifier)
+}
+
+// int64 timestamp = 2;
+inline void Go2Control::clear_timestamp() {
+  timestamp_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 Go2Control::_internal_timestamp() const {
+  return timestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 Go2Control::timestamp() const {
+  // @@protoc_insertion_point(field_get:dss.Go2Control.timestamp)
+  return _internal_timestamp();
+}
+inline void Go2Control::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  timestamp_ = value;
+}
+inline void Go2Control::set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:dss.Go2Control.timestamp)
+}
+
+// double vx = 3;
+inline void Go2Control::clear_vx() {
+  vx_ = 0;
+}
+inline double Go2Control::_internal_vx() const {
+  return vx_;
+}
+inline double Go2Control::vx() const {
+  // @@protoc_insertion_point(field_get:dss.Go2Control.vx)
+  return _internal_vx();
+}
+inline void Go2Control::_internal_set_vx(double value) {
+  
+  vx_ = value;
+}
+inline void Go2Control::set_vx(double value) {
+  _internal_set_vx(value);
+  // @@protoc_insertion_point(field_set:dss.Go2Control.vx)
+}
+
+// double vy = 4;
+inline void Go2Control::clear_vy() {
+  vy_ = 0;
+}
+inline double Go2Control::_internal_vy() const {
+  return vy_;
+}
+inline double Go2Control::vy() const {
+  // @@protoc_insertion_point(field_get:dss.Go2Control.vy)
+  return _internal_vy();
+}
+inline void Go2Control::_internal_set_vy(double value) {
+  
+  vy_ = value;
+}
+inline void Go2Control::set_vy(double value) {
+  _internal_set_vy(value);
+  // @@protoc_insertion_point(field_set:dss.Go2Control.vy)
+}
+
+// double yaw_rate = 5;
+inline void Go2Control::clear_yaw_rate() {
+  yaw_rate_ = 0;
+}
+inline double Go2Control::_internal_yaw_rate() const {
+  return yaw_rate_;
+}
+inline double Go2Control::yaw_rate() const {
+  // @@protoc_insertion_point(field_get:dss.Go2Control.yaw_rate)
+  return _internal_yaw_rate();
+}
+inline void Go2Control::_internal_set_yaw_rate(double value) {
+  
+  yaw_rate_ = value;
+}
+inline void Go2Control::set_yaw_rate(double value) {
+  _internal_set_yaw_rate(value);
+  // @@protoc_insertion_point(field_set:dss.Go2Control.yaw_rate)
+}
+
+// double body_height = 6;
+inline void Go2Control::clear_body_height() {
+  body_height_ = 0;
+}
+inline double Go2Control::_internal_body_height() const {
+  return body_height_;
+}
+inline double Go2Control::body_height() const {
+  // @@protoc_insertion_point(field_get:dss.Go2Control.body_height)
+  return _internal_body_height();
+}
+inline void Go2Control::_internal_set_body_height(double value) {
+  
+  body_height_ = value;
+}
+inline void Go2Control::set_body_height(double value) {
+  _internal_set_body_height(value);
+  // @@protoc_insertion_point(field_set:dss.Go2Control.body_height)
+}
+
+// .dss.Go2Control.Gait gait = 7;
+inline void Go2Control::clear_gait() {
+  gait_ = 0;
+}
+inline ::dss::Go2Control_Gait Go2Control::_internal_gait() const {
+  return static_cast< ::dss::Go2Control_Gait >(gait_);
+}
+inline ::dss::Go2Control_Gait Go2Control::gait() const {
+  // @@protoc_insertion_point(field_get:dss.Go2Control.gait)
+  return _internal_gait();
+}
+inline void Go2Control::_internal_set_gait(::dss::Go2Control_Gait value) {
+  
+  gait_ = value;
+}
+inline void Go2Control::set_gait(::dss::Go2Control_Gait value) {
+  _internal_set_gait(value);
+  // @@protoc_insertion_point(field_set:dss.Go2Control.gait)
+}
+
+// .dss.Go2Control.Mode mode = 8;
+inline void Go2Control::clear_mode() {
+  mode_ = 0;
+}
+inline ::dss::Go2Control_Mode Go2Control::_internal_mode() const {
+  return static_cast< ::dss::Go2Control_Mode >(mode_);
+}
+inline ::dss::Go2Control_Mode Go2Control::mode() const {
+  // @@protoc_insertion_point(field_get:dss.Go2Control.mode)
+  return _internal_mode();
+}
+inline void Go2Control::_internal_set_mode(::dss::Go2Control_Mode value) {
+  
+  mode_ = value;
+}
+inline void Go2Control::set_mode(::dss::Go2Control_Mode value) {
+  _internal_set_mode(value);
+  // @@protoc_insertion_point(field_set:dss.Go2Control.mode)
+}
+
+// -------------------------------------------------------------------
+
+// RobotVelocityCommand
+
+// string identifier = 1;
+inline void RobotVelocityCommand::clear_identifier() {
+  identifier_.ClearToEmpty();
+}
+inline const std::string& RobotVelocityCommand::identifier() const {
+  // @@protoc_insertion_point(field_get:dss.RobotVelocityCommand.identifier)
+  return _internal_identifier();
+}
+inline void RobotVelocityCommand::set_identifier(const std::string& value) {
+  _internal_set_identifier(value);
+  // @@protoc_insertion_point(field_set:dss.RobotVelocityCommand.identifier)
+}
+inline std::string* RobotVelocityCommand::mutable_identifier() {
+  // @@protoc_insertion_point(field_mutable:dss.RobotVelocityCommand.identifier)
+  return _internal_mutable_identifier();
+}
+inline const std::string& RobotVelocityCommand::_internal_identifier() const {
+  return identifier_.Get();
+}
+inline void RobotVelocityCommand::_internal_set_identifier(const std::string& value) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void RobotVelocityCommand::set_identifier(std::string&& value) {
+  
+  identifier_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.RobotVelocityCommand.identifier)
+}
+inline void RobotVelocityCommand::set_identifier(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.RobotVelocityCommand.identifier)
+}
+inline void RobotVelocityCommand::set_identifier(const char* value,
+    size_t size) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.RobotVelocityCommand.identifier)
+}
+inline std::string* RobotVelocityCommand::_internal_mutable_identifier() {
+  
+  return identifier_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* RobotVelocityCommand::release_identifier() {
+  // @@protoc_insertion_point(field_release:dss.RobotVelocityCommand.identifier)
+  return identifier_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void RobotVelocityCommand::set_allocated_identifier(std::string* identifier) {
+  if (identifier != nullptr) {
+    
+  } else {
+    
+  }
+  identifier_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), identifier,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.RobotVelocityCommand.identifier)
+}
+
+// int64 timestamp = 2;
+inline void RobotVelocityCommand::clear_timestamp() {
+  timestamp_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 RobotVelocityCommand::_internal_timestamp() const {
+  return timestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 RobotVelocityCommand::timestamp() const {
+  // @@protoc_insertion_point(field_get:dss.RobotVelocityCommand.timestamp)
+  return _internal_timestamp();
+}
+inline void RobotVelocityCommand::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  timestamp_ = value;
+}
+inline void RobotVelocityCommand::set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:dss.RobotVelocityCommand.timestamp)
+}
+
+// double vx = 3;
+inline void RobotVelocityCommand::clear_vx() {
+  vx_ = 0;
+}
+inline double RobotVelocityCommand::_internal_vx() const {
+  return vx_;
+}
+inline double RobotVelocityCommand::vx() const {
+  // @@protoc_insertion_point(field_get:dss.RobotVelocityCommand.vx)
+  return _internal_vx();
+}
+inline void RobotVelocityCommand::_internal_set_vx(double value) {
+  
+  vx_ = value;
+}
+inline void RobotVelocityCommand::set_vx(double value) {
+  _internal_set_vx(value);
+  // @@protoc_insertion_point(field_set:dss.RobotVelocityCommand.vx)
+}
+
+// double vy = 4;
+inline void RobotVelocityCommand::clear_vy() {
+  vy_ = 0;
+}
+inline double RobotVelocityCommand::_internal_vy() const {
+  return vy_;
+}
+inline double RobotVelocityCommand::vy() const {
+  // @@protoc_insertion_point(field_get:dss.RobotVelocityCommand.vy)
+  return _internal_vy();
+}
+inline void RobotVelocityCommand::_internal_set_vy(double value) {
+  
+  vy_ = value;
+}
+inline void RobotVelocityCommand::set_vy(double value) {
+  _internal_set_vy(value);
+  // @@protoc_insertion_point(field_set:dss.RobotVelocityCommand.vy)
+}
+
+// double vz = 5;
+inline void RobotVelocityCommand::clear_vz() {
+  vz_ = 0;
+}
+inline double RobotVelocityCommand::_internal_vz() const {
+  return vz_;
+}
+inline double RobotVelocityCommand::vz() const {
+  // @@protoc_insertion_point(field_get:dss.RobotVelocityCommand.vz)
+  return _internal_vz();
+}
+inline void RobotVelocityCommand::_internal_set_vz(double value) {
+  
+  vz_ = value;
+}
+inline void RobotVelocityCommand::set_vz(double value) {
+  _internal_set_vz(value);
+  // @@protoc_insertion_point(field_set:dss.RobotVelocityCommand.vz)
+}
+
+// double roll_rate = 6;
+inline void RobotVelocityCommand::clear_roll_rate() {
+  roll_rate_ = 0;
+}
+inline double RobotVelocityCommand::_internal_roll_rate() const {
+  return roll_rate_;
+}
+inline double RobotVelocityCommand::roll_rate() const {
+  // @@protoc_insertion_point(field_get:dss.RobotVelocityCommand.roll_rate)
+  return _internal_roll_rate();
+}
+inline void RobotVelocityCommand::_internal_set_roll_rate(double value) {
+  
+  roll_rate_ = value;
+}
+inline void RobotVelocityCommand::set_roll_rate(double value) {
+  _internal_set_roll_rate(value);
+  // @@protoc_insertion_point(field_set:dss.RobotVelocityCommand.roll_rate)
+}
+
+// double pitch_rate = 7;
+inline void RobotVelocityCommand::clear_pitch_rate() {
+  pitch_rate_ = 0;
+}
+inline double RobotVelocityCommand::_internal_pitch_rate() const {
+  return pitch_rate_;
+}
+inline double RobotVelocityCommand::pitch_rate() const {
+  // @@protoc_insertion_point(field_get:dss.RobotVelocityCommand.pitch_rate)
+  return _internal_pitch_rate();
+}
+inline void RobotVelocityCommand::_internal_set_pitch_rate(double value) {
+  
+  pitch_rate_ = value;
+}
+inline void RobotVelocityCommand::set_pitch_rate(double value) {
+  _internal_set_pitch_rate(value);
+  // @@protoc_insertion_point(field_set:dss.RobotVelocityCommand.pitch_rate)
+}
+
+// double yaw_rate = 8;
+inline void RobotVelocityCommand::clear_yaw_rate() {
+  yaw_rate_ = 0;
+}
+inline double RobotVelocityCommand::_internal_yaw_rate() const {
+  return yaw_rate_;
+}
+inline double RobotVelocityCommand::yaw_rate() const {
+  // @@protoc_insertion_point(field_get:dss.RobotVelocityCommand.yaw_rate)
+  return _internal_yaw_rate();
+}
+inline void RobotVelocityCommand::_internal_set_yaw_rate(double value) {
+  
+  yaw_rate_ = value;
+}
+inline void RobotVelocityCommand::set_yaw_rate(double value) {
+  _internal_set_yaw_rate(value);
+  // @@protoc_insertion_point(field_set:dss.RobotVelocityCommand.yaw_rate)
 }
 
 // -------------------------------------------------------------------
@@ -7101,6 +9834,1088 @@ DSSOdom::mutable_twist_covariance() {
 
 // -------------------------------------------------------------------
 
+// DSSCmdVel
+
+// .dss.DSSVector3 linear = 1;
+inline bool DSSCmdVel::_internal_has_linear() const {
+  return this != internal_default_instance() && linear_ != nullptr;
+}
+inline bool DSSCmdVel::has_linear() const {
+  return _internal_has_linear();
+}
+inline void DSSCmdVel::clear_linear() {
+  if (GetArena() == nullptr && linear_ != nullptr) {
+    delete linear_;
+  }
+  linear_ = nullptr;
+}
+inline const ::dss::DSSVector3& DSSCmdVel::_internal_linear() const {
+  const ::dss::DSSVector3* p = linear_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSVector3&>(
+      ::dss::_DSSVector3_default_instance_);
+}
+inline const ::dss::DSSVector3& DSSCmdVel::linear() const {
+  // @@protoc_insertion_point(field_get:dss.DSSCmdVel.linear)
+  return _internal_linear();
+}
+inline void DSSCmdVel::unsafe_arena_set_allocated_linear(
+    ::dss::DSSVector3* linear) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(linear_);
+  }
+  linear_ = linear;
+  if (linear) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.DSSCmdVel.linear)
+}
+inline ::dss::DSSVector3* DSSCmdVel::release_linear() {
+  
+  ::dss::DSSVector3* temp = linear_;
+  linear_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSVector3* DSSCmdVel::unsafe_arena_release_linear() {
+  // @@protoc_insertion_point(field_release:dss.DSSCmdVel.linear)
+  
+  ::dss::DSSVector3* temp = linear_;
+  linear_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSVector3* DSSCmdVel::_internal_mutable_linear() {
+  
+  if (linear_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSVector3>(GetArena());
+    linear_ = p;
+  }
+  return linear_;
+}
+inline ::dss::DSSVector3* DSSCmdVel::mutable_linear() {
+  // @@protoc_insertion_point(field_mutable:dss.DSSCmdVel.linear)
+  return _internal_mutable_linear();
+}
+inline void DSSCmdVel::set_allocated_linear(::dss::DSSVector3* linear) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete linear_;
+  }
+  if (linear) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(linear);
+    if (message_arena != submessage_arena) {
+      linear = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, linear, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  linear_ = linear;
+  // @@protoc_insertion_point(field_set_allocated:dss.DSSCmdVel.linear)
+}
+
+// .dss.DSSVector3 angular = 2;
+inline bool DSSCmdVel::_internal_has_angular() const {
+  return this != internal_default_instance() && angular_ != nullptr;
+}
+inline bool DSSCmdVel::has_angular() const {
+  return _internal_has_angular();
+}
+inline void DSSCmdVel::clear_angular() {
+  if (GetArena() == nullptr && angular_ != nullptr) {
+    delete angular_;
+  }
+  angular_ = nullptr;
+}
+inline const ::dss::DSSVector3& DSSCmdVel::_internal_angular() const {
+  const ::dss::DSSVector3* p = angular_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSVector3&>(
+      ::dss::_DSSVector3_default_instance_);
+}
+inline const ::dss::DSSVector3& DSSCmdVel::angular() const {
+  // @@protoc_insertion_point(field_get:dss.DSSCmdVel.angular)
+  return _internal_angular();
+}
+inline void DSSCmdVel::unsafe_arena_set_allocated_angular(
+    ::dss::DSSVector3* angular) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(angular_);
+  }
+  angular_ = angular;
+  if (angular) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.DSSCmdVel.angular)
+}
+inline ::dss::DSSVector3* DSSCmdVel::release_angular() {
+  
+  ::dss::DSSVector3* temp = angular_;
+  angular_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSVector3* DSSCmdVel::unsafe_arena_release_angular() {
+  // @@protoc_insertion_point(field_release:dss.DSSCmdVel.angular)
+  
+  ::dss::DSSVector3* temp = angular_;
+  angular_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSVector3* DSSCmdVel::_internal_mutable_angular() {
+  
+  if (angular_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSVector3>(GetArena());
+    angular_ = p;
+  }
+  return angular_;
+}
+inline ::dss::DSSVector3* DSSCmdVel::mutable_angular() {
+  // @@protoc_insertion_point(field_mutable:dss.DSSCmdVel.angular)
+  return _internal_mutable_angular();
+}
+inline void DSSCmdVel::set_allocated_angular(::dss::DSSVector3* angular) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete angular_;
+  }
+  if (angular) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(angular);
+    if (message_arena != submessage_arena) {
+      angular = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, angular, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  angular_ = angular;
+  // @@protoc_insertion_point(field_set_allocated:dss.DSSCmdVel.angular)
+}
+
+// -------------------------------------------------------------------
+
+// DSSTF
+
+// .dss.DSSHeader header = 1;
+inline bool DSSTF::_internal_has_header() const {
+  return this != internal_default_instance() && header_ != nullptr;
+}
+inline bool DSSTF::has_header() const {
+  return _internal_has_header();
+}
+inline void DSSTF::clear_header() {
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+}
+inline const ::dss::DSSHeader& DSSTF::_internal_header() const {
+  const ::dss::DSSHeader* p = header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSHeader&>(
+      ::dss::_DSSHeader_default_instance_);
+}
+inline const ::dss::DSSHeader& DSSTF::header() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.header)
+  return _internal_header();
+}
+inline void DSSTF::unsafe_arena_set_allocated_header(
+    ::dss::DSSHeader* header) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header_);
+  }
+  header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.DSSTF.header)
+}
+inline ::dss::DSSHeader* DSSTF::release_header() {
+  
+  ::dss::DSSHeader* temp = header_;
+  header_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSHeader* DSSTF::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:dss.DSSTF.header)
+  
+  ::dss::DSSHeader* temp = header_;
+  header_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSHeader* DSSTF::_internal_mutable_header() {
+  
+  if (header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSHeader>(GetArena());
+    header_ = p;
+  }
+  return header_;
+}
+inline ::dss::DSSHeader* DSSTF::mutable_header() {
+  // @@protoc_insertion_point(field_mutable:dss.DSSTF.header)
+  return _internal_mutable_header();
+}
+inline void DSSTF::set_allocated_header(::dss::DSSHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete header_;
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(header);
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:dss.DSSTF.header)
+}
+
+// string parent_frame = 2;
+inline void DSSTF::clear_parent_frame() {
+  parent_frame_.ClearToEmpty();
+}
+inline const std::string& DSSTF::parent_frame() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.parent_frame)
+  return _internal_parent_frame();
+}
+inline void DSSTF::set_parent_frame(const std::string& value) {
+  _internal_set_parent_frame(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.parent_frame)
+}
+inline std::string* DSSTF::mutable_parent_frame() {
+  // @@protoc_insertion_point(field_mutable:dss.DSSTF.parent_frame)
+  return _internal_mutable_parent_frame();
+}
+inline const std::string& DSSTF::_internal_parent_frame() const {
+  return parent_frame_.Get();
+}
+inline void DSSTF::_internal_set_parent_frame(const std::string& value) {
+  
+  parent_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DSSTF::set_parent_frame(std::string&& value) {
+  
+  parent_frame_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DSSTF.parent_frame)
+}
+inline void DSSTF::set_parent_frame(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  parent_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DSSTF.parent_frame)
+}
+inline void DSSTF::set_parent_frame(const char* value,
+    size_t size) {
+  
+  parent_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DSSTF.parent_frame)
+}
+inline std::string* DSSTF::_internal_mutable_parent_frame() {
+  
+  return parent_frame_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DSSTF::release_parent_frame() {
+  // @@protoc_insertion_point(field_release:dss.DSSTF.parent_frame)
+  return parent_frame_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DSSTF::set_allocated_parent_frame(std::string* parent_frame) {
+  if (parent_frame != nullptr) {
+    
+  } else {
+    
+  }
+  parent_frame_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), parent_frame,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DSSTF.parent_frame)
+}
+
+// string child_frame = 3;
+inline void DSSTF::clear_child_frame() {
+  child_frame_.ClearToEmpty();
+}
+inline const std::string& DSSTF::child_frame() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.child_frame)
+  return _internal_child_frame();
+}
+inline void DSSTF::set_child_frame(const std::string& value) {
+  _internal_set_child_frame(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.child_frame)
+}
+inline std::string* DSSTF::mutable_child_frame() {
+  // @@protoc_insertion_point(field_mutable:dss.DSSTF.child_frame)
+  return _internal_mutable_child_frame();
+}
+inline const std::string& DSSTF::_internal_child_frame() const {
+  return child_frame_.Get();
+}
+inline void DSSTF::_internal_set_child_frame(const std::string& value) {
+  
+  child_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DSSTF::set_child_frame(std::string&& value) {
+  
+  child_frame_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DSSTF.child_frame)
+}
+inline void DSSTF::set_child_frame(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  child_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DSSTF.child_frame)
+}
+inline void DSSTF::set_child_frame(const char* value,
+    size_t size) {
+  
+  child_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DSSTF.child_frame)
+}
+inline std::string* DSSTF::_internal_mutable_child_frame() {
+  
+  return child_frame_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DSSTF::release_child_frame() {
+  // @@protoc_insertion_point(field_release:dss.DSSTF.child_frame)
+  return child_frame_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DSSTF::set_allocated_child_frame(std::string* child_frame) {
+  if (child_frame != nullptr) {
+    
+  } else {
+    
+  }
+  child_frame_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), child_frame,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DSSTF.child_frame)
+}
+
+// double x = 4;
+inline void DSSTF::clear_x() {
+  x_ = 0;
+}
+inline double DSSTF::_internal_x() const {
+  return x_;
+}
+inline double DSSTF::x() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.x)
+  return _internal_x();
+}
+inline void DSSTF::_internal_set_x(double value) {
+  
+  x_ = value;
+}
+inline void DSSTF::set_x(double value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.x)
+}
+
+// double y = 5;
+inline void DSSTF::clear_y() {
+  y_ = 0;
+}
+inline double DSSTF::_internal_y() const {
+  return y_;
+}
+inline double DSSTF::y() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.y)
+  return _internal_y();
+}
+inline void DSSTF::_internal_set_y(double value) {
+  
+  y_ = value;
+}
+inline void DSSTF::set_y(double value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.y)
+}
+
+// double z = 6;
+inline void DSSTF::clear_z() {
+  z_ = 0;
+}
+inline double DSSTF::_internal_z() const {
+  return z_;
+}
+inline double DSSTF::z() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.z)
+  return _internal_z();
+}
+inline void DSSTF::_internal_set_z(double value) {
+  
+  z_ = value;
+}
+inline void DSSTF::set_z(double value) {
+  _internal_set_z(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.z)
+}
+
+// double qx = 7;
+inline void DSSTF::clear_qx() {
+  qx_ = 0;
+}
+inline double DSSTF::_internal_qx() const {
+  return qx_;
+}
+inline double DSSTF::qx() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.qx)
+  return _internal_qx();
+}
+inline void DSSTF::_internal_set_qx(double value) {
+  
+  qx_ = value;
+}
+inline void DSSTF::set_qx(double value) {
+  _internal_set_qx(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.qx)
+}
+
+// double qy = 8;
+inline void DSSTF::clear_qy() {
+  qy_ = 0;
+}
+inline double DSSTF::_internal_qy() const {
+  return qy_;
+}
+inline double DSSTF::qy() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.qy)
+  return _internal_qy();
+}
+inline void DSSTF::_internal_set_qy(double value) {
+  
+  qy_ = value;
+}
+inline void DSSTF::set_qy(double value) {
+  _internal_set_qy(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.qy)
+}
+
+// double qz = 9;
+inline void DSSTF::clear_qz() {
+  qz_ = 0;
+}
+inline double DSSTF::_internal_qz() const {
+  return qz_;
+}
+inline double DSSTF::qz() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.qz)
+  return _internal_qz();
+}
+inline void DSSTF::_internal_set_qz(double value) {
+  
+  qz_ = value;
+}
+inline void DSSTF::set_qz(double value) {
+  _internal_set_qz(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.qz)
+}
+
+// double qw = 10;
+inline void DSSTF::clear_qw() {
+  qw_ = 0;
+}
+inline double DSSTF::_internal_qw() const {
+  return qw_;
+}
+inline double DSSTF::qw() const {
+  // @@protoc_insertion_point(field_get:dss.DSSTF.qw)
+  return _internal_qw();
+}
+inline void DSSTF::_internal_set_qw(double value) {
+  
+  qw_ = value;
+}
+inline void DSSTF::set_qw(double value) {
+  _internal_set_qw(value);
+  // @@protoc_insertion_point(field_set:dss.DSSTF.qw)
+}
+
+// -------------------------------------------------------------------
+
+// MujocoBody
+
+// uint32 id = 1;
+inline void MujocoBody::clear_id() {
+  id_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 MujocoBody::_internal_id() const {
+  return id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 MujocoBody::id() const {
+  // @@protoc_insertion_point(field_get:dss.MujocoBody.id)
+  return _internal_id();
+}
+inline void MujocoBody::_internal_set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  id_ = value;
+}
+inline void MujocoBody::set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:dss.MujocoBody.id)
+}
+
+// uint32 parent_id = 2;
+inline void MujocoBody::clear_parent_id() {
+  parent_id_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 MujocoBody::_internal_parent_id() const {
+  return parent_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 MujocoBody::parent_id() const {
+  // @@protoc_insertion_point(field_get:dss.MujocoBody.parent_id)
+  return _internal_parent_id();
+}
+inline void MujocoBody::_internal_set_parent_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  parent_id_ = value;
+}
+inline void MujocoBody::set_parent_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_parent_id(value);
+  // @@protoc_insertion_point(field_set:dss.MujocoBody.parent_id)
+}
+
+// string name = 3;
+inline void MujocoBody::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& MujocoBody::name() const {
+  // @@protoc_insertion_point(field_get:dss.MujocoBody.name)
+  return _internal_name();
+}
+inline void MujocoBody::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:dss.MujocoBody.name)
+}
+inline std::string* MujocoBody::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:dss.MujocoBody.name)
+  return _internal_mutable_name();
+}
+inline const std::string& MujocoBody::_internal_name() const {
+  return name_.Get();
+}
+inline void MujocoBody::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void MujocoBody::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.MujocoBody.name)
+}
+inline void MujocoBody::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.MujocoBody.name)
+}
+inline void MujocoBody::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.MujocoBody.name)
+}
+inline std::string* MujocoBody::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* MujocoBody::release_name() {
+  // @@protoc_insertion_point(field_release:dss.MujocoBody.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void MujocoBody::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.MujocoBody.name)
+}
+
+// .dss.DSSVector3 position = 4;
+inline bool MujocoBody::_internal_has_position() const {
+  return this != internal_default_instance() && position_ != nullptr;
+}
+inline bool MujocoBody::has_position() const {
+  return _internal_has_position();
+}
+inline void MujocoBody::clear_position() {
+  if (GetArena() == nullptr && position_ != nullptr) {
+    delete position_;
+  }
+  position_ = nullptr;
+}
+inline const ::dss::DSSVector3& MujocoBody::_internal_position() const {
+  const ::dss::DSSVector3* p = position_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSVector3&>(
+      ::dss::_DSSVector3_default_instance_);
+}
+inline const ::dss::DSSVector3& MujocoBody::position() const {
+  // @@protoc_insertion_point(field_get:dss.MujocoBody.position)
+  return _internal_position();
+}
+inline void MujocoBody::unsafe_arena_set_allocated_position(
+    ::dss::DSSVector3* position) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(position_);
+  }
+  position_ = position;
+  if (position) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.MujocoBody.position)
+}
+inline ::dss::DSSVector3* MujocoBody::release_position() {
+  
+  ::dss::DSSVector3* temp = position_;
+  position_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSVector3* MujocoBody::unsafe_arena_release_position() {
+  // @@protoc_insertion_point(field_release:dss.MujocoBody.position)
+  
+  ::dss::DSSVector3* temp = position_;
+  position_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSVector3* MujocoBody::_internal_mutable_position() {
+  
+  if (position_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSVector3>(GetArena());
+    position_ = p;
+  }
+  return position_;
+}
+inline ::dss::DSSVector3* MujocoBody::mutable_position() {
+  // @@protoc_insertion_point(field_mutable:dss.MujocoBody.position)
+  return _internal_mutable_position();
+}
+inline void MujocoBody::set_allocated_position(::dss::DSSVector3* position) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete position_;
+  }
+  if (position) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(position);
+    if (message_arena != submessage_arena) {
+      position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, position, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  position_ = position;
+  // @@protoc_insertion_point(field_set_allocated:dss.MujocoBody.position)
+}
+
+// .dss.DSSQuaternion orientation = 5;
+inline bool MujocoBody::_internal_has_orientation() const {
+  return this != internal_default_instance() && orientation_ != nullptr;
+}
+inline bool MujocoBody::has_orientation() const {
+  return _internal_has_orientation();
+}
+inline void MujocoBody::clear_orientation() {
+  if (GetArena() == nullptr && orientation_ != nullptr) {
+    delete orientation_;
+  }
+  orientation_ = nullptr;
+}
+inline const ::dss::DSSQuaternion& MujocoBody::_internal_orientation() const {
+  const ::dss::DSSQuaternion* p = orientation_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSQuaternion&>(
+      ::dss::_DSSQuaternion_default_instance_);
+}
+inline const ::dss::DSSQuaternion& MujocoBody::orientation() const {
+  // @@protoc_insertion_point(field_get:dss.MujocoBody.orientation)
+  return _internal_orientation();
+}
+inline void MujocoBody::unsafe_arena_set_allocated_orientation(
+    ::dss::DSSQuaternion* orientation) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(orientation_);
+  }
+  orientation_ = orientation;
+  if (orientation) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.MujocoBody.orientation)
+}
+inline ::dss::DSSQuaternion* MujocoBody::release_orientation() {
+  
+  ::dss::DSSQuaternion* temp = orientation_;
+  orientation_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSQuaternion* MujocoBody::unsafe_arena_release_orientation() {
+  // @@protoc_insertion_point(field_release:dss.MujocoBody.orientation)
+  
+  ::dss::DSSQuaternion* temp = orientation_;
+  orientation_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSQuaternion* MujocoBody::_internal_mutable_orientation() {
+  
+  if (orientation_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSQuaternion>(GetArena());
+    orientation_ = p;
+  }
+  return orientation_;
+}
+inline ::dss::DSSQuaternion* MujocoBody::mutable_orientation() {
+  // @@protoc_insertion_point(field_mutable:dss.MujocoBody.orientation)
+  return _internal_mutable_orientation();
+}
+inline void MujocoBody::set_allocated_orientation(::dss::DSSQuaternion* orientation) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete orientation_;
+  }
+  if (orientation) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(orientation);
+    if (message_arena != submessage_arena) {
+      orientation = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, orientation, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  orientation_ = orientation;
+  // @@protoc_insertion_point(field_set_allocated:dss.MujocoBody.orientation)
+}
+
+// .dss.DSSVector3 linear_velocity = 6;
+inline bool MujocoBody::_internal_has_linear_velocity() const {
+  return this != internal_default_instance() && linear_velocity_ != nullptr;
+}
+inline bool MujocoBody::has_linear_velocity() const {
+  return _internal_has_linear_velocity();
+}
+inline void MujocoBody::clear_linear_velocity() {
+  if (GetArena() == nullptr && linear_velocity_ != nullptr) {
+    delete linear_velocity_;
+  }
+  linear_velocity_ = nullptr;
+}
+inline const ::dss::DSSVector3& MujocoBody::_internal_linear_velocity() const {
+  const ::dss::DSSVector3* p = linear_velocity_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSVector3&>(
+      ::dss::_DSSVector3_default_instance_);
+}
+inline const ::dss::DSSVector3& MujocoBody::linear_velocity() const {
+  // @@protoc_insertion_point(field_get:dss.MujocoBody.linear_velocity)
+  return _internal_linear_velocity();
+}
+inline void MujocoBody::unsafe_arena_set_allocated_linear_velocity(
+    ::dss::DSSVector3* linear_velocity) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(linear_velocity_);
+  }
+  linear_velocity_ = linear_velocity;
+  if (linear_velocity) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.MujocoBody.linear_velocity)
+}
+inline ::dss::DSSVector3* MujocoBody::release_linear_velocity() {
+  
+  ::dss::DSSVector3* temp = linear_velocity_;
+  linear_velocity_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSVector3* MujocoBody::unsafe_arena_release_linear_velocity() {
+  // @@protoc_insertion_point(field_release:dss.MujocoBody.linear_velocity)
+  
+  ::dss::DSSVector3* temp = linear_velocity_;
+  linear_velocity_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSVector3* MujocoBody::_internal_mutable_linear_velocity() {
+  
+  if (linear_velocity_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSVector3>(GetArena());
+    linear_velocity_ = p;
+  }
+  return linear_velocity_;
+}
+inline ::dss::DSSVector3* MujocoBody::mutable_linear_velocity() {
+  // @@protoc_insertion_point(field_mutable:dss.MujocoBody.linear_velocity)
+  return _internal_mutable_linear_velocity();
+}
+inline void MujocoBody::set_allocated_linear_velocity(::dss::DSSVector3* linear_velocity) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete linear_velocity_;
+  }
+  if (linear_velocity) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(linear_velocity);
+    if (message_arena != submessage_arena) {
+      linear_velocity = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, linear_velocity, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  linear_velocity_ = linear_velocity;
+  // @@protoc_insertion_point(field_set_allocated:dss.MujocoBody.linear_velocity)
+}
+
+// .dss.DSSVector3 angular_velocity = 7;
+inline bool MujocoBody::_internal_has_angular_velocity() const {
+  return this != internal_default_instance() && angular_velocity_ != nullptr;
+}
+inline bool MujocoBody::has_angular_velocity() const {
+  return _internal_has_angular_velocity();
+}
+inline void MujocoBody::clear_angular_velocity() {
+  if (GetArena() == nullptr && angular_velocity_ != nullptr) {
+    delete angular_velocity_;
+  }
+  angular_velocity_ = nullptr;
+}
+inline const ::dss::DSSVector3& MujocoBody::_internal_angular_velocity() const {
+  const ::dss::DSSVector3* p = angular_velocity_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSVector3&>(
+      ::dss::_DSSVector3_default_instance_);
+}
+inline const ::dss::DSSVector3& MujocoBody::angular_velocity() const {
+  // @@protoc_insertion_point(field_get:dss.MujocoBody.angular_velocity)
+  return _internal_angular_velocity();
+}
+inline void MujocoBody::unsafe_arena_set_allocated_angular_velocity(
+    ::dss::DSSVector3* angular_velocity) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(angular_velocity_);
+  }
+  angular_velocity_ = angular_velocity;
+  if (angular_velocity) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.MujocoBody.angular_velocity)
+}
+inline ::dss::DSSVector3* MujocoBody::release_angular_velocity() {
+  
+  ::dss::DSSVector3* temp = angular_velocity_;
+  angular_velocity_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSVector3* MujocoBody::unsafe_arena_release_angular_velocity() {
+  // @@protoc_insertion_point(field_release:dss.MujocoBody.angular_velocity)
+  
+  ::dss::DSSVector3* temp = angular_velocity_;
+  angular_velocity_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSVector3* MujocoBody::_internal_mutable_angular_velocity() {
+  
+  if (angular_velocity_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSVector3>(GetArena());
+    angular_velocity_ = p;
+  }
+  return angular_velocity_;
+}
+inline ::dss::DSSVector3* MujocoBody::mutable_angular_velocity() {
+  // @@protoc_insertion_point(field_mutable:dss.MujocoBody.angular_velocity)
+  return _internal_mutable_angular_velocity();
+}
+inline void MujocoBody::set_allocated_angular_velocity(::dss::DSSVector3* angular_velocity) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete angular_velocity_;
+  }
+  if (angular_velocity) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(angular_velocity);
+    if (message_arena != submessage_arena) {
+      angular_velocity = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, angular_velocity, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  angular_velocity_ = angular_velocity;
+  // @@protoc_insertion_point(field_set_allocated:dss.MujocoBody.angular_velocity)
+}
+
+// -------------------------------------------------------------------
+
+// MujocoGT
+
+// .dss.DSSHeader header = 1;
+inline bool MujocoGT::_internal_has_header() const {
+  return this != internal_default_instance() && header_ != nullptr;
+}
+inline bool MujocoGT::has_header() const {
+  return _internal_has_header();
+}
+inline void MujocoGT::clear_header() {
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+}
+inline const ::dss::DSSHeader& MujocoGT::_internal_header() const {
+  const ::dss::DSSHeader* p = header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSHeader&>(
+      ::dss::_DSSHeader_default_instance_);
+}
+inline const ::dss::DSSHeader& MujocoGT::header() const {
+  // @@protoc_insertion_point(field_get:dss.MujocoGT.header)
+  return _internal_header();
+}
+inline void MujocoGT::unsafe_arena_set_allocated_header(
+    ::dss::DSSHeader* header) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header_);
+  }
+  header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.MujocoGT.header)
+}
+inline ::dss::DSSHeader* MujocoGT::release_header() {
+  
+  ::dss::DSSHeader* temp = header_;
+  header_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSHeader* MujocoGT::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:dss.MujocoGT.header)
+  
+  ::dss::DSSHeader* temp = header_;
+  header_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSHeader* MujocoGT::_internal_mutable_header() {
+  
+  if (header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSHeader>(GetArena());
+    header_ = p;
+  }
+  return header_;
+}
+inline ::dss::DSSHeader* MujocoGT::mutable_header() {
+  // @@protoc_insertion_point(field_mutable:dss.MujocoGT.header)
+  return _internal_mutable_header();
+}
+inline void MujocoGT::set_allocated_header(::dss::DSSHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete header_;
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(header);
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:dss.MujocoGT.header)
+}
+
+// repeated .dss.MujocoBody bodies = 2;
+inline int MujocoGT::_internal_bodies_size() const {
+  return bodies_.size();
+}
+inline int MujocoGT::bodies_size() const {
+  return _internal_bodies_size();
+}
+inline void MujocoGT::clear_bodies() {
+  bodies_.Clear();
+}
+inline ::dss::MujocoBody* MujocoGT::mutable_bodies(int index) {
+  // @@protoc_insertion_point(field_mutable:dss.MujocoGT.bodies)
+  return bodies_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dss::MujocoBody >*
+MujocoGT::mutable_bodies() {
+  // @@protoc_insertion_point(field_mutable_list:dss.MujocoGT.bodies)
+  return &bodies_;
+}
+inline const ::dss::MujocoBody& MujocoGT::_internal_bodies(int index) const {
+  return bodies_.Get(index);
+}
+inline const ::dss::MujocoBody& MujocoGT::bodies(int index) const {
+  // @@protoc_insertion_point(field_get:dss.MujocoGT.bodies)
+  return _internal_bodies(index);
+}
+inline ::dss::MujocoBody* MujocoGT::_internal_add_bodies() {
+  return bodies_.Add();
+}
+inline ::dss::MujocoBody* MujocoGT::add_bodies() {
+  // @@protoc_insertion_point(field_add:dss.MujocoGT.bodies)
+  return _internal_add_bodies();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dss::MujocoBody >&
+MujocoGT::bodies() const {
+  // @@protoc_insertion_point(field_list:dss.MujocoGT.bodies)
+  return bodies_;
+}
+
+// -------------------------------------------------------------------
+
 // DssPointField
 
 // string name = 1;
@@ -7529,6 +11344,327 @@ inline void DssLidarPointCloud::set_allocated_data(std::string* data) {
   data_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), data,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:dss.DssLidarPointCloud.data)
+}
+
+// -------------------------------------------------------------------
+
+// DssLaserScan2D
+
+// .dss.DSSHeader header = 1;
+inline bool DssLaserScan2D::_internal_has_header() const {
+  return this != internal_default_instance() && header_ != nullptr;
+}
+inline bool DssLaserScan2D::has_header() const {
+  return _internal_has_header();
+}
+inline void DssLaserScan2D::clear_header() {
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+}
+inline const ::dss::DSSHeader& DssLaserScan2D::_internal_header() const {
+  const ::dss::DSSHeader* p = header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSHeader&>(
+      ::dss::_DSSHeader_default_instance_);
+}
+inline const ::dss::DSSHeader& DssLaserScan2D::header() const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.header)
+  return _internal_header();
+}
+inline void DssLaserScan2D::unsafe_arena_set_allocated_header(
+    ::dss::DSSHeader* header) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header_);
+  }
+  header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.DssLaserScan2D.header)
+}
+inline ::dss::DSSHeader* DssLaserScan2D::release_header() {
+  
+  ::dss::DSSHeader* temp = header_;
+  header_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSHeader* DssLaserScan2D::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:dss.DssLaserScan2D.header)
+  
+  ::dss::DSSHeader* temp = header_;
+  header_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSHeader* DssLaserScan2D::_internal_mutable_header() {
+  
+  if (header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSHeader>(GetArena());
+    header_ = p;
+  }
+  return header_;
+}
+inline ::dss::DSSHeader* DssLaserScan2D::mutable_header() {
+  // @@protoc_insertion_point(field_mutable:dss.DssLaserScan2D.header)
+  return _internal_mutable_header();
+}
+inline void DssLaserScan2D::set_allocated_header(::dss::DSSHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete header_;
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(header);
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:dss.DssLaserScan2D.header)
+}
+
+// double angle_min = 2;
+inline void DssLaserScan2D::clear_angle_min() {
+  angle_min_ = 0;
+}
+inline double DssLaserScan2D::_internal_angle_min() const {
+  return angle_min_;
+}
+inline double DssLaserScan2D::angle_min() const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.angle_min)
+  return _internal_angle_min();
+}
+inline void DssLaserScan2D::_internal_set_angle_min(double value) {
+  
+  angle_min_ = value;
+}
+inline void DssLaserScan2D::set_angle_min(double value) {
+  _internal_set_angle_min(value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.angle_min)
+}
+
+// double angle_max = 3;
+inline void DssLaserScan2D::clear_angle_max() {
+  angle_max_ = 0;
+}
+inline double DssLaserScan2D::_internal_angle_max() const {
+  return angle_max_;
+}
+inline double DssLaserScan2D::angle_max() const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.angle_max)
+  return _internal_angle_max();
+}
+inline void DssLaserScan2D::_internal_set_angle_max(double value) {
+  
+  angle_max_ = value;
+}
+inline void DssLaserScan2D::set_angle_max(double value) {
+  _internal_set_angle_max(value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.angle_max)
+}
+
+// double angle_increment = 4;
+inline void DssLaserScan2D::clear_angle_increment() {
+  angle_increment_ = 0;
+}
+inline double DssLaserScan2D::_internal_angle_increment() const {
+  return angle_increment_;
+}
+inline double DssLaserScan2D::angle_increment() const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.angle_increment)
+  return _internal_angle_increment();
+}
+inline void DssLaserScan2D::_internal_set_angle_increment(double value) {
+  
+  angle_increment_ = value;
+}
+inline void DssLaserScan2D::set_angle_increment(double value) {
+  _internal_set_angle_increment(value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.angle_increment)
+}
+
+// double time_increment = 5;
+inline void DssLaserScan2D::clear_time_increment() {
+  time_increment_ = 0;
+}
+inline double DssLaserScan2D::_internal_time_increment() const {
+  return time_increment_;
+}
+inline double DssLaserScan2D::time_increment() const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.time_increment)
+  return _internal_time_increment();
+}
+inline void DssLaserScan2D::_internal_set_time_increment(double value) {
+  
+  time_increment_ = value;
+}
+inline void DssLaserScan2D::set_time_increment(double value) {
+  _internal_set_time_increment(value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.time_increment)
+}
+
+// double scan_time = 6;
+inline void DssLaserScan2D::clear_scan_time() {
+  scan_time_ = 0;
+}
+inline double DssLaserScan2D::_internal_scan_time() const {
+  return scan_time_;
+}
+inline double DssLaserScan2D::scan_time() const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.scan_time)
+  return _internal_scan_time();
+}
+inline void DssLaserScan2D::_internal_set_scan_time(double value) {
+  
+  scan_time_ = value;
+}
+inline void DssLaserScan2D::set_scan_time(double value) {
+  _internal_set_scan_time(value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.scan_time)
+}
+
+// double range_min = 7;
+inline void DssLaserScan2D::clear_range_min() {
+  range_min_ = 0;
+}
+inline double DssLaserScan2D::_internal_range_min() const {
+  return range_min_;
+}
+inline double DssLaserScan2D::range_min() const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.range_min)
+  return _internal_range_min();
+}
+inline void DssLaserScan2D::_internal_set_range_min(double value) {
+  
+  range_min_ = value;
+}
+inline void DssLaserScan2D::set_range_min(double value) {
+  _internal_set_range_min(value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.range_min)
+}
+
+// double range_max = 8;
+inline void DssLaserScan2D::clear_range_max() {
+  range_max_ = 0;
+}
+inline double DssLaserScan2D::_internal_range_max() const {
+  return range_max_;
+}
+inline double DssLaserScan2D::range_max() const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.range_max)
+  return _internal_range_max();
+}
+inline void DssLaserScan2D::_internal_set_range_max(double value) {
+  
+  range_max_ = value;
+}
+inline void DssLaserScan2D::set_range_max(double value) {
+  _internal_set_range_max(value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.range_max)
+}
+
+// repeated float ranges = 9;
+inline int DssLaserScan2D::_internal_ranges_size() const {
+  return ranges_.size();
+}
+inline int DssLaserScan2D::ranges_size() const {
+  return _internal_ranges_size();
+}
+inline void DssLaserScan2D::clear_ranges() {
+  ranges_.Clear();
+}
+inline float DssLaserScan2D::_internal_ranges(int index) const {
+  return ranges_.Get(index);
+}
+inline float DssLaserScan2D::ranges(int index) const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.ranges)
+  return _internal_ranges(index);
+}
+inline void DssLaserScan2D::set_ranges(int index, float value) {
+  ranges_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.ranges)
+}
+inline void DssLaserScan2D::_internal_add_ranges(float value) {
+  ranges_.Add(value);
+}
+inline void DssLaserScan2D::add_ranges(float value) {
+  _internal_add_ranges(value);
+  // @@protoc_insertion_point(field_add:dss.DssLaserScan2D.ranges)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+DssLaserScan2D::_internal_ranges() const {
+  return ranges_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+DssLaserScan2D::ranges() const {
+  // @@protoc_insertion_point(field_list:dss.DssLaserScan2D.ranges)
+  return _internal_ranges();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+DssLaserScan2D::_internal_mutable_ranges() {
+  return &ranges_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+DssLaserScan2D::mutable_ranges() {
+  // @@protoc_insertion_point(field_mutable_list:dss.DssLaserScan2D.ranges)
+  return _internal_mutable_ranges();
+}
+
+// repeated float intensities = 10;
+inline int DssLaserScan2D::_internal_intensities_size() const {
+  return intensities_.size();
+}
+inline int DssLaserScan2D::intensities_size() const {
+  return _internal_intensities_size();
+}
+inline void DssLaserScan2D::clear_intensities() {
+  intensities_.Clear();
+}
+inline float DssLaserScan2D::_internal_intensities(int index) const {
+  return intensities_.Get(index);
+}
+inline float DssLaserScan2D::intensities(int index) const {
+  // @@protoc_insertion_point(field_get:dss.DssLaserScan2D.intensities)
+  return _internal_intensities(index);
+}
+inline void DssLaserScan2D::set_intensities(int index, float value) {
+  intensities_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dss.DssLaserScan2D.intensities)
+}
+inline void DssLaserScan2D::_internal_add_intensities(float value) {
+  intensities_.Add(value);
+}
+inline void DssLaserScan2D::add_intensities(float value) {
+  _internal_add_intensities(value);
+  // @@protoc_insertion_point(field_add:dss.DssLaserScan2D.intensities)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+DssLaserScan2D::_internal_intensities() const {
+  return intensities_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+DssLaserScan2D::intensities() const {
+  // @@protoc_insertion_point(field_list:dss.DssLaserScan2D.intensities)
+  return _internal_intensities();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+DssLaserScan2D::_internal_mutable_intensities() {
+  return &intensities_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+DssLaserScan2D::mutable_intensities() {
+  // @@protoc_insertion_point(field_mutable_list:dss.DssLaserScan2D.intensities)
+  return _internal_mutable_intensities();
 }
 
 // -------------------------------------------------------------------
@@ -8050,66 +12186,233 @@ inline void DssOneFrameFixedRateResult::set_total_elapsed_time(double value) {
 
 // -------------------------------------------------------------------
 
-// Dss
+// DSSWheelEncoder
+
+// .dss.DSSHeader header = 1;
+inline bool DSSWheelEncoder::_internal_has_header() const {
+  return this != internal_default_instance() && header_ != nullptr;
+}
+inline bool DSSWheelEncoder::has_header() const {
+  return _internal_has_header();
+}
+inline void DSSWheelEncoder::clear_header() {
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+}
+inline const ::dss::DSSHeader& DSSWheelEncoder::_internal_header() const {
+  const ::dss::DSSHeader* p = header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::dss::DSSHeader&>(
+      ::dss::_DSSHeader_default_instance_);
+}
+inline const ::dss::DSSHeader& DSSWheelEncoder::header() const {
+  // @@protoc_insertion_point(field_get:dss.DSSWheelEncoder.header)
+  return _internal_header();
+}
+inline void DSSWheelEncoder::unsafe_arena_set_allocated_header(
+    ::dss::DSSHeader* header) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header_);
+  }
+  header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:dss.DSSWheelEncoder.header)
+}
+inline ::dss::DSSHeader* DSSWheelEncoder::release_header() {
+  
+  ::dss::DSSHeader* temp = header_;
+  header_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::dss::DSSHeader* DSSWheelEncoder::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:dss.DSSWheelEncoder.header)
+  
+  ::dss::DSSHeader* temp = header_;
+  header_ = nullptr;
+  return temp;
+}
+inline ::dss::DSSHeader* DSSWheelEncoder::_internal_mutable_header() {
+  
+  if (header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dss::DSSHeader>(GetArena());
+    header_ = p;
+  }
+  return header_;
+}
+inline ::dss::DSSHeader* DSSWheelEncoder::mutable_header() {
+  // @@protoc_insertion_point(field_mutable:dss.DSSWheelEncoder.header)
+  return _internal_mutable_header();
+}
+inline void DSSWheelEncoder::set_allocated_header(::dss::DSSHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete header_;
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(header);
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:dss.DSSWheelEncoder.header)
+}
+
+// double left_position = 2;
+inline void DSSWheelEncoder::clear_left_position() {
+  left_position_ = 0;
+}
+inline double DSSWheelEncoder::_internal_left_position() const {
+  return left_position_;
+}
+inline double DSSWheelEncoder::left_position() const {
+  // @@protoc_insertion_point(field_get:dss.DSSWheelEncoder.left_position)
+  return _internal_left_position();
+}
+inline void DSSWheelEncoder::_internal_set_left_position(double value) {
+  
+  left_position_ = value;
+}
+inline void DSSWheelEncoder::set_left_position(double value) {
+  _internal_set_left_position(value);
+  // @@protoc_insertion_point(field_set:dss.DSSWheelEncoder.left_position)
+}
+
+// double left_velocity = 3;
+inline void DSSWheelEncoder::clear_left_velocity() {
+  left_velocity_ = 0;
+}
+inline double DSSWheelEncoder::_internal_left_velocity() const {
+  return left_velocity_;
+}
+inline double DSSWheelEncoder::left_velocity() const {
+  // @@protoc_insertion_point(field_get:dss.DSSWheelEncoder.left_velocity)
+  return _internal_left_velocity();
+}
+inline void DSSWheelEncoder::_internal_set_left_velocity(double value) {
+  
+  left_velocity_ = value;
+}
+inline void DSSWheelEncoder::set_left_velocity(double value) {
+  _internal_set_left_velocity(value);
+  // @@protoc_insertion_point(field_set:dss.DSSWheelEncoder.left_velocity)
+}
+
+// double right_position = 4;
+inline void DSSWheelEncoder::clear_right_position() {
+  right_position_ = 0;
+}
+inline double DSSWheelEncoder::_internal_right_position() const {
+  return right_position_;
+}
+inline double DSSWheelEncoder::right_position() const {
+  // @@protoc_insertion_point(field_get:dss.DSSWheelEncoder.right_position)
+  return _internal_right_position();
+}
+inline void DSSWheelEncoder::_internal_set_right_position(double value) {
+  
+  right_position_ = value;
+}
+inline void DSSWheelEncoder::set_right_position(double value) {
+  _internal_set_right_position(value);
+  // @@protoc_insertion_point(field_set:dss.DSSWheelEncoder.right_position)
+}
+
+// double right_velocity = 5;
+inline void DSSWheelEncoder::clear_right_velocity() {
+  right_velocity_ = 0;
+}
+inline double DSSWheelEncoder::_internal_right_velocity() const {
+  return right_velocity_;
+}
+inline double DSSWheelEncoder::right_velocity() const {
+  // @@protoc_insertion_point(field_get:dss.DSSWheelEncoder.right_velocity)
+  return _internal_right_velocity();
+}
+inline void DSSWheelEncoder::_internal_set_right_velocity(double value) {
+  
+  right_velocity_ = value;
+}
+inline void DSSWheelEncoder::set_right_velocity(double value) {
+  _internal_set_right_velocity(value);
+  // @@protoc_insertion_point(field_set:dss.DSSWheelEncoder.right_velocity)
+}
+
+// -------------------------------------------------------------------
+
+// DssClock
 
 // float custom_delta_time = 1;
-inline void Dss::clear_custom_delta_time() {
+inline void DssClock::clear_custom_delta_time() {
   custom_delta_time_ = 0;
 }
-inline float Dss::_internal_custom_delta_time() const {
+inline float DssClock::_internal_custom_delta_time() const {
   return custom_delta_time_;
 }
-inline float Dss::custom_delta_time() const {
-  // @@protoc_insertion_point(field_get:dss.Dss.custom_delta_time)
+inline float DssClock::custom_delta_time() const {
+  // @@protoc_insertion_point(field_get:dss.DssClock.custom_delta_time)
   return _internal_custom_delta_time();
 }
-inline void Dss::_internal_set_custom_delta_time(float value) {
+inline void DssClock::_internal_set_custom_delta_time(float value) {
   
   custom_delta_time_ = value;
 }
-inline void Dss::set_custom_delta_time(float value) {
+inline void DssClock::set_custom_delta_time(float value) {
   _internal_set_custom_delta_time(value);
-  // @@protoc_insertion_point(field_set:dss.Dss.custom_delta_time)
+  // @@protoc_insertion_point(field_set:dss.DssClock.custom_delta_time)
 }
 
 // int64 frame_count = 2;
-inline void Dss::clear_frame_count() {
+inline void DssClock::clear_frame_count() {
   frame_count_ = PROTOBUF_LONGLONG(0);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 Dss::_internal_frame_count() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 DssClock::_internal_frame_count() const {
   return frame_count_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 Dss::frame_count() const {
-  // @@protoc_insertion_point(field_get:dss.Dss.frame_count)
+inline ::PROTOBUF_NAMESPACE_ID::int64 DssClock::frame_count() const {
+  // @@protoc_insertion_point(field_get:dss.DssClock.frame_count)
   return _internal_frame_count();
 }
-inline void Dss::_internal_set_frame_count(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void DssClock::_internal_set_frame_count(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   frame_count_ = value;
 }
-inline void Dss::set_frame_count(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void DssClock::set_frame_count(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_frame_count(value);
-  // @@protoc_insertion_point(field_set:dss.Dss.frame_count)
+  // @@protoc_insertion_point(field_set:dss.DssClock.frame_count)
 }
 
 // double total_elapsed_time = 3;
-inline void Dss::clear_total_elapsed_time() {
+inline void DssClock::clear_total_elapsed_time() {
   total_elapsed_time_ = 0;
 }
-inline double Dss::_internal_total_elapsed_time() const {
+inline double DssClock::_internal_total_elapsed_time() const {
   return total_elapsed_time_;
 }
-inline double Dss::total_elapsed_time() const {
-  // @@protoc_insertion_point(field_get:dss.Dss.total_elapsed_time)
+inline double DssClock::total_elapsed_time() const {
+  // @@protoc_insertion_point(field_get:dss.DssClock.total_elapsed_time)
   return _internal_total_elapsed_time();
 }
-inline void Dss::_internal_set_total_elapsed_time(double value) {
+inline void DssClock::_internal_set_total_elapsed_time(double value) {
   
   total_elapsed_time_ = value;
 }
-inline void Dss::set_total_elapsed_time(double value) {
+inline void DssClock::set_total_elapsed_time(double value) {
   _internal_set_total_elapsed_time(value);
-  // @@protoc_insertion_point(field_set:dss.Dss.total_elapsed_time)
+  // @@protoc_insertion_point(field_set:dss.DssClock.total_elapsed_time)
 }
 
 #ifdef __GNUC__
@@ -8153,10 +12456,48 @@ inline void Dss::set_total_elapsed_time(double value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace dss
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::dss::TurtleBot4Control_Mode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::dss::TurtleBot4Control_Mode>() {
+  return ::dss::TurtleBot4Control_Mode_descriptor();
+}
+template <> struct is_proto_enum< ::dss::Go2Control_Gait> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::dss::Go2Control_Gait>() {
+  return ::dss::Go2Control_Gait_descriptor();
+}
+template <> struct is_proto_enum< ::dss::Go2Control_Mode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::dss::Go2Control_Mode>() {
+  return ::dss::Go2Control_Mode_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

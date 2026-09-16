@@ -65,6 +65,64 @@ struct DssSetControlDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssSetControlDefaultTypeInternal _DssSetControl_default_instance_;
+constexpr TurtleBot4Control::TurtleBot4Control(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : identifier_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , timestamp_(PROTOBUF_LONGLONG(0))
+  , linear_x_(0)
+  , linear_y_(0)
+  , angular_z_(0)
+  , mode_(0)
+{}
+struct TurtleBot4ControlDefaultTypeInternal {
+  constexpr TurtleBot4ControlDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~TurtleBot4ControlDefaultTypeInternal() {}
+  union {
+    TurtleBot4Control _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT TurtleBot4ControlDefaultTypeInternal _TurtleBot4Control_default_instance_;
+constexpr Go2Control::Go2Control(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : identifier_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , timestamp_(PROTOBUF_LONGLONG(0))
+  , vx_(0)
+  , vy_(0)
+  , yaw_rate_(0)
+  , body_height_(0)
+  , gait_(0)
+
+  , mode_(0)
+{}
+struct Go2ControlDefaultTypeInternal {
+  constexpr Go2ControlDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~Go2ControlDefaultTypeInternal() {}
+  union {
+    Go2Control _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Go2ControlDefaultTypeInternal _Go2Control_default_instance_;
+constexpr RobotVelocityCommand::RobotVelocityCommand(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : identifier_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , timestamp_(PROTOBUF_LONGLONG(0))
+  , vx_(0)
+  , vy_(0)
+  , vz_(0)
+  , roll_rate_(0)
+  , pitch_rate_(0)
+  , yaw_rate_(0){}
+struct RobotVelocityCommandDefaultTypeInternal {
+  constexpr RobotVelocityCommandDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~RobotVelocityCommandDefaultTypeInternal() {}
+  union {
+    RobotVelocityCommand _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RobotVelocityCommandDefaultTypeInternal _RobotVelocityCommand_default_instance_;
 constexpr DssDepthVizPixel::DssDepthVizPixel(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : u_(0)
@@ -252,6 +310,71 @@ struct DSSOdomDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DSSOdomDefaultTypeInternal _DSSOdom_default_instance_;
+constexpr DSSCmdVel::DSSCmdVel(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : linear_(nullptr)
+  , angular_(nullptr){}
+struct DSSCmdVelDefaultTypeInternal {
+  constexpr DSSCmdVelDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DSSCmdVelDefaultTypeInternal() {}
+  union {
+    DSSCmdVel _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DSSCmdVelDefaultTypeInternal _DSSCmdVel_default_instance_;
+constexpr DSSTF::DSSTF(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : parent_frame_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , child_frame_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , header_(nullptr)
+  , x_(0)
+  , y_(0)
+  , z_(0)
+  , qx_(0)
+  , qy_(0)
+  , qz_(0)
+  , qw_(0){}
+struct DSSTFDefaultTypeInternal {
+  constexpr DSSTFDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DSSTFDefaultTypeInternal() {}
+  union {
+    DSSTF _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DSSTFDefaultTypeInternal _DSSTF_default_instance_;
+constexpr MujocoBody::MujocoBody(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , position_(nullptr)
+  , orientation_(nullptr)
+  , linear_velocity_(nullptr)
+  , angular_velocity_(nullptr)
+  , id_(0u)
+  , parent_id_(0u){}
+struct MujocoBodyDefaultTypeInternal {
+  constexpr MujocoBodyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~MujocoBodyDefaultTypeInternal() {}
+  union {
+    MujocoBody _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MujocoBodyDefaultTypeInternal _MujocoBody_default_instance_;
+constexpr MujocoGT::MujocoGT(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : bodies_()
+  , header_(nullptr){}
+struct MujocoGTDefaultTypeInternal {
+  constexpr MujocoGTDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~MujocoGTDefaultTypeInternal() {}
+  union {
+    MujocoGT _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MujocoGTDefaultTypeInternal _MujocoGT_default_instance_;
 constexpr DssPointField::DssPointField(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -287,6 +410,29 @@ struct DssLidarPointCloudDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssLidarPointCloudDefaultTypeInternal _DssLidarPointCloud_default_instance_;
+constexpr DssLaserScan2D::DssLaserScan2D(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : ranges_()
+  , _ranges_cached_byte_size_()
+  , intensities_()
+  , _intensities_cached_byte_size_()
+  , header_(nullptr)
+  , angle_min_(0)
+  , angle_max_(0)
+  , angle_increment_(0)
+  , time_increment_(0)
+  , scan_time_(0)
+  , range_min_(0)
+  , range_max_(0){}
+struct DssLaserScan2DDefaultTypeInternal {
+  constexpr DssLaserScan2DDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DssLaserScan2DDefaultTypeInternal() {}
+  union {
+    DssLaserScan2D _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssLaserScan2DDefaultTypeInternal _DssLaserScan2D_default_instance_;
 constexpr FDssWheelSnapshot::FDssWheelSnapshot(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : suspension_offset_(0)
@@ -338,23 +484,39 @@ struct DssOneFrameFixedRateResultDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssOneFrameFixedRateResultDefaultTypeInternal _DssOneFrameFixedRateResult_default_instance_;
-constexpr Dss::Dss(
+constexpr DSSWheelEncoder::DSSWheelEncoder(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : header_(nullptr)
+  , left_position_(0)
+  , left_velocity_(0)
+  , right_position_(0)
+  , right_velocity_(0){}
+struct DSSWheelEncoderDefaultTypeInternal {
+  constexpr DSSWheelEncoderDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DSSWheelEncoderDefaultTypeInternal() {}
+  union {
+    DSSWheelEncoder _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DSSWheelEncoderDefaultTypeInternal _DSSWheelEncoder_default_instance_;
+constexpr DssClock::DssClock(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : frame_count_(PROTOBUF_LONGLONG(0))
   , total_elapsed_time_(0)
   , custom_delta_time_(0){}
-struct DssDefaultTypeInternal {
-  constexpr DssDefaultTypeInternal()
+struct DssClockDefaultTypeInternal {
+  constexpr DssClockDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~DssDefaultTypeInternal() {}
+  ~DssClockDefaultTypeInternal() {}
   union {
-    Dss _instance;
+    DssClock _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssDefaultTypeInternal _Dss_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssClockDefaultTypeInternal _DssClock_default_instance_;
 }  // namespace dss
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dss_2eproto[20];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_dss_2eproto = nullptr;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dss_2eproto[29];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_dss_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_dss_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dss_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -394,6 +556,43 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dss_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::dss::DssSetControl, horn_),
   PROTOBUF_FIELD_OFFSET(::dss::DssSetControl, lightmode_),
   PROTOBUF_FIELD_OFFSET(::dss::DssSetControl, wipermode_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::TurtleBot4Control, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::TurtleBot4Control, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dss::TurtleBot4Control, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::TurtleBot4Control, linear_x_),
+  PROTOBUF_FIELD_OFFSET(::dss::TurtleBot4Control, linear_y_),
+  PROTOBUF_FIELD_OFFSET(::dss::TurtleBot4Control, angular_z_),
+  PROTOBUF_FIELD_OFFSET(::dss::TurtleBot4Control, mode_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, vx_),
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, vy_),
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, yaw_rate_),
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, body_height_),
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, gait_),
+  PROTOBUF_FIELD_OFFSET(::dss::Go2Control, mode_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, vx_),
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, vy_),
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, vz_),
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, roll_rate_),
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, pitch_rate_),
+  PROTOBUF_FIELD_OFFSET(::dss::RobotVelocityCommand, yaw_rate_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::dss::DssDepthVizPixel, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -504,6 +703,47 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dss_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::dss::DSSOdom, twist_),
   PROTOBUF_FIELD_OFFSET(::dss::DSSOdom, twist_covariance_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DSSCmdVel, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DSSCmdVel, linear_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSCmdVel, angular_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, header_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, parent_frame_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, child_frame_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, x_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, y_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, z_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, qx_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, qy_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, qz_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSTF, qw_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoBody, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoBody, id_),
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoBody, parent_id_),
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoBody, name_),
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoBody, position_),
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoBody, orientation_),
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoBody, linear_velocity_),
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoBody, angular_velocity_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoGT, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoGT, header_),
+  PROTOBUF_FIELD_OFFSET(::dss::MujocoGT, bodies_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::dss::DssPointField, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -526,6 +766,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dss_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::dss::DssLidarPointCloud, is_bigendian_),
   PROTOBUF_FIELD_OFFSET(::dss::DssLidarPointCloud, fields_),
   PROTOBUF_FIELD_OFFSET(::dss::DssLidarPointCloud, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, header_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, angle_min_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, angle_max_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, angle_increment_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, time_increment_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, scan_time_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, range_min_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, range_max_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, ranges_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssLaserScan2D, intensities_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::dss::FDssWheelSnapshot, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -560,40 +815,62 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dss_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::dss::DssOneFrameFixedRateResult, frame_count_),
   PROTOBUF_FIELD_OFFSET(::dss::DssOneFrameFixedRateResult, total_elapsed_time_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::dss::Dss, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSWheelEncoder, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::dss::Dss, custom_delta_time_),
-  PROTOBUF_FIELD_OFFSET(::dss::Dss, frame_count_),
-  PROTOBUF_FIELD_OFFSET(::dss::Dss, total_elapsed_time_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSWheelEncoder, header_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSWheelEncoder, left_position_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSWheelEncoder, left_velocity_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSWheelEncoder, right_position_),
+  PROTOBUF_FIELD_OFFSET(::dss::DSSWheelEncoder, right_velocity_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssClock, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssClock, custom_delta_time_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssClock, frame_count_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssClock, total_elapsed_time_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::dss::DssHeartbeat)},
   { 18, -1, sizeof(::dss::DssSetControl)},
-  { 36, -1, sizeof(::dss::DssDepthVizPixel)},
-  { 46, -1, sizeof(::dss::DssDepthVizMessage)},
-  { 52, -1, sizeof(::dss::DSSHeader)},
-  { 59, -1, sizeof(::dss::DSSVector3)},
-  { 67, -1, sizeof(::dss::DSSQuaternion)},
-  { 76, -1, sizeof(::dss::DSSImage)},
-  { 88, -1, sizeof(::dss::DSSGPSStatus)},
-  { 95, -1, sizeof(::dss::DSSGPS)},
-  { 108, -1, sizeof(::dss::DSSIMU)},
-  { 120, -1, sizeof(::dss::DSSPose)},
-  { 127, -1, sizeof(::dss::DSSTwist)},
-  { 134, -1, sizeof(::dss::DSSOdom)},
-  { 145, -1, sizeof(::dss::DssPointField)},
-  { 154, -1, sizeof(::dss::DssLidarPointCloud)},
-  { 168, -1, sizeof(::dss::FDssWheelSnapshot)},
-  { 178, -1, sizeof(::dss::DssEgoVehicleSnapshot)},
-  { 193, -1, sizeof(::dss::DssOneFrameFixedRateResult)},
-  { 201, -1, sizeof(::dss::Dss)},
+  { 36, -1, sizeof(::dss::TurtleBot4Control)},
+  { 47, -1, sizeof(::dss::Go2Control)},
+  { 60, -1, sizeof(::dss::RobotVelocityCommand)},
+  { 73, -1, sizeof(::dss::DssDepthVizPixel)},
+  { 83, -1, sizeof(::dss::DssDepthVizMessage)},
+  { 89, -1, sizeof(::dss::DSSHeader)},
+  { 96, -1, sizeof(::dss::DSSVector3)},
+  { 104, -1, sizeof(::dss::DSSQuaternion)},
+  { 113, -1, sizeof(::dss::DSSImage)},
+  { 125, -1, sizeof(::dss::DSSGPSStatus)},
+  { 132, -1, sizeof(::dss::DSSGPS)},
+  { 145, -1, sizeof(::dss::DSSIMU)},
+  { 157, -1, sizeof(::dss::DSSPose)},
+  { 164, -1, sizeof(::dss::DSSTwist)},
+  { 171, -1, sizeof(::dss::DSSOdom)},
+  { 182, -1, sizeof(::dss::DSSCmdVel)},
+  { 189, -1, sizeof(::dss::DSSTF)},
+  { 204, -1, sizeof(::dss::MujocoBody)},
+  { 216, -1, sizeof(::dss::MujocoGT)},
+  { 223, -1, sizeof(::dss::DssPointField)},
+  { 232, -1, sizeof(::dss::DssLidarPointCloud)},
+  { 246, -1, sizeof(::dss::DssLaserScan2D)},
+  { 261, -1, sizeof(::dss::FDssWheelSnapshot)},
+  { 271, -1, sizeof(::dss::DssEgoVehicleSnapshot)},
+  { 286, -1, sizeof(::dss::DssOneFrameFixedRateResult)},
+  { 294, -1, sizeof(::dss::DSSWheelEncoder)},
+  { 304, -1, sizeof(::dss::DssClock)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssHeartbeat_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssSetControl_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_TurtleBot4Control_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_Go2Control_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_RobotVelocityCommand_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssDepthVizPixel_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssDepthVizMessage_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DSSHeader_default_instance_),
@@ -606,12 +883,18 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DSSPose_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DSSTwist_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DSSOdom_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DSSCmdVel_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DSSTF_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_MujocoBody_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_MujocoGT_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssPointField_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssLidarPointCloud_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssLaserScan2D_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_FDssWheelSnapshot_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssEgoVehicleSnapshot_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssOneFrameFixedRateResult_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_Dss_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DSSWheelEncoder_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssClock_default_instance_),
 };
 
 const char descriptor_table_protodef_dss_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -628,69 +911,109 @@ const char descriptor_table_protodef_dss_2eproto[] PROTOBUF_SECTION_VARIABLE(pro
   "getGear\030\013 \001(\001\022\021\n\theadLight\030\014 \001(\010\022\021\n\ttail"
   "Light\030\r \001(\010\022\022\n\nturnSignal\030\016 \001(\005\022\014\n\004horn\030"
   "\017 \001(\010\022\021\n\tlightMode\030\020 \001(\005\022\021\n\twiperMode\030\021 "
-  "\001(\005\"a\n\020DssDepthVizPixel\022\t\n\001u\030\001 \001(\005\022\t\n\001v\030"
-  "\002 \001(\005\022\021\n\tvehicle_x\030\003 \001(\002\022\021\n\tvehicle_y\030\004 "
-  "\001(\002\022\021\n\tvehicle_z\030\005 \001(\002\";\n\022DssDepthVizMes"
-  "sage\022%\n\006pixels\030\001 \003(\0132\025.dss.DssDepthVizPi"
-  "xel\",\n\tDSSHeader\022\r\n\005stamp\030\001 \001(\001\022\020\n\010frame"
-  "_id\030\002 \001(\t\"-\n\nDSSVector3\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030"
-  "\002 \001(\001\022\t\n\001z\030\003 \001(\001\";\n\rDSSQuaternion\022\t\n\001x\030\001"
-  " \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\t\n\001w\030\004 \001(\001\"\215\001"
-  "\n\010DSSImage\022\036\n\006header\030\001 \001(\0132\016.dss.DSSHead"
-  "er\022\016\n\006height\030\002 \001(\r\022\r\n\005width\030\003 \001(\r\022\020\n\010enc"
-  "oding\030\004 \001(\t\022\024\n\014is_bigendian\030\005 \001(\r\022\014\n\004ste"
-  "p\030\006 \001(\r\022\014\n\004data\030\007 \001(\014\"/\n\014DSSGPSStatus\022\016\n"
-  "\006status\030\001 \001(\005\022\017\n\007service\030\002 \001(\r\"\321\001\n\006DSSGP"
-  "S\022\036\n\006header\030\001 \001(\0132\016.dss.DSSHeader\022!\n\006sta"
-  "tus\030\002 \001(\0132\021.dss.DSSGPSStatus\022\020\n\010latitude"
-  "\030\003 \001(\001\022\021\n\tlongitude\030\004 \001(\001\022\020\n\010altitude\030\005 "
-  "\001(\001\022\033\n\023position_covariance\030\006 \003(\001\022 \n\030posi"
-  "tion_covariance_type\030\007 \001(\r\022\016\n\006source\030\010 \001"
-  "(\t\"\227\002\n\006DSSIMU\022\036\n\006header\030\001 \001(\0132\016.dss.DSSH"
-  "eader\022\'\n\013orientation\030\002 \001(\0132\022.dss.DSSQuat"
-  "ernion\022\036\n\026orientation_covariance\030\003 \003(\001\022)"
-  "\n\020angular_velocity\030\004 \001(\0132\017.dss.DSSVector"
-  "3\022#\n\033angular_velocity_covariance\030\005 \003(\001\022,"
-  "\n\023linear_acceleration\030\006 \001(\0132\017.dss.DSSVec"
-  "tor3\022&\n\036linear_acceleration_covariance\030\007"
-  " \003(\001\"U\n\007DSSPose\022!\n\010position\030\001 \001(\0132\017.dss."
-  "DSSVector3\022\'\n\013orientation\030\002 \001(\0132\022.dss.DS"
-  "SQuaternion\"M\n\010DSSTwist\022\037\n\006linear\030\001 \001(\0132"
-  "\017.dss.DSSVector3\022 \n\007angular\030\002 \001(\0132\017.dss."
-  "DSSVector3\"\256\001\n\007DSSOdom\022\036\n\006header\030\001 \001(\0132\016"
-  ".dss.DSSHeader\022\026\n\016child_frame_id\030\002 \001(\t\022\032"
-  "\n\004pose\030\003 \001(\0132\014.dss.DSSPose\022\027\n\017pose_covar"
-  "iance\030\004 \003(\001\022\034\n\005twist\030\005 \001(\0132\r.dss.DSSTwis"
-  "t\022\030\n\020twist_covariance\030\006 \003(\001\"N\n\rDssPointF"
-  "ield\022\014\n\004name\030\001 \001(\t\022\016\n\006offset\030\002 \001(\r\022\020\n\010da"
-  "tatype\030\003 \001(\r\022\r\n\005count\030\004 \001(\r\"\323\001\n\022DssLidar"
-  "PointCloud\022\036\n\006header\030\001 \001(\0132\016.dss.DSSHead"
-  "er\022\r\n\005width\030\004 \001(\r\022\016\n\006height\030\005 \001(\r\022\022\n\npoi"
-  "nt_step\030\006 \001(\r\022\020\n\010row_step\030\007 \001(\r\022\020\n\010is_de"
-  "nse\030\010 \001(\010\022\024\n\014is_bigendian\030\t \001(\010\022\"\n\006field"
-  "s\030\n \003(\0132\022.dss.DssPointField\022\014\n\004data\030\013 \001("
-  "\014\"\232\001\n\021FDssWheelSnapshot\022\031\n\021suspension_of"
-  "fset\030\001 \001(\002\022\034\n\024wheel_rotation_angle\030\002 \001(\002"
-  "\022\026\n\016steering_angle\030\003 \001(\002\022\024\n\014wheel_radius"
-  "\030\004 \001(\002\022\036\n\026wheel_angular_velocity\030\005 \001(\002\"\235"
-  "\002\n\025DssEgoVehicleSnapshot\022\020\n\010speed_ms\030\001 \001"
-  "(\002\022\021\n\tspeed_kph\030\002 \001(\002\022\r\n\005steer\030\003 \001(\002\022\020\n\010"
-  "throttle\030\004 \001(\002\022\r\n\005brake\030\005 \001(\002\022(\n\017linear_"
-  "velocity\030\006 \001(\0132\017.dss.DSSVector3\022)\n\020angul"
-  "ar_velocity\030\007 \001(\0132\017.dss.DSSVector3\022\025\n\rse"
-  "lected_gear\030\010 \001(\005\022\022\n\nengine_rpm\030\t \001(\002\022/\n"
-  "\017wheel_snapshots\030\n \003(\0132\026.dss.FDssWheelSn"
-  "apshot\"h\n\032DssOneFrameFixedRateResult\022\031\n\021"
-  "custom_delta_time\030\001 \001(\002\022\023\n\013frame_count\030\002"
-  " \001(\003\022\032\n\022total_elapsed_time\030\003 \001(\001\"Q\n\003Dss\022"
-  "\031\n\021custom_delta_time\030\001 \001(\002\022\023\n\013frame_coun"
-  "t\030\002 \001(\003\022\032\n\022total_elapsed_time\030\003 \001(\001b\006pro"
-  "to3"
+  "\001(\005\"\325\001\n\021TurtleBot4Control\022\022\n\nidentifier\030"
+  "\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\003\022\020\n\010linear_x\030\003 \001"
+  "(\001\022\020\n\010linear_y\030\004 \001(\001\022\021\n\tangular_z\030\005 \001(\001\022"
+  ")\n\004mode\030\006 \001(\0162\033.dss.TurtleBot4Control.Mo"
+  "de\"7\n\004Mode\022\r\n\tMODE_NONE\020\000\022\r\n\tMODE_STOP\020\001"
+  "\022\021\n\rMODE_VELOCITY\020\002\"\306\002\n\nGo2Control\022\022\n\nid"
+  "entifier\030\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\003\022\n\n\002vx\030"
+  "\003 \001(\001\022\n\n\002vy\030\004 \001(\001\022\020\n\010yaw_rate\030\005 \001(\001\022\023\n\013b"
+  "ody_height\030\006 \001(\001\022\"\n\004gait\030\007 \001(\0162\024.dss.Go2"
+  "Control.Gait\022\"\n\004mode\030\010 \001(\0162\024.dss.Go2Cont"
+  "rol.Mode\"Q\n\004Gait\022\r\n\tGAIT_NONE\020\000\022\016\n\nGAIT_"
+  "STAND\020\001\022\r\n\tGAIT_WALK\020\002\022\r\n\tGAIT_TROT\020\003\022\014\n"
+  "\010GAIT_RUN\020\004\"7\n\004Mode\022\r\n\tMODE_NONE\020\000\022\r\n\tMO"
+  "DE_STOP\020\001\022\021\n\rMODE_VELOCITY\020\002\"\232\001\n\024RobotVe"
+  "locityCommand\022\022\n\nidentifier\030\001 \001(\t\022\021\n\ttim"
+  "estamp\030\002 \001(\003\022\n\n\002vx\030\003 \001(\001\022\n\n\002vy\030\004 \001(\001\022\n\n\002"
+  "vz\030\005 \001(\001\022\021\n\troll_rate\030\006 \001(\001\022\022\n\npitch_rat"
+  "e\030\007 \001(\001\022\020\n\010yaw_rate\030\010 \001(\001\"a\n\020DssDepthViz"
+  "Pixel\022\t\n\001u\030\001 \001(\005\022\t\n\001v\030\002 \001(\005\022\021\n\tvehicle_x"
+  "\030\003 \001(\002\022\021\n\tvehicle_y\030\004 \001(\002\022\021\n\tvehicle_z\030\005"
+  " \001(\002\";\n\022DssDepthVizMessage\022%\n\006pixels\030\001 \003"
+  "(\0132\025.dss.DssDepthVizPixel\",\n\tDSSHeader\022\r"
+  "\n\005stamp\030\001 \001(\001\022\020\n\010frame_id\030\002 \001(\t\"-\n\nDSSVe"
+  "ctor3\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\";"
+  "\n\rDSSQuaternion\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n"
+  "\001z\030\003 \001(\001\022\t\n\001w\030\004 \001(\001\"\215\001\n\010DSSImage\022\036\n\006head"
+  "er\030\001 \001(\0132\016.dss.DSSHeader\022\016\n\006height\030\002 \001(\r"
+  "\022\r\n\005width\030\003 \001(\r\022\020\n\010encoding\030\004 \001(\t\022\024\n\014is_"
+  "bigendian\030\005 \001(\r\022\014\n\004step\030\006 \001(\r\022\014\n\004data\030\007 "
+  "\001(\014\"/\n\014DSSGPSStatus\022\016\n\006status\030\001 \001(\005\022\017\n\007s"
+  "ervice\030\002 \001(\r\"\321\001\n\006DSSGPS\022\036\n\006header\030\001 \001(\0132"
+  "\016.dss.DSSHeader\022!\n\006status\030\002 \001(\0132\021.dss.DS"
+  "SGPSStatus\022\020\n\010latitude\030\003 \001(\001\022\021\n\tlongitud"
+  "e\030\004 \001(\001\022\020\n\010altitude\030\005 \001(\001\022\033\n\023position_co"
+  "variance\030\006 \003(\001\022 \n\030position_covariance_ty"
+  "pe\030\007 \001(\r\022\016\n\006source\030\010 \001(\t\"\227\002\n\006DSSIMU\022\036\n\006h"
+  "eader\030\001 \001(\0132\016.dss.DSSHeader\022\'\n\013orientati"
+  "on\030\002 \001(\0132\022.dss.DSSQuaternion\022\036\n\026orientat"
+  "ion_covariance\030\003 \003(\001\022)\n\020angular_velocity"
+  "\030\004 \001(\0132\017.dss.DSSVector3\022#\n\033angular_veloc"
+  "ity_covariance\030\005 \003(\001\022,\n\023linear_accelerat"
+  "ion\030\006 \001(\0132\017.dss.DSSVector3\022&\n\036linear_acc"
+  "eleration_covariance\030\007 \003(\001\"U\n\007DSSPose\022!\n"
+  "\010position\030\001 \001(\0132\017.dss.DSSVector3\022\'\n\013orie"
+  "ntation\030\002 \001(\0132\022.dss.DSSQuaternion\"M\n\010DSS"
+  "Twist\022\037\n\006linear\030\001 \001(\0132\017.dss.DSSVector3\022 "
+  "\n\007angular\030\002 \001(\0132\017.dss.DSSVector3\"\256\001\n\007DSS"
+  "Odom\022\036\n\006header\030\001 \001(\0132\016.dss.DSSHeader\022\026\n\016"
+  "child_frame_id\030\002 \001(\t\022\032\n\004pose\030\003 \001(\0132\014.dss"
+  ".DSSPose\022\027\n\017pose_covariance\030\004 \003(\001\022\034\n\005twi"
+  "st\030\005 \001(\0132\r.dss.DSSTwist\022\030\n\020twist_covaria"
+  "nce\030\006 \003(\001\"N\n\tDSSCmdVel\022\037\n\006linear\030\001 \001(\0132\017"
+  ".dss.DSSVector3\022 \n\007angular\030\002 \001(\0132\017.dss.D"
+  "SSVector3\"\243\001\n\005DSSTF\022\036\n\006header\030\001 \001(\0132\016.ds"
+  "s.DSSHeader\022\024\n\014parent_frame\030\002 \001(\t\022\023\n\013chi"
+  "ld_frame\030\003 \001(\t\022\t\n\001x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\t\n\001"
+  "z\030\006 \001(\001\022\n\n\002qx\030\007 \001(\001\022\n\n\002qy\030\010 \001(\001\022\n\n\002qz\030\t "
+  "\001(\001\022\n\n\002qw\030\n \001(\001\"\332\001\n\nMujocoBody\022\n\n\002id\030\001 \001"
+  "(\r\022\021\n\tparent_id\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022!\n\010p"
+  "osition\030\004 \001(\0132\017.dss.DSSVector3\022\'\n\013orient"
+  "ation\030\005 \001(\0132\022.dss.DSSQuaternion\022(\n\017linea"
+  "r_velocity\030\006 \001(\0132\017.dss.DSSVector3\022)\n\020ang"
+  "ular_velocity\030\007 \001(\0132\017.dss.DSSVector3\"K\n\010"
+  "MujocoGT\022\036\n\006header\030\001 \001(\0132\016.dss.DSSHeader"
+  "\022\037\n\006bodies\030\002 \003(\0132\017.dss.MujocoBody\"N\n\rDss"
+  "PointField\022\014\n\004name\030\001 \001(\t\022\016\n\006offset\030\002 \001(\r"
+  "\022\020\n\010datatype\030\003 \001(\r\022\r\n\005count\030\004 \001(\r\"\323\001\n\022Ds"
+  "sLidarPointCloud\022\036\n\006header\030\001 \001(\0132\016.dss.D"
+  "SSHeader\022\r\n\005width\030\004 \001(\r\022\016\n\006height\030\005 \001(\r\022"
+  "\022\n\npoint_step\030\006 \001(\r\022\020\n\010row_step\030\007 \001(\r\022\020\n"
+  "\010is_dense\030\010 \001(\010\022\024\n\014is_bigendian\030\t \001(\010\022\"\n"
+  "\006fields\030\n \003(\0132\022.dss.DssPointField\022\014\n\004dat"
+  "a\030\013 \001(\014\"\345\001\n\016DssLaserScan2D\022\036\n\006header\030\001 \001"
+  "(\0132\016.dss.DSSHeader\022\021\n\tangle_min\030\002 \001(\001\022\021\n"
+  "\tangle_max\030\003 \001(\001\022\027\n\017angle_increment\030\004 \001("
+  "\001\022\026\n\016time_increment\030\005 \001(\001\022\021\n\tscan_time\030\006"
+  " \001(\001\022\021\n\trange_min\030\007 \001(\001\022\021\n\trange_max\030\010 \001"
+  "(\001\022\016\n\006ranges\030\t \003(\002\022\023\n\013intensities\030\n \003(\002\""
+  "\232\001\n\021FDssWheelSnapshot\022\031\n\021suspension_offs"
+  "et\030\001 \001(\002\022\034\n\024wheel_rotation_angle\030\002 \001(\002\022\026"
+  "\n\016steering_angle\030\003 \001(\002\022\024\n\014wheel_radius\030\004"
+  " \001(\002\022\036\n\026wheel_angular_velocity\030\005 \001(\002\"\235\002\n"
+  "\025DssEgoVehicleSnapshot\022\020\n\010speed_ms\030\001 \001(\002"
+  "\022\021\n\tspeed_kph\030\002 \001(\002\022\r\n\005steer\030\003 \001(\002\022\020\n\010th"
+  "rottle\030\004 \001(\002\022\r\n\005brake\030\005 \001(\002\022(\n\017linear_ve"
+  "locity\030\006 \001(\0132\017.dss.DSSVector3\022)\n\020angular"
+  "_velocity\030\007 \001(\0132\017.dss.DSSVector3\022\025\n\rsele"
+  "cted_gear\030\010 \001(\005\022\022\n\nengine_rpm\030\t \001(\002\022/\n\017w"
+  "heel_snapshots\030\n \003(\0132\026.dss.FDssWheelSnap"
+  "shot\"h\n\032DssOneFrameFixedRateResult\022\031\n\021cu"
+  "stom_delta_time\030\001 \001(\002\022\023\n\013frame_count\030\002 \001"
+  "(\003\022\032\n\022total_elapsed_time\030\003 \001(\001\"\217\001\n\017DSSWh"
+  "eelEncoder\022\036\n\006header\030\001 \001(\0132\016.dss.DSSHead"
+  "er\022\025\n\rleft_position\030\002 \001(\001\022\025\n\rleft_veloci"
+  "ty\030\003 \001(\001\022\026\n\016right_position\030\004 \001(\001\022\026\n\016righ"
+  "t_velocity\030\005 \001(\001\"V\n\010DssClock\022\031\n\021custom_d"
+  "elta_time\030\001 \001(\002\022\023\n\013frame_count\030\002 \001(\003\022\032\n\022"
+  "total_elapsed_time\030\003 \001(\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dss_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dss_2eproto = {
-  false, false, 2803, descriptor_table_protodef_dss_2eproto, "dss.proto", 
-  &descriptor_table_dss_2eproto_once, nullptr, 0, 20,
+  false, false, 4432, descriptor_table_protodef_dss_2eproto, "dss.proto", 
+  &descriptor_table_dss_2eproto_once, nullptr, 0, 29,
   schemas, file_default_instances, TableStruct_dss_2eproto::offsets,
   file_level_metadata_dss_2eproto, file_level_enum_descriptors_dss_2eproto, file_level_service_descriptors_dss_2eproto,
 };
@@ -703,6 +1026,79 @@ descriptor_table_dss_2eproto_metadata_getter(int index) {
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_dss_2eproto(&descriptor_table_dss_2eproto);
 namespace dss {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* TurtleBot4Control_Mode_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dss_2eproto);
+  return file_level_enum_descriptors_dss_2eproto[0];
+}
+bool TurtleBot4Control_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr TurtleBot4Control_Mode TurtleBot4Control::MODE_NONE;
+constexpr TurtleBot4Control_Mode TurtleBot4Control::MODE_STOP;
+constexpr TurtleBot4Control_Mode TurtleBot4Control::MODE_VELOCITY;
+constexpr TurtleBot4Control_Mode TurtleBot4Control::Mode_MIN;
+constexpr TurtleBot4Control_Mode TurtleBot4Control::Mode_MAX;
+constexpr int TurtleBot4Control::Mode_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Go2Control_Gait_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dss_2eproto);
+  return file_level_enum_descriptors_dss_2eproto[1];
+}
+bool Go2Control_Gait_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr Go2Control_Gait Go2Control::GAIT_NONE;
+constexpr Go2Control_Gait Go2Control::GAIT_STAND;
+constexpr Go2Control_Gait Go2Control::GAIT_WALK;
+constexpr Go2Control_Gait Go2Control::GAIT_TROT;
+constexpr Go2Control_Gait Go2Control::GAIT_RUN;
+constexpr Go2Control_Gait Go2Control::Gait_MIN;
+constexpr Go2Control_Gait Go2Control::Gait_MAX;
+constexpr int Go2Control::Gait_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Go2Control_Mode_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dss_2eproto);
+  return file_level_enum_descriptors_dss_2eproto[2];
+}
+bool Go2Control_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr Go2Control_Mode Go2Control::MODE_NONE;
+constexpr Go2Control_Mode Go2Control::MODE_STOP;
+constexpr Go2Control_Mode Go2Control::MODE_VELOCITY;
+constexpr Go2Control_Mode Go2Control::Mode_MIN;
+constexpr Go2Control_Mode Go2Control::Mode_MAX;
+constexpr int Go2Control::Mode_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 
 // ===================================================================
 
@@ -1652,6 +2048,1068 @@ void DssSetControl::InternalSwap(DssSetControl* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DssSetControl::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class TurtleBot4Control::_Internal {
+ public:
+};
+
+TurtleBot4Control::TurtleBot4Control(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.TurtleBot4Control)
+}
+TurtleBot4Control::TurtleBot4Control(const TurtleBot4Control& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_identifier(), 
+      GetArena());
+  }
+  ::memcpy(&timestamp_, &from.timestamp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(mode_));
+  // @@protoc_insertion_point(copy_constructor:dss.TurtleBot4Control)
+}
+
+void TurtleBot4Control::SharedCtor() {
+identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(mode_));
+}
+
+TurtleBot4Control::~TurtleBot4Control() {
+  // @@protoc_insertion_point(destructor:dss.TurtleBot4Control)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void TurtleBot4Control::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void TurtleBot4Control::ArenaDtor(void* object) {
+  TurtleBot4Control* _this = reinterpret_cast< TurtleBot4Control* >(object);
+  (void)_this;
+}
+void TurtleBot4Control::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void TurtleBot4Control::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void TurtleBot4Control::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.TurtleBot4Control)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmpty();
+  ::memset(&timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&mode_) -
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(mode_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* TurtleBot4Control::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.TurtleBot4Control.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 timestamp = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double linear_x = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          linear_x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double linear_y = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          linear_y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double angular_z = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          angular_z_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // .dss.TurtleBot4Control.Mode mode = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_mode(static_cast<::dss::TurtleBot4Control_Mode>(val));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* TurtleBot4Control::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.TurtleBot4Control)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.TurtleBot4Control.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_timestamp(), target);
+  }
+
+  // double linear_x = 3;
+  if (!(this->linear_x() <= 0 && this->linear_x() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_linear_x(), target);
+  }
+
+  // double linear_y = 4;
+  if (!(this->linear_y() <= 0 && this->linear_y() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_linear_y(), target);
+  }
+
+  // double angular_z = 5;
+  if (!(this->angular_z() <= 0 && this->angular_z() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_angular_z(), target);
+  }
+
+  // .dss.TurtleBot4Control.Mode mode = 6;
+  if (this->mode() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      6, this->_internal_mode(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.TurtleBot4Control)
+  return target;
+}
+
+size_t TurtleBot4Control::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.TurtleBot4Control)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_timestamp());
+  }
+
+  // double linear_x = 3;
+  if (!(this->linear_x() <= 0 && this->linear_x() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double linear_y = 4;
+  if (!(this->linear_y() <= 0 && this->linear_y() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double angular_z = 5;
+  if (!(this->angular_z() <= 0 && this->angular_z() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // .dss.TurtleBot4Control.Mode mode = 6;
+  if (this->mode() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_mode());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void TurtleBot4Control::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.TurtleBot4Control)
+  GOOGLE_DCHECK_NE(&from, this);
+  const TurtleBot4Control* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TurtleBot4Control>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.TurtleBot4Control)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.TurtleBot4Control)
+    MergeFrom(*source);
+  }
+}
+
+void TurtleBot4Control::MergeFrom(const TurtleBot4Control& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.TurtleBot4Control)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+    _internal_set_identifier(from._internal_identifier());
+  }
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
+  }
+  if (!(from.linear_x() <= 0 && from.linear_x() >= 0)) {
+    _internal_set_linear_x(from._internal_linear_x());
+  }
+  if (!(from.linear_y() <= 0 && from.linear_y() >= 0)) {
+    _internal_set_linear_y(from._internal_linear_y());
+  }
+  if (!(from.angular_z() <= 0 && from.angular_z() >= 0)) {
+    _internal_set_angular_z(from._internal_angular_z());
+  }
+  if (from.mode() != 0) {
+    _internal_set_mode(from._internal_mode());
+  }
+}
+
+void TurtleBot4Control::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.TurtleBot4Control)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TurtleBot4Control::CopyFrom(const TurtleBot4Control& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.TurtleBot4Control)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TurtleBot4Control::IsInitialized() const {
+  return true;
+}
+
+void TurtleBot4Control::InternalSwap(TurtleBot4Control* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(TurtleBot4Control, mode_)
+      + sizeof(TurtleBot4Control::mode_)
+      - PROTOBUF_FIELD_OFFSET(TurtleBot4Control, timestamp_)>(
+          reinterpret_cast<char*>(&timestamp_),
+          reinterpret_cast<char*>(&other->timestamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata TurtleBot4Control::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class Go2Control::_Internal {
+ public:
+};
+
+Go2Control::Go2Control(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.Go2Control)
+}
+Go2Control::Go2Control(const Go2Control& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_identifier(), 
+      GetArena());
+  }
+  ::memcpy(&timestamp_, &from.timestamp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(mode_));
+  // @@protoc_insertion_point(copy_constructor:dss.Go2Control)
+}
+
+void Go2Control::SharedCtor() {
+identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(mode_));
+}
+
+Go2Control::~Go2Control() {
+  // @@protoc_insertion_point(destructor:dss.Go2Control)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Go2Control::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void Go2Control::ArenaDtor(void* object) {
+  Go2Control* _this = reinterpret_cast< Go2Control* >(object);
+  (void)_this;
+}
+void Go2Control::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Go2Control::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void Go2Control::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.Go2Control)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmpty();
+  ::memset(&timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&mode_) -
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(mode_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Go2Control::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.Go2Control.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 timestamp = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double vx = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          vx_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double vy = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          vy_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double yaw_rate = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          yaw_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double body_height = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          body_height_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // .dss.Go2Control.Gait gait = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_gait(static_cast<::dss::Go2Control_Gait>(val));
+        } else goto handle_unusual;
+        continue;
+      // .dss.Go2Control.Mode mode = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_mode(static_cast<::dss::Go2Control_Mode>(val));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Go2Control::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.Go2Control)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.Go2Control.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_timestamp(), target);
+  }
+
+  // double vx = 3;
+  if (!(this->vx() <= 0 && this->vx() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_vx(), target);
+  }
+
+  // double vy = 4;
+  if (!(this->vy() <= 0 && this->vy() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_vy(), target);
+  }
+
+  // double yaw_rate = 5;
+  if (!(this->yaw_rate() <= 0 && this->yaw_rate() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_yaw_rate(), target);
+  }
+
+  // double body_height = 6;
+  if (!(this->body_height() <= 0 && this->body_height() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_body_height(), target);
+  }
+
+  // .dss.Go2Control.Gait gait = 7;
+  if (this->gait() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      7, this->_internal_gait(), target);
+  }
+
+  // .dss.Go2Control.Mode mode = 8;
+  if (this->mode() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      8, this->_internal_mode(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.Go2Control)
+  return target;
+}
+
+size_t Go2Control::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.Go2Control)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_timestamp());
+  }
+
+  // double vx = 3;
+  if (!(this->vx() <= 0 && this->vx() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double vy = 4;
+  if (!(this->vy() <= 0 && this->vy() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double yaw_rate = 5;
+  if (!(this->yaw_rate() <= 0 && this->yaw_rate() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double body_height = 6;
+  if (!(this->body_height() <= 0 && this->body_height() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // .dss.Go2Control.Gait gait = 7;
+  if (this->gait() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_gait());
+  }
+
+  // .dss.Go2Control.Mode mode = 8;
+  if (this->mode() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_mode());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Go2Control::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.Go2Control)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Go2Control* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Go2Control>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.Go2Control)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.Go2Control)
+    MergeFrom(*source);
+  }
+}
+
+void Go2Control::MergeFrom(const Go2Control& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.Go2Control)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+    _internal_set_identifier(from._internal_identifier());
+  }
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
+  }
+  if (!(from.vx() <= 0 && from.vx() >= 0)) {
+    _internal_set_vx(from._internal_vx());
+  }
+  if (!(from.vy() <= 0 && from.vy() >= 0)) {
+    _internal_set_vy(from._internal_vy());
+  }
+  if (!(from.yaw_rate() <= 0 && from.yaw_rate() >= 0)) {
+    _internal_set_yaw_rate(from._internal_yaw_rate());
+  }
+  if (!(from.body_height() <= 0 && from.body_height() >= 0)) {
+    _internal_set_body_height(from._internal_body_height());
+  }
+  if (from.gait() != 0) {
+    _internal_set_gait(from._internal_gait());
+  }
+  if (from.mode() != 0) {
+    _internal_set_mode(from._internal_mode());
+  }
+}
+
+void Go2Control::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.Go2Control)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Go2Control::CopyFrom(const Go2Control& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.Go2Control)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Go2Control::IsInitialized() const {
+  return true;
+}
+
+void Go2Control::InternalSwap(Go2Control* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Go2Control, mode_)
+      + sizeof(Go2Control::mode_)
+      - PROTOBUF_FIELD_OFFSET(Go2Control, timestamp_)>(
+          reinterpret_cast<char*>(&timestamp_),
+          reinterpret_cast<char*>(&other->timestamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Go2Control::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class RobotVelocityCommand::_Internal {
+ public:
+};
+
+RobotVelocityCommand::RobotVelocityCommand(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.RobotVelocityCommand)
+}
+RobotVelocityCommand::RobotVelocityCommand(const RobotVelocityCommand& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_identifier(), 
+      GetArena());
+  }
+  ::memcpy(&timestamp_, &from.timestamp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&yaw_rate_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(yaw_rate_));
+  // @@protoc_insertion_point(copy_constructor:dss.RobotVelocityCommand)
+}
+
+void RobotVelocityCommand::SharedCtor() {
+identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&yaw_rate_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(yaw_rate_));
+}
+
+RobotVelocityCommand::~RobotVelocityCommand() {
+  // @@protoc_insertion_point(destructor:dss.RobotVelocityCommand)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void RobotVelocityCommand::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void RobotVelocityCommand::ArenaDtor(void* object) {
+  RobotVelocityCommand* _this = reinterpret_cast< RobotVelocityCommand* >(object);
+  (void)_this;
+}
+void RobotVelocityCommand::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void RobotVelocityCommand::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void RobotVelocityCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.RobotVelocityCommand)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmpty();
+  ::memset(&timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&yaw_rate_) -
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(yaw_rate_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RobotVelocityCommand::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.RobotVelocityCommand.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 timestamp = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double vx = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          vx_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double vy = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          vy_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double vz = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          vz_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double roll_rate = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          roll_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double pitch_rate = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 57)) {
+          pitch_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double yaw_rate = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
+          yaw_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RobotVelocityCommand::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.RobotVelocityCommand)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.RobotVelocityCommand.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_timestamp(), target);
+  }
+
+  // double vx = 3;
+  if (!(this->vx() <= 0 && this->vx() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_vx(), target);
+  }
+
+  // double vy = 4;
+  if (!(this->vy() <= 0 && this->vy() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_vy(), target);
+  }
+
+  // double vz = 5;
+  if (!(this->vz() <= 0 && this->vz() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_vz(), target);
+  }
+
+  // double roll_rate = 6;
+  if (!(this->roll_rate() <= 0 && this->roll_rate() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_roll_rate(), target);
+  }
+
+  // double pitch_rate = 7;
+  if (!(this->pitch_rate() <= 0 && this->pitch_rate() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_pitch_rate(), target);
+  }
+
+  // double yaw_rate = 8;
+  if (!(this->yaw_rate() <= 0 && this->yaw_rate() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(8, this->_internal_yaw_rate(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.RobotVelocityCommand)
+  return target;
+}
+
+size_t RobotVelocityCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.RobotVelocityCommand)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_timestamp());
+  }
+
+  // double vx = 3;
+  if (!(this->vx() <= 0 && this->vx() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double vy = 4;
+  if (!(this->vy() <= 0 && this->vy() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double vz = 5;
+  if (!(this->vz() <= 0 && this->vz() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double roll_rate = 6;
+  if (!(this->roll_rate() <= 0 && this->roll_rate() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double pitch_rate = 7;
+  if (!(this->pitch_rate() <= 0 && this->pitch_rate() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double yaw_rate = 8;
+  if (!(this->yaw_rate() <= 0 && this->yaw_rate() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RobotVelocityCommand::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.RobotVelocityCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RobotVelocityCommand* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RobotVelocityCommand>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.RobotVelocityCommand)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.RobotVelocityCommand)
+    MergeFrom(*source);
+  }
+}
+
+void RobotVelocityCommand::MergeFrom(const RobotVelocityCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.RobotVelocityCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+    _internal_set_identifier(from._internal_identifier());
+  }
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
+  }
+  if (!(from.vx() <= 0 && from.vx() >= 0)) {
+    _internal_set_vx(from._internal_vx());
+  }
+  if (!(from.vy() <= 0 && from.vy() >= 0)) {
+    _internal_set_vy(from._internal_vy());
+  }
+  if (!(from.vz() <= 0 && from.vz() >= 0)) {
+    _internal_set_vz(from._internal_vz());
+  }
+  if (!(from.roll_rate() <= 0 && from.roll_rate() >= 0)) {
+    _internal_set_roll_rate(from._internal_roll_rate());
+  }
+  if (!(from.pitch_rate() <= 0 && from.pitch_rate() >= 0)) {
+    _internal_set_pitch_rate(from._internal_pitch_rate());
+  }
+  if (!(from.yaw_rate() <= 0 && from.yaw_rate() >= 0)) {
+    _internal_set_yaw_rate(from._internal_yaw_rate());
+  }
+}
+
+void RobotVelocityCommand::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.RobotVelocityCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RobotVelocityCommand::CopyFrom(const RobotVelocityCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.RobotVelocityCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RobotVelocityCommand::IsInitialized() const {
+  return true;
+}
+
+void RobotVelocityCommand::InternalSwap(RobotVelocityCommand* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RobotVelocityCommand, yaw_rate_)
+      + sizeof(RobotVelocityCommand::yaw_rate_)
+      - PROTOBUF_FIELD_OFFSET(RobotVelocityCommand, timestamp_)>(
+          reinterpret_cast<char*>(&timestamp_),
+          reinterpret_cast<char*>(&other->timestamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RobotVelocityCommand::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -5230,6 +6688,1357 @@ void DSSOdom::InternalSwap(DSSOdom* other) {
 
 // ===================================================================
 
+class DSSCmdVel::_Internal {
+ public:
+  static const ::dss::DSSVector3& linear(const DSSCmdVel* msg);
+  static const ::dss::DSSVector3& angular(const DSSCmdVel* msg);
+};
+
+const ::dss::DSSVector3&
+DSSCmdVel::_Internal::linear(const DSSCmdVel* msg) {
+  return *msg->linear_;
+}
+const ::dss::DSSVector3&
+DSSCmdVel::_Internal::angular(const DSSCmdVel* msg) {
+  return *msg->angular_;
+}
+DSSCmdVel::DSSCmdVel(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DSSCmdVel)
+}
+DSSCmdVel::DSSCmdVel(const DSSCmdVel& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_linear()) {
+    linear_ = new ::dss::DSSVector3(*from.linear_);
+  } else {
+    linear_ = nullptr;
+  }
+  if (from._internal_has_angular()) {
+    angular_ = new ::dss::DSSVector3(*from.angular_);
+  } else {
+    angular_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:dss.DSSCmdVel)
+}
+
+void DSSCmdVel::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&linear_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&angular_) -
+    reinterpret_cast<char*>(&linear_)) + sizeof(angular_));
+}
+
+DSSCmdVel::~DSSCmdVel() {
+  // @@protoc_insertion_point(destructor:dss.DSSCmdVel)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DSSCmdVel::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete linear_;
+  if (this != internal_default_instance()) delete angular_;
+}
+
+void DSSCmdVel::ArenaDtor(void* object) {
+  DSSCmdVel* _this = reinterpret_cast< DSSCmdVel* >(object);
+  (void)_this;
+}
+void DSSCmdVel::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DSSCmdVel::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DSSCmdVel::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DSSCmdVel)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && linear_ != nullptr) {
+    delete linear_;
+  }
+  linear_ = nullptr;
+  if (GetArena() == nullptr && angular_ != nullptr) {
+    delete angular_;
+  }
+  angular_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DSSCmdVel::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .dss.DSSVector3 linear = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_linear(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DSSVector3 angular = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_angular(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DSSCmdVel::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DSSCmdVel)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .dss.DSSVector3 linear = 1;
+  if (this->has_linear()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::linear(this), target, stream);
+  }
+
+  // .dss.DSSVector3 angular = 2;
+  if (this->has_angular()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::angular(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DSSCmdVel)
+  return target;
+}
+
+size_t DSSCmdVel::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DSSCmdVel)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .dss.DSSVector3 linear = 1;
+  if (this->has_linear()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *linear_);
+  }
+
+  // .dss.DSSVector3 angular = 2;
+  if (this->has_angular()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *angular_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DSSCmdVel::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DSSCmdVel)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DSSCmdVel* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DSSCmdVel>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DSSCmdVel)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DSSCmdVel)
+    MergeFrom(*source);
+  }
+}
+
+void DSSCmdVel::MergeFrom(const DSSCmdVel& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DSSCmdVel)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_linear()) {
+    _internal_mutable_linear()->::dss::DSSVector3::MergeFrom(from._internal_linear());
+  }
+  if (from.has_angular()) {
+    _internal_mutable_angular()->::dss::DSSVector3::MergeFrom(from._internal_angular());
+  }
+}
+
+void DSSCmdVel::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DSSCmdVel)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DSSCmdVel::CopyFrom(const DSSCmdVel& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DSSCmdVel)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DSSCmdVel::IsInitialized() const {
+  return true;
+}
+
+void DSSCmdVel::InternalSwap(DSSCmdVel* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DSSCmdVel, angular_)
+      + sizeof(DSSCmdVel::angular_)
+      - PROTOBUF_FIELD_OFFSET(DSSCmdVel, linear_)>(
+          reinterpret_cast<char*>(&linear_),
+          reinterpret_cast<char*>(&other->linear_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DSSCmdVel::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DSSTF::_Internal {
+ public:
+  static const ::dss::DSSHeader& header(const DSSTF* msg);
+};
+
+const ::dss::DSSHeader&
+DSSTF::_Internal::header(const DSSTF* msg) {
+  return *msg->header_;
+}
+DSSTF::DSSTF(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DSSTF)
+}
+DSSTF::DSSTF(const DSSTF& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  parent_frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_parent_frame().empty()) {
+    parent_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent_frame(), 
+      GetArena());
+  }
+  child_frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_child_frame().empty()) {
+    child_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_child_frame(), 
+      GetArena());
+  }
+  if (from._internal_has_header()) {
+    header_ = new ::dss::DSSHeader(*from.header_);
+  } else {
+    header_ = nullptr;
+  }
+  ::memcpy(&x_, &from.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&qw_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(qw_));
+  // @@protoc_insertion_point(copy_constructor:dss.DSSTF)
+}
+
+void DSSTF::SharedCtor() {
+parent_frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+child_frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&qw_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(qw_));
+}
+
+DSSTF::~DSSTF() {
+  // @@protoc_insertion_point(destructor:dss.DSSTF)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DSSTF::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  parent_frame_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  child_frame_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete header_;
+}
+
+void DSSTF::ArenaDtor(void* object) {
+  DSSTF* _this = reinterpret_cast< DSSTF* >(object);
+  (void)_this;
+}
+void DSSTF::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DSSTF::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DSSTF::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DSSTF)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  parent_frame_.ClearToEmpty();
+  child_frame_.ClearToEmpty();
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&qw_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(qw_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DSSTF::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .dss.DSSHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string parent_frame = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_parent_frame();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DSSTF.parent_frame"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string child_frame = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_child_frame();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DSSTF.child_frame"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double x = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double y = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double z = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          z_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double qx = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 57)) {
+          qx_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double qy = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
+          qy_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double qz = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 73)) {
+          qz_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double qw = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 81)) {
+          qw_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DSSTF::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DSSTF)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .dss.DSSHeader header = 1;
+  if (this->has_header()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
+  }
+
+  // string parent_frame = 2;
+  if (this->parent_frame().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_parent_frame().data(), static_cast<int>(this->_internal_parent_frame().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DSSTF.parent_frame");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_parent_frame(), target);
+  }
+
+  // string child_frame = 3;
+  if (this->child_frame().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_child_frame().data(), static_cast<int>(this->_internal_child_frame().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DSSTF.child_frame");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_child_frame(), target);
+  }
+
+  // double x = 4;
+  if (!(this->x() <= 0 && this->x() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_x(), target);
+  }
+
+  // double y = 5;
+  if (!(this->y() <= 0 && this->y() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_y(), target);
+  }
+
+  // double z = 6;
+  if (!(this->z() <= 0 && this->z() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_z(), target);
+  }
+
+  // double qx = 7;
+  if (!(this->qx() <= 0 && this->qx() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_qx(), target);
+  }
+
+  // double qy = 8;
+  if (!(this->qy() <= 0 && this->qy() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(8, this->_internal_qy(), target);
+  }
+
+  // double qz = 9;
+  if (!(this->qz() <= 0 && this->qz() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(9, this->_internal_qz(), target);
+  }
+
+  // double qw = 10;
+  if (!(this->qw() <= 0 && this->qw() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(10, this->_internal_qw(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DSSTF)
+  return target;
+}
+
+size_t DSSTF::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DSSTF)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string parent_frame = 2;
+  if (this->parent_frame().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_parent_frame());
+  }
+
+  // string child_frame = 3;
+  if (this->child_frame().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_child_frame());
+  }
+
+  // .dss.DSSHeader header = 1;
+  if (this->has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *header_);
+  }
+
+  // double x = 4;
+  if (!(this->x() <= 0 && this->x() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double y = 5;
+  if (!(this->y() <= 0 && this->y() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double z = 6;
+  if (!(this->z() <= 0 && this->z() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double qx = 7;
+  if (!(this->qx() <= 0 && this->qx() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double qy = 8;
+  if (!(this->qy() <= 0 && this->qy() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double qz = 9;
+  if (!(this->qz() <= 0 && this->qz() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double qw = 10;
+  if (!(this->qw() <= 0 && this->qw() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DSSTF::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DSSTF)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DSSTF* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DSSTF>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DSSTF)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DSSTF)
+    MergeFrom(*source);
+  }
+}
+
+void DSSTF::MergeFrom(const DSSTF& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DSSTF)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.parent_frame().size() > 0) {
+    _internal_set_parent_frame(from._internal_parent_frame());
+  }
+  if (from.child_frame().size() > 0) {
+    _internal_set_child_frame(from._internal_child_frame());
+  }
+  if (from.has_header()) {
+    _internal_mutable_header()->::dss::DSSHeader::MergeFrom(from._internal_header());
+  }
+  if (!(from.x() <= 0 && from.x() >= 0)) {
+    _internal_set_x(from._internal_x());
+  }
+  if (!(from.y() <= 0 && from.y() >= 0)) {
+    _internal_set_y(from._internal_y());
+  }
+  if (!(from.z() <= 0 && from.z() >= 0)) {
+    _internal_set_z(from._internal_z());
+  }
+  if (!(from.qx() <= 0 && from.qx() >= 0)) {
+    _internal_set_qx(from._internal_qx());
+  }
+  if (!(from.qy() <= 0 && from.qy() >= 0)) {
+    _internal_set_qy(from._internal_qy());
+  }
+  if (!(from.qz() <= 0 && from.qz() >= 0)) {
+    _internal_set_qz(from._internal_qz());
+  }
+  if (!(from.qw() <= 0 && from.qw() >= 0)) {
+    _internal_set_qw(from._internal_qw());
+  }
+}
+
+void DSSTF::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DSSTF)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DSSTF::CopyFrom(const DSSTF& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DSSTF)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DSSTF::IsInitialized() const {
+  return true;
+}
+
+void DSSTF::InternalSwap(DSSTF* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  parent_frame_.Swap(&other->parent_frame_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  child_frame_.Swap(&other->child_frame_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DSSTF, qw_)
+      + sizeof(DSSTF::qw_)
+      - PROTOBUF_FIELD_OFFSET(DSSTF, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DSSTF::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class MujocoBody::_Internal {
+ public:
+  static const ::dss::DSSVector3& position(const MujocoBody* msg);
+  static const ::dss::DSSQuaternion& orientation(const MujocoBody* msg);
+  static const ::dss::DSSVector3& linear_velocity(const MujocoBody* msg);
+  static const ::dss::DSSVector3& angular_velocity(const MujocoBody* msg);
+};
+
+const ::dss::DSSVector3&
+MujocoBody::_Internal::position(const MujocoBody* msg) {
+  return *msg->position_;
+}
+const ::dss::DSSQuaternion&
+MujocoBody::_Internal::orientation(const MujocoBody* msg) {
+  return *msg->orientation_;
+}
+const ::dss::DSSVector3&
+MujocoBody::_Internal::linear_velocity(const MujocoBody* msg) {
+  return *msg->linear_velocity_;
+}
+const ::dss::DSSVector3&
+MujocoBody::_Internal::angular_velocity(const MujocoBody* msg) {
+  return *msg->angular_velocity_;
+}
+MujocoBody::MujocoBody(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.MujocoBody)
+}
+MujocoBody::MujocoBody(const MujocoBody& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
+  if (from._internal_has_position()) {
+    position_ = new ::dss::DSSVector3(*from.position_);
+  } else {
+    position_ = nullptr;
+  }
+  if (from._internal_has_orientation()) {
+    orientation_ = new ::dss::DSSQuaternion(*from.orientation_);
+  } else {
+    orientation_ = nullptr;
+  }
+  if (from._internal_has_linear_velocity()) {
+    linear_velocity_ = new ::dss::DSSVector3(*from.linear_velocity_);
+  } else {
+    linear_velocity_ = nullptr;
+  }
+  if (from._internal_has_angular_velocity()) {
+    angular_velocity_ = new ::dss::DSSVector3(*from.angular_velocity_);
+  } else {
+    angular_velocity_ = nullptr;
+  }
+  ::memcpy(&id_, &from.id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&parent_id_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(parent_id_));
+  // @@protoc_insertion_point(copy_constructor:dss.MujocoBody)
+}
+
+void MujocoBody::SharedCtor() {
+name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&position_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&parent_id_) -
+    reinterpret_cast<char*>(&position_)) + sizeof(parent_id_));
+}
+
+MujocoBody::~MujocoBody() {
+  // @@protoc_insertion_point(destructor:dss.MujocoBody)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void MujocoBody::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete position_;
+  if (this != internal_default_instance()) delete orientation_;
+  if (this != internal_default_instance()) delete linear_velocity_;
+  if (this != internal_default_instance()) delete angular_velocity_;
+}
+
+void MujocoBody::ArenaDtor(void* object) {
+  MujocoBody* _this = reinterpret_cast< MujocoBody* >(object);
+  (void)_this;
+}
+void MujocoBody::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void MujocoBody::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void MujocoBody::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.MujocoBody)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  name_.ClearToEmpty();
+  if (GetArena() == nullptr && position_ != nullptr) {
+    delete position_;
+  }
+  position_ = nullptr;
+  if (GetArena() == nullptr && orientation_ != nullptr) {
+    delete orientation_;
+  }
+  orientation_ = nullptr;
+  if (GetArena() == nullptr && linear_velocity_ != nullptr) {
+    delete linear_velocity_;
+  }
+  linear_velocity_ = nullptr;
+  if (GetArena() == nullptr && angular_velocity_ != nullptr) {
+    delete angular_velocity_;
+  }
+  angular_velocity_ = nullptr;
+  ::memset(&id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&parent_id_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(parent_id_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* MujocoBody::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 parent_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          parent_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string name = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.MujocoBody.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DSSVector3 position = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_position(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DSSQuaternion orientation = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_orientation(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DSSVector3 linear_velocity = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_linear_velocity(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DSSVector3 angular_velocity = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_angular_velocity(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* MujocoBody::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.MujocoBody)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 id = 1;
+  if (this->id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_id(), target);
+  }
+
+  // uint32 parent_id = 2;
+  if (this->parent_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_parent_id(), target);
+  }
+
+  // string name = 3;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.MujocoBody.name");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_name(), target);
+  }
+
+  // .dss.DSSVector3 position = 4;
+  if (this->has_position()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::position(this), target, stream);
+  }
+
+  // .dss.DSSQuaternion orientation = 5;
+  if (this->has_orientation()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::orientation(this), target, stream);
+  }
+
+  // .dss.DSSVector3 linear_velocity = 6;
+  if (this->has_linear_velocity()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::linear_velocity(this), target, stream);
+  }
+
+  // .dss.DSSVector3 angular_velocity = 7;
+  if (this->has_angular_velocity()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::angular_velocity(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.MujocoBody)
+  return target;
+}
+
+size_t MujocoBody::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.MujocoBody)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 3;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // .dss.DSSVector3 position = 4;
+  if (this->has_position()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *position_);
+  }
+
+  // .dss.DSSQuaternion orientation = 5;
+  if (this->has_orientation()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *orientation_);
+  }
+
+  // .dss.DSSVector3 linear_velocity = 6;
+  if (this->has_linear_velocity()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *linear_velocity_);
+  }
+
+  // .dss.DSSVector3 angular_velocity = 7;
+  if (this->has_angular_velocity()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *angular_velocity_);
+  }
+
+  // uint32 id = 1;
+  if (this->id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_id());
+  }
+
+  // uint32 parent_id = 2;
+  if (this->parent_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_parent_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MujocoBody::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.MujocoBody)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MujocoBody* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MujocoBody>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.MujocoBody)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.MujocoBody)
+    MergeFrom(*source);
+  }
+}
+
+void MujocoBody::MergeFrom(const MujocoBody& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.MujocoBody)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
+  if (from.has_position()) {
+    _internal_mutable_position()->::dss::DSSVector3::MergeFrom(from._internal_position());
+  }
+  if (from.has_orientation()) {
+    _internal_mutable_orientation()->::dss::DSSQuaternion::MergeFrom(from._internal_orientation());
+  }
+  if (from.has_linear_velocity()) {
+    _internal_mutable_linear_velocity()->::dss::DSSVector3::MergeFrom(from._internal_linear_velocity());
+  }
+  if (from.has_angular_velocity()) {
+    _internal_mutable_angular_velocity()->::dss::DSSVector3::MergeFrom(from._internal_angular_velocity());
+  }
+  if (from.id() != 0) {
+    _internal_set_id(from._internal_id());
+  }
+  if (from.parent_id() != 0) {
+    _internal_set_parent_id(from._internal_parent_id());
+  }
+}
+
+void MujocoBody::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.MujocoBody)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MujocoBody::CopyFrom(const MujocoBody& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.MujocoBody)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MujocoBody::IsInitialized() const {
+  return true;
+}
+
+void MujocoBody::InternalSwap(MujocoBody* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(MujocoBody, parent_id_)
+      + sizeof(MujocoBody::parent_id_)
+      - PROTOBUF_FIELD_OFFSET(MujocoBody, position_)>(
+          reinterpret_cast<char*>(&position_),
+          reinterpret_cast<char*>(&other->position_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata MujocoBody::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class MujocoGT::_Internal {
+ public:
+  static const ::dss::DSSHeader& header(const MujocoGT* msg);
+};
+
+const ::dss::DSSHeader&
+MujocoGT::_Internal::header(const MujocoGT* msg) {
+  return *msg->header_;
+}
+MujocoGT::MujocoGT(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  bodies_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.MujocoGT)
+}
+MujocoGT::MujocoGT(const MujocoGT& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      bodies_(from.bodies_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    header_ = new ::dss::DSSHeader(*from.header_);
+  } else {
+    header_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:dss.MujocoGT)
+}
+
+void MujocoGT::SharedCtor() {
+header_ = nullptr;
+}
+
+MujocoGT::~MujocoGT() {
+  // @@protoc_insertion_point(destructor:dss.MujocoGT)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void MujocoGT::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete header_;
+}
+
+void MujocoGT::ArenaDtor(void* object) {
+  MujocoGT* _this = reinterpret_cast< MujocoGT* >(object);
+  (void)_this;
+}
+void MujocoGT::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void MujocoGT::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void MujocoGT::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.MujocoGT)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  bodies_.Clear();
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* MujocoGT::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .dss.DSSHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .dss.MujocoBody bodies = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_bodies(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* MujocoGT::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.MujocoGT)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .dss.DSSHeader header = 1;
+  if (this->has_header()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
+  }
+
+  // repeated .dss.MujocoBody bodies = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_bodies_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_bodies(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.MujocoGT)
+  return target;
+}
+
+size_t MujocoGT::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.MujocoGT)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .dss.MujocoBody bodies = 2;
+  total_size += 1UL * this->_internal_bodies_size();
+  for (const auto& msg : this->bodies_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .dss.DSSHeader header = 1;
+  if (this->has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *header_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MujocoGT::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.MujocoGT)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MujocoGT* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MujocoGT>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.MujocoGT)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.MujocoGT)
+    MergeFrom(*source);
+  }
+}
+
+void MujocoGT::MergeFrom(const MujocoGT& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.MujocoGT)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  bodies_.MergeFrom(from.bodies_);
+  if (from.has_header()) {
+    _internal_mutable_header()->::dss::DSSHeader::MergeFrom(from._internal_header());
+  }
+}
+
+void MujocoGT::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.MujocoGT)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MujocoGT::CopyFrom(const MujocoGT& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.MujocoGT)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MujocoGT::IsInitialized() const {
+  return true;
+}
+
+void MujocoGT::InternalSwap(MujocoGT* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  bodies_.InternalSwap(&other->bodies_);
+  swap(header_, other->header_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata MujocoGT::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class DssPointField::_Internal {
  public:
 };
@@ -5926,6 +8735,441 @@ void DssLidarPointCloud::InternalSwap(DssLidarPointCloud* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DssLidarPointCloud::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DssLaserScan2D::_Internal {
+ public:
+  static const ::dss::DSSHeader& header(const DssLaserScan2D* msg);
+};
+
+const ::dss::DSSHeader&
+DssLaserScan2D::_Internal::header(const DssLaserScan2D* msg) {
+  return *msg->header_;
+}
+DssLaserScan2D::DssLaserScan2D(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  ranges_(arena),
+  intensities_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssLaserScan2D)
+}
+DssLaserScan2D::DssLaserScan2D(const DssLaserScan2D& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      ranges_(from.ranges_),
+      intensities_(from.intensities_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    header_ = new ::dss::DSSHeader(*from.header_);
+  } else {
+    header_ = nullptr;
+  }
+  ::memcpy(&angle_min_, &from.angle_min_,
+    static_cast<size_t>(reinterpret_cast<char*>(&range_max_) -
+    reinterpret_cast<char*>(&angle_min_)) + sizeof(range_max_));
+  // @@protoc_insertion_point(copy_constructor:dss.DssLaserScan2D)
+}
+
+void DssLaserScan2D::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&range_max_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(range_max_));
+}
+
+DssLaserScan2D::~DssLaserScan2D() {
+  // @@protoc_insertion_point(destructor:dss.DssLaserScan2D)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DssLaserScan2D::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete header_;
+}
+
+void DssLaserScan2D::ArenaDtor(void* object) {
+  DssLaserScan2D* _this = reinterpret_cast< DssLaserScan2D* >(object);
+  (void)_this;
+}
+void DssLaserScan2D::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DssLaserScan2D::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DssLaserScan2D::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssLaserScan2D)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ranges_.Clear();
+  intensities_.Clear();
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+  ::memset(&angle_min_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&range_max_) -
+      reinterpret_cast<char*>(&angle_min_)) + sizeof(range_max_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DssLaserScan2D::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .dss.DSSHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double angle_min = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          angle_min_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double angle_max = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          angle_max_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double angle_increment = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          angle_increment_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double time_increment = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          time_increment_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double scan_time = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          scan_time_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double range_min = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 57)) {
+          range_min_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double range_max = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
+          range_max_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // repeated float ranges = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_ranges(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 77) {
+          _internal_add_ranges(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // repeated float intensities = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_intensities(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 85) {
+          _internal_add_intensities(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DssLaserScan2D::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssLaserScan2D)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .dss.DSSHeader header = 1;
+  if (this->has_header()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
+  }
+
+  // double angle_min = 2;
+  if (!(this->angle_min() <= 0 && this->angle_min() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_angle_min(), target);
+  }
+
+  // double angle_max = 3;
+  if (!(this->angle_max() <= 0 && this->angle_max() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_angle_max(), target);
+  }
+
+  // double angle_increment = 4;
+  if (!(this->angle_increment() <= 0 && this->angle_increment() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_angle_increment(), target);
+  }
+
+  // double time_increment = 5;
+  if (!(this->time_increment() <= 0 && this->time_increment() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_time_increment(), target);
+  }
+
+  // double scan_time = 6;
+  if (!(this->scan_time() <= 0 && this->scan_time() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_scan_time(), target);
+  }
+
+  // double range_min = 7;
+  if (!(this->range_min() <= 0 && this->range_min() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_range_min(), target);
+  }
+
+  // double range_max = 8;
+  if (!(this->range_max() <= 0 && this->range_max() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(8, this->_internal_range_max(), target);
+  }
+
+  // repeated float ranges = 9;
+  if (this->_internal_ranges_size() > 0) {
+    target = stream->WriteFixedPacked(9, _internal_ranges(), target);
+  }
+
+  // repeated float intensities = 10;
+  if (this->_internal_intensities_size() > 0) {
+    target = stream->WriteFixedPacked(10, _internal_intensities(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssLaserScan2D)
+  return target;
+}
+
+size_t DssLaserScan2D::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssLaserScan2D)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated float ranges = 9;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_ranges_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _ranges_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated float intensities = 10;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_intensities_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _intensities_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // .dss.DSSHeader header = 1;
+  if (this->has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *header_);
+  }
+
+  // double angle_min = 2;
+  if (!(this->angle_min() <= 0 && this->angle_min() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double angle_max = 3;
+  if (!(this->angle_max() <= 0 && this->angle_max() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double angle_increment = 4;
+  if (!(this->angle_increment() <= 0 && this->angle_increment() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double time_increment = 5;
+  if (!(this->time_increment() <= 0 && this->time_increment() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double scan_time = 6;
+  if (!(this->scan_time() <= 0 && this->scan_time() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double range_min = 7;
+  if (!(this->range_min() <= 0 && this->range_min() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double range_max = 8;
+  if (!(this->range_max() <= 0 && this->range_max() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DssLaserScan2D::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssLaserScan2D)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DssLaserScan2D* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssLaserScan2D>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssLaserScan2D)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssLaserScan2D)
+    MergeFrom(*source);
+  }
+}
+
+void DssLaserScan2D::MergeFrom(const DssLaserScan2D& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssLaserScan2D)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  ranges_.MergeFrom(from.ranges_);
+  intensities_.MergeFrom(from.intensities_);
+  if (from.has_header()) {
+    _internal_mutable_header()->::dss::DSSHeader::MergeFrom(from._internal_header());
+  }
+  if (!(from.angle_min() <= 0 && from.angle_min() >= 0)) {
+    _internal_set_angle_min(from._internal_angle_min());
+  }
+  if (!(from.angle_max() <= 0 && from.angle_max() >= 0)) {
+    _internal_set_angle_max(from._internal_angle_max());
+  }
+  if (!(from.angle_increment() <= 0 && from.angle_increment() >= 0)) {
+    _internal_set_angle_increment(from._internal_angle_increment());
+  }
+  if (!(from.time_increment() <= 0 && from.time_increment() >= 0)) {
+    _internal_set_time_increment(from._internal_time_increment());
+  }
+  if (!(from.scan_time() <= 0 && from.scan_time() >= 0)) {
+    _internal_set_scan_time(from._internal_scan_time());
+  }
+  if (!(from.range_min() <= 0 && from.range_min() >= 0)) {
+    _internal_set_range_min(from._internal_range_min());
+  }
+  if (!(from.range_max() <= 0 && from.range_max() >= 0)) {
+    _internal_set_range_max(from._internal_range_max());
+  }
+}
+
+void DssLaserScan2D::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssLaserScan2D)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DssLaserScan2D::CopyFrom(const DssLaserScan2D& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssLaserScan2D)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DssLaserScan2D::IsInitialized() const {
+  return true;
+}
+
+void DssLaserScan2D::InternalSwap(DssLaserScan2D* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ranges_.InternalSwap(&other->ranges_);
+  intensities_.InternalSwap(&other->intensities_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DssLaserScan2D, range_max_)
+      + sizeof(DssLaserScan2D::range_max_)
+      - PROTOBUF_FIELD_OFFSET(DssLaserScan2D, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DssLaserScan2D::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -6897,54 +10141,356 @@ void DssOneFrameFixedRateResult::InternalSwap(DssOneFrameFixedRateResult* other)
 
 // ===================================================================
 
-class Dss::_Internal {
+class DSSWheelEncoder::_Internal {
  public:
+  static const ::dss::DSSHeader& header(const DSSWheelEncoder* msg);
 };
 
-Dss::Dss(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+const ::dss::DSSHeader&
+DSSWheelEncoder::_Internal::header(const DSSWheelEncoder* msg) {
+  return *msg->header_;
+}
+DSSWheelEncoder::DSSWheelEncoder(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:dss.Dss)
+  // @@protoc_insertion_point(arena_constructor:dss.DSSWheelEncoder)
 }
-Dss::Dss(const Dss& from)
+DSSWheelEncoder::DSSWheelEncoder(const DSSWheelEncoder& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    header_ = new ::dss::DSSHeader(*from.header_);
+  } else {
+    header_ = nullptr;
+  }
+  ::memcpy(&left_position_, &from.left_position_,
+    static_cast<size_t>(reinterpret_cast<char*>(&right_velocity_) -
+    reinterpret_cast<char*>(&left_position_)) + sizeof(right_velocity_));
+  // @@protoc_insertion_point(copy_constructor:dss.DSSWheelEncoder)
+}
+
+void DSSWheelEncoder::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&right_velocity_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(right_velocity_));
+}
+
+DSSWheelEncoder::~DSSWheelEncoder() {
+  // @@protoc_insertion_point(destructor:dss.DSSWheelEncoder)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DSSWheelEncoder::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete header_;
+}
+
+void DSSWheelEncoder::ArenaDtor(void* object) {
+  DSSWheelEncoder* _this = reinterpret_cast< DSSWheelEncoder* >(object);
+  (void)_this;
+}
+void DSSWheelEncoder::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DSSWheelEncoder::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DSSWheelEncoder::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DSSWheelEncoder)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+  ::memset(&left_position_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&right_velocity_) -
+      reinterpret_cast<char*>(&left_position_)) + sizeof(right_velocity_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DSSWheelEncoder::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .dss.DSSHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double left_position = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          left_position_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double left_velocity = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          left_velocity_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double right_position = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          right_position_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double right_velocity = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          right_velocity_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DSSWheelEncoder::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DSSWheelEncoder)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .dss.DSSHeader header = 1;
+  if (this->has_header()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
+  }
+
+  // double left_position = 2;
+  if (!(this->left_position() <= 0 && this->left_position() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_left_position(), target);
+  }
+
+  // double left_velocity = 3;
+  if (!(this->left_velocity() <= 0 && this->left_velocity() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_left_velocity(), target);
+  }
+
+  // double right_position = 4;
+  if (!(this->right_position() <= 0 && this->right_position() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_right_position(), target);
+  }
+
+  // double right_velocity = 5;
+  if (!(this->right_velocity() <= 0 && this->right_velocity() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_right_velocity(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DSSWheelEncoder)
+  return target;
+}
+
+size_t DSSWheelEncoder::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DSSWheelEncoder)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .dss.DSSHeader header = 1;
+  if (this->has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *header_);
+  }
+
+  // double left_position = 2;
+  if (!(this->left_position() <= 0 && this->left_position() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double left_velocity = 3;
+  if (!(this->left_velocity() <= 0 && this->left_velocity() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double right_position = 4;
+  if (!(this->right_position() <= 0 && this->right_position() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double right_velocity = 5;
+  if (!(this->right_velocity() <= 0 && this->right_velocity() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DSSWheelEncoder::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DSSWheelEncoder)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DSSWheelEncoder* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DSSWheelEncoder>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DSSWheelEncoder)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DSSWheelEncoder)
+    MergeFrom(*source);
+  }
+}
+
+void DSSWheelEncoder::MergeFrom(const DSSWheelEncoder& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DSSWheelEncoder)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_header()) {
+    _internal_mutable_header()->::dss::DSSHeader::MergeFrom(from._internal_header());
+  }
+  if (!(from.left_position() <= 0 && from.left_position() >= 0)) {
+    _internal_set_left_position(from._internal_left_position());
+  }
+  if (!(from.left_velocity() <= 0 && from.left_velocity() >= 0)) {
+    _internal_set_left_velocity(from._internal_left_velocity());
+  }
+  if (!(from.right_position() <= 0 && from.right_position() >= 0)) {
+    _internal_set_right_position(from._internal_right_position());
+  }
+  if (!(from.right_velocity() <= 0 && from.right_velocity() >= 0)) {
+    _internal_set_right_velocity(from._internal_right_velocity());
+  }
+}
+
+void DSSWheelEncoder::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DSSWheelEncoder)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DSSWheelEncoder::CopyFrom(const DSSWheelEncoder& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DSSWheelEncoder)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DSSWheelEncoder::IsInitialized() const {
+  return true;
+}
+
+void DSSWheelEncoder::InternalSwap(DSSWheelEncoder* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DSSWheelEncoder, right_velocity_)
+      + sizeof(DSSWheelEncoder::right_velocity_)
+      - PROTOBUF_FIELD_OFFSET(DSSWheelEncoder, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DSSWheelEncoder::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DssClock::_Internal {
+ public:
+};
+
+DssClock::DssClock(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssClock)
+}
+DssClock::DssClock(const DssClock& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&frame_count_, &from.frame_count_,
     static_cast<size_t>(reinterpret_cast<char*>(&custom_delta_time_) -
     reinterpret_cast<char*>(&frame_count_)) + sizeof(custom_delta_time_));
-  // @@protoc_insertion_point(copy_constructor:dss.Dss)
+  // @@protoc_insertion_point(copy_constructor:dss.DssClock)
 }
 
-void Dss::SharedCtor() {
+void DssClock::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&frame_count_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&custom_delta_time_) -
     reinterpret_cast<char*>(&frame_count_)) + sizeof(custom_delta_time_));
 }
 
-Dss::~Dss() {
-  // @@protoc_insertion_point(destructor:dss.Dss)
+DssClock::~DssClock() {
+  // @@protoc_insertion_point(destructor:dss.DssClock)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void Dss::SharedDtor() {
+void DssClock::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
-void Dss::ArenaDtor(void* object) {
-  Dss* _this = reinterpret_cast< Dss* >(object);
+void DssClock::ArenaDtor(void* object) {
+  DssClock* _this = reinterpret_cast< DssClock* >(object);
   (void)_this;
 }
-void Dss::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void DssClock::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void Dss::SetCachedSize(int size) const {
+void DssClock::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void Dss::Clear() {
-// @@protoc_insertion_point(message_clear_start:dss.Dss)
+void DssClock::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssClock)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -6955,7 +10501,7 @@ void Dss::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Dss::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* DssClock::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -7005,9 +10551,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Dss::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* DssClock::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:dss.Dss)
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssClock)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -7033,12 +10579,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:dss.Dss)
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssClock)
   return target;
 }
 
-size_t Dss::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:dss.Dss)
+size_t DssClock::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssClock)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -7071,23 +10617,23 @@ size_t Dss::ByteSizeLong() const {
   return total_size;
 }
 
-void Dss::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:dss.Dss)
+void DssClock::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssClock)
   GOOGLE_DCHECK_NE(&from, this);
-  const Dss* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Dss>(
+  const DssClock* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssClock>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.Dss)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssClock)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.Dss)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssClock)
     MergeFrom(*source);
   }
 }
 
-void Dss::MergeFrom(const Dss& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:dss.Dss)
+void DssClock::MergeFrom(const DssClock& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssClock)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -7104,36 +10650,36 @@ void Dss::MergeFrom(const Dss& from) {
   }
 }
 
-void Dss::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:dss.Dss)
+void DssClock::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssClock)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Dss::CopyFrom(const Dss& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:dss.Dss)
+void DssClock::CopyFrom(const DssClock& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssClock)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Dss::IsInitialized() const {
+bool DssClock::IsInitialized() const {
   return true;
 }
 
-void Dss::InternalSwap(Dss* other) {
+void DssClock::InternalSwap(DssClock* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Dss, custom_delta_time_)
-      + sizeof(Dss::custom_delta_time_)
-      - PROTOBUF_FIELD_OFFSET(Dss, frame_count_)>(
+      PROTOBUF_FIELD_OFFSET(DssClock, custom_delta_time_)
+      + sizeof(DssClock::custom_delta_time_)
+      - PROTOBUF_FIELD_OFFSET(DssClock, frame_count_)>(
           reinterpret_cast<char*>(&frame_count_),
           reinterpret_cast<char*>(&other->frame_count_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Dss::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata DssClock::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -7146,6 +10692,15 @@ template<> PROTOBUF_NOINLINE ::dss::DssHeartbeat* Arena::CreateMaybeMessage< ::d
 }
 template<> PROTOBUF_NOINLINE ::dss::DssSetControl* Arena::CreateMaybeMessage< ::dss::DssSetControl >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::DssSetControl >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::TurtleBot4Control* Arena::CreateMaybeMessage< ::dss::TurtleBot4Control >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::TurtleBot4Control >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::Go2Control* Arena::CreateMaybeMessage< ::dss::Go2Control >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::Go2Control >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::RobotVelocityCommand* Arena::CreateMaybeMessage< ::dss::RobotVelocityCommand >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::RobotVelocityCommand >(arena);
 }
 template<> PROTOBUF_NOINLINE ::dss::DssDepthVizPixel* Arena::CreateMaybeMessage< ::dss::DssDepthVizPixel >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::DssDepthVizPixel >(arena);
@@ -7183,11 +10738,26 @@ template<> PROTOBUF_NOINLINE ::dss::DSSTwist* Arena::CreateMaybeMessage< ::dss::
 template<> PROTOBUF_NOINLINE ::dss::DSSOdom* Arena::CreateMaybeMessage< ::dss::DSSOdom >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::DSSOdom >(arena);
 }
+template<> PROTOBUF_NOINLINE ::dss::DSSCmdVel* Arena::CreateMaybeMessage< ::dss::DSSCmdVel >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DSSCmdVel >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DSSTF* Arena::CreateMaybeMessage< ::dss::DSSTF >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DSSTF >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::MujocoBody* Arena::CreateMaybeMessage< ::dss::MujocoBody >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::MujocoBody >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::MujocoGT* Arena::CreateMaybeMessage< ::dss::MujocoGT >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::MujocoGT >(arena);
+}
 template<> PROTOBUF_NOINLINE ::dss::DssPointField* Arena::CreateMaybeMessage< ::dss::DssPointField >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::DssPointField >(arena);
 }
 template<> PROTOBUF_NOINLINE ::dss::DssLidarPointCloud* Arena::CreateMaybeMessage< ::dss::DssLidarPointCloud >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::DssLidarPointCloud >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssLaserScan2D* Arena::CreateMaybeMessage< ::dss::DssLaserScan2D >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssLaserScan2D >(arena);
 }
 template<> PROTOBUF_NOINLINE ::dss::FDssWheelSnapshot* Arena::CreateMaybeMessage< ::dss::FDssWheelSnapshot >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::FDssWheelSnapshot >(arena);
@@ -7198,8 +10768,11 @@ template<> PROTOBUF_NOINLINE ::dss::DssEgoVehicleSnapshot* Arena::CreateMaybeMes
 template<> PROTOBUF_NOINLINE ::dss::DssOneFrameFixedRateResult* Arena::CreateMaybeMessage< ::dss::DssOneFrameFixedRateResult >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::DssOneFrameFixedRateResult >(arena);
 }
-template<> PROTOBUF_NOINLINE ::dss::Dss* Arena::CreateMaybeMessage< ::dss::Dss >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::dss::Dss >(arena);
+template<> PROTOBUF_NOINLINE ::dss::DSSWheelEncoder* Arena::CreateMaybeMessage< ::dss::DSSWheelEncoder >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DSSWheelEncoder >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssClock* Arena::CreateMaybeMessage< ::dss::DssClock >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssClock >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

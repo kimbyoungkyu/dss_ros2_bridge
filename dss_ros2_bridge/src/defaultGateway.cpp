@@ -12,9 +12,12 @@
 #include <arpa/inet.h>
 #include <fstream>
 
-
 std::string getDefaultGateway()
 {
+     return "192.168.0.70";
+
+     /*
+    
     std::ifstream file("/proc/net/route");
     if (!file.is_open()) {
         return "";
@@ -42,6 +45,6 @@ std::string getDefaultGateway()
             return inet_ntoa(addr);
         }
     }
-
     return "";
+    */
 }
