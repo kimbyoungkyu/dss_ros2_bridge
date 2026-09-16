@@ -24,7 +24,6 @@
 #include <string>
 #include <utility>
 #include <vector>
-
 #include "defaultGateway.h"
 #include "dss.pb.h"
 
@@ -39,18 +38,14 @@ constexpr char kLaserScanSubject[] = "dss.sensor.lidar2d";
 constexpr char kOdomSubject[] = "dss.sensor.odom";
 constexpr char kWheelEncoderSubject[] = "dss.sensor.wheelEncoder";
 constexpr char kVelocityCommandSubject[] = "dss.turtlebot4.velcmd";
-constexpr char kHeartbeatSubject[] =
-    "dss.DSS_TB4_SimToROSBridgeNode.heartBeat";
+constexpr char kHeartbeatSubject[] = "dss.DSS_TB4_SimToROSBridgeNode.heartBeat";
 }  // namespace
 
-class DSS_TB4_SimToROSBridgeNode final : public rclcpp::Node
-{
+class DSS_TB4_SimToROSBridgeNode final : public rclcpp::Node {
 public:
-    DSS_TB4_SimToROSBridgeNode() : Node("DSS_TB4_SimToROSBridgeNode")
-    {
+    DSS_TB4_SimToROSBridgeNode() : Node("DSS_TB4_SimToROSBridgeNode") {
         const std::string nats_url = "nats://" + getDefaultGateway() + ":4222";
         RCLCPP_INFO(get_logger(), "Connecting to NATS: %s", nats_url.c_str());
-
         const natsStatus status = natsConnection_ConnectTo(&nats_connection_, nats_url.c_str());
         if (status != NATS_OK) {
             RCLCPP_ERROR(get_logger(), "NATS connection failed: %s", natsStatus_GetText(status));
@@ -64,7 +59,6 @@ public:
         registOdom();
         registWheelEncoder();
         registCmdVel();
-        //RCLCPP_INFO(get_logger(), "DSS TB4 Sim-to-ROS bridge is ready");
         if (useSimTime()){
             RCLCPP_INFO(get_logger(), "DSS TB4 Sim2ROS bridge is running in sim_time mode.");
         }else{
@@ -87,9 +81,7 @@ public:
 
 private:
     using TopicHandler = std::function<void(const std::string&, const char*, int)>;
-
-    struct TopicContext
-    {
+    struct TopicContext {
         TopicHandler* handler = nullptr;
     };
 
