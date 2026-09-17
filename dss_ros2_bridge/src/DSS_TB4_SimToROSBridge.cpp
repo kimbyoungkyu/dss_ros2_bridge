@@ -243,7 +243,7 @@ private:
 
     void registImage()
     {
-        image_publisher_ = create_publisher<sensor_msgs::msg::Image>("/dss/sensor/camera/rgb", 10);
+        image_publisher_ = create_publisher<sensor_msgs::msg::Image>("/camera/color/image_raw", 10);
         subscribe(kImageSubject, [this](const std::string&, const char* data, int length) {
             dss::DSSImage source;
             if (!source.ParseFromArray(data, length)) {
@@ -258,7 +258,7 @@ private:
 
     void registImu()
     {
-        imu_publisher_ = create_publisher<sensor_msgs::msg::Imu>("/dss/sensor/imu", 10);
+        imu_publisher_ = create_publisher<sensor_msgs::msg::Imu>("/imu", 10);
         subscribe(kImuSubject, [this](const std::string&, const char* data, int length) {
             dss::DSSIMU source;
             if (!source.ParseFromArray(data, length)) {
