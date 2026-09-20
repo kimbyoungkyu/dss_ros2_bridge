@@ -14,7 +14,6 @@
 #include "dss.pb.h"
 #include "defaultGateway.h"
 #include "DSSNavFileStore.h"
-
 #include <chrono>
 #include <cstdint>
 #include <cstdlib>
@@ -33,22 +32,21 @@ namespace {
 constexpr char kControlSubject[] = "dss.nav.control";
 constexpr char kHeartbeatSubject[] = "dss.DSS_TB4_ROSNavControlNode.heartBeat";
 constexpr int kMaxRequestBytes = 32 * 1024 * 1024;
-
-std::int64_t NowMilliseconds() {
+std::int64_t NowMilliseconds() 
+{
     return std::chrono::duration_cast<std::chrono::milliseconds>(
         std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
-std::string NowISO8601() {
+std::string NowISO8601() 
+{
     const auto now = std::chrono::system_clock::now();
     const auto t = std::chrono::system_clock::to_time_t(now);
     std::tm utc{};
     gmtime_r(&t, &utc);
-    const auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(
-        now.time_since_epoch()).count() % 1000;
+    const auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count() % 1000;
     std::ostringstream out;
-    out << std::put_time(&utc, "%Y-%m-%dT%H:%M:%S") << '.'
-        << std::setw(3) << std::setfill('0') << milliseconds << 'Z';
+    out << std::put_time(&utc, "%Y-%m-%dT%H:%M:%S") << '.' << std::setw(3) << std::setfill('0') << milliseconds << 'Z';
     return out.str();
 }
 
@@ -83,38 +81,34 @@ public:
         RCLCPP_INFO(get_logger(), "Domain Id=%s", domain_id ? domain_id : "0 (default)");
 
         const char* home = std::getenv("HOME");
-        const std::string default_root = home
-            ? std::string(home) + "/.dss/navigation" : "/tmp/dss_navigation";
+        const std::string default_root = home ? std::string(home) + "/.dss/navigation" : "/tmp/dss_navigation";
         storage_directory_ = declare_parameter<std::string>("storage_directory", default_root);
         if (!std::filesystem::path(storage_directory_).is_absolute()) {
             throw std::invalid_argument("storage_directory must be an absolute path");
         }
-        const auto url = declare_parameter<std::string>(
-            "nats_url", "nats://" + getDefaultGateway() + ":4222");
+        const auto url = declare_parameter<std::string>("nats_url", "nats://" + getDefaultGateway() + ":4222");
         CheckNats(natsConnection_ConnectTo(&nats_.connection, url.c_str()), "NATS connect");
-        CheckNats(natsConnection_SubscribeSync(
-            &nats_.subscription, nats_.connection, kControlSubject), "NATS subscribe");
-        CheckNats(natsSubscription_SetPendingLimits(
-            nats_.subscription, 8, 64 * 1024 * 1024), "NATS pending limits");
+        CheckNats(natsConnection_SubscribeSync(&nats_.subscription, nats_.connection, kControlSubject), "NATS subscribe");
+        CheckNats(natsSubscription_SetPendingLimits(nats_.subscription, 8, 64 * 1024 * 1024), "NATS pending limits");
         CheckNats(natsConnection_FlushTimeout(nats_.connection, 2000), "NATS flush");
 
         registerVisualization();
 
         // Wall time keeps control/heartbeat working while simulation is paused.
-        control_timer_ = create_wall_timer(std::chrono::milliseconds(50),
-            [this] { pollControlRequests(); });
-        heartbeat_timer_ = create_wall_timer(std::chrono::seconds(3),
-            [this] { publishHeartbeat(); });
-        RCLCPP_INFO(get_logger(), "Service ready: %s; storage=%s; Lifecycle not implemented",
-            kControlSubject, storage_directory_.c_str());
+        control_timer_ = create_wall_timer(std::chrono::milliseconds(50),[this] {
+             pollControlRequests(); 
+        });
 
+        heartbeat_timer_ = create_wall_timer(std::chrono::seconds(3), [this] { 
+            publishHeartbeat(); 
+        });
 
+        RCLCPP_INFO(get_logger(), "Service ready: %s; storage=%s; Lifecycle not implemented", kControlSubject, storage_directory_.c_str());
         if (useSimTime()){
             RCLCPP_INFO(get_logger(), "DSS TB4 ROs NaV Controller is running in sim_time mode.");
         }else{
             RCLCPP_WARN(get_logger(), "use_sim_time is false: visualization uses ROS system time.");
         }
-
     }
 
     ~DSS_TB4_ROSNavControlNode() override {
@@ -127,41 +121,39 @@ private:
     static void copyStamp(const builtin_interfaces::msg::Time& src, dss::DssNavStamp* dst) {
         dst->set_sec(src.sec); dst->set_nanosec(src.nanosec);
     }
+
     template<class V> static void copyVector(const V& src, dss::DSSVector3* dst) {
         dst->set_x(src.x); dst->set_y(src.y); dst->set_z(src.z);
     }
-    static void copyQuaternion(const geometry_msgs::msg::Quaternion& src,
-                               dss::DSSQuaternion* dst) {
+
+    static void copyQuaternion(const geometry_msgs::msg::Quaternion& src,dss::DSSQuaternion* dst) {
         dst->set_x(src.x); dst->set_y(src.y); dst->set_z(src.z); dst->set_w(src.w);
     }
+
     static bool validQuaternion(const geometry_msgs::msg::Quaternion& q) {
         const double n = q.x*q.x + q.y*q.y + q.z*q.z + q.w*q.w;
         return std::isfinite(n) && std::abs(n - 1.0) < 0.01;
     }
-    static void copyTransform(const geometry_msgs::msg::TransformStamped& src,
-                              dss::DssNavTransform* dst) {
+    static void copyTransform(const geometry_msgs::msg::TransformStamped& src,dss::DssNavTransform* dst) {
         const auto& p = src.transform.translation;
-        if (!std::isfinite(p.x) || !std::isfinite(p.y) || !std::isfinite(p.z) ||
-            !validQuaternion(src.transform.rotation)) throw std::runtime_error("Invalid TF pose");
+        if (!std::isfinite(p.x) || !std::isfinite(p.y) || !std::isfinite(p.z) || !validQuaternion(src.transform.rotation)) throw std::runtime_error("Invalid TF pose");
         copyStamp(src.header.stamp, dst->mutable_stamp());
         dst->set_parent_frame(src.header.frame_id); dst->set_child_frame(src.child_frame_id);
         copyVector(p, dst->mutable_translation());
         copyQuaternion(src.transform.rotation, dst->mutable_rotation());
     }
+
     bool publishWire(const char* subject, const std::string& bytes) {
         const auto maximum = natsConnection_GetMaxPayload(nats_.connection);
         if (maximum <= 0 || bytes.size() > static_cast<std::size_t>(maximum) ||
             bytes.size() > static_cast<std::size_t>(std::numeric_limits<int>::max())) {
-            RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 3000,
-                "NATS payload too large for %s (%zu bytes)", subject, bytes.size());
+            RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 3000,"NATS payload too large for %s (%zu bytes)", subject, bytes.size());
             return false;
         }
         if (natsConnection_Status(nats_.connection) != NATS_CONN_STATUS_CONNECTED) return false;
-        const auto status = natsConnection_Publish(nats_.connection, subject,
-            bytes.data(), static_cast<int>(bytes.size()));
+        const auto status = natsConnection_Publish(nats_.connection, subject,bytes.data(), static_cast<int>(bytes.size()));
         if (status != NATS_OK) {
-            RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 3000,
-                "Visualization publish failed: %s", natsStatus_GetText(status));
+            RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 3000,"Visualization publish failed: %s", natsStatus_GetText(status));
             return false;
         }
         return true;
@@ -184,20 +176,22 @@ private:
         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_, this, false);
         auto map_qos = rclcpp::QoS(rclcpp::KeepLast(1)).reliable();
         if (durable_map) map_qos.transient_local();
-        map_subscription_ = create_subscription<nav_msgs::msg::OccupancyGrid>(map_topic, map_qos,
-            [this](nav_msgs::msg::OccupancyGrid::ConstSharedPtr msg) {
-                try { cacheMap(*msg); }
-                catch (const std::exception& e) { RCLCPP_ERROR(get_logger(), "Map: %s", e.what()); }
-            });
-        scan_subscription_ = create_subscription<sensor_msgs::msg::LaserScan>(scan_topic,
-            rclcpp::SensorDataQoS(), [this](sensor_msgs::msg::LaserScan::ConstSharedPtr msg) {
+        map_subscription_ = create_subscription<nav_msgs::msg::OccupancyGrid>(map_topic, map_qos,[this](nav_msgs::msg::OccupancyGrid::ConstSharedPtr msg) {
+                try { 
+                    cacheMap(*msg); 
+                }
+                catch (const std::exception& e) {
+                     RCLCPP_ERROR(get_logger(), "Map: %s", e.what()); 
+                }
+        });
+        scan_subscription_ = create_subscription<sensor_msgs::msg::LaserScan>(scan_topic,rclcpp::SensorDataQoS(),[this](sensor_msgs::msg::LaserScan::ConstSharedPtr msg) {
                 checkTimeReset();
                 if (pending_scans_.size() >= 10) {
                     sendScan(*pending_scans_.front().message, nullptr, "TF queue overflow");
                     pending_scans_.pop_front();
                 }
                 pending_scans_.push_back({msg, std::chrono::steady_clock::now()});
-            });
+        });
         visualization_timer_ = create_wall_timer(std::chrono::milliseconds(50), [this] {
             checkTimeReset();
             publishRobotPose();
@@ -224,8 +218,7 @@ private:
         const auto now = get_clock()->now().nanoseconds();
         if (last_ros_time_ >= 0 && now < last_ros_time_) {
             map_chunks_.clear(); next_map_chunks_.clear(); map_send_index_ = 0; pending_scans_.clear();
-            stream_id_ = std::to_string(NowMilliseconds()) + "_" + std::to_string(::getpid()) +
-                "_" + std::to_string(++reset_counter_);
+            stream_id_ = std::to_string(NowMilliseconds()) + "_" + std::to_string(::getpid()) + "_" + std::to_string(++reset_counter_);
             // tf2 handles ROS clock jumps. Do not manually clear static TF here.
             RCLCPP_WARN(get_logger(), "ROS time moved backwards; visualization cache invalidated");
         }
@@ -295,8 +288,7 @@ private:
         publishProto("dss.nav.tf", msg);
     }
 
-    void sendScan(const sensor_msgs::msg::LaserScan& src,
-                  const geometry_msgs::msg::TransformStamped* tf, const std::string& error) {
+    void sendScan(const sensor_msgs::msg::LaserScan& src,const geometry_msgs::msg::TransformStamped* tf, const std::string& error) {
         dss::DssNavScan out;
         out.set_schema_version(1); out.set_stream_id(stream_id_);
         copyStamp(src.header.stamp, out.mutable_stamp()); out.set_frame_id(src.header.frame_id);
@@ -401,8 +393,7 @@ private:
         }
     }
 
-    void handleStart(const dss::DssNavigationControllerRequest& request,
-                     dss::DssNavigationControllerResponse& response) {
+    void handleStart(const dss::DssNavigationControllerRequest& request, dss::DssNavigationControllerResponse& response) {
         std::vector<dss_nav::File> files;
         auto add = [&files](const std::string& name, const std::string& bytes) {
             if (name.empty() && bytes.empty()) return;
@@ -443,8 +434,7 @@ private:
         }.dump());
     }
 
-    void handleStop(const dss::DssNavigationControllerRequest&,
-                    dss::DssNavigationControllerResponse& response) {
+    void handleStop(const dss::DssNavigationControllerRequest&, dss::DssNavigationControllerResponse& response) {
         // TODO: asynchronously deactivate managed Lifecycle targets.
         // STOP does not delete saved configuration or map files.
         response.set_success(false);

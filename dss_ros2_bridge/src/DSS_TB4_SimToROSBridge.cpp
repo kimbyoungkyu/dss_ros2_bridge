@@ -30,8 +30,7 @@
 #include "defaultGateway.h"
 #include "dss.pb.h"
 
-namespace
-{
+namespace {
 constexpr std::int64_t kNanosecondsPerSecond = 1'000'000'000LL;
 constexpr auto kHeartbeatInterval = std::chrono::seconds{3};
 constexpr char kTfSubject[] = "dss.tf";
@@ -141,8 +140,7 @@ private:
                   &DSS_TB4_SimToROSBridgeNode::onNatsMessage, context.get());
 
         if (status != NATS_OK) {
-            RCLCPP_ERROR(get_logger(), "NATS subscription failed (%s): %s",
-                         subject.c_str(), natsStatus_GetText(status));
+            RCLCPP_ERROR(get_logger(), "NATS subscription failed (%s): %s",subject.c_str(), natsStatus_GetText(status));
             return false;
         }
 
@@ -227,8 +225,7 @@ private:
         laser.transform.rotation.w = 1.0;
 
         // Transient-local static broadcaster retains both for late subscribers.
-        static_tf_broadcaster_->sendTransform(
-            std::vector<geometry_msgs::msg::TransformStamped>{imu, laser});
+        static_tf_broadcaster_->sendTransform(std::vector<geometry_msgs::msg::TransformStamped>{imu, laser});
     }
 
     void registClock()
@@ -324,18 +321,8 @@ private:
 
     void registCmdVel()
     {
-        cmd_vel_subscription_ = create_subscription<geometry_msgs::msg::Twist>(
-            "/cmd_vel",
-            rclcpp::QoS(10),
-            std::bind(
-                &DSS_TB4_SimToROSBridgeNode::onCmdVel,
-                this,
-                std::placeholders::_1));
-
-        RCLCPP_INFO(
-            get_logger(),
-            "ROS2 /cmd_vel -> NATS %s bridge is ready",
-            kVelocityCommandSubject);
+        cmd_vel_subscription_ = create_subscription<geometry_msgs::msg::Twist>("/cmd_vel",rclcpp::QoS(10),std::bind(&DSS_TB4_SimToROSBridgeNode::onCmdVel,this,std::placeholders::_1));
+        RCLCPP_INFO(get_logger(),"ROS2 /cmd_vel -> NATS %s bridge is ready",kVelocityCommandSubject);
     }
 
     void onCmdVel(const geometry_msgs::msg::Twist::SharedPtr message)
@@ -492,8 +479,7 @@ private:
         return message;
     }
 
-    sensor_msgs::msg::JointState createJointState(
-        const dss::DSSWheelEncoder& source)
+    sensor_msgs::msg::JointState createJointState(const dss::DSSWheelEncoder& source)
     {
         sensor_msgs::msg::JointState message;
         message.header.stamp = toRosTime(source.header().stamp());
