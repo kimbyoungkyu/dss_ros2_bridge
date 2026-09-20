@@ -47,7 +47,7 @@ struct TableStruct_dss_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[29]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[31]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -116,6 +116,12 @@ extern DssLaserScan2DDefaultTypeInternal _DssLaserScan2D_default_instance_;
 class DssLidarPointCloud;
 struct DssLidarPointCloudDefaultTypeInternal;
 extern DssLidarPointCloudDefaultTypeInternal _DssLidarPointCloud_default_instance_;
+class DssNavigationControllerRequest;
+struct DssNavigationControllerRequestDefaultTypeInternal;
+extern DssNavigationControllerRequestDefaultTypeInternal _DssNavigationControllerRequest_default_instance_;
+class DssNavigationControllerResponse;
+struct DssNavigationControllerResponseDefaultTypeInternal;
+extern DssNavigationControllerResponseDefaultTypeInternal _DssNavigationControllerResponse_default_instance_;
 class DssOneFrameFixedRateResult;
 struct DssOneFrameFixedRateResultDefaultTypeInternal;
 extern DssOneFrameFixedRateResultDefaultTypeInternal _DssOneFrameFixedRateResult_default_instance_;
@@ -165,6 +171,8 @@ template<> ::dss::DssEgoVehicleSnapshot* Arena::CreateMaybeMessage<::dss::DssEgo
 template<> ::dss::DssHeartbeat* Arena::CreateMaybeMessage<::dss::DssHeartbeat>(Arena*);
 template<> ::dss::DssLaserScan2D* Arena::CreateMaybeMessage<::dss::DssLaserScan2D>(Arena*);
 template<> ::dss::DssLidarPointCloud* Arena::CreateMaybeMessage<::dss::DssLidarPointCloud>(Arena*);
+template<> ::dss::DssNavigationControllerRequest* Arena::CreateMaybeMessage<::dss::DssNavigationControllerRequest>(Arena*);
+template<> ::dss::DssNavigationControllerResponse* Arena::CreateMaybeMessage<::dss::DssNavigationControllerResponse>(Arena*);
 template<> ::dss::DssOneFrameFixedRateResult* Arena::CreateMaybeMessage<::dss::DssOneFrameFixedRateResult>(Arena*);
 template<> ::dss::DssPointField* Arena::CreateMaybeMessage<::dss::DssPointField>(Arena*);
 template<> ::dss::DssSetControl* Arena::CreateMaybeMessage<::dss::DssSetControl>(Arena*);
@@ -256,6 +264,83 @@ inline bool Go2Control_Mode_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Go2Control_Mode* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Go2Control_Mode>(
     Go2Control_Mode_descriptor(), name, value);
+}
+enum NavControlCommand : int {
+  NAV_COMMAND_START = 0,
+  NAV_COMMAND_STOP = 1,
+  NavControlCommand_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  NavControlCommand_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool NavControlCommand_IsValid(int value);
+constexpr NavControlCommand NavControlCommand_MIN = NAV_COMMAND_START;
+constexpr NavControlCommand NavControlCommand_MAX = NAV_COMMAND_STOP;
+constexpr int NavControlCommand_ARRAYSIZE = NavControlCommand_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* NavControlCommand_descriptor();
+template<typename T>
+inline const std::string& NavControlCommand_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, NavControlCommand>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function NavControlCommand_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    NavControlCommand_descriptor(), enum_t_value);
+}
+inline bool NavControlCommand_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, NavControlCommand* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<NavControlCommand>(
+    NavControlCommand_descriptor(), name, value);
+}
+enum NavMode : int {
+  NAV_MODE_SLAM_ONLY = 0,
+  NAV_MODE_SLAM_WITH_NAV2 = 1,
+  NAV_MODE_LOCALIZATION_NAV2 = 2,
+  NavMode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  NavMode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool NavMode_IsValid(int value);
+constexpr NavMode NavMode_MIN = NAV_MODE_SLAM_ONLY;
+constexpr NavMode NavMode_MAX = NAV_MODE_LOCALIZATION_NAV2;
+constexpr int NavMode_ARRAYSIZE = NavMode_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* NavMode_descriptor();
+template<typename T>
+inline const std::string& NavMode_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, NavMode>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function NavMode_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    NavMode_descriptor(), enum_t_value);
+}
+inline bool NavMode_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, NavMode* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<NavMode>(
+    NavMode_descriptor(), name, value);
+}
+enum SlamType : int {
+  SLAM_TYPE_CARTOGRAPHER = 0,
+  SLAM_TYPE_SLAM_TOOLBOX = 1,
+  SLAM_TYPE_RTABMAP = 2,
+  SlamType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  SlamType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool SlamType_IsValid(int value);
+constexpr SlamType SlamType_MIN = SLAM_TYPE_CARTOGRAPHER;
+constexpr SlamType SlamType_MAX = SLAM_TYPE_RTABMAP;
+constexpr int SlamType_ARRAYSIZE = SlamType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SlamType_descriptor();
+template<typename T>
+inline const std::string& SlamType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SlamType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SlamType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SlamType_descriptor(), enum_t_value);
+}
+inline bool SlamType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SlamType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SlamType>(
+    SlamType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -6344,6 +6429,497 @@ class DssClock PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dss_2eproto;
 };
+// -------------------------------------------------------------------
+
+class DssNavigationControllerRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DssNavigationControllerRequest) */ {
+ public:
+  inline DssNavigationControllerRequest() : DssNavigationControllerRequest(nullptr) {}
+  virtual ~DssNavigationControllerRequest();
+  explicit constexpr DssNavigationControllerRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DssNavigationControllerRequest(const DssNavigationControllerRequest& from);
+  DssNavigationControllerRequest(DssNavigationControllerRequest&& from) noexcept
+    : DssNavigationControllerRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline DssNavigationControllerRequest& operator=(const DssNavigationControllerRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DssNavigationControllerRequest& operator=(DssNavigationControllerRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DssNavigationControllerRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DssNavigationControllerRequest* internal_default_instance() {
+    return reinterpret_cast<const DssNavigationControllerRequest*>(
+               &_DssNavigationControllerRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    29;
+
+  friend void swap(DssNavigationControllerRequest& a, DssNavigationControllerRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DssNavigationControllerRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DssNavigationControllerRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DssNavigationControllerRequest* New() const final {
+    return CreateMaybeMessage<DssNavigationControllerRequest>(nullptr);
+  }
+
+  DssNavigationControllerRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DssNavigationControllerRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DssNavigationControllerRequest& from);
+  void MergeFrom(const DssNavigationControllerRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DssNavigationControllerRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.DssNavigationControllerRequest";
+  }
+  protected:
+  explicit DssNavigationControllerRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdentifierFieldNumber = 1,
+    kConfigContentFieldNumber = 6,
+    kConfigFilenameFieldNumber = 7,
+    kMapYamlContentFieldNumber = 8,
+    kMapYamlFilenameFieldNumber = 9,
+    kMapPgmDataFieldNumber = 10,
+    kMapPgmFilenameFieldNumber = 11,
+    kTimestampFieldNumber = 2,
+    kCommandFieldNumber = 3,
+    kModeFieldNumber = 4,
+    kSlamTypeFieldNumber = 5,
+    kUseSimTimeFieldNumber = 12,
+  };
+  // string identifier = 1;
+  void clear_identifier();
+  const std::string& identifier() const;
+  void set_identifier(const std::string& value);
+  void set_identifier(std::string&& value);
+  void set_identifier(const char* value);
+  void set_identifier(const char* value, size_t size);
+  std::string* mutable_identifier();
+  std::string* release_identifier();
+  void set_allocated_identifier(std::string* identifier);
+  private:
+  const std::string& _internal_identifier() const;
+  void _internal_set_identifier(const std::string& value);
+  std::string* _internal_mutable_identifier();
+  public:
+
+  // string config_content = 6;
+  void clear_config_content();
+  const std::string& config_content() const;
+  void set_config_content(const std::string& value);
+  void set_config_content(std::string&& value);
+  void set_config_content(const char* value);
+  void set_config_content(const char* value, size_t size);
+  std::string* mutable_config_content();
+  std::string* release_config_content();
+  void set_allocated_config_content(std::string* config_content);
+  private:
+  const std::string& _internal_config_content() const;
+  void _internal_set_config_content(const std::string& value);
+  std::string* _internal_mutable_config_content();
+  public:
+
+  // string config_filename = 7;
+  void clear_config_filename();
+  const std::string& config_filename() const;
+  void set_config_filename(const std::string& value);
+  void set_config_filename(std::string&& value);
+  void set_config_filename(const char* value);
+  void set_config_filename(const char* value, size_t size);
+  std::string* mutable_config_filename();
+  std::string* release_config_filename();
+  void set_allocated_config_filename(std::string* config_filename);
+  private:
+  const std::string& _internal_config_filename() const;
+  void _internal_set_config_filename(const std::string& value);
+  std::string* _internal_mutable_config_filename();
+  public:
+
+  // string map_yaml_content = 8;
+  void clear_map_yaml_content();
+  const std::string& map_yaml_content() const;
+  void set_map_yaml_content(const std::string& value);
+  void set_map_yaml_content(std::string&& value);
+  void set_map_yaml_content(const char* value);
+  void set_map_yaml_content(const char* value, size_t size);
+  std::string* mutable_map_yaml_content();
+  std::string* release_map_yaml_content();
+  void set_allocated_map_yaml_content(std::string* map_yaml_content);
+  private:
+  const std::string& _internal_map_yaml_content() const;
+  void _internal_set_map_yaml_content(const std::string& value);
+  std::string* _internal_mutable_map_yaml_content();
+  public:
+
+  // string map_yaml_filename = 9;
+  void clear_map_yaml_filename();
+  const std::string& map_yaml_filename() const;
+  void set_map_yaml_filename(const std::string& value);
+  void set_map_yaml_filename(std::string&& value);
+  void set_map_yaml_filename(const char* value);
+  void set_map_yaml_filename(const char* value, size_t size);
+  std::string* mutable_map_yaml_filename();
+  std::string* release_map_yaml_filename();
+  void set_allocated_map_yaml_filename(std::string* map_yaml_filename);
+  private:
+  const std::string& _internal_map_yaml_filename() const;
+  void _internal_set_map_yaml_filename(const std::string& value);
+  std::string* _internal_mutable_map_yaml_filename();
+  public:
+
+  // bytes map_pgm_data = 10;
+  void clear_map_pgm_data();
+  const std::string& map_pgm_data() const;
+  void set_map_pgm_data(const std::string& value);
+  void set_map_pgm_data(std::string&& value);
+  void set_map_pgm_data(const char* value);
+  void set_map_pgm_data(const void* value, size_t size);
+  std::string* mutable_map_pgm_data();
+  std::string* release_map_pgm_data();
+  void set_allocated_map_pgm_data(std::string* map_pgm_data);
+  private:
+  const std::string& _internal_map_pgm_data() const;
+  void _internal_set_map_pgm_data(const std::string& value);
+  std::string* _internal_mutable_map_pgm_data();
+  public:
+
+  // string map_pgm_filename = 11;
+  void clear_map_pgm_filename();
+  const std::string& map_pgm_filename() const;
+  void set_map_pgm_filename(const std::string& value);
+  void set_map_pgm_filename(std::string&& value);
+  void set_map_pgm_filename(const char* value);
+  void set_map_pgm_filename(const char* value, size_t size);
+  std::string* mutable_map_pgm_filename();
+  std::string* release_map_pgm_filename();
+  void set_allocated_map_pgm_filename(std::string* map_pgm_filename);
+  private:
+  const std::string& _internal_map_pgm_filename() const;
+  void _internal_set_map_pgm_filename(const std::string& value);
+  std::string* _internal_mutable_map_pgm_filename();
+  public:
+
+  // int64 timestamp = 2;
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // .dss.NavControlCommand command = 3;
+  void clear_command();
+  ::dss::NavControlCommand command() const;
+  void set_command(::dss::NavControlCommand value);
+  private:
+  ::dss::NavControlCommand _internal_command() const;
+  void _internal_set_command(::dss::NavControlCommand value);
+  public:
+
+  // .dss.NavMode mode = 4;
+  void clear_mode();
+  ::dss::NavMode mode() const;
+  void set_mode(::dss::NavMode value);
+  private:
+  ::dss::NavMode _internal_mode() const;
+  void _internal_set_mode(::dss::NavMode value);
+  public:
+
+  // .dss.SlamType slam_type = 5;
+  void clear_slam_type();
+  ::dss::SlamType slam_type() const;
+  void set_slam_type(::dss::SlamType value);
+  private:
+  ::dss::SlamType _internal_slam_type() const;
+  void _internal_set_slam_type(::dss::SlamType value);
+  public:
+
+  // bool use_sim_time = 12;
+  void clear_use_sim_time();
+  bool use_sim_time() const;
+  void set_use_sim_time(bool value);
+  private:
+  bool _internal_use_sim_time() const;
+  void _internal_set_use_sim_time(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.DssNavigationControllerRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr identifier_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr config_content_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr config_filename_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr map_yaml_content_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr map_yaml_filename_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr map_pgm_data_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr map_pgm_filename_;
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp_;
+  int command_;
+  int mode_;
+  int slam_type_;
+  bool use_sim_time_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DssNavigationControllerResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dss.DssNavigationControllerResponse) */ {
+ public:
+  inline DssNavigationControllerResponse() : DssNavigationControllerResponse(nullptr) {}
+  virtual ~DssNavigationControllerResponse();
+  explicit constexpr DssNavigationControllerResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DssNavigationControllerResponse(const DssNavigationControllerResponse& from);
+  DssNavigationControllerResponse(DssNavigationControllerResponse&& from) noexcept
+    : DssNavigationControllerResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline DssNavigationControllerResponse& operator=(const DssNavigationControllerResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DssNavigationControllerResponse& operator=(DssNavigationControllerResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DssNavigationControllerResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DssNavigationControllerResponse* internal_default_instance() {
+    return reinterpret_cast<const DssNavigationControllerResponse*>(
+               &_DssNavigationControllerResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(DssNavigationControllerResponse& a, DssNavigationControllerResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DssNavigationControllerResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DssNavigationControllerResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DssNavigationControllerResponse* New() const final {
+    return CreateMaybeMessage<DssNavigationControllerResponse>(nullptr);
+  }
+
+  DssNavigationControllerResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DssNavigationControllerResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DssNavigationControllerResponse& from);
+  void MergeFrom(const DssNavigationControllerResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DssNavigationControllerResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dss.DssNavigationControllerResponse";
+  }
+  protected:
+  explicit DssNavigationControllerResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_dss_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdentifierFieldNumber = 1,
+    kMessageFieldNumber = 4,
+    kTimestampFieldNumber = 2,
+    kSuccessFieldNumber = 3,
+  };
+  // string identifier = 1;
+  void clear_identifier();
+  const std::string& identifier() const;
+  void set_identifier(const std::string& value);
+  void set_identifier(std::string&& value);
+  void set_identifier(const char* value);
+  void set_identifier(const char* value, size_t size);
+  std::string* mutable_identifier();
+  std::string* release_identifier();
+  void set_allocated_identifier(std::string* identifier);
+  private:
+  const std::string& _internal_identifier() const;
+  void _internal_set_identifier(const std::string& value);
+  std::string* _internal_mutable_identifier();
+  public:
+
+  // string message = 4;
+  void clear_message();
+  const std::string& message() const;
+  void set_message(const std::string& value);
+  void set_message(std::string&& value);
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  std::string* mutable_message();
+  std::string* release_message();
+  void set_allocated_message(std::string* message);
+  private:
+  const std::string& _internal_message() const;
+  void _internal_set_message(const std::string& value);
+  std::string* _internal_mutable_message();
+  public:
+
+  // int64 timestamp = 2;
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // bool success = 3;
+  void clear_success();
+  bool success() const;
+  void set_success(bool value);
+  private:
+  bool _internal_success() const;
+  void _internal_set_success(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dss.DssNavigationControllerResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr identifier_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
+  ::PROTOBUF_NAMESPACE_ID::int64 timestamp_;
+  bool success_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dss_2eproto;
+};
 // ===================================================================
 
 
@@ -12415,9 +12991,710 @@ inline void DssClock::set_total_elapsed_time(double value) {
   // @@protoc_insertion_point(field_set:dss.DssClock.total_elapsed_time)
 }
 
+// -------------------------------------------------------------------
+
+// DssNavigationControllerRequest
+
+// string identifier = 1;
+inline void DssNavigationControllerRequest::clear_identifier() {
+  identifier_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerRequest::identifier() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.identifier)
+  return _internal_identifier();
+}
+inline void DssNavigationControllerRequest::set_identifier(const std::string& value) {
+  _internal_set_identifier(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.identifier)
+}
+inline std::string* DssNavigationControllerRequest::mutable_identifier() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerRequest.identifier)
+  return _internal_mutable_identifier();
+}
+inline const std::string& DssNavigationControllerRequest::_internal_identifier() const {
+  return identifier_.Get();
+}
+inline void DssNavigationControllerRequest::_internal_set_identifier(const std::string& value) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerRequest::set_identifier(std::string&& value) {
+  
+  identifier_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerRequest.identifier)
+}
+inline void DssNavigationControllerRequest::set_identifier(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerRequest.identifier)
+}
+inline void DssNavigationControllerRequest::set_identifier(const char* value,
+    size_t size) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerRequest.identifier)
+}
+inline std::string* DssNavigationControllerRequest::_internal_mutable_identifier() {
+  
+  return identifier_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerRequest::release_identifier() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerRequest.identifier)
+  return identifier_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerRequest::set_allocated_identifier(std::string* identifier) {
+  if (identifier != nullptr) {
+    
+  } else {
+    
+  }
+  identifier_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), identifier,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerRequest.identifier)
+}
+
+// int64 timestamp = 2;
+inline void DssNavigationControllerRequest::clear_timestamp() {
+  timestamp_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 DssNavigationControllerRequest::_internal_timestamp() const {
+  return timestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 DssNavigationControllerRequest::timestamp() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.timestamp)
+  return _internal_timestamp();
+}
+inline void DssNavigationControllerRequest::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  timestamp_ = value;
+}
+inline void DssNavigationControllerRequest::set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.timestamp)
+}
+
+// .dss.NavControlCommand command = 3;
+inline void DssNavigationControllerRequest::clear_command() {
+  command_ = 0;
+}
+inline ::dss::NavControlCommand DssNavigationControllerRequest::_internal_command() const {
+  return static_cast< ::dss::NavControlCommand >(command_);
+}
+inline ::dss::NavControlCommand DssNavigationControllerRequest::command() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.command)
+  return _internal_command();
+}
+inline void DssNavigationControllerRequest::_internal_set_command(::dss::NavControlCommand value) {
+  
+  command_ = value;
+}
+inline void DssNavigationControllerRequest::set_command(::dss::NavControlCommand value) {
+  _internal_set_command(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.command)
+}
+
+// .dss.NavMode mode = 4;
+inline void DssNavigationControllerRequest::clear_mode() {
+  mode_ = 0;
+}
+inline ::dss::NavMode DssNavigationControllerRequest::_internal_mode() const {
+  return static_cast< ::dss::NavMode >(mode_);
+}
+inline ::dss::NavMode DssNavigationControllerRequest::mode() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.mode)
+  return _internal_mode();
+}
+inline void DssNavigationControllerRequest::_internal_set_mode(::dss::NavMode value) {
+  
+  mode_ = value;
+}
+inline void DssNavigationControllerRequest::set_mode(::dss::NavMode value) {
+  _internal_set_mode(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.mode)
+}
+
+// .dss.SlamType slam_type = 5;
+inline void DssNavigationControllerRequest::clear_slam_type() {
+  slam_type_ = 0;
+}
+inline ::dss::SlamType DssNavigationControllerRequest::_internal_slam_type() const {
+  return static_cast< ::dss::SlamType >(slam_type_);
+}
+inline ::dss::SlamType DssNavigationControllerRequest::slam_type() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.slam_type)
+  return _internal_slam_type();
+}
+inline void DssNavigationControllerRequest::_internal_set_slam_type(::dss::SlamType value) {
+  
+  slam_type_ = value;
+}
+inline void DssNavigationControllerRequest::set_slam_type(::dss::SlamType value) {
+  _internal_set_slam_type(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.slam_type)
+}
+
+// string config_content = 6;
+inline void DssNavigationControllerRequest::clear_config_content() {
+  config_content_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerRequest::config_content() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.config_content)
+  return _internal_config_content();
+}
+inline void DssNavigationControllerRequest::set_config_content(const std::string& value) {
+  _internal_set_config_content(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.config_content)
+}
+inline std::string* DssNavigationControllerRequest::mutable_config_content() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerRequest.config_content)
+  return _internal_mutable_config_content();
+}
+inline const std::string& DssNavigationControllerRequest::_internal_config_content() const {
+  return config_content_.Get();
+}
+inline void DssNavigationControllerRequest::_internal_set_config_content(const std::string& value) {
+  
+  config_content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerRequest::set_config_content(std::string&& value) {
+  
+  config_content_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerRequest.config_content)
+}
+inline void DssNavigationControllerRequest::set_config_content(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  config_content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerRequest.config_content)
+}
+inline void DssNavigationControllerRequest::set_config_content(const char* value,
+    size_t size) {
+  
+  config_content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerRequest.config_content)
+}
+inline std::string* DssNavigationControllerRequest::_internal_mutable_config_content() {
+  
+  return config_content_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerRequest::release_config_content() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerRequest.config_content)
+  return config_content_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerRequest::set_allocated_config_content(std::string* config_content) {
+  if (config_content != nullptr) {
+    
+  } else {
+    
+  }
+  config_content_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), config_content,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerRequest.config_content)
+}
+
+// string config_filename = 7;
+inline void DssNavigationControllerRequest::clear_config_filename() {
+  config_filename_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerRequest::config_filename() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.config_filename)
+  return _internal_config_filename();
+}
+inline void DssNavigationControllerRequest::set_config_filename(const std::string& value) {
+  _internal_set_config_filename(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.config_filename)
+}
+inline std::string* DssNavigationControllerRequest::mutable_config_filename() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerRequest.config_filename)
+  return _internal_mutable_config_filename();
+}
+inline const std::string& DssNavigationControllerRequest::_internal_config_filename() const {
+  return config_filename_.Get();
+}
+inline void DssNavigationControllerRequest::_internal_set_config_filename(const std::string& value) {
+  
+  config_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerRequest::set_config_filename(std::string&& value) {
+  
+  config_filename_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerRequest.config_filename)
+}
+inline void DssNavigationControllerRequest::set_config_filename(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  config_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerRequest.config_filename)
+}
+inline void DssNavigationControllerRequest::set_config_filename(const char* value,
+    size_t size) {
+  
+  config_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerRequest.config_filename)
+}
+inline std::string* DssNavigationControllerRequest::_internal_mutable_config_filename() {
+  
+  return config_filename_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerRequest::release_config_filename() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerRequest.config_filename)
+  return config_filename_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerRequest::set_allocated_config_filename(std::string* config_filename) {
+  if (config_filename != nullptr) {
+    
+  } else {
+    
+  }
+  config_filename_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), config_filename,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerRequest.config_filename)
+}
+
+// string map_yaml_content = 8;
+inline void DssNavigationControllerRequest::clear_map_yaml_content() {
+  map_yaml_content_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerRequest::map_yaml_content() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.map_yaml_content)
+  return _internal_map_yaml_content();
+}
+inline void DssNavigationControllerRequest::set_map_yaml_content(const std::string& value) {
+  _internal_set_map_yaml_content(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.map_yaml_content)
+}
+inline std::string* DssNavigationControllerRequest::mutable_map_yaml_content() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerRequest.map_yaml_content)
+  return _internal_mutable_map_yaml_content();
+}
+inline const std::string& DssNavigationControllerRequest::_internal_map_yaml_content() const {
+  return map_yaml_content_.Get();
+}
+inline void DssNavigationControllerRequest::_internal_set_map_yaml_content(const std::string& value) {
+  
+  map_yaml_content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerRequest::set_map_yaml_content(std::string&& value) {
+  
+  map_yaml_content_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerRequest.map_yaml_content)
+}
+inline void DssNavigationControllerRequest::set_map_yaml_content(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  map_yaml_content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerRequest.map_yaml_content)
+}
+inline void DssNavigationControllerRequest::set_map_yaml_content(const char* value,
+    size_t size) {
+  
+  map_yaml_content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerRequest.map_yaml_content)
+}
+inline std::string* DssNavigationControllerRequest::_internal_mutable_map_yaml_content() {
+  
+  return map_yaml_content_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerRequest::release_map_yaml_content() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerRequest.map_yaml_content)
+  return map_yaml_content_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerRequest::set_allocated_map_yaml_content(std::string* map_yaml_content) {
+  if (map_yaml_content != nullptr) {
+    
+  } else {
+    
+  }
+  map_yaml_content_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), map_yaml_content,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerRequest.map_yaml_content)
+}
+
+// string map_yaml_filename = 9;
+inline void DssNavigationControllerRequest::clear_map_yaml_filename() {
+  map_yaml_filename_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerRequest::map_yaml_filename() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.map_yaml_filename)
+  return _internal_map_yaml_filename();
+}
+inline void DssNavigationControllerRequest::set_map_yaml_filename(const std::string& value) {
+  _internal_set_map_yaml_filename(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.map_yaml_filename)
+}
+inline std::string* DssNavigationControllerRequest::mutable_map_yaml_filename() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerRequest.map_yaml_filename)
+  return _internal_mutable_map_yaml_filename();
+}
+inline const std::string& DssNavigationControllerRequest::_internal_map_yaml_filename() const {
+  return map_yaml_filename_.Get();
+}
+inline void DssNavigationControllerRequest::_internal_set_map_yaml_filename(const std::string& value) {
+  
+  map_yaml_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerRequest::set_map_yaml_filename(std::string&& value) {
+  
+  map_yaml_filename_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerRequest.map_yaml_filename)
+}
+inline void DssNavigationControllerRequest::set_map_yaml_filename(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  map_yaml_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerRequest.map_yaml_filename)
+}
+inline void DssNavigationControllerRequest::set_map_yaml_filename(const char* value,
+    size_t size) {
+  
+  map_yaml_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerRequest.map_yaml_filename)
+}
+inline std::string* DssNavigationControllerRequest::_internal_mutable_map_yaml_filename() {
+  
+  return map_yaml_filename_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerRequest::release_map_yaml_filename() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerRequest.map_yaml_filename)
+  return map_yaml_filename_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerRequest::set_allocated_map_yaml_filename(std::string* map_yaml_filename) {
+  if (map_yaml_filename != nullptr) {
+    
+  } else {
+    
+  }
+  map_yaml_filename_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), map_yaml_filename,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerRequest.map_yaml_filename)
+}
+
+// bytes map_pgm_data = 10;
+inline void DssNavigationControllerRequest::clear_map_pgm_data() {
+  map_pgm_data_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerRequest::map_pgm_data() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.map_pgm_data)
+  return _internal_map_pgm_data();
+}
+inline void DssNavigationControllerRequest::set_map_pgm_data(const std::string& value) {
+  _internal_set_map_pgm_data(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.map_pgm_data)
+}
+inline std::string* DssNavigationControllerRequest::mutable_map_pgm_data() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerRequest.map_pgm_data)
+  return _internal_mutable_map_pgm_data();
+}
+inline const std::string& DssNavigationControllerRequest::_internal_map_pgm_data() const {
+  return map_pgm_data_.Get();
+}
+inline void DssNavigationControllerRequest::_internal_set_map_pgm_data(const std::string& value) {
+  
+  map_pgm_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerRequest::set_map_pgm_data(std::string&& value) {
+  
+  map_pgm_data_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerRequest.map_pgm_data)
+}
+inline void DssNavigationControllerRequest::set_map_pgm_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  map_pgm_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerRequest.map_pgm_data)
+}
+inline void DssNavigationControllerRequest::set_map_pgm_data(const void* value,
+    size_t size) {
+  
+  map_pgm_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerRequest.map_pgm_data)
+}
+inline std::string* DssNavigationControllerRequest::_internal_mutable_map_pgm_data() {
+  
+  return map_pgm_data_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerRequest::release_map_pgm_data() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerRequest.map_pgm_data)
+  return map_pgm_data_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerRequest::set_allocated_map_pgm_data(std::string* map_pgm_data) {
+  if (map_pgm_data != nullptr) {
+    
+  } else {
+    
+  }
+  map_pgm_data_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), map_pgm_data,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerRequest.map_pgm_data)
+}
+
+// string map_pgm_filename = 11;
+inline void DssNavigationControllerRequest::clear_map_pgm_filename() {
+  map_pgm_filename_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerRequest::map_pgm_filename() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.map_pgm_filename)
+  return _internal_map_pgm_filename();
+}
+inline void DssNavigationControllerRequest::set_map_pgm_filename(const std::string& value) {
+  _internal_set_map_pgm_filename(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.map_pgm_filename)
+}
+inline std::string* DssNavigationControllerRequest::mutable_map_pgm_filename() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerRequest.map_pgm_filename)
+  return _internal_mutable_map_pgm_filename();
+}
+inline const std::string& DssNavigationControllerRequest::_internal_map_pgm_filename() const {
+  return map_pgm_filename_.Get();
+}
+inline void DssNavigationControllerRequest::_internal_set_map_pgm_filename(const std::string& value) {
+  
+  map_pgm_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerRequest::set_map_pgm_filename(std::string&& value) {
+  
+  map_pgm_filename_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerRequest.map_pgm_filename)
+}
+inline void DssNavigationControllerRequest::set_map_pgm_filename(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  map_pgm_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerRequest.map_pgm_filename)
+}
+inline void DssNavigationControllerRequest::set_map_pgm_filename(const char* value,
+    size_t size) {
+  
+  map_pgm_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerRequest.map_pgm_filename)
+}
+inline std::string* DssNavigationControllerRequest::_internal_mutable_map_pgm_filename() {
+  
+  return map_pgm_filename_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerRequest::release_map_pgm_filename() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerRequest.map_pgm_filename)
+  return map_pgm_filename_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerRequest::set_allocated_map_pgm_filename(std::string* map_pgm_filename) {
+  if (map_pgm_filename != nullptr) {
+    
+  } else {
+    
+  }
+  map_pgm_filename_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), map_pgm_filename,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerRequest.map_pgm_filename)
+}
+
+// bool use_sim_time = 12;
+inline void DssNavigationControllerRequest::clear_use_sim_time() {
+  use_sim_time_ = false;
+}
+inline bool DssNavigationControllerRequest::_internal_use_sim_time() const {
+  return use_sim_time_;
+}
+inline bool DssNavigationControllerRequest::use_sim_time() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerRequest.use_sim_time)
+  return _internal_use_sim_time();
+}
+inline void DssNavigationControllerRequest::_internal_set_use_sim_time(bool value) {
+  
+  use_sim_time_ = value;
+}
+inline void DssNavigationControllerRequest::set_use_sim_time(bool value) {
+  _internal_set_use_sim_time(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerRequest.use_sim_time)
+}
+
+// -------------------------------------------------------------------
+
+// DssNavigationControllerResponse
+
+// string identifier = 1;
+inline void DssNavigationControllerResponse::clear_identifier() {
+  identifier_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerResponse::identifier() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerResponse.identifier)
+  return _internal_identifier();
+}
+inline void DssNavigationControllerResponse::set_identifier(const std::string& value) {
+  _internal_set_identifier(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerResponse.identifier)
+}
+inline std::string* DssNavigationControllerResponse::mutable_identifier() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerResponse.identifier)
+  return _internal_mutable_identifier();
+}
+inline const std::string& DssNavigationControllerResponse::_internal_identifier() const {
+  return identifier_.Get();
+}
+inline void DssNavigationControllerResponse::_internal_set_identifier(const std::string& value) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerResponse::set_identifier(std::string&& value) {
+  
+  identifier_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerResponse.identifier)
+}
+inline void DssNavigationControllerResponse::set_identifier(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerResponse.identifier)
+}
+inline void DssNavigationControllerResponse::set_identifier(const char* value,
+    size_t size) {
+  
+  identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerResponse.identifier)
+}
+inline std::string* DssNavigationControllerResponse::_internal_mutable_identifier() {
+  
+  return identifier_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerResponse::release_identifier() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerResponse.identifier)
+  return identifier_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerResponse::set_allocated_identifier(std::string* identifier) {
+  if (identifier != nullptr) {
+    
+  } else {
+    
+  }
+  identifier_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), identifier,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerResponse.identifier)
+}
+
+// int64 timestamp = 2;
+inline void DssNavigationControllerResponse::clear_timestamp() {
+  timestamp_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 DssNavigationControllerResponse::_internal_timestamp() const {
+  return timestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 DssNavigationControllerResponse::timestamp() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerResponse.timestamp)
+  return _internal_timestamp();
+}
+inline void DssNavigationControllerResponse::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  timestamp_ = value;
+}
+inline void DssNavigationControllerResponse::set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerResponse.timestamp)
+}
+
+// bool success = 3;
+inline void DssNavigationControllerResponse::clear_success() {
+  success_ = false;
+}
+inline bool DssNavigationControllerResponse::_internal_success() const {
+  return success_;
+}
+inline bool DssNavigationControllerResponse::success() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerResponse.success)
+  return _internal_success();
+}
+inline void DssNavigationControllerResponse::_internal_set_success(bool value) {
+  
+  success_ = value;
+}
+inline void DssNavigationControllerResponse::set_success(bool value) {
+  _internal_set_success(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerResponse.success)
+}
+
+// string message = 4;
+inline void DssNavigationControllerResponse::clear_message() {
+  message_.ClearToEmpty();
+}
+inline const std::string& DssNavigationControllerResponse::message() const {
+  // @@protoc_insertion_point(field_get:dss.DssNavigationControllerResponse.message)
+  return _internal_message();
+}
+inline void DssNavigationControllerResponse::set_message(const std::string& value) {
+  _internal_set_message(value);
+  // @@protoc_insertion_point(field_set:dss.DssNavigationControllerResponse.message)
+}
+inline std::string* DssNavigationControllerResponse::mutable_message() {
+  // @@protoc_insertion_point(field_mutable:dss.DssNavigationControllerResponse.message)
+  return _internal_mutable_message();
+}
+inline const std::string& DssNavigationControllerResponse::_internal_message() const {
+  return message_.Get();
+}
+inline void DssNavigationControllerResponse::_internal_set_message(const std::string& value) {
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void DssNavigationControllerResponse::set_message(std::string&& value) {
+  
+  message_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:dss.DssNavigationControllerResponse.message)
+}
+inline void DssNavigationControllerResponse::set_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:dss.DssNavigationControllerResponse.message)
+}
+inline void DssNavigationControllerResponse::set_message(const char* value,
+    size_t size) {
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:dss.DssNavigationControllerResponse.message)
+}
+inline std::string* DssNavigationControllerResponse::_internal_mutable_message() {
+  
+  return message_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* DssNavigationControllerResponse::release_message() {
+  // @@protoc_insertion_point(field_release:dss.DssNavigationControllerResponse.message)
+  return message_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DssNavigationControllerResponse::set_allocated_message(std::string* message) {
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), message,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:dss.DssNavigationControllerResponse.message)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -12495,6 +13772,21 @@ template <> struct is_proto_enum< ::dss::Go2Control_Mode> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::dss::Go2Control_Mode>() {
   return ::dss::Go2Control_Mode_descriptor();
+}
+template <> struct is_proto_enum< ::dss::NavControlCommand> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::dss::NavControlCommand>() {
+  return ::dss::NavControlCommand_descriptor();
+}
+template <> struct is_proto_enum< ::dss::NavMode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::dss::NavMode>() {
+  return ::dss::NavMode_descriptor();
+}
+template <> struct is_proto_enum< ::dss::SlamType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::dss::SlamType>() {
+  return ::dss::SlamType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

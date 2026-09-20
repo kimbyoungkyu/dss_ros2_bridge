@@ -514,9 +514,50 @@ struct DssClockDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssClockDefaultTypeInternal _DssClock_default_instance_;
+constexpr DssNavigationControllerRequest::DssNavigationControllerRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : identifier_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , config_content_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , config_filename_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , map_yaml_content_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , map_yaml_filename_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , map_pgm_data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , map_pgm_filename_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , timestamp_(PROTOBUF_LONGLONG(0))
+  , command_(0)
+
+  , mode_(0)
+
+  , slam_type_(0)
+
+  , use_sim_time_(false){}
+struct DssNavigationControllerRequestDefaultTypeInternal {
+  constexpr DssNavigationControllerRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DssNavigationControllerRequestDefaultTypeInternal() {}
+  union {
+    DssNavigationControllerRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssNavigationControllerRequestDefaultTypeInternal _DssNavigationControllerRequest_default_instance_;
+constexpr DssNavigationControllerResponse::DssNavigationControllerResponse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : identifier_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , timestamp_(PROTOBUF_LONGLONG(0))
+  , success_(false){}
+struct DssNavigationControllerResponseDefaultTypeInternal {
+  constexpr DssNavigationControllerResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DssNavigationControllerResponseDefaultTypeInternal() {}
+  union {
+    DssNavigationControllerResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssNavigationControllerResponseDefaultTypeInternal _DssNavigationControllerResponse_default_instance_;
 }  // namespace dss
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dss_2eproto[29];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_dss_2eproto[3];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dss_2eproto[31];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_dss_2eproto[6];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_dss_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dss_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -832,6 +873,32 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dss_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::dss::DssClock, custom_delta_time_),
   PROTOBUF_FIELD_OFFSET(::dss::DssClock, frame_count_),
   PROTOBUF_FIELD_OFFSET(::dss::DssClock, total_elapsed_time_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, command_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, mode_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, slam_type_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, config_content_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, config_filename_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, map_yaml_content_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, map_yaml_filename_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, map_pgm_data_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, map_pgm_filename_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerRequest, use_sim_time_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerResponse, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerResponse, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerResponse, success_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerResponse, message_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::dss::DssHeartbeat)},
@@ -863,6 +930,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 286, -1, sizeof(::dss::DssOneFrameFixedRateResult)},
   { 294, -1, sizeof(::dss::DSSWheelEncoder)},
   { 304, -1, sizeof(::dss::DssClock)},
+  { 312, -1, sizeof(::dss::DssNavigationControllerRequest)},
+  { 329, -1, sizeof(::dss::DssNavigationControllerResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -895,6 +964,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssOneFrameFixedRateResult_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DSSWheelEncoder_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssClock_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavigationControllerRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavigationControllerResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_dss_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1008,12 +1079,30 @@ const char descriptor_table_protodef_dss_2eproto[] PROTOBUF_SECTION_VARIABLE(pro
   "ty\030\003 \001(\001\022\026\n\016right_position\030\004 \001(\001\022\026\n\016righ"
   "t_velocity\030\005 \001(\001\"V\n\010DssClock\022\031\n\021custom_d"
   "elta_time\030\001 \001(\002\022\023\n\013frame_count\030\002 \001(\003\022\032\n\022"
-  "total_elapsed_time\030\003 \001(\001b\006proto3"
+  "total_elapsed_time\030\003 \001(\001\"\332\002\n\036DssNavigati"
+  "onControllerRequest\022\022\n\nidentifier\030\001 \001(\t\022"
+  "\021\n\ttimestamp\030\002 \001(\003\022\'\n\007command\030\003 \001(\0162\026.ds"
+  "s.NavControlCommand\022\032\n\004mode\030\004 \001(\0162\014.dss."
+  "NavMode\022 \n\tslam_type\030\005 \001(\0162\r.dss.SlamTyp"
+  "e\022\026\n\016config_content\030\006 \001(\t\022\027\n\017config_file"
+  "name\030\007 \001(\t\022\030\n\020map_yaml_content\030\010 \001(\t\022\031\n\021"
+  "map_yaml_filename\030\t \001(\t\022\024\n\014map_pgm_data\030"
+  "\n \001(\014\022\030\n\020map_pgm_filename\030\013 \001(\t\022\024\n\014use_s"
+  "im_time\030\014 \001(\010\"j\n\037DssNavigationController"
+  "Response\022\022\n\nidentifier\030\001 \001(\t\022\021\n\ttimestam"
+  "p\030\002 \001(\003\022\017\n\007success\030\003 \001(\010\022\017\n\007message\030\004 \001("
+  "\t*@\n\021NavControlCommand\022\025\n\021NAV_COMMAND_ST"
+  "ART\020\000\022\024\n\020NAV_COMMAND_STOP\020\001*^\n\007NavMode\022\026"
+  "\n\022NAV_MODE_SLAM_ONLY\020\000\022\033\n\027NAV_MODE_SLAM_"
+  "WITH_NAV2\020\001\022\036\n\032NAV_MODE_LOCALIZATION_NAV"
+  "2\020\002*Y\n\010SlamType\022\032\n\026SLAM_TYPE_CARTOGRAPHE"
+  "R\020\000\022\032\n\026SLAM_TYPE_SLAM_TOOLBOX\020\001\022\025\n\021SLAM_"
+  "TYPE_RTABMAP\020\002b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dss_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dss_2eproto = {
-  false, false, 4432, descriptor_table_protodef_dss_2eproto, "dss.proto", 
-  &descriptor_table_dss_2eproto_once, nullptr, 0, 29,
+  false, false, 5142, descriptor_table_protodef_dss_2eproto, "dss.proto", 
+  &descriptor_table_dss_2eproto_once, nullptr, 0, 31,
   schemas, file_default_instances, TableStruct_dss_2eproto::offsets,
   file_level_metadata_dss_2eproto, file_level_enum_descriptors_dss_2eproto, file_level_service_descriptors_dss_2eproto,
 };
@@ -1099,6 +1188,50 @@ constexpr Go2Control_Mode Go2Control::Mode_MIN;
 constexpr Go2Control_Mode Go2Control::Mode_MAX;
 constexpr int Go2Control::Mode_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* NavControlCommand_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dss_2eproto);
+  return file_level_enum_descriptors_dss_2eproto[3];
+}
+bool NavControlCommand_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* NavMode_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dss_2eproto);
+  return file_level_enum_descriptors_dss_2eproto[4];
+}
+bool NavMode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SlamType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dss_2eproto);
+  return file_level_enum_descriptors_dss_2eproto[5];
+}
+bool SlamType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -10684,6 +10817,859 @@ void DssClock::InternalSwap(DssClock* other) {
 }
 
 
+// ===================================================================
+
+class DssNavigationControllerRequest::_Internal {
+ public:
+};
+
+DssNavigationControllerRequest::DssNavigationControllerRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssNavigationControllerRequest)
+}
+DssNavigationControllerRequest::DssNavigationControllerRequest(const DssNavigationControllerRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_identifier(), 
+      GetArena());
+  }
+  config_content_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_config_content().empty()) {
+    config_content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_config_content(), 
+      GetArena());
+  }
+  config_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_config_filename().empty()) {
+    config_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_config_filename(), 
+      GetArena());
+  }
+  map_yaml_content_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_map_yaml_content().empty()) {
+    map_yaml_content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_map_yaml_content(), 
+      GetArena());
+  }
+  map_yaml_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_map_yaml_filename().empty()) {
+    map_yaml_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_map_yaml_filename(), 
+      GetArena());
+  }
+  map_pgm_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_map_pgm_data().empty()) {
+    map_pgm_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_map_pgm_data(), 
+      GetArena());
+  }
+  map_pgm_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_map_pgm_filename().empty()) {
+    map_pgm_filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_map_pgm_filename(), 
+      GetArena());
+  }
+  ::memcpy(&timestamp_, &from.timestamp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&use_sim_time_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(use_sim_time_));
+  // @@protoc_insertion_point(copy_constructor:dss.DssNavigationControllerRequest)
+}
+
+void DssNavigationControllerRequest::SharedCtor() {
+identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+config_content_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+config_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+map_yaml_content_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+map_yaml_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+map_pgm_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+map_pgm_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&use_sim_time_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(use_sim_time_));
+}
+
+DssNavigationControllerRequest::~DssNavigationControllerRequest() {
+  // @@protoc_insertion_point(destructor:dss.DssNavigationControllerRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DssNavigationControllerRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  config_content_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  config_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  map_yaml_content_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  map_yaml_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  map_pgm_data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  map_pgm_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void DssNavigationControllerRequest::ArenaDtor(void* object) {
+  DssNavigationControllerRequest* _this = reinterpret_cast< DssNavigationControllerRequest* >(object);
+  (void)_this;
+}
+void DssNavigationControllerRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DssNavigationControllerRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DssNavigationControllerRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssNavigationControllerRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmpty();
+  config_content_.ClearToEmpty();
+  config_filename_.ClearToEmpty();
+  map_yaml_content_.ClearToEmpty();
+  map_yaml_filename_.ClearToEmpty();
+  map_pgm_data_.ClearToEmpty();
+  map_pgm_filename_.ClearToEmpty();
+  ::memset(&timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&use_sim_time_) -
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(use_sim_time_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DssNavigationControllerRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavigationControllerRequest.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 timestamp = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.NavControlCommand command = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_command(static_cast<::dss::NavControlCommand>(val));
+        } else goto handle_unusual;
+        continue;
+      // .dss.NavMode mode = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_mode(static_cast<::dss::NavMode>(val));
+        } else goto handle_unusual;
+        continue;
+      // .dss.SlamType slam_type = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_slam_type(static_cast<::dss::SlamType>(val));
+        } else goto handle_unusual;
+        continue;
+      // string config_content = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          auto str = _internal_mutable_config_content();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavigationControllerRequest.config_content"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string config_filename = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          auto str = _internal_mutable_config_filename();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavigationControllerRequest.config_filename"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string map_yaml_content = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+          auto str = _internal_mutable_map_yaml_content();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavigationControllerRequest.map_yaml_content"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string map_yaml_filename = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          auto str = _internal_mutable_map_yaml_filename();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavigationControllerRequest.map_yaml_filename"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes map_pgm_data = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          auto str = _internal_mutable_map_pgm_data();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string map_pgm_filename = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+          auto str = _internal_mutable_map_pgm_filename();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavigationControllerRequest.map_pgm_filename"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool use_sim_time = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+          use_sim_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DssNavigationControllerRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssNavigationControllerRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavigationControllerRequest.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_timestamp(), target);
+  }
+
+  // .dss.NavControlCommand command = 3;
+  if (this->command() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_command(), target);
+  }
+
+  // .dss.NavMode mode = 4;
+  if (this->mode() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_mode(), target);
+  }
+
+  // .dss.SlamType slam_type = 5;
+  if (this->slam_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      5, this->_internal_slam_type(), target);
+  }
+
+  // string config_content = 6;
+  if (this->config_content().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_config_content().data(), static_cast<int>(this->_internal_config_content().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavigationControllerRequest.config_content");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_config_content(), target);
+  }
+
+  // string config_filename = 7;
+  if (this->config_filename().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_config_filename().data(), static_cast<int>(this->_internal_config_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavigationControllerRequest.config_filename");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_config_filename(), target);
+  }
+
+  // string map_yaml_content = 8;
+  if (this->map_yaml_content().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_map_yaml_content().data(), static_cast<int>(this->_internal_map_yaml_content().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavigationControllerRequest.map_yaml_content");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_map_yaml_content(), target);
+  }
+
+  // string map_yaml_filename = 9;
+  if (this->map_yaml_filename().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_map_yaml_filename().data(), static_cast<int>(this->_internal_map_yaml_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavigationControllerRequest.map_yaml_filename");
+    target = stream->WriteStringMaybeAliased(
+        9, this->_internal_map_yaml_filename(), target);
+  }
+
+  // bytes map_pgm_data = 10;
+  if (this->map_pgm_data().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        10, this->_internal_map_pgm_data(), target);
+  }
+
+  // string map_pgm_filename = 11;
+  if (this->map_pgm_filename().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_map_pgm_filename().data(), static_cast<int>(this->_internal_map_pgm_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavigationControllerRequest.map_pgm_filename");
+    target = stream->WriteStringMaybeAliased(
+        11, this->_internal_map_pgm_filename(), target);
+  }
+
+  // bool use_sim_time = 12;
+  if (this->use_sim_time() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_use_sim_time(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssNavigationControllerRequest)
+  return target;
+}
+
+size_t DssNavigationControllerRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssNavigationControllerRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // string config_content = 6;
+  if (this->config_content().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_config_content());
+  }
+
+  // string config_filename = 7;
+  if (this->config_filename().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_config_filename());
+  }
+
+  // string map_yaml_content = 8;
+  if (this->map_yaml_content().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_map_yaml_content());
+  }
+
+  // string map_yaml_filename = 9;
+  if (this->map_yaml_filename().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_map_yaml_filename());
+  }
+
+  // bytes map_pgm_data = 10;
+  if (this->map_pgm_data().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_map_pgm_data());
+  }
+
+  // string map_pgm_filename = 11;
+  if (this->map_pgm_filename().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_map_pgm_filename());
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_timestamp());
+  }
+
+  // .dss.NavControlCommand command = 3;
+  if (this->command() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_command());
+  }
+
+  // .dss.NavMode mode = 4;
+  if (this->mode() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_mode());
+  }
+
+  // .dss.SlamType slam_type = 5;
+  if (this->slam_type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_slam_type());
+  }
+
+  // bool use_sim_time = 12;
+  if (this->use_sim_time() != 0) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DssNavigationControllerRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssNavigationControllerRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DssNavigationControllerRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssNavigationControllerRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssNavigationControllerRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssNavigationControllerRequest)
+    MergeFrom(*source);
+  }
+}
+
+void DssNavigationControllerRequest::MergeFrom(const DssNavigationControllerRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssNavigationControllerRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+    _internal_set_identifier(from._internal_identifier());
+  }
+  if (from.config_content().size() > 0) {
+    _internal_set_config_content(from._internal_config_content());
+  }
+  if (from.config_filename().size() > 0) {
+    _internal_set_config_filename(from._internal_config_filename());
+  }
+  if (from.map_yaml_content().size() > 0) {
+    _internal_set_map_yaml_content(from._internal_map_yaml_content());
+  }
+  if (from.map_yaml_filename().size() > 0) {
+    _internal_set_map_yaml_filename(from._internal_map_yaml_filename());
+  }
+  if (from.map_pgm_data().size() > 0) {
+    _internal_set_map_pgm_data(from._internal_map_pgm_data());
+  }
+  if (from.map_pgm_filename().size() > 0) {
+    _internal_set_map_pgm_filename(from._internal_map_pgm_filename());
+  }
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
+  }
+  if (from.command() != 0) {
+    _internal_set_command(from._internal_command());
+  }
+  if (from.mode() != 0) {
+    _internal_set_mode(from._internal_mode());
+  }
+  if (from.slam_type() != 0) {
+    _internal_set_slam_type(from._internal_slam_type());
+  }
+  if (from.use_sim_time() != 0) {
+    _internal_set_use_sim_time(from._internal_use_sim_time());
+  }
+}
+
+void DssNavigationControllerRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssNavigationControllerRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DssNavigationControllerRequest::CopyFrom(const DssNavigationControllerRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssNavigationControllerRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DssNavigationControllerRequest::IsInitialized() const {
+  return true;
+}
+
+void DssNavigationControllerRequest::InternalSwap(DssNavigationControllerRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  config_content_.Swap(&other->config_content_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  config_filename_.Swap(&other->config_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  map_yaml_content_.Swap(&other->map_yaml_content_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  map_yaml_filename_.Swap(&other->map_yaml_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  map_pgm_data_.Swap(&other->map_pgm_data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  map_pgm_filename_.Swap(&other->map_pgm_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DssNavigationControllerRequest, use_sim_time_)
+      + sizeof(DssNavigationControllerRequest::use_sim_time_)
+      - PROTOBUF_FIELD_OFFSET(DssNavigationControllerRequest, timestamp_)>(
+          reinterpret_cast<char*>(&timestamp_),
+          reinterpret_cast<char*>(&other->timestamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DssNavigationControllerRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DssNavigationControllerResponse::_Internal {
+ public:
+};
+
+DssNavigationControllerResponse::DssNavigationControllerResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssNavigationControllerResponse)
+}
+DssNavigationControllerResponse::DssNavigationControllerResponse(const DssNavigationControllerResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_identifier(), 
+      GetArena());
+  }
+  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_message().empty()) {
+    message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_message(), 
+      GetArena());
+  }
+  ::memcpy(&timestamp_, &from.timestamp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&success_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(success_));
+  // @@protoc_insertion_point(copy_constructor:dss.DssNavigationControllerResponse)
+}
+
+void DssNavigationControllerResponse::SharedCtor() {
+identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&success_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(success_));
+}
+
+DssNavigationControllerResponse::~DssNavigationControllerResponse() {
+  // @@protoc_insertion_point(destructor:dss.DssNavigationControllerResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DssNavigationControllerResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void DssNavigationControllerResponse::ArenaDtor(void* object) {
+  DssNavigationControllerResponse* _this = reinterpret_cast< DssNavigationControllerResponse* >(object);
+  (void)_this;
+}
+void DssNavigationControllerResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DssNavigationControllerResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DssNavigationControllerResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssNavigationControllerResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmpty();
+  message_.ClearToEmpty();
+  ::memset(&timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&success_) -
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(success_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DssNavigationControllerResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavigationControllerResponse.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 timestamp = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool success = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          success_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string message = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_message();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavigationControllerResponse.message"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DssNavigationControllerResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssNavigationControllerResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavigationControllerResponse.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_timestamp(), target);
+  }
+
+  // bool success = 3;
+  if (this->success() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_success(), target);
+  }
+
+  // string message = 4;
+  if (this->message().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavigationControllerResponse.message");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_message(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssNavigationControllerResponse)
+  return target;
+}
+
+size_t DssNavigationControllerResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssNavigationControllerResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // string message = 4;
+  if (this->message().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_message());
+  }
+
+  // int64 timestamp = 2;
+  if (this->timestamp() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_timestamp());
+  }
+
+  // bool success = 3;
+  if (this->success() != 0) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DssNavigationControllerResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssNavigationControllerResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DssNavigationControllerResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssNavigationControllerResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssNavigationControllerResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssNavigationControllerResponse)
+    MergeFrom(*source);
+  }
+}
+
+void DssNavigationControllerResponse::MergeFrom(const DssNavigationControllerResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssNavigationControllerResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+    _internal_set_identifier(from._internal_identifier());
+  }
+  if (from.message().size() > 0) {
+    _internal_set_message(from._internal_message());
+  }
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
+  }
+  if (from.success() != 0) {
+    _internal_set_success(from._internal_success());
+  }
+}
+
+void DssNavigationControllerResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssNavigationControllerResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DssNavigationControllerResponse::CopyFrom(const DssNavigationControllerResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssNavigationControllerResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DssNavigationControllerResponse::IsInitialized() const {
+  return true;
+}
+
+void DssNavigationControllerResponse::InternalSwap(DssNavigationControllerResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  message_.Swap(&other->message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DssNavigationControllerResponse, success_)
+      + sizeof(DssNavigationControllerResponse::success_)
+      - PROTOBUF_FIELD_OFFSET(DssNavigationControllerResponse, timestamp_)>(
+          reinterpret_cast<char*>(&timestamp_),
+          reinterpret_cast<char*>(&other->timestamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DssNavigationControllerResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace dss
 PROTOBUF_NAMESPACE_OPEN
@@ -10773,6 +11759,12 @@ template<> PROTOBUF_NOINLINE ::dss::DSSWheelEncoder* Arena::CreateMaybeMessage< 
 }
 template<> PROTOBUF_NOINLINE ::dss::DssClock* Arena::CreateMaybeMessage< ::dss::DssClock >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::DssClock >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssNavigationControllerRequest* Arena::CreateMaybeMessage< ::dss::DssNavigationControllerRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssNavigationControllerRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssNavigationControllerResponse* Arena::CreateMaybeMessage< ::dss::DssNavigationControllerResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssNavigationControllerResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

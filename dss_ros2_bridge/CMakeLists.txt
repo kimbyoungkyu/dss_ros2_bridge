@@ -159,9 +159,9 @@ target_link_libraries(DSS_TB4_SimToROSBridgeNode
 )
 
 
-add_executable(DSS_TB4_ROSToControlPanelBridgeNode src/DSS_TB4_ROSToControlPanelBridge.cpp src/dss.pb.cc src/defaultGateway.cpp)
-ament_target_dependencies(DSS_TB4_ROSToControlPanelBridgeNode rclcpp sensor_msgs OpenCV)
-target_link_libraries(DSS_TB4_ROSToControlPanelBridgeNode
+add_executable(DSS_TB4_ROSNavControlNode src/DSS_TB4_ROSNavControl.cpp src/dss.pb.cc src/defaultGateway.cpp)
+ament_target_dependencies(DSS_TB4_ROSNavControlNode rclcpp sensor_msgs OpenCV)
+target_link_libraries(DSS_TB4_ROSNavControlNode
   "${cpp_typesupport_target}"
   ${NATS_LIB}
   Threads::Threads
@@ -198,7 +198,7 @@ install(
     DSSToROSStereoCameraInfra1Node
     DSSToROSLaserScanNode
     DSS_TB4_SimToROSBridgeNode
-    DSS_TB4_ROSToControlPanelBridgeNode
+    DSS_TB4_ROSNavControlNode
     DSSDemoNode
     ${cpp_typesupport_target}        # ← ★ 추가! typesupport .so 설치
   DESTINATION lib/${PROJECT_NAME}
