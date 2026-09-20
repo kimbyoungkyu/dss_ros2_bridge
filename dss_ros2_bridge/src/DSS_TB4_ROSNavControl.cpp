@@ -80,7 +80,7 @@ public:
         const char *domain_id = std::getenv("ROS_DOMAIN_ID");
         RCLCPP_INFO(get_logger(), __DATE__);
         RCLCPP_INFO(get_logger(), __TIME__);
-        RCLCPP_INFO(get_logger(), "Domain Id=%s",domain_id);
+        RCLCPP_INFO(get_logger(), "Domain Id=%s", domain_id ? domain_id : "0 (default)");
 
         const char* home = std::getenv("HOME");
         const std::string default_root = home
@@ -283,7 +283,9 @@ private:
         copyStamp(static_cast<builtin_interfaces::msg::Time>(now), msg.mutable_query_stamp());
         try {
             if (useSimTime() && now.nanoseconds()==0) throw std::runtime_error("Waiting for /clock");
-            auto tf = tf_buffer_->lookupTransform(map_frame_, base_frame_, tf2::TimePointZero);
+            // BufferCore lookup never enters the timeout/dedicated-thread path.
+            auto tf = static_cast<tf2::BufferCore&>(*tf_buffer_).lookupTransform(
+                map_frame_, base_frame_, tf2::TimePointZero);
             const double age = (now-rclcpp::Time(tf.header.stamp, get_clock()->get_clock_type())).seconds();
             if (age > 0.5 || age < -0.1) throw std::runtime_error("Robot TF stale or ahead of ROS time");
             copyTransform(tf, msg.mutable_transform()); msg.set_valid(true);
@@ -320,8 +322,10 @@ private:
                 if (scan.header.frame_id.empty() || scan.header.stamp.sec < 0 ||
                     (scan.header.stamp.sec==0 && scan.header.stamp.nanosec==0))
                     throw std::runtime_error("Scan has empty frame or zero/negative time");
-                auto tf = tf_buffer_->lookupTransform(map_frame_, scan.header.frame_id,
-                    rclcpp::Time(scan.header.stamp, RCL_ROS_TIME), rclcpp::Duration::from_seconds(0));
+                const tf2::TimePoint scan_time{std::chrono::nanoseconds(
+                    rclcpp::Time(scan.header.stamp, RCL_ROS_TIME).nanoseconds())};
+                auto tf = static_cast<tf2::BufferCore&>(*tf_buffer_).lookupTransform(
+                    map_frame_, scan.header.frame_id, scan_time);
                 sendScan(scan, &tf, "");
                 pending_scans_.pop_front();
             } catch (const std::exception& e) {

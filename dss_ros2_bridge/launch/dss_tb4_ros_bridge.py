@@ -18,7 +18,7 @@ def generate_launch_description():
         Node(
             package="dss_ros2_bridge",
             executable="DSS_TB4_SimToROSBridgeNode",
-            name="dss_tb4_ros_bridge",
+            name="TB4SimToROSBridge",
             output="screen",
             parameters=[common_params],
         ),
