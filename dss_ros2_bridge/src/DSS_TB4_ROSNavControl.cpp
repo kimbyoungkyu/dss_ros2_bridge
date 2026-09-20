@@ -16,6 +16,7 @@
 #include "defaultGateway.h"
 #include "DSSNavFileStore.h"
 #include <chrono>
+#include <csignal>
 #include <cstdint>
 #include <cstdlib>
 #include <ctime>
@@ -84,6 +85,12 @@ public:
             return true;
         }
 
+        // Clean up handles left by a launch process that exited on its own
+        // before creating a new process group.
+        if (ChildProcess) {
+            Stop();
+        }
+
         ProcessGroup = std::make_unique<bp::group>();
 
         ChildProcess = std::make_unique<bp::child>(
@@ -106,20 +113,16 @@ public:
             return;
         }
 
-        if (!ChildProcess->running())
-        {
-            ChildProcess->wait();
-            Reset();
-            return;
-        }
-
+        // Do not use only ChildProcess->id() as the completion condition.
+        // ros2 launch can exit before cartographer_occupancy_grid_node, leaving
+        // that child alive. Wait for the Boost process group as a whole.
         const pid_t ProcessGroupId =
-            static_cast<pid_t>(ChildProcess->id());
+            static_cast<pid_t>(ProcessGroup->native_handle());
 
         // 1. ROS2가 정상적으로 shutdown할 기회를 준다.
         ::killpg(ProcessGroupId, SIGINT);
 
-        if (ChildProcess->wait_for(std::chrono::seconds(5)))
+        if (ProcessGroup->wait_for(std::chrono::seconds(5)))
         {
             Reset();
             return;
@@ -128,16 +131,15 @@ public:
         // 2. SIGINT로 종료되지 않았다면 일반 종료 요청
         ::killpg(ProcessGroupId, SIGTERM);
 
-        if (ChildProcess->wait_for(std::chrono::seconds(3)))
+        if (ProcessGroup->wait_for(std::chrono::seconds(3)))
         {
             Reset();
             return;
         }
 
         // 3. 그래도 남아 있으면 강제 종료
-        ::killpg(ProcessGroupId, SIGKILL);
-
-        ChildProcess->wait();
+        ProcessGroup->terminate();
+        ProcessGroup->wait();
         Reset();
     }
 
@@ -235,6 +237,7 @@ public:
         if (visualization_timer_) visualization_timer_->cancel();
         if (control_timer_) control_timer_->cancel();
         if (heartbeat_timer_) heartbeat_timer_->cancel();
+        stopCartographer();
     }
 
 private:
@@ -514,6 +517,22 @@ private:
     }
 
     void handleStart(const dss::DssNavigationControllerRequest& request, dss::DssNavigationControllerResponse& response) {
+        // START is idempotent. While Cartographer is running, do not overwrite
+        // the active configuration and do not restart the launch tree. To
+        // apply another configuration, the caller must issue STOP then START.
+        if (CartographerManager.IsRunning()) {
+            response.set_success(true);
+            response.set_message(json{
+                {"stage", "already_running"},
+                {"filesSaved", false},
+                {"cartographerRunning", true},
+                {"cartographerPid", CartographerManager.GetProcessId()},
+                {"directory", last_saved_directory_},
+                {"reason", "START ignored because Cartographer is already running"}
+            }.dump());
+            return;
+        }
+
         std::vector<dss_nav::File> files;
         auto add = [&files](const std::string& name, const std::string& bytes) {
             if (name.empty() && bytes.empty()) return;
@@ -542,25 +561,35 @@ private:
         last_saved_directory_ = directory.string();
         RCLCPP_INFO(get_logger(), "Navigation files saved: %s", last_saved_directory_.c_str());
 
-        // TODO: validate mode-specific configuration, then asynchronously
-        // configure/activate compatible Lifecycle targets. Cartographer needs
-        // a real Lifecycle wrapper first. Do not report START success yet.
-        response.set_success(false);
+        if (!startCartographer()) {
+            throw std::runtime_error("Cartographer launch process did not start");
+        }
+
+        response.set_success(true);
         response.set_message(json{
-            {"stage", "files_saved"}, {"filesSaved", true},
-            {"lifecycleImplemented", false}, {"lifecycleApplied", false},
+            {"stage", "started"}, {"filesSaved", true},
+            {"cartographerRunning", true},
+            {"cartographerRestarted", false},
+            {"cartographerPid", CartographerManager.GetProcessId()},
             {"directory", last_saved_directory_}, {"files", filenames},
-            {"reason", "Files saved; Lifecycle START is not implemented yet"}
+            {"reason", "Navigation files saved and Cartographer started"}
         }.dump());
     }
 
     void handleStop(const dss::DssNavigationControllerRequest&, dss::DssNavigationControllerResponse& response) {
-        // TODO: asynchronously deactivate managed Lifecycle targets.
-        // STOP does not delete saved configuration or map files.
-        response.set_success(false);
+        // STOP is idempotent. It does not delete saved configuration or maps.
+        const bool was_running = CartographerManager.IsRunning();
+        stopCartographer();
+        const bool stopped = !CartographerManager.IsRunning();
+
+        response.set_success(stopped);
         response.set_message(json{
-            {"stage", "not_implemented"}, {"lifecycleImplemented", false},
-            {"lifecycleApplied", false}, {"reason", "Lifecycle STOP is not implemented yet"}
+            {"stage", stopped ? "stopped" : "stop_failed"},
+            {"cartographerWasRunning", was_running},
+            {"cartographerRunning", !stopped},
+            {"reason", stopped
+                ? (was_running ? "Cartographer stopped" : "Cartographer was already stopped")
+                : "Cartographer process is still running"}
         }.dump());
     }
 
@@ -568,7 +597,9 @@ private:
         const json heartbeat{
             {"identifier", "DSS_TB4_ROSNavControlNode"}, {"timeStamp", NowISO8601()},
             {"status", "alive"}, {"service", kControlSubject},
-            {"lifecycleImplemented", false}, {"lastSavedDirectory", last_saved_directory_}
+            {"cartographerRunning", CartographerManager.IsRunning()},
+            {"cartographerPid", CartographerManager.GetProcessId()},
+            {"lastSavedDirectory", last_saved_directory_}
         };
         const auto payload = heartbeat.dump();
         const auto status = natsConnection_PublishString(

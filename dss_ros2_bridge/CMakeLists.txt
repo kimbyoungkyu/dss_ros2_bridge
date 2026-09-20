@@ -24,6 +24,7 @@ find_package(Protobuf 3.15 REQUIRED)
 find_package(rosgraph_msgs REQUIRED)
 find_package(Threads REQUIRED)
 find_package(tf2 REQUIRED)
+find_package(Boost REQUIRED COMPONENTS filesystem system)
 
 # 메시지 생성기
 find_package(rosidl_default_generators REQUIRED)
@@ -177,6 +178,8 @@ target_link_libraries(DSS_TB4_ROSNavControlNode
   ${NATS_LIB}
   Threads::Threads
   protobuf::libprotobuf
+  Boost::filesystem
+  Boost::system  
 )
 
 
