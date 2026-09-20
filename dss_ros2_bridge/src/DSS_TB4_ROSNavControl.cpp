@@ -2,6 +2,7 @@
 #include <nav_msgs/msg/occupancy_grid.hpp>
 #include <sensor_msgs/msg/laser_scan.hpp>
 #include <geometry_msgs/msg/transform_stamped.hpp>
+#include <boost/process.hpp>
 #include <tf2_ros/buffer.h>
 #include <tf2_ros/transform_listener.h>
 #include <unistd.h>
@@ -25,50 +26,169 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-
 using json = nlohmann::json;
+namespace bp = boost::process;
 
 namespace {
-constexpr char kControlSubject[] = "dss.nav.control";
-constexpr char kHeartbeatSubject[] = "dss.DSS_TB4_ROSNavControlNode.heartBeat";
-constexpr int kMaxRequestBytes = 32 * 1024 * 1024;
-std::int64_t NowMilliseconds() 
-{
-    return std::chrono::duration_cast<std::chrono::milliseconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
-}
-
-std::string NowISO8601() 
-{
-    const auto now = std::chrono::system_clock::now();
-    const auto t = std::chrono::system_clock::to_time_t(now);
-    std::tm utc{};
-    gmtime_r(&t, &utc);
-    const auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count() % 1000;
-    std::ostringstream out;
-    out << std::put_time(&utc, "%Y-%m-%dT%H:%M:%S") << '.' << std::setw(3) << std::setfill('0') << milliseconds << 'Z';
-    return out.str();
-}
-
-// Synchronous NATS subscription: no callback thread accesses this node.
-struct NatsClient {
-    natsConnection* connection = nullptr;
-    natsSubscription* subscription = nullptr;
-    ~NatsClient() {
-        if (subscription) natsSubscription_Destroy(subscription);
-        if (connection) natsConnection_Destroy(connection);
+    constexpr char kControlSubject[] = "dss.nav.control";
+    constexpr char kHeartbeatSubject[] = "dss.DSS_TB4_ROSNavControlNode.heartBeat";
+    constexpr int kMaxRequestBytes = 32 * 1024 * 1024;
+    std::int64_t NowMilliseconds() 
+    {
+        return std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::system_clock::now().time_since_epoch()).count();
     }
-    NatsClient() = default;
-    NatsClient(const NatsClient&) = delete;
-    NatsClient& operator=(const NatsClient&) = delete;
+
+    std::string NowISO8601() 
+    {
+        const auto now = std::chrono::system_clock::now();
+        const auto t = std::chrono::system_clock::to_time_t(now);
+        std::tm utc{};
+        gmtime_r(&t, &utc);
+        const auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count() % 1000;
+        std::ostringstream out;
+        out << std::put_time(&utc, "%Y-%m-%dT%H:%M:%S") << '.' << std::setw(3) << std::setfill('0') << milliseconds << 'Z';
+        return out.str();
+    }
+
+    // Synchronous NATS subscription: no callback thread accesses this node.
+    struct NatsClient {
+        natsConnection* connection = nullptr;
+        natsSubscription* subscription = nullptr;
+        ~NatsClient() {
+            if (subscription) natsSubscription_Destroy(subscription);
+            if (connection) natsConnection_Destroy(connection);
+        }
+        NatsClient() = default;
+        NatsClient(const NatsClient&) = delete;
+        NatsClient& operator=(const NatsClient&) = delete;
+    };
+
+    void CheckNats(natsStatus status, const char* operation) {
+        if (status != NATS_OK) {
+            throw std::runtime_error(std::string(operation) + ": " + natsStatus_GetText(status));
+        }
+    }
+} // namespace
+
+
+
+class FCartographerProcessManager {
+public:
+    ~FCartographerProcessManager() {
+        Stop();
+    }
+
+    bool Start(){
+        if (IsRunning()) {
+            return true;
+        }
+
+        ProcessGroup = std::make_unique<bp::group>();
+
+        ChildProcess = std::make_unique<bp::child>(
+            bp::search_path("ros2"),
+            "launch",
+            "dss_ros2_bridge",
+            "dss_tb4_cartographer.py",
+            *ProcessGroup,
+            bp::std_out > stdout,
+            bp::std_err > stderr
+        );
+
+        return IsRunning();
+    }
+
+    void Stop()
+    {
+        if (!ChildProcess)
+        {
+            return;
+        }
+
+        if (!ChildProcess->running())
+        {
+            ChildProcess->wait();
+            Reset();
+            return;
+        }
+
+        const pid_t ProcessGroupId =
+            static_cast<pid_t>(ChildProcess->id());
+
+        // 1. ROS2가 정상적으로 shutdown할 기회를 준다.
+        ::killpg(ProcessGroupId, SIGINT);
+
+        if (ChildProcess->wait_for(std::chrono::seconds(5)))
+        {
+            Reset();
+            return;
+        }
+
+        // 2. SIGINT로 종료되지 않았다면 일반 종료 요청
+        ::killpg(ProcessGroupId, SIGTERM);
+
+        if (ChildProcess->wait_for(std::chrono::seconds(3)))
+        {
+            Reset();
+            return;
+        }
+
+        // 3. 그래도 남아 있으면 강제 종료
+        ::killpg(ProcessGroupId, SIGKILL);
+
+        ChildProcess->wait();
+        Reset();
+    }
+
+    bool IsRunning() const
+    {
+        return ChildProcess &&
+               ChildProcess->valid() &&
+               ChildProcess->running();
+    }
+
+    int32_t GetProcessId() const
+    {
+        if (!ChildProcess || !ChildProcess->valid())
+        {
+            return -1;
+        }
+
+        return static_cast<int32_t>(ChildProcess->id());
+    }
+
+private:
+    void Reset()
+    {
+        ChildProcess.reset();
+        ProcessGroup.reset();
+    }
+
+private:
+    // ProcessGroup이 ChildProcess보다 오래 살아 있어야 한다.
+    std::unique_ptr<bp::group> ProcessGroup;
+    std::unique_ptr<bp::child> ChildProcess;
 };
 
-void CheckNats(natsStatus status, const char* operation) {
-    if (status != NATS_OK) {
-        throw std::runtime_error(std::string(operation) + ": " + natsStatus_GetText(status));
-    }
-}
-} // namespace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // A permanently running command adapter. Managed targets, not this adapter,
 // will implement Lifecycle. No fork/system/spawn and no process launch here.
@@ -177,20 +297,20 @@ private:
         auto map_qos = rclcpp::QoS(rclcpp::KeepLast(1)).reliable();
         if (durable_map) map_qos.transient_local();
         map_subscription_ = create_subscription<nav_msgs::msg::OccupancyGrid>(map_topic, map_qos,[this](nav_msgs::msg::OccupancyGrid::ConstSharedPtr msg) {
-                try { 
-                    cacheMap(*msg); 
-                }
-                catch (const std::exception& e) {
-                     RCLCPP_ERROR(get_logger(), "Map: %s", e.what()); 
-                }
+            try { 
+                cacheMap(*msg); 
+            }
+            catch (const std::exception& e) {
+                    RCLCPP_ERROR(get_logger(), "Map: %s", e.what()); 
+            }
         });
         scan_subscription_ = create_subscription<sensor_msgs::msg::LaserScan>(scan_topic,rclcpp::SensorDataQoS(),[this](sensor_msgs::msg::LaserScan::ConstSharedPtr msg) {
-                checkTimeReset();
-                if (pending_scans_.size() >= 10) {
-                    sendScan(*pending_scans_.front().message, nullptr, "TF queue overflow");
-                    pending_scans_.pop_front();
-                }
-                pending_scans_.push_back({msg, std::chrono::steady_clock::now()});
+            checkTimeReset();
+            if (pending_scans_.size() >= 10) {
+                sendScan(*pending_scans_.front().message, nullptr, "TF queue overflow");
+                pending_scans_.pop_front();
+            }
+            pending_scans_.push_back({msg, std::chrono::steady_clock::now()});
         });
         visualization_timer_ = create_wall_timer(std::chrono::milliseconds(50), [this] {
             checkTimeReset();
@@ -464,6 +584,24 @@ private:
     }
 
 
+    bool startCartographer()
+    {
+        if (!CartographerManager.Start()) {
+            RCLCPP_ERROR(rclcpp::get_logger("DSSNav"),"Failed to start Cartographer");
+            return false;
+        }
+        RCLCPP_INFO(rclcpp::get_logger("DSSNav"),"Cartographer started. PID=%d",CartographerManager.GetProcessId());
+        return true;
+    }
+
+    void stopCartographer()
+    {
+        CartographerManager.Stop();
+        RCLCPP_INFO(rclcpp::get_logger("DSSNav"),"Cartographer stopped");
+    }    
+
+
+
     struct PendingScan {
         sensor_msgs::msg::LaserScan::ConstSharedPtr message;
         std::chrono::steady_clock::time_point received;
@@ -485,6 +623,7 @@ private:
     std::string last_saved_directory_;
     rclcpp::TimerBase::SharedPtr control_timer_;
     rclcpp::TimerBase::SharedPtr heartbeat_timer_;
+    FCartographerProcessManager CartographerManager;
 };
 
 int main(int argc, char** argv) {
