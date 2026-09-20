@@ -23,6 +23,7 @@ find_package(OpenCV REQUIRED)
 find_package(Protobuf 3.15 REQUIRED)
 find_package(rosgraph_msgs REQUIRED)
 find_package(Threads REQUIRED)
+find_package(tf2 REQUIRED)
 
 # 메시지 생성기
 find_package(rosidl_default_generators REQUIRED)
@@ -159,8 +160,18 @@ target_link_libraries(DSS_TB4_SimToROSBridgeNode
 )
 
 
+
 add_executable(DSS_TB4_ROSNavControlNode src/DSS_TB4_ROSNavControl.cpp src/dss.pb.cc src/defaultGateway.cpp)
-ament_target_dependencies(DSS_TB4_ROSNavControlNode rclcpp sensor_msgs OpenCV)
+ament_target_dependencies(DSS_TB4_ROSNavControlNode
+  rclcpp
+  sensor_msgs
+  nav_msgs
+  geometry_msgs
+  tf2
+  tf2_ros
+  builtin_interfaces
+  OpenCV
+)
 target_link_libraries(DSS_TB4_ROSNavControlNode
   "${cpp_typesupport_target}"
   ${NATS_LIB}

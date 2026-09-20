@@ -555,8 +555,110 @@ struct DssNavigationControllerResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssNavigationControllerResponseDefaultTypeInternal _DssNavigationControllerResponse_default_instance_;
+constexpr DssNavStamp::DssNavStamp(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : sec_(0)
+  , nanosec_(0u){}
+struct DssNavStampDefaultTypeInternal {
+  constexpr DssNavStampDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DssNavStampDefaultTypeInternal() {}
+  union {
+    DssNavStamp _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssNavStampDefaultTypeInternal _DssNavStamp_default_instance_;
+constexpr DssNavTransform::DssNavTransform(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : parent_frame_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , child_frame_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , stamp_(nullptr)
+  , translation_(nullptr)
+  , rotation_(nullptr){}
+struct DssNavTransformDefaultTypeInternal {
+  constexpr DssNavTransformDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DssNavTransformDefaultTypeInternal() {}
+  union {
+    DssNavTransform _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssNavTransformDefaultTypeInternal _DssNavTransform_default_instance_;
+constexpr DssNavMapChunk::DssNavMapChunk(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : stream_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , frame_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , encoding_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , stamp_(nullptr)
+  , origin_(nullptr)
+  , map_load_time_(nullptr)
+  , map_id_(PROTOBUF_ULONGLONG(0))
+  , schema_version_(0u)
+  , width_(0u)
+  , height_(0u)
+  , resolution_(0)
+  , uncompressed_size_(PROTOBUF_ULONGLONG(0))
+  , chunk_index_(0u)
+  , chunk_count_(0u){}
+struct DssNavMapChunkDefaultTypeInternal {
+  constexpr DssNavMapChunkDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DssNavMapChunkDefaultTypeInternal() {}
+  union {
+    DssNavMapChunk _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssNavMapChunkDefaultTypeInternal _DssNavMapChunk_default_instance_;
+constexpr DssNavRobotPose::DssNavRobotPose(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : stream_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , error_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , query_stamp_(nullptr)
+  , transform_(nullptr)
+  , schema_version_(0u)
+  , valid_(false){}
+struct DssNavRobotPoseDefaultTypeInternal {
+  constexpr DssNavRobotPoseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DssNavRobotPoseDefaultTypeInternal() {}
+  union {
+    DssNavRobotPose _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssNavRobotPoseDefaultTypeInternal _DssNavRobotPose_default_instance_;
+constexpr DssNavScan::DssNavScan(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : ranges_()
+  , _ranges_cached_byte_size_()
+  , intensities_()
+  , _intensities_cached_byte_size_()
+  , stream_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , frame_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , transform_error_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , stamp_(nullptr)
+  , map_from_scan_(nullptr)
+  , schema_version_(0u)
+  , angle_min_(0)
+  , angle_max_(0)
+  , angle_increment_(0)
+  , time_increment_(0)
+  , scan_time_(0)
+  , range_min_(0)
+  , range_max_(0)
+  , transform_valid_(false)
+  , deskewed_(false){}
+struct DssNavScanDefaultTypeInternal {
+  constexpr DssNavScanDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DssNavScanDefaultTypeInternal() {}
+  union {
+    DssNavScan _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DssNavScanDefaultTypeInternal _DssNavScan_default_instance_;
 }  // namespace dss
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dss_2eproto[31];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dss_2eproto[36];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_dss_2eproto[6];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_dss_2eproto = nullptr;
 
@@ -899,6 +1001,76 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dss_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerResponse, timestamp_),
   PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerResponse, success_),
   PROTOBUF_FIELD_OFFSET(::dss::DssNavigationControllerResponse, message_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavStamp, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavStamp, sec_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavStamp, nanosec_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavTransform, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavTransform, stamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavTransform, parent_frame_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavTransform, child_frame_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavTransform, translation_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavTransform, rotation_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, schema_version_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, stream_id_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, map_id_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, stamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, frame_id_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, width_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, height_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, resolution_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, origin_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, map_load_time_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, encoding_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, uncompressed_size_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, chunk_index_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, chunk_count_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavMapChunk, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavRobotPose, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavRobotPose, schema_version_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavRobotPose, stream_id_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavRobotPose, query_stamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavRobotPose, valid_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavRobotPose, error_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavRobotPose, transform_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, schema_version_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, stream_id_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, stamp_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, frame_id_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, angle_min_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, angle_max_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, angle_increment_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, time_increment_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, scan_time_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, range_min_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, range_max_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, ranges_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, intensities_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, transform_valid_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, transform_error_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, map_from_scan_),
+  PROTOBUF_FIELD_OFFSET(::dss::DssNavScan, deskewed_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::dss::DssHeartbeat)},
@@ -932,6 +1104,11 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 304, -1, sizeof(::dss::DssClock)},
   { 312, -1, sizeof(::dss::DssNavigationControllerRequest)},
   { 329, -1, sizeof(::dss::DssNavigationControllerResponse)},
+  { 338, -1, sizeof(::dss::DssNavStamp)},
+  { 345, -1, sizeof(::dss::DssNavTransform)},
+  { 355, -1, sizeof(::dss::DssNavMapChunk)},
+  { 375, -1, sizeof(::dss::DssNavRobotPose)},
+  { 386, -1, sizeof(::dss::DssNavScan)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -966,6 +1143,11 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssClock_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavigationControllerRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavigationControllerResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavStamp_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavTransform_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavMapChunk_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavRobotPose_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dss::_DssNavScan_default_instance_),
 };
 
 const char descriptor_table_protodef_dss_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1091,18 +1273,47 @@ const char descriptor_table_protodef_dss_2eproto[] PROTOBUF_SECTION_VARIABLE(pro
   "im_time\030\014 \001(\010\"j\n\037DssNavigationController"
   "Response\022\022\n\nidentifier\030\001 \001(\t\022\021\n\ttimestam"
   "p\030\002 \001(\003\022\017\n\007success\030\003 \001(\010\022\017\n\007message\030\004 \001("
-  "\t*@\n\021NavControlCommand\022\025\n\021NAV_COMMAND_ST"
-  "ART\020\000\022\024\n\020NAV_COMMAND_STOP\020\001*^\n\007NavMode\022\026"
-  "\n\022NAV_MODE_SLAM_ONLY\020\000\022\033\n\027NAV_MODE_SLAM_"
-  "WITH_NAV2\020\001\022\036\n\032NAV_MODE_LOCALIZATION_NAV"
-  "2\020\002*Y\n\010SlamType\022\032\n\026SLAM_TYPE_CARTOGRAPHE"
-  "R\020\000\022\032\n\026SLAM_TYPE_SLAM_TOOLBOX\020\001\022\025\n\021SLAM_"
-  "TYPE_RTABMAP\020\002b\006proto3"
+  "\t\"+\n\013DssNavStamp\022\013\n\003sec\030\001 \001(\005\022\017\n\007nanosec"
+  "\030\002 \001(\r\"\251\001\n\017DssNavTransform\022\037\n\005stamp\030\001 \001("
+  "\0132\020.dss.DssNavStamp\022\024\n\014parent_frame\030\002 \001("
+  "\t\022\023\n\013child_frame\030\003 \001(\t\022$\n\013translation\030\004 "
+  "\001(\0132\017.dss.DSSVector3\022$\n\010rotation\030\005 \001(\0132\022"
+  ".dss.DSSQuaternion\"\335\002\n\016DssNavMapChunk\022\026\n"
+  "\016schema_version\030\001 \001(\r\022\021\n\tstream_id\030\002 \001(\t"
+  "\022\016\n\006map_id\030\003 \001(\004\022\037\n\005stamp\030\004 \001(\0132\020.dss.Ds"
+  "sNavStamp\022\020\n\010frame_id\030\005 \001(\t\022\r\n\005width\030\006 \001"
+  "(\r\022\016\n\006height\030\007 \001(\r\022\022\n\nresolution\030\010 \001(\002\022\034"
+  "\n\006origin\030\t \001(\0132\014.dss.DSSPose\022\'\n\rmap_load"
+  "_time\030\n \001(\0132\020.dss.DssNavStamp\022\020\n\010encodin"
+  "g\030\013 \001(\t\022\031\n\021uncompressed_size\030\014 \001(\004\022\023\n\013ch"
+  "unk_index\030\r \001(\r\022\023\n\013chunk_count\030\016 \001(\r\022\014\n\004"
+  "data\030\017 \001(\014\"\252\001\n\017DssNavRobotPose\022\026\n\016schema"
+  "_version\030\001 \001(\r\022\021\n\tstream_id\030\002 \001(\t\022%\n\013que"
+  "ry_stamp\030\003 \001(\0132\020.dss.DssNavStamp\022\r\n\005vali"
+  "d\030\004 \001(\010\022\r\n\005error\030\005 \001(\t\022\'\n\ttransform\030\006 \001("
+  "\0132\024.dss.DssNavTransform\"\220\003\n\nDssNavScan\022\026"
+  "\n\016schema_version\030\001 \001(\r\022\021\n\tstream_id\030\002 \001("
+  "\t\022\037\n\005stamp\030\003 \001(\0132\020.dss.DssNavStamp\022\020\n\010fr"
+  "ame_id\030\004 \001(\t\022\021\n\tangle_min\030\005 \001(\002\022\021\n\tangle"
+  "_max\030\006 \001(\002\022\027\n\017angle_increment\030\007 \001(\002\022\026\n\016t"
+  "ime_increment\030\010 \001(\002\022\021\n\tscan_time\030\t \001(\002\022\021"
+  "\n\trange_min\030\n \001(\002\022\021\n\trange_max\030\013 \001(\002\022\016\n\006"
+  "ranges\030\014 \003(\002\022\023\n\013intensities\030\r \003(\002\022\027\n\017tra"
+  "nsform_valid\030\016 \001(\010\022\027\n\017transform_error\030\017 "
+  "\001(\t\022+\n\rmap_from_scan\030\020 \001(\0132\024.dss.DssNavT"
+  "ransform\022\020\n\010deskewed\030\021 \001(\010*@\n\021NavControl"
+  "Command\022\025\n\021NAV_COMMAND_START\020\000\022\024\n\020NAV_CO"
+  "MMAND_STOP\020\001*^\n\007NavMode\022\026\n\022NAV_MODE_SLAM"
+  "_ONLY\020\000\022\033\n\027NAV_MODE_SLAM_WITH_NAV2\020\001\022\036\n\032"
+  "NAV_MODE_LOCALIZATION_NAV2\020\002*Y\n\010SlamType"
+  "\022\032\n\026SLAM_TYPE_CARTOGRAPHER\020\000\022\032\n\026SLAM_TYP"
+  "E_SLAM_TOOLBOX\020\001\022\025\n\021SLAM_TYPE_RTABMAP\020\002b"
+  "\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dss_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dss_2eproto = {
-  false, false, 5142, descriptor_table_protodef_dss_2eproto, "dss.proto", 
-  &descriptor_table_dss_2eproto_once, nullptr, 0, 31,
+  false, false, 6287, descriptor_table_protodef_dss_2eproto, "dss.proto", 
+  &descriptor_table_dss_2eproto_once, nullptr, 0, 36,
   schemas, file_default_instances, TableStruct_dss_2eproto::offsets,
   file_level_metadata_dss_2eproto, file_level_enum_descriptors_dss_2eproto, file_level_service_descriptors_dss_2eproto,
 };
@@ -11670,6 +11881,2257 @@ void DssNavigationControllerResponse::InternalSwap(DssNavigationControllerRespon
 }
 
 
+// ===================================================================
+
+class DssNavStamp::_Internal {
+ public:
+};
+
+DssNavStamp::DssNavStamp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssNavStamp)
+}
+DssNavStamp::DssNavStamp(const DssNavStamp& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&sec_, &from.sec_,
+    static_cast<size_t>(reinterpret_cast<char*>(&nanosec_) -
+    reinterpret_cast<char*>(&sec_)) + sizeof(nanosec_));
+  // @@protoc_insertion_point(copy_constructor:dss.DssNavStamp)
+}
+
+void DssNavStamp::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&sec_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&nanosec_) -
+    reinterpret_cast<char*>(&sec_)) + sizeof(nanosec_));
+}
+
+DssNavStamp::~DssNavStamp() {
+  // @@protoc_insertion_point(destructor:dss.DssNavStamp)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DssNavStamp::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void DssNavStamp::ArenaDtor(void* object) {
+  DssNavStamp* _this = reinterpret_cast< DssNavStamp* >(object);
+  (void)_this;
+}
+void DssNavStamp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DssNavStamp::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DssNavStamp::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssNavStamp)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&sec_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&nanosec_) -
+      reinterpret_cast<char*>(&sec_)) + sizeof(nanosec_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DssNavStamp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int32 sec = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          sec_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 nanosec = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          nanosec_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DssNavStamp::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssNavStamp)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 sec = 1;
+  if (this->sec() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_sec(), target);
+  }
+
+  // uint32 nanosec = 2;
+  if (this->nanosec() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_nanosec(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssNavStamp)
+  return target;
+}
+
+size_t DssNavStamp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssNavStamp)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 sec = 1;
+  if (this->sec() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_sec());
+  }
+
+  // uint32 nanosec = 2;
+  if (this->nanosec() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_nanosec());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DssNavStamp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssNavStamp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DssNavStamp* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssNavStamp>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssNavStamp)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssNavStamp)
+    MergeFrom(*source);
+  }
+}
+
+void DssNavStamp::MergeFrom(const DssNavStamp& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssNavStamp)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.sec() != 0) {
+    _internal_set_sec(from._internal_sec());
+  }
+  if (from.nanosec() != 0) {
+    _internal_set_nanosec(from._internal_nanosec());
+  }
+}
+
+void DssNavStamp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssNavStamp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DssNavStamp::CopyFrom(const DssNavStamp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssNavStamp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DssNavStamp::IsInitialized() const {
+  return true;
+}
+
+void DssNavStamp::InternalSwap(DssNavStamp* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DssNavStamp, nanosec_)
+      + sizeof(DssNavStamp::nanosec_)
+      - PROTOBUF_FIELD_OFFSET(DssNavStamp, sec_)>(
+          reinterpret_cast<char*>(&sec_),
+          reinterpret_cast<char*>(&other->sec_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DssNavStamp::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DssNavTransform::_Internal {
+ public:
+  static const ::dss::DssNavStamp& stamp(const DssNavTransform* msg);
+  static const ::dss::DSSVector3& translation(const DssNavTransform* msg);
+  static const ::dss::DSSQuaternion& rotation(const DssNavTransform* msg);
+};
+
+const ::dss::DssNavStamp&
+DssNavTransform::_Internal::stamp(const DssNavTransform* msg) {
+  return *msg->stamp_;
+}
+const ::dss::DSSVector3&
+DssNavTransform::_Internal::translation(const DssNavTransform* msg) {
+  return *msg->translation_;
+}
+const ::dss::DSSQuaternion&
+DssNavTransform::_Internal::rotation(const DssNavTransform* msg) {
+  return *msg->rotation_;
+}
+DssNavTransform::DssNavTransform(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssNavTransform)
+}
+DssNavTransform::DssNavTransform(const DssNavTransform& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  parent_frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_parent_frame().empty()) {
+    parent_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent_frame(), 
+      GetArena());
+  }
+  child_frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_child_frame().empty()) {
+    child_frame_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_child_frame(), 
+      GetArena());
+  }
+  if (from._internal_has_stamp()) {
+    stamp_ = new ::dss::DssNavStamp(*from.stamp_);
+  } else {
+    stamp_ = nullptr;
+  }
+  if (from._internal_has_translation()) {
+    translation_ = new ::dss::DSSVector3(*from.translation_);
+  } else {
+    translation_ = nullptr;
+  }
+  if (from._internal_has_rotation()) {
+    rotation_ = new ::dss::DSSQuaternion(*from.rotation_);
+  } else {
+    rotation_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:dss.DssNavTransform)
+}
+
+void DssNavTransform::SharedCtor() {
+parent_frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+child_frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&stamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&rotation_) -
+    reinterpret_cast<char*>(&stamp_)) + sizeof(rotation_));
+}
+
+DssNavTransform::~DssNavTransform() {
+  // @@protoc_insertion_point(destructor:dss.DssNavTransform)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DssNavTransform::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  parent_frame_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  child_frame_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete stamp_;
+  if (this != internal_default_instance()) delete translation_;
+  if (this != internal_default_instance()) delete rotation_;
+}
+
+void DssNavTransform::ArenaDtor(void* object) {
+  DssNavTransform* _this = reinterpret_cast< DssNavTransform* >(object);
+  (void)_this;
+}
+void DssNavTransform::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DssNavTransform::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DssNavTransform::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssNavTransform)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  parent_frame_.ClearToEmpty();
+  child_frame_.ClearToEmpty();
+  if (GetArena() == nullptr && stamp_ != nullptr) {
+    delete stamp_;
+  }
+  stamp_ = nullptr;
+  if (GetArena() == nullptr && translation_ != nullptr) {
+    delete translation_;
+  }
+  translation_ = nullptr;
+  if (GetArena() == nullptr && rotation_ != nullptr) {
+    delete rotation_;
+  }
+  rotation_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DssNavTransform::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .dss.DssNavStamp stamp = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_stamp(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string parent_frame = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_parent_frame();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavTransform.parent_frame"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string child_frame = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_child_frame();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavTransform.child_frame"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DSSVector3 translation = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_translation(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DSSQuaternion rotation = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_rotation(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DssNavTransform::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssNavTransform)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .dss.DssNavStamp stamp = 1;
+  if (this->has_stamp()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::stamp(this), target, stream);
+  }
+
+  // string parent_frame = 2;
+  if (this->parent_frame().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_parent_frame().data(), static_cast<int>(this->_internal_parent_frame().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavTransform.parent_frame");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_parent_frame(), target);
+  }
+
+  // string child_frame = 3;
+  if (this->child_frame().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_child_frame().data(), static_cast<int>(this->_internal_child_frame().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavTransform.child_frame");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_child_frame(), target);
+  }
+
+  // .dss.DSSVector3 translation = 4;
+  if (this->has_translation()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::translation(this), target, stream);
+  }
+
+  // .dss.DSSQuaternion rotation = 5;
+  if (this->has_rotation()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::rotation(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssNavTransform)
+  return target;
+}
+
+size_t DssNavTransform::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssNavTransform)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string parent_frame = 2;
+  if (this->parent_frame().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_parent_frame());
+  }
+
+  // string child_frame = 3;
+  if (this->child_frame().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_child_frame());
+  }
+
+  // .dss.DssNavStamp stamp = 1;
+  if (this->has_stamp()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *stamp_);
+  }
+
+  // .dss.DSSVector3 translation = 4;
+  if (this->has_translation()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *translation_);
+  }
+
+  // .dss.DSSQuaternion rotation = 5;
+  if (this->has_rotation()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *rotation_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DssNavTransform::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssNavTransform)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DssNavTransform* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssNavTransform>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssNavTransform)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssNavTransform)
+    MergeFrom(*source);
+  }
+}
+
+void DssNavTransform::MergeFrom(const DssNavTransform& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssNavTransform)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.parent_frame().size() > 0) {
+    _internal_set_parent_frame(from._internal_parent_frame());
+  }
+  if (from.child_frame().size() > 0) {
+    _internal_set_child_frame(from._internal_child_frame());
+  }
+  if (from.has_stamp()) {
+    _internal_mutable_stamp()->::dss::DssNavStamp::MergeFrom(from._internal_stamp());
+  }
+  if (from.has_translation()) {
+    _internal_mutable_translation()->::dss::DSSVector3::MergeFrom(from._internal_translation());
+  }
+  if (from.has_rotation()) {
+    _internal_mutable_rotation()->::dss::DSSQuaternion::MergeFrom(from._internal_rotation());
+  }
+}
+
+void DssNavTransform::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssNavTransform)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DssNavTransform::CopyFrom(const DssNavTransform& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssNavTransform)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DssNavTransform::IsInitialized() const {
+  return true;
+}
+
+void DssNavTransform::InternalSwap(DssNavTransform* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  parent_frame_.Swap(&other->parent_frame_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  child_frame_.Swap(&other->child_frame_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DssNavTransform, rotation_)
+      + sizeof(DssNavTransform::rotation_)
+      - PROTOBUF_FIELD_OFFSET(DssNavTransform, stamp_)>(
+          reinterpret_cast<char*>(&stamp_),
+          reinterpret_cast<char*>(&other->stamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DssNavTransform::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DssNavMapChunk::_Internal {
+ public:
+  static const ::dss::DssNavStamp& stamp(const DssNavMapChunk* msg);
+  static const ::dss::DSSPose& origin(const DssNavMapChunk* msg);
+  static const ::dss::DssNavStamp& map_load_time(const DssNavMapChunk* msg);
+};
+
+const ::dss::DssNavStamp&
+DssNavMapChunk::_Internal::stamp(const DssNavMapChunk* msg) {
+  return *msg->stamp_;
+}
+const ::dss::DSSPose&
+DssNavMapChunk::_Internal::origin(const DssNavMapChunk* msg) {
+  return *msg->origin_;
+}
+const ::dss::DssNavStamp&
+DssNavMapChunk::_Internal::map_load_time(const DssNavMapChunk* msg) {
+  return *msg->map_load_time_;
+}
+DssNavMapChunk::DssNavMapChunk(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssNavMapChunk)
+}
+DssNavMapChunk::DssNavMapChunk(const DssNavMapChunk& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  stream_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_stream_id().empty()) {
+    stream_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_stream_id(), 
+      GetArena());
+  }
+  frame_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_frame_id().empty()) {
+    frame_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_frame_id(), 
+      GetArena());
+  }
+  encoding_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_encoding().empty()) {
+    encoding_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_encoding(), 
+      GetArena());
+  }
+  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_data().empty()) {
+    data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_data(), 
+      GetArena());
+  }
+  if (from._internal_has_stamp()) {
+    stamp_ = new ::dss::DssNavStamp(*from.stamp_);
+  } else {
+    stamp_ = nullptr;
+  }
+  if (from._internal_has_origin()) {
+    origin_ = new ::dss::DSSPose(*from.origin_);
+  } else {
+    origin_ = nullptr;
+  }
+  if (from._internal_has_map_load_time()) {
+    map_load_time_ = new ::dss::DssNavStamp(*from.map_load_time_);
+  } else {
+    map_load_time_ = nullptr;
+  }
+  ::memcpy(&map_id_, &from.map_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&chunk_count_) -
+    reinterpret_cast<char*>(&map_id_)) + sizeof(chunk_count_));
+  // @@protoc_insertion_point(copy_constructor:dss.DssNavMapChunk)
+}
+
+void DssNavMapChunk::SharedCtor() {
+stream_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+frame_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+encoding_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&stamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&chunk_count_) -
+    reinterpret_cast<char*>(&stamp_)) + sizeof(chunk_count_));
+}
+
+DssNavMapChunk::~DssNavMapChunk() {
+  // @@protoc_insertion_point(destructor:dss.DssNavMapChunk)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DssNavMapChunk::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  stream_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  frame_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  encoding_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete stamp_;
+  if (this != internal_default_instance()) delete origin_;
+  if (this != internal_default_instance()) delete map_load_time_;
+}
+
+void DssNavMapChunk::ArenaDtor(void* object) {
+  DssNavMapChunk* _this = reinterpret_cast< DssNavMapChunk* >(object);
+  (void)_this;
+}
+void DssNavMapChunk::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DssNavMapChunk::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DssNavMapChunk::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssNavMapChunk)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  stream_id_.ClearToEmpty();
+  frame_id_.ClearToEmpty();
+  encoding_.ClearToEmpty();
+  data_.ClearToEmpty();
+  if (GetArena() == nullptr && stamp_ != nullptr) {
+    delete stamp_;
+  }
+  stamp_ = nullptr;
+  if (GetArena() == nullptr && origin_ != nullptr) {
+    delete origin_;
+  }
+  origin_ = nullptr;
+  if (GetArena() == nullptr && map_load_time_ != nullptr) {
+    delete map_load_time_;
+  }
+  map_load_time_ = nullptr;
+  ::memset(&map_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&chunk_count_) -
+      reinterpret_cast<char*>(&map_id_)) + sizeof(chunk_count_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DssNavMapChunk::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 schema_version = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          schema_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string stream_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_stream_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavMapChunk.stream_id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 map_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          map_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DssNavStamp stamp = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_stamp(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string frame_id = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_frame_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavMapChunk.frame_id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 width = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 height = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float resolution = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 69)) {
+          resolution_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DSSPose origin = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_origin(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DssNavStamp map_load_time = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_map_load_time(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string encoding = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+          auto str = _internal_mutable_encoding();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavMapChunk.encoding"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 uncompressed_size = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+          uncompressed_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 chunk_index = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          chunk_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 chunk_count = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          chunk_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes data = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+          auto str = _internal_mutable_data();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DssNavMapChunk::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssNavMapChunk)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 schema_version = 1;
+  if (this->schema_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_schema_version(), target);
+  }
+
+  // string stream_id = 2;
+  if (this->stream_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_stream_id().data(), static_cast<int>(this->_internal_stream_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavMapChunk.stream_id");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_stream_id(), target);
+  }
+
+  // uint64 map_id = 3;
+  if (this->map_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_map_id(), target);
+  }
+
+  // .dss.DssNavStamp stamp = 4;
+  if (this->has_stamp()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::stamp(this), target, stream);
+  }
+
+  // string frame_id = 5;
+  if (this->frame_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_frame_id().data(), static_cast<int>(this->_internal_frame_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavMapChunk.frame_id");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_frame_id(), target);
+  }
+
+  // uint32 width = 6;
+  if (this->width() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_width(), target);
+  }
+
+  // uint32 height = 7;
+  if (this->height() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_height(), target);
+  }
+
+  // float resolution = 8;
+  if (!(this->resolution() <= 0 && this->resolution() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(8, this->_internal_resolution(), target);
+  }
+
+  // .dss.DSSPose origin = 9;
+  if (this->has_origin()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        9, _Internal::origin(this), target, stream);
+  }
+
+  // .dss.DssNavStamp map_load_time = 10;
+  if (this->has_map_load_time()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        10, _Internal::map_load_time(this), target, stream);
+  }
+
+  // string encoding = 11;
+  if (this->encoding().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_encoding().data(), static_cast<int>(this->_internal_encoding().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavMapChunk.encoding");
+    target = stream->WriteStringMaybeAliased(
+        11, this->_internal_encoding(), target);
+  }
+
+  // uint64 uncompressed_size = 12;
+  if (this->uncompressed_size() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(12, this->_internal_uncompressed_size(), target);
+  }
+
+  // uint32 chunk_index = 13;
+  if (this->chunk_index() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_chunk_index(), target);
+  }
+
+  // uint32 chunk_count = 14;
+  if (this->chunk_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_chunk_count(), target);
+  }
+
+  // bytes data = 15;
+  if (this->data().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        15, this->_internal_data(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssNavMapChunk)
+  return target;
+}
+
+size_t DssNavMapChunk::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssNavMapChunk)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string stream_id = 2;
+  if (this->stream_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_stream_id());
+  }
+
+  // string frame_id = 5;
+  if (this->frame_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_frame_id());
+  }
+
+  // string encoding = 11;
+  if (this->encoding().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_encoding());
+  }
+
+  // bytes data = 15;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_data());
+  }
+
+  // .dss.DssNavStamp stamp = 4;
+  if (this->has_stamp()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *stamp_);
+  }
+
+  // .dss.DSSPose origin = 9;
+  if (this->has_origin()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *origin_);
+  }
+
+  // .dss.DssNavStamp map_load_time = 10;
+  if (this->has_map_load_time()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *map_load_time_);
+  }
+
+  // uint64 map_id = 3;
+  if (this->map_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_map_id());
+  }
+
+  // uint32 schema_version = 1;
+  if (this->schema_version() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_schema_version());
+  }
+
+  // uint32 width = 6;
+  if (this->width() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_width());
+  }
+
+  // uint32 height = 7;
+  if (this->height() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_height());
+  }
+
+  // float resolution = 8;
+  if (!(this->resolution() <= 0 && this->resolution() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // uint64 uncompressed_size = 12;
+  if (this->uncompressed_size() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_uncompressed_size());
+  }
+
+  // uint32 chunk_index = 13;
+  if (this->chunk_index() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_chunk_index());
+  }
+
+  // uint32 chunk_count = 14;
+  if (this->chunk_count() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_chunk_count());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DssNavMapChunk::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssNavMapChunk)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DssNavMapChunk* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssNavMapChunk>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssNavMapChunk)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssNavMapChunk)
+    MergeFrom(*source);
+  }
+}
+
+void DssNavMapChunk::MergeFrom(const DssNavMapChunk& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssNavMapChunk)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.stream_id().size() > 0) {
+    _internal_set_stream_id(from._internal_stream_id());
+  }
+  if (from.frame_id().size() > 0) {
+    _internal_set_frame_id(from._internal_frame_id());
+  }
+  if (from.encoding().size() > 0) {
+    _internal_set_encoding(from._internal_encoding());
+  }
+  if (from.data().size() > 0) {
+    _internal_set_data(from._internal_data());
+  }
+  if (from.has_stamp()) {
+    _internal_mutable_stamp()->::dss::DssNavStamp::MergeFrom(from._internal_stamp());
+  }
+  if (from.has_origin()) {
+    _internal_mutable_origin()->::dss::DSSPose::MergeFrom(from._internal_origin());
+  }
+  if (from.has_map_load_time()) {
+    _internal_mutable_map_load_time()->::dss::DssNavStamp::MergeFrom(from._internal_map_load_time());
+  }
+  if (from.map_id() != 0) {
+    _internal_set_map_id(from._internal_map_id());
+  }
+  if (from.schema_version() != 0) {
+    _internal_set_schema_version(from._internal_schema_version());
+  }
+  if (from.width() != 0) {
+    _internal_set_width(from._internal_width());
+  }
+  if (from.height() != 0) {
+    _internal_set_height(from._internal_height());
+  }
+  if (!(from.resolution() <= 0 && from.resolution() >= 0)) {
+    _internal_set_resolution(from._internal_resolution());
+  }
+  if (from.uncompressed_size() != 0) {
+    _internal_set_uncompressed_size(from._internal_uncompressed_size());
+  }
+  if (from.chunk_index() != 0) {
+    _internal_set_chunk_index(from._internal_chunk_index());
+  }
+  if (from.chunk_count() != 0) {
+    _internal_set_chunk_count(from._internal_chunk_count());
+  }
+}
+
+void DssNavMapChunk::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssNavMapChunk)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DssNavMapChunk::CopyFrom(const DssNavMapChunk& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssNavMapChunk)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DssNavMapChunk::IsInitialized() const {
+  return true;
+}
+
+void DssNavMapChunk::InternalSwap(DssNavMapChunk* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  stream_id_.Swap(&other->stream_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  frame_id_.Swap(&other->frame_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  encoding_.Swap(&other->encoding_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  data_.Swap(&other->data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DssNavMapChunk, chunk_count_)
+      + sizeof(DssNavMapChunk::chunk_count_)
+      - PROTOBUF_FIELD_OFFSET(DssNavMapChunk, stamp_)>(
+          reinterpret_cast<char*>(&stamp_),
+          reinterpret_cast<char*>(&other->stamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DssNavMapChunk::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DssNavRobotPose::_Internal {
+ public:
+  static const ::dss::DssNavStamp& query_stamp(const DssNavRobotPose* msg);
+  static const ::dss::DssNavTransform& transform(const DssNavRobotPose* msg);
+};
+
+const ::dss::DssNavStamp&
+DssNavRobotPose::_Internal::query_stamp(const DssNavRobotPose* msg) {
+  return *msg->query_stamp_;
+}
+const ::dss::DssNavTransform&
+DssNavRobotPose::_Internal::transform(const DssNavRobotPose* msg) {
+  return *msg->transform_;
+}
+DssNavRobotPose::DssNavRobotPose(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssNavRobotPose)
+}
+DssNavRobotPose::DssNavRobotPose(const DssNavRobotPose& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  stream_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_stream_id().empty()) {
+    stream_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_stream_id(), 
+      GetArena());
+  }
+  error_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_error().empty()) {
+    error_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_error(), 
+      GetArena());
+  }
+  if (from._internal_has_query_stamp()) {
+    query_stamp_ = new ::dss::DssNavStamp(*from.query_stamp_);
+  } else {
+    query_stamp_ = nullptr;
+  }
+  if (from._internal_has_transform()) {
+    transform_ = new ::dss::DssNavTransform(*from.transform_);
+  } else {
+    transform_ = nullptr;
+  }
+  ::memcpy(&schema_version_, &from.schema_version_,
+    static_cast<size_t>(reinterpret_cast<char*>(&valid_) -
+    reinterpret_cast<char*>(&schema_version_)) + sizeof(valid_));
+  // @@protoc_insertion_point(copy_constructor:dss.DssNavRobotPose)
+}
+
+void DssNavRobotPose::SharedCtor() {
+stream_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+error_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&query_stamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&valid_) -
+    reinterpret_cast<char*>(&query_stamp_)) + sizeof(valid_));
+}
+
+DssNavRobotPose::~DssNavRobotPose() {
+  // @@protoc_insertion_point(destructor:dss.DssNavRobotPose)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DssNavRobotPose::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  stream_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  error_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete query_stamp_;
+  if (this != internal_default_instance()) delete transform_;
+}
+
+void DssNavRobotPose::ArenaDtor(void* object) {
+  DssNavRobotPose* _this = reinterpret_cast< DssNavRobotPose* >(object);
+  (void)_this;
+}
+void DssNavRobotPose::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DssNavRobotPose::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DssNavRobotPose::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssNavRobotPose)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  stream_id_.ClearToEmpty();
+  error_.ClearToEmpty();
+  if (GetArena() == nullptr && query_stamp_ != nullptr) {
+    delete query_stamp_;
+  }
+  query_stamp_ = nullptr;
+  if (GetArena() == nullptr && transform_ != nullptr) {
+    delete transform_;
+  }
+  transform_ = nullptr;
+  ::memset(&schema_version_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&valid_) -
+      reinterpret_cast<char*>(&schema_version_)) + sizeof(valid_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DssNavRobotPose::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 schema_version = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          schema_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string stream_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_stream_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavRobotPose.stream_id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DssNavStamp query_stamp = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_query_stamp(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool valid = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          valid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string error = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_error();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavRobotPose.error"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DssNavTransform transform = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_transform(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DssNavRobotPose::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssNavRobotPose)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 schema_version = 1;
+  if (this->schema_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_schema_version(), target);
+  }
+
+  // string stream_id = 2;
+  if (this->stream_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_stream_id().data(), static_cast<int>(this->_internal_stream_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavRobotPose.stream_id");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_stream_id(), target);
+  }
+
+  // .dss.DssNavStamp query_stamp = 3;
+  if (this->has_query_stamp()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::query_stamp(this), target, stream);
+  }
+
+  // bool valid = 4;
+  if (this->valid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_valid(), target);
+  }
+
+  // string error = 5;
+  if (this->error().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavRobotPose.error");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_error(), target);
+  }
+
+  // .dss.DssNavTransform transform = 6;
+  if (this->has_transform()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::transform(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssNavRobotPose)
+  return target;
+}
+
+size_t DssNavRobotPose::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssNavRobotPose)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string stream_id = 2;
+  if (this->stream_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_stream_id());
+  }
+
+  // string error = 5;
+  if (this->error().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_error());
+  }
+
+  // .dss.DssNavStamp query_stamp = 3;
+  if (this->has_query_stamp()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *query_stamp_);
+  }
+
+  // .dss.DssNavTransform transform = 6;
+  if (this->has_transform()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *transform_);
+  }
+
+  // uint32 schema_version = 1;
+  if (this->schema_version() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_schema_version());
+  }
+
+  // bool valid = 4;
+  if (this->valid() != 0) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DssNavRobotPose::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssNavRobotPose)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DssNavRobotPose* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssNavRobotPose>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssNavRobotPose)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssNavRobotPose)
+    MergeFrom(*source);
+  }
+}
+
+void DssNavRobotPose::MergeFrom(const DssNavRobotPose& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssNavRobotPose)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.stream_id().size() > 0) {
+    _internal_set_stream_id(from._internal_stream_id());
+  }
+  if (from.error().size() > 0) {
+    _internal_set_error(from._internal_error());
+  }
+  if (from.has_query_stamp()) {
+    _internal_mutable_query_stamp()->::dss::DssNavStamp::MergeFrom(from._internal_query_stamp());
+  }
+  if (from.has_transform()) {
+    _internal_mutable_transform()->::dss::DssNavTransform::MergeFrom(from._internal_transform());
+  }
+  if (from.schema_version() != 0) {
+    _internal_set_schema_version(from._internal_schema_version());
+  }
+  if (from.valid() != 0) {
+    _internal_set_valid(from._internal_valid());
+  }
+}
+
+void DssNavRobotPose::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssNavRobotPose)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DssNavRobotPose::CopyFrom(const DssNavRobotPose& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssNavRobotPose)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DssNavRobotPose::IsInitialized() const {
+  return true;
+}
+
+void DssNavRobotPose::InternalSwap(DssNavRobotPose* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  stream_id_.Swap(&other->stream_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  error_.Swap(&other->error_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DssNavRobotPose, valid_)
+      + sizeof(DssNavRobotPose::valid_)
+      - PROTOBUF_FIELD_OFFSET(DssNavRobotPose, query_stamp_)>(
+          reinterpret_cast<char*>(&query_stamp_),
+          reinterpret_cast<char*>(&other->query_stamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DssNavRobotPose::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DssNavScan::_Internal {
+ public:
+  static const ::dss::DssNavStamp& stamp(const DssNavScan* msg);
+  static const ::dss::DssNavTransform& map_from_scan(const DssNavScan* msg);
+};
+
+const ::dss::DssNavStamp&
+DssNavScan::_Internal::stamp(const DssNavScan* msg) {
+  return *msg->stamp_;
+}
+const ::dss::DssNavTransform&
+DssNavScan::_Internal::map_from_scan(const DssNavScan* msg) {
+  return *msg->map_from_scan_;
+}
+DssNavScan::DssNavScan(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  ranges_(arena),
+  intensities_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:dss.DssNavScan)
+}
+DssNavScan::DssNavScan(const DssNavScan& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      ranges_(from.ranges_),
+      intensities_(from.intensities_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  stream_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_stream_id().empty()) {
+    stream_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_stream_id(), 
+      GetArena());
+  }
+  frame_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_frame_id().empty()) {
+    frame_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_frame_id(), 
+      GetArena());
+  }
+  transform_error_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_transform_error().empty()) {
+    transform_error_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_transform_error(), 
+      GetArena());
+  }
+  if (from._internal_has_stamp()) {
+    stamp_ = new ::dss::DssNavStamp(*from.stamp_);
+  } else {
+    stamp_ = nullptr;
+  }
+  if (from._internal_has_map_from_scan()) {
+    map_from_scan_ = new ::dss::DssNavTransform(*from.map_from_scan_);
+  } else {
+    map_from_scan_ = nullptr;
+  }
+  ::memcpy(&schema_version_, &from.schema_version_,
+    static_cast<size_t>(reinterpret_cast<char*>(&deskewed_) -
+    reinterpret_cast<char*>(&schema_version_)) + sizeof(deskewed_));
+  // @@protoc_insertion_point(copy_constructor:dss.DssNavScan)
+}
+
+void DssNavScan::SharedCtor() {
+stream_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+frame_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+transform_error_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&stamp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&deskewed_) -
+    reinterpret_cast<char*>(&stamp_)) + sizeof(deskewed_));
+}
+
+DssNavScan::~DssNavScan() {
+  // @@protoc_insertion_point(destructor:dss.DssNavScan)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DssNavScan::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  stream_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  frame_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  transform_error_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete stamp_;
+  if (this != internal_default_instance()) delete map_from_scan_;
+}
+
+void DssNavScan::ArenaDtor(void* object) {
+  DssNavScan* _this = reinterpret_cast< DssNavScan* >(object);
+  (void)_this;
+}
+void DssNavScan::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DssNavScan::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DssNavScan::Clear() {
+// @@protoc_insertion_point(message_clear_start:dss.DssNavScan)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ranges_.Clear();
+  intensities_.Clear();
+  stream_id_.ClearToEmpty();
+  frame_id_.ClearToEmpty();
+  transform_error_.ClearToEmpty();
+  if (GetArena() == nullptr && stamp_ != nullptr) {
+    delete stamp_;
+  }
+  stamp_ = nullptr;
+  if (GetArena() == nullptr && map_from_scan_ != nullptr) {
+    delete map_from_scan_;
+  }
+  map_from_scan_ = nullptr;
+  ::memset(&schema_version_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&deskewed_) -
+      reinterpret_cast<char*>(&schema_version_)) + sizeof(deskewed_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DssNavScan::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 schema_version = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          schema_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string stream_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_stream_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavScan.stream_id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DssNavStamp stamp = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_stamp(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string frame_id = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_frame_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavScan.frame_id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float angle_min = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
+          angle_min_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float angle_max = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
+          angle_max_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float angle_increment = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 61)) {
+          angle_increment_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float time_increment = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 69)) {
+          time_increment_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float scan_time = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 77)) {
+          scan_time_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float range_min = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 85)) {
+          range_min_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float range_max = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 93)) {
+          range_max_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // repeated float ranges = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_ranges(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 101) {
+          _internal_add_ranges(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // repeated float intensities = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_intensities(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 109) {
+          _internal_add_intensities(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // bool transform_valid = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          transform_valid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string transform_error = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+          auto str = _internal_mutable_transform_error();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dss.DssNavScan.transform_error"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .dss.DssNavTransform map_from_scan = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
+          ptr = ctx->ParseMessage(_internal_mutable_map_from_scan(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool deskewed = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
+          deskewed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DssNavScan::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dss.DssNavScan)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 schema_version = 1;
+  if (this->schema_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_schema_version(), target);
+  }
+
+  // string stream_id = 2;
+  if (this->stream_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_stream_id().data(), static_cast<int>(this->_internal_stream_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavScan.stream_id");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_stream_id(), target);
+  }
+
+  // .dss.DssNavStamp stamp = 3;
+  if (this->has_stamp()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::stamp(this), target, stream);
+  }
+
+  // string frame_id = 4;
+  if (this->frame_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_frame_id().data(), static_cast<int>(this->_internal_frame_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavScan.frame_id");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_frame_id(), target);
+  }
+
+  // float angle_min = 5;
+  if (!(this->angle_min() <= 0 && this->angle_min() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_angle_min(), target);
+  }
+
+  // float angle_max = 6;
+  if (!(this->angle_max() <= 0 && this->angle_max() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_angle_max(), target);
+  }
+
+  // float angle_increment = 7;
+  if (!(this->angle_increment() <= 0 && this->angle_increment() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(7, this->_internal_angle_increment(), target);
+  }
+
+  // float time_increment = 8;
+  if (!(this->time_increment() <= 0 && this->time_increment() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(8, this->_internal_time_increment(), target);
+  }
+
+  // float scan_time = 9;
+  if (!(this->scan_time() <= 0 && this->scan_time() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(9, this->_internal_scan_time(), target);
+  }
+
+  // float range_min = 10;
+  if (!(this->range_min() <= 0 && this->range_min() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(10, this->_internal_range_min(), target);
+  }
+
+  // float range_max = 11;
+  if (!(this->range_max() <= 0 && this->range_max() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(11, this->_internal_range_max(), target);
+  }
+
+  // repeated float ranges = 12;
+  if (this->_internal_ranges_size() > 0) {
+    target = stream->WriteFixedPacked(12, _internal_ranges(), target);
+  }
+
+  // repeated float intensities = 13;
+  if (this->_internal_intensities_size() > 0) {
+    target = stream->WriteFixedPacked(13, _internal_intensities(), target);
+  }
+
+  // bool transform_valid = 14;
+  if (this->transform_valid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_transform_valid(), target);
+  }
+
+  // string transform_error = 15;
+  if (this->transform_error().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_transform_error().data(), static_cast<int>(this->_internal_transform_error().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dss.DssNavScan.transform_error");
+    target = stream->WriteStringMaybeAliased(
+        15, this->_internal_transform_error(), target);
+  }
+
+  // .dss.DssNavTransform map_from_scan = 16;
+  if (this->has_map_from_scan()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        16, _Internal::map_from_scan(this), target, stream);
+  }
+
+  // bool deskewed = 17;
+  if (this->deskewed() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_deskewed(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dss.DssNavScan)
+  return target;
+}
+
+size_t DssNavScan::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dss.DssNavScan)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated float ranges = 12;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_ranges_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _ranges_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated float intensities = 13;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_intensities_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _intensities_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string stream_id = 2;
+  if (this->stream_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_stream_id());
+  }
+
+  // string frame_id = 4;
+  if (this->frame_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_frame_id());
+  }
+
+  // string transform_error = 15;
+  if (this->transform_error().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_transform_error());
+  }
+
+  // .dss.DssNavStamp stamp = 3;
+  if (this->has_stamp()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *stamp_);
+  }
+
+  // .dss.DssNavTransform map_from_scan = 16;
+  if (this->has_map_from_scan()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *map_from_scan_);
+  }
+
+  // uint32 schema_version = 1;
+  if (this->schema_version() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_schema_version());
+  }
+
+  // float angle_min = 5;
+  if (!(this->angle_min() <= 0 && this->angle_min() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float angle_max = 6;
+  if (!(this->angle_max() <= 0 && this->angle_max() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float angle_increment = 7;
+  if (!(this->angle_increment() <= 0 && this->angle_increment() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float time_increment = 8;
+  if (!(this->time_increment() <= 0 && this->time_increment() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float scan_time = 9;
+  if (!(this->scan_time() <= 0 && this->scan_time() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float range_min = 10;
+  if (!(this->range_min() <= 0 && this->range_min() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float range_max = 11;
+  if (!(this->range_max() <= 0 && this->range_max() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // bool transform_valid = 14;
+  if (this->transform_valid() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool deskewed = 17;
+  if (this->deskewed() != 0) {
+    total_size += 2 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DssNavScan::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dss.DssNavScan)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DssNavScan* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DssNavScan>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dss.DssNavScan)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dss.DssNavScan)
+    MergeFrom(*source);
+  }
+}
+
+void DssNavScan::MergeFrom(const DssNavScan& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dss.DssNavScan)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  ranges_.MergeFrom(from.ranges_);
+  intensities_.MergeFrom(from.intensities_);
+  if (from.stream_id().size() > 0) {
+    _internal_set_stream_id(from._internal_stream_id());
+  }
+  if (from.frame_id().size() > 0) {
+    _internal_set_frame_id(from._internal_frame_id());
+  }
+  if (from.transform_error().size() > 0) {
+    _internal_set_transform_error(from._internal_transform_error());
+  }
+  if (from.has_stamp()) {
+    _internal_mutable_stamp()->::dss::DssNavStamp::MergeFrom(from._internal_stamp());
+  }
+  if (from.has_map_from_scan()) {
+    _internal_mutable_map_from_scan()->::dss::DssNavTransform::MergeFrom(from._internal_map_from_scan());
+  }
+  if (from.schema_version() != 0) {
+    _internal_set_schema_version(from._internal_schema_version());
+  }
+  if (!(from.angle_min() <= 0 && from.angle_min() >= 0)) {
+    _internal_set_angle_min(from._internal_angle_min());
+  }
+  if (!(from.angle_max() <= 0 && from.angle_max() >= 0)) {
+    _internal_set_angle_max(from._internal_angle_max());
+  }
+  if (!(from.angle_increment() <= 0 && from.angle_increment() >= 0)) {
+    _internal_set_angle_increment(from._internal_angle_increment());
+  }
+  if (!(from.time_increment() <= 0 && from.time_increment() >= 0)) {
+    _internal_set_time_increment(from._internal_time_increment());
+  }
+  if (!(from.scan_time() <= 0 && from.scan_time() >= 0)) {
+    _internal_set_scan_time(from._internal_scan_time());
+  }
+  if (!(from.range_min() <= 0 && from.range_min() >= 0)) {
+    _internal_set_range_min(from._internal_range_min());
+  }
+  if (!(from.range_max() <= 0 && from.range_max() >= 0)) {
+    _internal_set_range_max(from._internal_range_max());
+  }
+  if (from.transform_valid() != 0) {
+    _internal_set_transform_valid(from._internal_transform_valid());
+  }
+  if (from.deskewed() != 0) {
+    _internal_set_deskewed(from._internal_deskewed());
+  }
+}
+
+void DssNavScan::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dss.DssNavScan)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DssNavScan::CopyFrom(const DssNavScan& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dss.DssNavScan)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DssNavScan::IsInitialized() const {
+  return true;
+}
+
+void DssNavScan::InternalSwap(DssNavScan* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ranges_.InternalSwap(&other->ranges_);
+  intensities_.InternalSwap(&other->intensities_);
+  stream_id_.Swap(&other->stream_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  frame_id_.Swap(&other->frame_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  transform_error_.Swap(&other->transform_error_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DssNavScan, deskewed_)
+      + sizeof(DssNavScan::deskewed_)
+      - PROTOBUF_FIELD_OFFSET(DssNavScan, stamp_)>(
+          reinterpret_cast<char*>(&stamp_),
+          reinterpret_cast<char*>(&other->stamp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DssNavScan::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace dss
 PROTOBUF_NAMESPACE_OPEN
@@ -11765,6 +14227,21 @@ template<> PROTOBUF_NOINLINE ::dss::DssNavigationControllerRequest* Arena::Creat
 }
 template<> PROTOBUF_NOINLINE ::dss::DssNavigationControllerResponse* Arena::CreateMaybeMessage< ::dss::DssNavigationControllerResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::dss::DssNavigationControllerResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssNavStamp* Arena::CreateMaybeMessage< ::dss::DssNavStamp >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssNavStamp >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssNavTransform* Arena::CreateMaybeMessage< ::dss::DssNavTransform >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssNavTransform >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssNavMapChunk* Arena::CreateMaybeMessage< ::dss::DssNavMapChunk >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssNavMapChunk >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssNavRobotPose* Arena::CreateMaybeMessage< ::dss::DssNavRobotPose >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssNavRobotPose >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dss::DssNavScan* Arena::CreateMaybeMessage< ::dss::DssNavScan >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::dss::DssNavScan >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

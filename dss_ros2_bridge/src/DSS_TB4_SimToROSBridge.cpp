@@ -48,6 +48,11 @@ constexpr char kHeartbeatSubject[] = "dss.DSS_TB4_SimToROSBridgeNode.heartBeat";
 class DSS_TB4_SimToROSBridgeNode final : public rclcpp::Node {
 public:
     DSS_TB4_SimToROSBridgeNode() : Node("DSS_TB4_SimToROSBridgeNode") {
+        const char *domain_id = std::getenv("ROS_DOMAIN_ID");
+        RCLCPP_INFO(get_logger(), __DATE__);
+        RCLCPP_INFO(get_logger(), __TIME__);
+        RCLCPP_INFO(get_logger(), "Domain Id=%s",domain_id);
+
         const std::string nats_url = "nats://" + getDefaultGateway() + ":4222";
         RCLCPP_INFO(get_logger(), "Connecting to NATS: %s", nats_url.c_str());
         const natsStatus status = natsConnection_ConnectTo(&nats_connection_, nats_url.c_str());
@@ -58,7 +63,7 @@ public:
         registTf();
         publishStaticTransforms();
         registClock();
-        registImage();
+        //registImage();
         registImu();
         registLaserScan();
         registHeartbeat();
