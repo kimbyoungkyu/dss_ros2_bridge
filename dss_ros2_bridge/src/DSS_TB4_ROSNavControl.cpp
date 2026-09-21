@@ -72,27 +72,22 @@ namespace {
     }
 } // namespace
 
-
-
 class FCartographerProcessManager {
 public:
     ~FCartographerProcessManager() {
         Stop();
     }
 
-    bool Start(){
+    bool Start() {
         if (IsRunning()) {
             return true;
         }
-
         // Clean up handles left by a launch process that exited on its own
         // before creating a new process group.
         if (ChildProcess) {
             Stop();
         }
-
         ProcessGroup = std::make_unique<bp::group>();
-
         ChildProcess = std::make_unique<bp::child>(
             bp::search_path("ros2"),
             "launch",
@@ -102,22 +97,19 @@ public:
             bp::std_out > stdout,
             bp::std_err > stderr
         );
-
         return IsRunning();
     }
 
     void Stop()
     {
-        if (!ChildProcess)
-        {
+        if (!ChildProcess) {
             return;
         }
 
         // Do not use only ChildProcess->id() as the completion condition.
         // ros2 launch can exit before cartographer_occupancy_grid_node, leaving
         // that child alive. Wait for the Boost process group as a whole.
-        const pid_t ProcessGroupId =
-            static_cast<pid_t>(ProcessGroup->native_handle());
+        const pid_t ProcessGroupId = static_cast<pid_t>(ProcessGroup->native_handle());
 
         // 1. ROS2가 정상적으로 shutdown할 기회를 준다.
         ::killpg(ProcessGroupId, SIGINT);
@@ -520,6 +512,7 @@ private:
         // START is idempotent. While Cartographer is running, do not overwrite
         // the active configuration and do not restart the launch tree. To
         // apply another configuration, the caller must issue STOP then START.
+        //이미 동작중인가?
         if (CartographerManager.IsRunning()) {
             response.set_success(true);
             response.set_message(json{

@@ -13,25 +13,48 @@ def generate_launch_description():
         "storage_directory": os.path.expanduser("~/.dss/navigation"),
     }
 
+    param_bridge_params = {
+        "target_node": "/dss_bridge",
+        "nats_url": "nats://127.0.0.1:4222",
+        "service_timeout_ms": 3000,
+    }
+
     return LaunchDescription([
-        # DSS 센서 → ROS2 및 /cmd_vel → DSS
+        # DSS 센서 → ROS 2
+        # ROS 2 /cmd_vel → DSS
+        #
+        # 파라미터 관리 대상 노드이므로 이름을 /dss_bridge로 지정
         Node(
             package="dss_ros2_bridge",
             executable="DSS_TB4_SimToROSBridgeNode",
-            name="TB4SimToROSBridge",
+            name="dss_bridge",
             output="screen",
-            parameters=[common_params],
+            parameters=[
+                common_params,
+            ],
         ),
 
-        # dss.nav.control 요청 처리 및 설정·지도 파일 저장
+        # dss.nav.control 요청 처리
+        # Cartographer 실행 및 설정·지도 파일 관리
         Node(
             package="dss_ros2_bridge",
             executable="DSS_TB4_ROSNavControlNode",
-            name="TB4ROSNavControl",
+            name="dss_tb4_ros_nav_control",
             output="screen",
             parameters=[
                 common_params,
                 nav_control_params,
+            ],
+        ),
+
+        # NATS JSON ↔ ROS 2 동적 파라미터 브리지
+        Node(
+            package="dss_ros2_bridge",
+            executable="dss_param_nats_bridge_node",
+            name="dss_param_nats_bridge",
+            output="screen",
+            parameters=[
+                param_bridge_params,
             ],
         ),
     ])

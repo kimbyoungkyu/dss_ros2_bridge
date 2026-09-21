@@ -12,6 +12,8 @@ set(Protobuf_DIR "/usr/local/lib/cmake/protobuf")
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
+find_package(rcl_interfaces REQUIRED)
+find_package(nlohmann_json REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
@@ -24,6 +26,7 @@ find_package(Protobuf 3.15 REQUIRED)
 find_package(rosgraph_msgs REQUIRED)
 find_package(Threads REQUIRED)
 find_package(tf2 REQUIRED)
+find_package(builtin_interfaces REQUIRED)
 find_package(Boost REQUIRED COMPONENTS filesystem system)
 
 # 메시지 생성기
@@ -173,6 +176,7 @@ ament_target_dependencies(DSS_TB4_ROSNavControlNode
   builtin_interfaces
   OpenCV
 )
+
 target_link_libraries(DSS_TB4_ROSNavControlNode
   "${cpp_typesupport_target}"
   ${NATS_LIB}
@@ -180,6 +184,24 @@ target_link_libraries(DSS_TB4_ROSNavControlNode
   protobuf::libprotobuf
   Boost::filesystem
   Boost::system  
+)
+
+
+# NATS JSON Request-Reply <-> /dss_bridge dynamic parameter bridge
+# Source file: src/dss_param_nats_bridge.cpp
+add_executable(dss_param_nats_bridge_node
+  src/dss_param_nats_bridge.cpp
+)
+
+ament_target_dependencies(dss_param_nats_bridge_node
+  rclcpp
+  rcl_interfaces
+  nlohmann_json
+)
+
+target_link_libraries(dss_param_nats_bridge_node
+  ${NATS_LIB}
+  Threads::Threads
 )
 
 
@@ -213,6 +235,7 @@ install(
     DSSToROSLaserScanNode
     DSS_TB4_SimToROSBridgeNode
     DSS_TB4_ROSNavControlNode
+    dss_param_nats_bridge_node
     DSSDemoNode
     ${cpp_typesupport_target}        # ← ★ 추가! typesupport .so 설치
   DESTINATION lib/${PROJECT_NAME}
