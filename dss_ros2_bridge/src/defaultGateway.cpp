@@ -14,7 +14,8 @@
 
 std::string getDefaultGateway()
 {
-     return "192.168.0.70";
+     //return "192.168.0.70";
+     return "127.0.0.1";
 
      /*
     

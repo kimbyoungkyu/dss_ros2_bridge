@@ -2,6 +2,7 @@ import os
 
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import ExecuteProcess
 
 
 def generate_launch_description():
@@ -57,4 +58,27 @@ def generate_launch_description():
                 param_bridge_params,
             ],
         ),
+        
+        ExecuteProcess(
+            cmd=["nats-server"],
+            name="nats-server",
+            output="screen",
+        ),        
+        
+        
+        ExecuteProcess(
+            cmd=["dss-tb4-control-panel"],
+            name="dss_tb4_control_panel",
+            output="screen",
+        ),
+
+        ExecuteProcess(
+            cmd=["dss-tb4-sim-academy"],
+            name="dss_tb4_sim_academy",
+            output="screen",
+        ),        
+        
+        
+        
+        
     ])
