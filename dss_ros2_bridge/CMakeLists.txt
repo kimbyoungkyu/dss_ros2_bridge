@@ -146,7 +146,7 @@ target_link_libraries(DSSToROSGpsNode
 
 
 add_executable(DSSToROSLaserScanNode src/DSSToROSLaserScan.cpp src/dss.pb.cc src/defaultGateway.cpp)
-ament_target_dependencies(DSSToROSLaserScanNode rclcpp sensor_msgs OpenCV)
+ament_target_dependencies(DSSToROSLaserScanNode rclcpp sensor_msgs)
 target_link_libraries(DSSToROSLaserScanNode
   "${cpp_typesupport_target}"
   ${NATS_LIB}
@@ -156,7 +156,7 @@ target_link_libraries(DSSToROSLaserScanNode
 
 
 add_executable(DSS_TB4_SimToROSBridgeNode src/DSS_TB4_SimToROSBridge.cpp src/dss.pb.cc src/defaultGateway.cpp)
-ament_target_dependencies(DSS_TB4_SimToROSBridgeNode rclcpp sensor_msgs geometry_msgs nav_msgs rosgraph_msgs tf2_ros OpenCV)
+ament_target_dependencies(DSS_TB4_SimToROSBridgeNode rclcpp sensor_msgs geometry_msgs nav_msgs rosgraph_msgs tf2_ros)
 target_link_libraries(DSS_TB4_SimToROSBridgeNode
   "${cpp_typesupport_target}"
   ${NATS_LIB}
@@ -175,7 +175,6 @@ ament_target_dependencies(DSS_TB4_ROSNavControlNode
   tf2
   tf2_ros
   builtin_interfaces
-  OpenCV
 )
 
 target_link_libraries(DSS_TB4_ROSNavControlNode

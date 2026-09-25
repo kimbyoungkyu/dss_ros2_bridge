@@ -11,7 +11,7 @@
 #include <nav_msgs/msg/odometry.hpp>
 #include <nats/nats.h>
 #include <nlohmann/json.hpp>
-#include <opencv2/opencv.hpp>
+//#include <opencv2/opencv.hpp>
 #include <chrono>
 #include <array>
 #include <cmath>
@@ -242,7 +242,7 @@ private:
             }
         });
     }
-
+/*
     void registImage()
     {
         image_publisher_ = create_publisher<sensor_msgs::msg::Image>("/camera/color/image_raw", 10);
@@ -257,7 +257,7 @@ private:
             }
         });
     }
-
+*/
     void registImu()
     {
         imu_publisher_ = create_publisher<sensor_msgs::msg::Imu>("/imu", 10);
@@ -540,6 +540,7 @@ private:
         return message;
     }
 
+    /*
     sensor_msgs::msg::Image createImage(const dss::DSSImage& source) const
     {
         const std::vector<std::uint8_t> jpeg_data(source.data().begin(), source.data().end());
@@ -565,6 +566,7 @@ private:
         message.data.assign(rgb.datastart, rgb.dataend);
         return message;
     }
+        */
 
     
     sensor_msgs::msg::Imu createROSImu(const dss::DSSIMU& source)
