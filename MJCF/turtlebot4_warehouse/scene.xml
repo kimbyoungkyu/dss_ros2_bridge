@@ -1,0 +1,36 @@
+<mujoco model="turtlebot4_slam_warehouse">
+  <compiler angle="radian"/>
+  <option gravity="0 0 -9.81" timestep="0.01"/>
+  <include file="turtlebot4.xml"/>
+  <worldbody>
+    <light pos="0 0 7" dir="0 0 -1" diffuse="0.85 0.85 0.85"/>
+    <geom name="floor" type="plane" size="7 6 0.1" rgba="0.68 0.70 0.72 1" friction="1 0.005 0.0001"/>
+    <geom name="start_marker" type="cylinder" pos="0 0 0.006" size="0.4 0.005" rgba="0.1 0.75 0.95 0.3" contype="0" conaffinity="0"/>
+
+    <!-- Outer shell: 12 m x 10 m. -->
+    <geom name="outer_n" type="box" pos="0 5.05 0.9" size="6.1 0.05 0.9" rgba="0.25 0.28 0.31 1"/>
+    <geom name="outer_s" type="box" pos="0 -5.05 0.9" size="6.1 0.05 0.9" rgba="0.25 0.28 0.31 1"/>
+    <geom name="outer_e" type="box" pos="6.05 0 0.9" size="0.05 5.1 0.9" rgba="0.25 0.28 0.31 1"/>
+    <geom name="outer_w" type="box" pos="-6.05 0 0.9" size="0.05 5.1 0.9" rgba="0.25 0.28 0.31 1"/>
+
+    <!-- Repetitive racks create a deliberately difficult data-association case. -->
+    <geom name="rack_w0" type="box" pos="-4.2 2.5 0.75" size="0.38 1.65 0.75" rgba="0.30 0.42 0.55 1"/>
+    <geom name="rack_w1" type="box" pos="-2.6 2.5 0.75" size="0.38 1.65 0.75" rgba="0.30 0.42 0.55 1"/>
+    <geom name="rack_w2" type="box" pos="-1.0 2.5 0.75" size="0.38 1.65 0.75" rgba="0.30 0.42 0.55 1"/>
+    <geom name="rack_e0" type="box" pos="1.0 2.5 0.75" size="0.38 1.65 0.75" rgba="0.30 0.42 0.55 1"/>
+    <geom name="rack_e1" type="box" pos="2.6 2.5 0.75" size="0.38 1.65 0.75" rgba="0.30 0.42 0.55 1"/>
+    <geom name="rack_e2" type="box" pos="4.2 2.5 0.75" size="0.38 1.65 0.75" rgba="0.30 0.42 0.55 1"/>
+
+    <geom name="rack_sw0" type="box" pos="-4.2 -2.5 0.75" size="0.38 1.65 0.75" rgba="0.36 0.47 0.58 1"/>
+    <geom name="rack_sw1" type="box" pos="-2.6 -2.5 0.75" size="0.38 1.65 0.75" rgba="0.36 0.47 0.58 1"/>
+    <geom name="rack_se0" type="box" pos="1.0 -2.5 0.75" size="0.38 1.65 0.75" rgba="0.36 0.47 0.58 1"/>
+    <geom name="rack_se1" type="box" pos="2.6 -2.5 0.75" size="0.38 1.65 0.75" rgba="0.36 0.47 0.58 1"/>
+    <geom name="rack_se2" type="box" pos="4.2 -2.5 0.75" size="0.38 1.65 0.75" rgba="0.36 0.47 0.58 1"/>
+
+    <!-- Missing south-west rack and asymmetric objects break global symmetry. -->
+    <geom name="loading_dock" type="box" pos="-4.65 -4.45 0.45" size="0.85 0.35 0.45" rgba="0.65 0.42 0.18 1"/>
+    <geom name="pallet_square" type="box" pos="-0.55 -3.30 0.35" size="0.55 0.55 0.35" euler="0 0 0.22" rgba="0.55 0.36 0.18 1"/>
+    <geom name="tank_round" type="cylinder" pos="5.15 -3.95 0.7" size="0.42 0.7" rgba="0.70 0.35 0.20 1"/>
+    <geom name="safety_column" type="cylinder" pos="5.25 0 0.6" size="0.2 0.6" rgba="0.95 0.68 0.10 1"/>
+  </worldbody>
+</mujoco>

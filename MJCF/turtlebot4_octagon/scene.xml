@@ -1,0 +1,77 @@
+<mujoco model="turtlebot4_octagon">
+
+    <compiler angle="radian"/>
+    <option gravity="0 0 -9.81"/>
+
+    <!--
+        turtlebot4.xml의 최상위 로봇 body가 pos="0 0 ..."이면
+        TurtleBot4가 옥타곤 정중앙에서 시작합니다.
+    -->
+    <include file="turtlebot4.xml"/>
+
+    <worldbody>
+
+        <!-- 8 m x 8 m floor -->
+        <geom name="floor"
+              type="plane"
+              size="4 4 0.1"
+              rgba="0.12 0.14 0.17 1"
+              friction="1.0 0.005 0.0001"/>
+
+        <!-- Center marker: visual only, no collision -->
+        <geom name="start_marker"
+              type="cylinder"
+              pos="0 0 0.006"
+              size="0.55 0.005"
+              rgba="0.12 0.65 0.95 0.30"
+              contype="0"
+              conaffinity="0"/>
+
+        <!--
+            Regular octagon driving area
+            - Inside distance between opposite walls: 5.0 m
+            - Wall thickness: 0.10 m
+            - Wall height: 1.0 m
+            - Regular-octagon side length: about 2.071 m
+
+            MuJoCo box size values are half-extents.
+            A small length overlap closes numerical gaps at the eight corners.
+        -->
+
+        <!-- Horizontal walls -->
+        <geom name="wall_north" type="box"
+              pos="0 2.55 0.5" size="1.06 0.05 0.5"
+              rgba="0.20 0.45 0.75 1"/>
+        <geom name="wall_south" type="box"
+              pos="0 -2.55 0.5" size="1.06 0.05 0.5"
+              rgba="0.20 0.45 0.75 1"/>
+
+        <!-- Vertical walls -->
+        <geom name="wall_east" type="box"
+              pos="2.55 0 0.5" size="0.05 1.06 0.5"
+              rgba="0.20 0.45 0.75 1"/>
+        <geom name="wall_west" type="box"
+              pos="-2.55 0 0.5" size="0.05 1.06 0.5"
+              rgba="0.20 0.45 0.75 1"/>
+
+        <!-- 45-degree diagonal walls -->
+        <geom name="wall_north_east" type="box"
+              pos="1.803 1.803 0.5" size="1.06 0.05 0.5"
+              euler="0 0 -0.7853981634"
+              rgba="0.27 0.55 0.86 1"/>
+        <geom name="wall_south_east" type="box"
+              pos="1.803 -1.803 0.5" size="1.06 0.05 0.5"
+              euler="0 0 0.7853981634"
+              rgba="0.27 0.55 0.86 1"/>
+        <geom name="wall_south_west" type="box"
+              pos="-1.803 -1.803 0.5" size="1.06 0.05 0.5"
+              euler="0 0 -0.7853981634"
+              rgba="0.27 0.55 0.86 1"/>
+        <geom name="wall_north_west" type="box"
+              pos="-1.803 1.803 0.5" size="1.06 0.05 0.5"
+              euler="0 0 0.7853981634"
+              rgba="0.27 0.55 0.86 1"/>
+
+    </worldbody>
+
+</mujoco>

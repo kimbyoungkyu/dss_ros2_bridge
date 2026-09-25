@@ -1,0 +1,97 @@
+<mujoco model="turtlebot4">
+  <compiler angle="radian" coordinate="local" meshdir="./assets/meshes" autolimits="true"/>
+  <size nstack="300000" nuser_geom="1"/>
+  <option gravity="0 0 -9.81" timestep="0.002"/>
+
+  <asset>
+    <material name="metal" rgba=".9 .95 .95 1"/>
+    <material name="black" rgba="0 0 0 1"/>
+    <material name="white" rgba="1 1 1 1"/>
+    <material name="gray" rgba="0.371705 0.392426 0.474270 1"/>
+    <mesh file="body_visual_processed.stl" scale="0.1 0.1 0.1"/>
+    <mesh file="bumper_visual.obj" scale="0.001 0.001 0.001"/>
+    <mesh file="top_reduced.stl" scale="0.001 0.001 0.001"/>
+    <mesh file="weight_block.stl" scale="0.001 0.001 0.001"/>
+    <mesh file="wheel.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <body name="base" pos="0 0 0.0392">
+      <freejoint name="floating_base_joint"/>
+
+      <!-- Robot geoms use group 1. The custom LiDAR ray caster includes
+           group 0 only, preventing self-detection without changing collision. -->
+      <geom type="mesh" mesh="body_visual_processed" material="gray" mass="0.269" group="1"/>
+
+      <site name="base_frame" pos="0 0 0" quat="1 0 0 0" size="0.003"/>
+      <site name="imu" pos="0.051 -0.035 0.0293"
+            quat="1 0 0 0" size="0.003"/>
+
+      <body name="bumper" pos="0 0 0" axisangle="0 0 1 4.71239">
+        <geom type="mesh" mesh="bumper_visual" material="black" mass="0.1" group="1"/>
+      </body>
+
+      <body name="wheel_l" pos="0.11755 0.002 -0.0032">
+        <geom type="mesh" mesh="wheel" group="1"/>
+        <joint name="left" damping=".03" actuatorfrcrange="-.4 .4"
+               pos="0 0 0" axis="1 0 0"/>
+      </body>
+
+      <body name="wheel_r" pos="-0.117 0.002 -0.0032">
+        <geom type="mesh" mesh="wheel" group="1"/>
+        <joint name="right" damping=".03" actuatorfrcrange="-.4 .4"
+               pos="0 0 0" axis="1 0 0"/>
+      </body>
+
+      <body name="wheel_f" pos="0 -0.125 -0.026">
+        <geom type="sphere" size="0.013 0.013" group="1"/>
+        <joint type="ball"/>
+      </body>
+
+      <!-- Fixed 2D LiDAR frame. A complete 360-degree scan is generated
+           by t2DLiDARSensor with mj_multiRay at one simulation timestamp. -->
+      <body name="lidar" pos="0 0 0.08">
+        <geom name="lidar_head_geom" type="cylinder" size="0.035 0.015"
+              rgba="0.1 0.1 0.1 1" mass="0.01" group="1"/>
+        <site name="laser_site" pos="0 0 0" quat="1 0 0 0"
+              size="0.003" rgba="0 1 0 0.5"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <tendon>
+    <fixed name="forward">
+      <joint joint="left" coef=".83"/>
+      <joint joint="right" coef=".83"/>
+    </fixed>
+    <fixed name="turn">
+      <joint joint="left" coef="-.1"/>
+      <joint joint="right" coef=".1"/>
+    </fixed>
+  </tendon>
+
+  <actuator>
+    <motor name="forward" tendon="forward" ctrlrange="-0.5 0.5"/>
+    <motor name="turn" tendon="turn" ctrlrange="-2 2"/>
+  </actuator>
+
+  <sensor>
+    <!-- IMU -->
+    <framequat name="imu_quat" objtype="site" objname="imu"/>
+    <gyro name="imu_ang" site="imu"/>
+    <accelerometer name="imu_acc" site="imu"/>
+
+    <!-- Base pose and velocity for odometry. DSS keeps MuJoCo coordinates;
+         dss_ros2_bridge converts them to ROS REP-103. -->
+    <framepos name="base_pos" objtype="site" objname="base_frame"/>
+    <framequat name="base_quat" objtype="site" objname="base_frame"/>
+    <velocimeter name="base_linvel" site="base_frame"/>
+    <gyro name="base_angvel" site="base_frame"/>
+
+    <!-- Wheel joint states -->
+    <jointpos name="left_pos" joint="left"/>
+    <jointvel name="left_vel" joint="left"/>
+    <jointpos name="right_pos" joint="right"/>
+    <jointvel name="right_vel" joint="right"/>
+  </sensor>
+</mujoco>

@@ -1,0 +1,43 @@
+<mujoco model="turtlebot4_slam_mixed_test_lab">
+  <compiler angle="radian"/>
+  <option gravity="0 0 -9.81" timestep="0.01"/>
+  <include file="turtlebot4.xml"/>
+  <worldbody>
+    <light pos="0 0 6" dir="0 0 -1" diffuse="0.85 0.85 0.85"/>
+    <geom name="floor" type="plane" size="6 6 0.1" rgba="0.78 0.80 0.82 1" friction="1 0.005 0.0001"/>
+    <geom name="start_marker" type="cylinder" pos="0 0 0.006" size="0.4 0.005" rgba="0.1 0.75 0.95 0.3" contype="0" conaffinity="0"/>
+
+    <!-- Outer shell: 10 m x 10 m. -->
+    <geom name="outer_n" type="box" pos="0 5.05 0.75" size="5.1 0.05 0.75" rgba="0.28 0.31 0.36 1"/>
+    <geom name="outer_s" type="box" pos="0 -5.05 0.75" size="5.1 0.05 0.75" rgba="0.28 0.31 0.36 1"/>
+    <geom name="outer_e" type="box" pos="5.05 0 0.75" size="0.05 5.1 0.75" rgba="0.28 0.31 0.36 1"/>
+    <geom name="outer_w" type="box" pos="-5.05 0 0.75" size="0.05 5.1 0.75" rgba="0.28 0.31 0.36 1"/>
+
+    <!-- Offset central island creates two loop-closure choices. -->
+    <geom name="island_n" type="box" pos="0.7 1.35 0.65" size="1.65 0.08 0.65" rgba="0.35 0.48 0.55 1"/>
+    <geom name="island_s" type="box" pos="0.7 -1.35 0.65" size="1.65 0.08 0.65" rgba="0.35 0.48 0.55 1"/>
+    <geom name="island_e" type="box" pos="2.35 0 0.65" size="0.08 1.35 0.65" rgba="0.35 0.48 0.55 1"/>
+    <!-- 1.0 m doorway in the west wall connects the start area to the test course. -->
+    <geom name="island_w_n" type="box" pos="-0.95 0.925 0.65" size="0.08 0.425 0.65" rgba="0.35 0.48 0.55 1"/>
+    <geom name="island_w_s" type="box" pos="-0.95 -0.925 0.65" size="0.08 0.425 0.65" rgba="0.35 0.48 0.55 1"/>
+
+    <!-- Diagonal corridor tests non-axis-aligned scan matching. -->
+    <geom name="diag_left" type="box" pos="-3.45 2.85 0.65" size="1.55 0.08 0.65" euler="0 0 0.62" rgba="0.50 0.42 0.55 1"/>
+    <geom name="diag_right" type="box" pos="3.55 3.20 0.65" size="1.35 0.08 0.65" euler="0 0 -0.48" rgba="0.50 0.42 0.55 1"/>
+
+    <!-- Narrow passage: approximately 0.9 m clear width. -->
+    <geom name="narrow_left" type="box" pos="-3.85 -1.75 0.65" size="0.08 1.55 0.65" rgba="0.47 0.50 0.54 1"/>
+    <geom name="narrow_right" type="box" pos="-2.79 -1.75 0.65" size="0.08 1.55 0.65" rgba="0.47 0.50 0.54 1"/>
+
+    <!-- Cul-de-sac for recovery and local-planner testing. -->
+    <geom name="dead_end_left" type="box" pos="3.20 -3.25 0.65" size="0.08 1.15 0.65" rgba="0.52 0.45 0.38 1"/>
+    <geom name="dead_end_right" type="box" pos="4.35 -3.25 0.65" size="0.08 1.15 0.65" rgba="0.52 0.45 0.38 1"/>
+    <geom name="dead_end_cap" type="box" pos="3.775 -4.40 0.65" size="0.655 0.08 0.65" rgba="0.52 0.45 0.38 1"/>
+
+    <!-- Mixed primitives provide distinct range signatures. -->
+    <geom name="pillar_large" type="cylinder" pos="-4.25 4.0 0.75" size="0.42 0.75" rgba="0.85 0.50 0.12 1"/>
+    <geom name="pillar_small" type="cylinder" pos="4.25 0.2 0.60" size="0.20 0.60" rgba="0.90 0.68 0.12 1"/>
+    <geom name="triangle_hint_a" type="box" pos="-1.8 3.65 0.45" size="0.55 0.25 0.45" euler="0 0 0.35" rgba="0.25 0.55 0.42 1"/>
+    <geom name="triangle_hint_b" type="box" pos="-1.05 3.25 0.45" size="0.45 0.25 0.45" euler="0 0 -0.35" rgba="0.25 0.55 0.42 1"/>
+  </worldbody>
+</mujoco>
