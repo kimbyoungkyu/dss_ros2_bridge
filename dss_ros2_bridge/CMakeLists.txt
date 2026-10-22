@@ -252,6 +252,12 @@ install(
 )
 
 
+install(
+  DIRECTORY launch 
+  DESTINATION share/${PROJECT_NAME}
+)
+
+
 # 메시지 런타임 export
 ament_export_dependencies(rosidl_default_runtime)
 
