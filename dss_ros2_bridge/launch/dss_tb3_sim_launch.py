@@ -42,23 +42,13 @@ def generate_launch_description():
                 output="screen",
                 parameters=[param_bridge_params],
             ),
-            ExecuteProcess(
-                cmd=["dss-tb3-control-panel"],
-                name="dss_tb3_control_panel",
-                output="screen",
-            ),
-            ExecuteProcess(
-                cmd=["dss-tb3-sim-academy"],
-                name="dss_tb3_sim_academy",
-                output="screen",
-            ),
         ],
     )
 
     return LaunchDescription([
         ExecuteProcess(
-            cmd=["nats-server"],
-            name="nats-server",
+            cmd=["dss-tb3b", "start"],
+            name="dss_tb3_suite",
             output="screen",
         ),
         start_dss,
