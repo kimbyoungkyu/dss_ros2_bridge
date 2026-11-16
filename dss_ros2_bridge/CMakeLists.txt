@@ -176,8 +176,38 @@ ament_target_dependencies(DSS_TB4_ROSNavControlNode
   tf2_ros
   builtin_interfaces
 )
-
 target_link_libraries(DSS_TB4_ROSNavControlNode
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+  Boost::filesystem
+  Boost::system  
+)
+
+
+add_executable(DSS_TB3_SimToROSBridgeNode src/DSS_TB3_SimToROSBridge.cpp src/dss.pb.cc src/defaultGateway.cpp)
+ament_target_dependencies(DSS_TB3_SimToROSBridgeNode rclcpp sensor_msgs geometry_msgs nav_msgs rosgraph_msgs tf2_ros)
+target_link_libraries(DSS_TB3_SimToROSBridgeNode
+  "${cpp_typesupport_target}"
+  ${NATS_LIB}
+  Threads::Threads
+  protobuf::libprotobuf
+)
+
+
+
+add_executable(DSS_TB3_ROSNavControlNode src/DSS_TB3_ROSNavControl.cpp src/dss.pb.cc src/defaultGateway.cpp)
+ament_target_dependencies(DSS_TB3_ROSNavControlNode
+  rclcpp
+  sensor_msgs
+  nav_msgs
+  geometry_msgs
+  tf2
+  tf2_ros
+  builtin_interfaces
+)
+target_link_libraries(DSS_TB3_ROSNavControlNode
   "${cpp_typesupport_target}"
   ${NATS_LIB}
   Threads::Threads
@@ -235,6 +265,8 @@ install(
     DSSToROSLaserScanNode
     DSS_TB4_SimToROSBridgeNode
     DSS_TB4_ROSNavControlNode
+    DSS_TB3_SimToROSBridgeNode
+    DSS_TB3_ROSNavControlNode 
     dss_param_nats_bridge_node
     DSSDemoNode
     ${cpp_typesupport_target}        # ← ★ 추가! typesupport .so 설치
